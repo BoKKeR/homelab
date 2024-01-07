@@ -1,0 +1,16 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: home-automation
+
+resources:
+  - unraid-pvc.yaml
+  - namespace.yaml
+  - esphome
+  - mosquitto
+  # - pihole
+  - appdaemon
+  - zigbee2mqtt
+  - homeassistant
+  # - unraid-api
+  # - pihole2

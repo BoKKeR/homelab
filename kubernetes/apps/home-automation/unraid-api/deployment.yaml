@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: home-automation
+  name: unraid-api
+  labels:
+    app: unraid-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: unraid-api
+  template:
+    metadata:
+      labels:
+        app: unraid-api
+    spec:
+      containers:
+      - name: unraid-api
+        image: bokker/unraidapi-re
+        env:
+          - name: MQTTPass
+            valueFrom:
+              secretKeyRef:
+                name: mqtt-password
+                key: mqtt-password
+        envFrom:
+        - configMapRef:
+            name: unraid-api
+        volumeMounts:
+        - mountPath: /app/config
+          subPath: unraid-api
+          name: unraid-storage
+        ports:
+          - containerPort: 3005
+      volumes:
+      - name: unraid-storage
+        persistentVolumeClaim:
+          claimName: unraid-pvc

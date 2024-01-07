@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: esphome
+  namespace: home-automation
+spec:
+  selector:
+    app: esphome
+  type: LoadBalancer
+  ports: 
+  - name: communication-port
+    protocol: TCP
+    port: 6123
+    targetPort: 6123
+  - name: web-ui
+    protocol: TCP
+    port: 6052
+    targetPort: 6052
