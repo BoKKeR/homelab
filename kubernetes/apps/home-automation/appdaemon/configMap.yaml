@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: appdaemon
+  namespace: home-automation
+data:
+  HA_URL: http://home-assistant:8123

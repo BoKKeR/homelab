@@ -1,0 +1,14 @@
+---
+kubernetes:
+  children:
+    master:
+      hosts:
+        cat01:
+          ansible_user: bokker
+          ansible_host: 10.0.0.11
+        cat02:
+          ansible_user: bokker
+          ansible_host: 10.0.0.12
+        cat03:
+          ansible_user: bokker
+          ansible_host: 10.0.0.13

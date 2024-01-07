@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: home-automation
+  name: appdaemon
+  labels:
+    app: appdaemon
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: appdaemon
+  template:
+    metadata:
+      labels:
+        app: appdaemon
+    spec:
+      containers:
+      - name: appdaemon
+        image: acockburn/appdaemon
+        env:
+          - name: TOKEN
+            valueFrom:
+              secretKeyRef:
+                name: appdaemon-ha-token
+                key: appdaemon-ha-token
+        envFrom:
+        - configMapRef:
+            name: appdaemon
+        ports:
+          - containerPort: 5050
+        volumeMounts:
+        - mountPath: "/conf"
+          subPath: appdaemon
+          name: unraid-storage
+      volumes:
+      - name: unraid-storage
+        persistentVolumeClaim:
+          claimName: unraid-pvc
