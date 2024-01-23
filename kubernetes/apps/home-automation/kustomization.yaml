@@ -13,5 +13,6 @@ resources:
   - zigbee2mqtt
   - homeassistant
   - postgresql
+  - mealie
   # - unraid-api
   # - pihole2
