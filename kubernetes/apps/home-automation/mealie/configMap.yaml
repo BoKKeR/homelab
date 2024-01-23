@@ -17,4 +17,4 @@ data:
   POSTGRES_USER: mealie
   POSTGRES_SERVER: postgres
   POSTGRES_PORT: "5432"
-  POSTGRES_DB: mealie
+  POSTGRES_DB: "10.0.0.168"
