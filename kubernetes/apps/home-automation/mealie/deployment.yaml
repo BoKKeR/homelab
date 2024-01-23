@@ -26,6 +26,7 @@ spec:
         envFrom:
         - configMapRef:
             name: mealie
+        env:
         - name: POSTGRES_PASSWORD
           valueFrom:
             secretKeyRef:
