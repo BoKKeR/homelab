@@ -3,11 +3,6 @@ name: "Lychee"
 
 on:
   workflow_dispatch:
-  push:
-    branches: ["main"]
-    paths: [".github/workflows/lychee.yaml"]
-  schedule:
-    - cron: "0 0 * * *"
 
 env:
   LYCHEE_OUTPUT: lychee/out.md
