@@ -12,5 +12,6 @@ resources:
   - appdaemon
   - zigbee2mqtt
   - homeassistant
+  - postgresql
   # - unraid-api
   # - pihole2
