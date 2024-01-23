@@ -33,7 +33,7 @@ spec:
             - mountPath: /var/lib/postgresql/data
               subPath: postgresql
               name: unraid-storage
-    volumes:
-      - name: unraid-storage
-        persistentVolumeClaim:
-          claimName: unraid-pvc
+      volumes:
+        - name: unraid-storage
+          persistentVolumeClaim:
+            claimName: unraid-pvc
