@@ -15,6 +15,6 @@ data:
     # Database Settings
   DB_ENGINE: postgres
   POSTGRES_USER: mealie
-  POSTGRES_SERVER: postgres
+  POSTGRES_SERVER: "10.0.0.168"
   POSTGRES_PORT: "5432"
-  POSTGRES_DB: "10.0.0.168"
+  POSTGRES_DB: mealie
