@@ -12,7 +12,7 @@ resources:
   - appdaemon
   - zigbee2mqtt
   - homeassistant
-  - postgresql
+  #- postgresql
   - mealie
   # - unraid-api
   # - pihole2
