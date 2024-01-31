@@ -29,9 +29,9 @@ spec:
             - containerPort: 80
           env:
             - name: PUID
-              value: "1000"
+              value: "99"
             - name: PGID
-              value: "1000"
+              value: "100"
             - name: DB_CONNECTION
               value: pgsql
             - name: DB_HOST
