@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: pihole-3
+  name: pihole3
   labels:
-    app: pihole-3
+    app: pihole3
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: pihole-3
+      app: pihole3
   template:
     metadata:
       labels:
-        app: pihole-3
+        app: pihole3
     spec:
       containers:
-      - name: pihole-3
+      - name: pihole3
         image: docker.io/pihole/pihole:2023.02.2
         securityContext:
           capabilities:
