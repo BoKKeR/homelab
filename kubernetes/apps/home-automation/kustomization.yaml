@@ -16,3 +16,4 @@ resources:
   - mealie
   # - unraid-api
   # - pihole2
+  - speedtest-tracker

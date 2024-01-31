@@ -1,0 +1,58 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: speedtest-tracker
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: speedtest-tracker
+  template:
+    metadata:
+      labels:
+        app: speedtest-tracker
+    spec:
+      dnsPolicy: None
+      dnsConfig:
+        nameservers:
+          - 10.0.0.5
+          - 8.8.8.8
+        searches:
+          - speedtest-tracker.svc.cluster.local
+        options:
+          - name: ndots
+            value: "5"
+      containers:
+        - name: speedtest-tracker
+          image: ghcr.io/alexjustesen/speedtest-tracker:latest
+          ports:
+            - containerPort: 80
+          env:
+            - name: PUID
+              value: "1000"
+            - name: PGID
+              value: "1000"
+            - name: DB_CONNECTION
+              value: pgsql
+            - name: DB_HOST
+              value: "10.0.0.168"
+            - name: DB_PORT
+              value: "5432"
+            - name: DB_DATABASE
+              value: speedtest_tracker
+            - name: DB_USERNAME
+              value: postgres
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secret
+                  key: postgres-secret
+
+          volumeMounts:
+            - mountPath: /config
+              subPath: speedtest-tracker
+              name: unraid-storage
+      volumes:
+        - name: unraid-storage
+          persistentVolumeClaim:
+            claimName: unraid-pvc
