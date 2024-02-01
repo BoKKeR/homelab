@@ -28,3 +28,5 @@ spec:
         - name: unraid-storage
           persistentVolumeClaim:
             claimName: unraid-pvc
+      imagePullSecrets:
+        - name: regcred
