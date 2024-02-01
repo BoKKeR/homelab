@@ -1,9 +1,8 @@
 apiVersion: apps/v1
-kind: StatefulSet
+kind: Deployment
 metadata:
   name: telegram-mute
 spec:
-  serviceName: telegram-mute
   replicas: 1
   selector:
     matchLabels:
@@ -12,11 +11,6 @@ spec:
     metadata:
       labels:
         app: telegram-mute
-    spec:
-      securityContext:
-        runAsUser: 1000
-        runAsGroup: 3000
-        fsGroup: 2000
       containers:
         - name: telegram-mute
           image: ghcr.io/bokker/mute-telegram:master
