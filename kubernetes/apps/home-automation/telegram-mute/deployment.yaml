@@ -11,6 +11,7 @@ spec:
     metadata:
       labels:
         app: telegram-mute
+    spec:
       containers:
         - name: telegram-mute
           image: ghcr.io/bokker/mute-telegram:master
