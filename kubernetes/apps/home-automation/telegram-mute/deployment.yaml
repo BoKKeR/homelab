@@ -16,7 +16,7 @@ spec:
         - name: telegram-mute
           image: ghcr.io/bokker/mute-telegram:master
           volumeMounts:
-            - mountPath: /config
+            - mountPath: /app/config
               subPath: telegram-mute
               name: unraid-storage
       imagePullSecrets:
