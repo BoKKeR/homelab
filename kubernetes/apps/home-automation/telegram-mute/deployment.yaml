@@ -19,9 +19,9 @@ spec:
             - mountPath: /config
               subPath: telegram-mute
               name: unraid-storage
+      imagePullSecrets:
+        - name: regcred
       volumes:
         - name: unraid-storage
           persistentVolumeClaim:
             claimName: unraid-pvc
-      imagePullSecrets:
-        - name: regcred
