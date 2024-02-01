@@ -15,6 +15,7 @@ resources:
   - postgresql
   - pihole3
   - mealie
+  - telegram-mute
   # - unraid-api
   # - pihole2
   - speedtest-tracker
