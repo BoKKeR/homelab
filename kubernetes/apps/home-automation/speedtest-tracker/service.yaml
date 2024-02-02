@@ -6,12 +6,13 @@ metadata:
     app: speedtest-tracker
   name: speedtest-tracker
 spec:
+  selector:
+    app: speedtest-tracker
+  type: LoadBalancer
   ports:
   - name: web-ui
     protocol: TCP
     port: 80
     targetPort: 80
-  selector:
-    app: speedtest-tracker
 
 
