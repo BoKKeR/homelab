@@ -6,3 +6,4 @@ namespace: home-automation
 resources:
   - deployment.yaml
   - service.yaml
+  - ingress.yaml
