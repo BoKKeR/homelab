@@ -7,7 +7,11 @@ metadata:
   name: speedtest-tracker
 spec:
   ports:
-    - port: 80
+  - name: web-ui
+    protocol: TCP
+    port: 80
+    targetPort: 80
   selector:
     app: speedtest-tracker
-  type: ClusterIP
+
+
