@@ -17,5 +17,5 @@ resources:
   - mealie
   - telegram-mute
   # - unraid-api
-  # - pihole2
+  - pihole-exporter
   - speedtest-tracker
