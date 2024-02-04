@@ -103,7 +103,9 @@ data:
         podMonitorSelectorNilUsesHelmValues: false
         probeSelectorNilUsesHelmValues: false
         scrapeConfigSelectorNilUsesHelmValues: false
-        scrapeConfigSelector: {}
+        scrapeConfigSelector:
+          matchLabels:
+            release: prom
         enableAdminAPI: true
         walCompression: true
         retentionSize: 8GB
