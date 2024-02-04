@@ -1,7 +1,7 @@
 apiVersion: monitoring.coreos.com/v1alpha1
 kind: ScrapeConfig
 metadata:
-  name: http-sd2
+  name: http-sd3
   namespace: observability
 spec:
   httpSDConfigs:
