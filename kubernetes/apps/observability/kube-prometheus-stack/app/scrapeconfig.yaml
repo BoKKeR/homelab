@@ -7,4 +7,5 @@ metadata:
     release: prom
 spec:
   staticConfigs:
-    - url: http://192.168.1.200:9100
+      targets:
+        - prometheus.demo.do.prometheus.io:9090
