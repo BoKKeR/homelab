@@ -1,7 +1,7 @@
 apiVersion: monitoring.coreos.com/v1alpha1
 kind: ScrapeConfig
 metadata:
-  name: test
+  name: test2
   namespace: monitoring
 spec:
   staticConfigs:
