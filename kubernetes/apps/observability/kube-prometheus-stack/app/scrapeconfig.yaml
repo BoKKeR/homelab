@@ -3,9 +3,6 @@ kind: ScrapeConfig
 metadata:
   name: http-sd
   namespace: observability
-  labels:
-    prometheus: system-monitoring-prometheus
-    app.kubernetes.io/name: scrape-config-example
 spec:
   httpSDConfigs:
     - url: http://192.168.1.200:9100
