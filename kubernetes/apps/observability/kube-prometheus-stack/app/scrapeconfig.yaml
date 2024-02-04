@@ -1,7 +1,7 @@
 apiVersion: monitoring.coreos.com/v1alpha1
 kind: ScrapeConfig
 metadata:
-  name: test3
+  name: unraid
   namespace: observability
   labels:
     release: prom
@@ -10,4 +10,4 @@ spec:
     - labels:
         job: prometheus
       targets:
-        - http://10.0.0.168:9090
+        - http://10.0.0.168:9216
