@@ -1,7 +1,7 @@
 apiVersion: monitoring.coreos.com/v1alpha1
 kind: ScrapeConfig
 metadata:
-  name: http-sd3
+  name: http-sd4
   namespace: observability
   labels:
     release: prom
