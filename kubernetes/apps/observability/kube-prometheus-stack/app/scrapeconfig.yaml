@@ -1,9 +1,12 @@
 apiVersion: monitoring.coreos.com/v1alpha1
 kind: ScrapeConfig
 metadata:
-  name: test3
+  name: http-sd
   namespace: observability
+  labels:
+    prometheus: system-monitoring-prometheus
+    app.kubernetes.io/name: scrape-config-example
 spec:
-  staticConfigs:
-    - targets:
-        - "192.168.1.200:9100"
+  httpSDConfigs:
+    - url: http://192.168.1.200:9100
+      refreshInterval: 15s
