@@ -7,5 +7,7 @@ metadata:
     release: prom
 spec:
   staticConfigs:
+    - labels:
+        job: prometheus
       targets:
         - prometheus.demo.do.prometheus.io:9090
