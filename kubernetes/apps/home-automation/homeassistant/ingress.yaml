@@ -42,8 +42,17 @@ spec:
             name: home-assistant
             port:
               number: 8123
-        backend_sonos:
-          service:
-            name: home-assistant
-            port:
-              number: 1400
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: home-assistant-nodeport
+  namespace: home-automation
+spec:
+  type: NodePort
+  selector:
+    app: home-assistant
+  ports:
+    - port: 1400
+      targetPort: 1400
+      nodePort: 30140
