@@ -55,4 +55,4 @@ spec:
   ports:
     - port: 1400
       targetPort: 1400
-      nodePort: 30140
+
