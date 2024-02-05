@@ -12,3 +12,7 @@ spec:
     protocol: TCP
     port: 8123
     targetPort: 8123
+  - name: sonos
+    protocol: TCP
+    port: 1400
+    targetPort: 1400
