@@ -74,3 +74,6 @@ spec:
           hostPath:
             path: *storagePath
             type: DirectoryOrCreate
+    deployment:
+      annotations:
+        storageclass.kubernetes.io/is-default-class: "true"
