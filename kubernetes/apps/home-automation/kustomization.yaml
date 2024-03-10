@@ -18,3 +18,4 @@ resources:
   # - unraid-api
   - pihole-exporter
   - speedtest-tracker
+  - netdata
