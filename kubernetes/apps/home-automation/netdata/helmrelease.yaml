@@ -25,10 +25,5 @@ spec:
   valuesFrom:
     - secretKeyRef:
         name: netdata
-        key: parent.claiming.enabled
-    - secretKeyRef:
-        name: netdata
-        key: parent.claiming.room
-    - secretKeyRef:
-        name: netdata
-        key: parent.claiming.token
+        key: parent
+
