@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   namespace: home-automation
-  name: blocket
+  name: blocket-1
   labels:
     app: blocket
 spec:
@@ -39,7 +39,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   namespace: home-automation
-  name: blocket
+  name: blocket-2
   labels:
     app: blocket
 spec:
@@ -76,7 +76,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   namespace: home-automation
-  name: blocket
+  name: blocket-3
   labels:
     app: blocket
 spec:
@@ -113,7 +113,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   namespace: home-automation
-  name: blocket
+  name: blocket-4
   labels:
     app: blocket
 spec:
@@ -150,7 +150,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   namespace: home-automation
-  name: blocket
+  name: blocket-5
   labels:
     app: blocket
 spec:
@@ -187,7 +187,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   namespace: home-automation
-  name: blocket
+  name: blocket-6
   labels:
     app: blocket
 spec:
@@ -224,7 +224,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   namespace: home-automation
-  name: blocket
+  name: blocket-7
   labels:
     app: blocket
 spec:
