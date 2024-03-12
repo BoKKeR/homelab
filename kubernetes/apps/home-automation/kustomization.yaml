@@ -19,3 +19,4 @@ resources:
   - pihole-exporter
   - speedtest-tracker
   - netdata
+  - blocket
