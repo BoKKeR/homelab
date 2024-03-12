@@ -31,9 +31,6 @@ spec:
                 key: chat-id
           - name: BLOCKET_URL
             value: "https://www.blocket.se/annonser/stockholm/for_hemmet?cg=2000&r=11"
-        envFrom:
-        - configMapRef:
-            name: blocket
       imagePullSecrets:
         - name: regcred
 ---
