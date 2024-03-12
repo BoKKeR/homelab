@@ -16,7 +16,7 @@ spec:
         app: blocket
     spec:
       containers:
-      - name: blocket-1
+      - name: blocket
         readinessProbe:
           httpGet:
             path: /healthz
