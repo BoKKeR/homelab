@@ -31,6 +31,7 @@ spec:
                 key: chat-id
           - name: BLOCKET_URL
             value: "https://www.blocket.se/annonser/stockholm/for_hemmet?cg=2000&r=11"
+      imagePullPolicy: Always
       imagePullSecrets:
         - name: regcred
 ---
