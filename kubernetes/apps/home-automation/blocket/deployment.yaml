@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   namespace: home-automation
-  name: blocket-1
+  name: blocket
   labels:
     app: blocket
 spec:
@@ -16,7 +16,7 @@ spec:
         app: blocket
     spec:
       containers:
-      - name: blocket
+      - name: blocket-1
         readinessProbe:
           httpGet:
             path: /healthz
