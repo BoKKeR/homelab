@@ -62,6 +62,14 @@ spec:
     spec:
       containers:
       - name: blocket
+        readinessProbe:
+          httpGet:
+            path: /healthz
+            port: 80
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 80
         image: ghcr.io/bokker/blocket-bot:master
         env:
           - name: TOKEN
@@ -99,6 +107,14 @@ spec:
     spec:
       containers:
       - name: blocket
+        readinessProbe:
+          httpGet:
+            path: /healthz
+            port: 80
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 80
         image: ghcr.io/bokker/blocket-bot:master
         env:
           - name: TOKEN
@@ -136,6 +152,14 @@ spec:
     spec:
       containers:
       - name: blocket
+        readinessProbe:
+          httpGet:
+            path: /healthz
+            port: 80
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 80
         image: ghcr.io/bokker/blocket-bot:master
         env:
           - name: TOKEN
@@ -173,6 +197,14 @@ spec:
     spec:
       containers:
       - name: blocket
+        readinessProbe:
+          httpGet:
+            path: /healthz
+            port: 80
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 80
         image: ghcr.io/bokker/blocket-bot:master
         env:
           - name: TOKEN
@@ -210,6 +242,14 @@ spec:
     spec:
       containers:
       - name: blocket
+        readinessProbe:
+          httpGet:
+            path: /healthz
+            port: 80
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 80
         image: ghcr.io/bokker/blocket-bot:master
         env:
           - name: TOKEN
@@ -247,6 +287,14 @@ spec:
     spec:
       containers:
       - name: blocket
+        readinessProbe:
+          httpGet:
+            path: /healthz
+            port: 80
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 80
         image: ghcr.io/bokker/blocket-bot:master
         env:
           - name: TOKEN
