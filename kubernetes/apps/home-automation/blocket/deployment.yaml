@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   namespace: home-automation
-  name: blocket
+  name: blocket-1
   labels:
     app: blocket
 spec:
@@ -16,7 +16,7 @@ spec:
         app: blocket
     spec:
       containers:
-      - name: blocket-1
+      - name: blocket
         readinessProbe:
           httpGet:
             path: /healthz
@@ -39,9 +39,29 @@ spec:
                 key: chat-id
           - name: BLOCKET_URL
             value: "https://www.blocket.se/annonser/stockholm/for_hemmet/husgerad_vitvaror/spis_micro?cg=2064&q=induktionsh%C3%A4ll%2060&r=11&st=s"
-
-
-      - name: blocket-2
+        imagePullPolicy: Always
+      imagePullSecrets:
+        - name: regcred
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: home-automation
+  name: blocket-2
+  labels:
+    app: blocket
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: blocket
+  template:
+    metadata:
+      labels:
+        app: blocket
+    spec:
+      containers:
+      - name: blocket
         readinessProbe:
           httpGet:
             path: /healthz
@@ -62,8 +82,31 @@ spec:
               secretKeyRef:
                 name: chat-id
                 key: chat-id
-
-      - name: blocket-3
+          - name: BLOCKET_URL
+            value: "https://www.blocket.se/annonser/stockholm?q=Dell%20optiplex%207070&r=11&st=s"
+        imagePullPolicy: Always
+      imagePullSecrets:
+        - name: regcred
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: home-automation
+  name: blocket-3
+  labels:
+    app: blocket
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: blocket
+  template:
+    metadata:
+      labels:
+        app: blocket
+    spec:
+      containers:
+      - name: blocket
         readinessProbe:
           httpGet:
             path: /healthz
@@ -86,9 +129,29 @@ spec:
                 key: chat-id
           - name: BLOCKET_URL
             value: "https://www.blocket.se/annonser/stockholm?q=Dell%20optiplex%203070&r=11&st=s"
-
-
-      - name: blocket-4
+        imagePullPolicy: Always
+      imagePullSecrets:
+        - name: regcred
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: home-automation
+  name: blocket-4
+  labels:
+    app: blocket
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: blocket
+  template:
+    metadata:
+      labels:
+        app: blocket
+    spec:
+      containers:
+      - name: blocket
         readinessProbe:
           httpGet:
             path: /healthz
@@ -111,7 +174,29 @@ spec:
                 key: chat-id
           - name: BLOCKET_URL
             value: "https://www.blocket.se/annonser/stockholm/elektronik/datorer_tv_spel/stationara_datorer?cg=5021&q=uppgraderingspaket&r=11&st=s"
-      - name: blocket-5
+        imagePullPolicy: Always
+      imagePullSecrets:
+        - name: regcred
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: home-automation
+  name: blocket-5
+  labels:
+    app: blocket
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: blocket
+  template:
+    metadata:
+      labels:
+        app: blocket
+    spec:
+      containers:
+      - name: blocket
         readinessProbe:
           httpGet:
             path: /healthz
@@ -134,8 +219,29 @@ spec:
                 key: chat-id
           - name: BLOCKET_URL
             value: "https://www.blocket.se/annonser/stockholm/for_hemmet/husgerad_vitvaror/spis_micro?cg=2064&q=induktion%2060%20spis&r=11&st=s"
-
-      - name: blocket-6
+        imagePullPolicy: Always
+      imagePullSecrets:
+        - name: regcred
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: home-automation
+  name: blocket-6
+  labels:
+    app: blocket
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: blocket
+  template:
+    metadata:
+      labels:
+        app: blocket
+    spec:
+      containers:
+      - name: blocket
         readinessProbe:
           httpGet:
             path: /healthz
@@ -158,8 +264,29 @@ spec:
                 key: chat-id
           - name: BLOCKET_URL
             value: "https://www.blocket.se/annonser/stockholm/for_hemmet/husgerad_vitvaror/spis_micro?cg=2064&q=induktionsspis&r=11&st=s"
-
-      - name: blocket-7
+        imagePullPolicy: Always
+      imagePullSecrets:
+        - name: regcred
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: home-automation
+  name: blocket-7
+  labels:
+    app: blocket
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: blocket
+  template:
+    metadata:
+      labels:
+        app: blocket
+    spec:
+      containers:
+      - name: blocket
         readinessProbe:
           httpGet:
             path: /healthz
@@ -182,11 +309,7 @@ spec:
                 key: chat-id
           - name: BLOCKET_URL
             value: "https://www.blocket.se/annonser/stockholm?q=lenovo%20p12&r=11&st=s"
-
         imagePullPolicy: Always
       imagePullSecrets:
         - name: regcred
-
-
-
-
+---
