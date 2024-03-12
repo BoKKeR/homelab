@@ -17,6 +17,18 @@ spec:
     spec:
       containers:
       - name: blocket
+        readinessProbe:
+          httpGet:
+            path: /healthz
+            port: 80
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 80
+          initialDelaySeconds: 10
+          periodSeconds: 15
         image: ghcr.io/bokker/blocket-bot:master
         env:
           - name: TOKEN
