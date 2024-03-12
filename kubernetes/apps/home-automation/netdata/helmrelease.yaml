@@ -22,13 +22,13 @@ spec:
       retries: 3
   uninstall:
     keepHistory: false
-  valuesFrom:
-    - secretKeyRef:
-        name: netdata
-        key: parent.claiming.enabled
-    - secretKeyRef:
-        name: netdata
-        key: parent.claiming.room
-    - secretKeyRef:
-        name: netdata
-        key: parent.claiming.token
+  # valuesFrom:
+  #   - secretKeyRef:
+  #       name: netdata
+  #       key: parent.claiming.enabled
+  #   - secretKeyRef:
+  #       name: netdata
+  #       key: parent.claiming.room
+  #   - secretKeyRef:
+  #       name: netdata
+  #       key: parent.claiming.token
