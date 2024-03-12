@@ -34,4 +34,6 @@ spec:
         envFrom:
         - configMapRef:
             name: blocket
+      imagePullSecrets:
+        - name: regcred
 ---
