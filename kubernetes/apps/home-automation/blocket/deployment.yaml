@@ -38,7 +38,7 @@ spec:
                 name: chat-id
                 key: chat-id
           - name: BLOCKET_URL
-            value: "https://www.blocket.se/annonser/stockholm/for_hemmet/husgerad_vitvaror/spis_micro?cg=2064&q=induktionsh%C3%A4ll%2060&r=11&st=s"
+            value: "https://www.blocket.se/annonser/stockholm/fordon?cg=1000&r=11"
         imagePullPolicy: Always
       imagePullSecrets:
         - name: regcred
