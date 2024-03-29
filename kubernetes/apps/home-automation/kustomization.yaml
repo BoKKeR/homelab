@@ -8,7 +8,7 @@ resources:
   - namespace.yaml
   - esphome
   - mosquitto
-#  - pihole
+  - pihole
   - appdaemon
   - zigbee2mqtt
   - homeassistant
