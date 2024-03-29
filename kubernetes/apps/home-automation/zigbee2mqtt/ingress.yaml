@@ -2,7 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   namespace: home-automation
-  name: zigbee2mqtt
+  name: zigbee2mqtt2
 spec:
   ingressClassName: internal
   rules:
