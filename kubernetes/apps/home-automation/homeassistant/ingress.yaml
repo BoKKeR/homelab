@@ -23,25 +23,25 @@ spec:
             name: home-assistant
             port:
               number: 1400
----
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  namespace: home-automation
-  name: home-assistant-internal
-spec:
-  ingressClassName: internal
-  rules:
-  - host: ha.tnorbert.com
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: home-assistant
-            port:
-              number: 8123
+# ---
+# apiVersion: networking.k8s.io/v1
+# kind: Ingress
+# metadata:
+#   namespace: home-automation
+#   name: home-assistant-internal
+# spec:
+#   ingressClassName: internal
+#   rules:
+#   - host: ha.tnorbert.com
+#     http:
+#       paths:
+#       - path: /
+#         pathType: Prefix
+#         backend:
+#           service:
+#             name: home-assistant
+#             port:
+#               number: 8123
 ---
 apiVersion: v1
 kind: Service
