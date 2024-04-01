@@ -5,3 +5,4 @@ kind: Kustomization
 resources:
   - configMap.yaml
   - deployment.yaml
+  - secret.sops.yaml
