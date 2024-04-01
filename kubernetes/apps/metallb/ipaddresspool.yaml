@@ -5,4 +5,4 @@ metadata:
   name: local
 spec:
   addresses:
-  - 10.0.0.21-10.0.0.29
+  - 10.0.0.14-10.0.0.29
