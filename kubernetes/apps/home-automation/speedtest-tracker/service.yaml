@@ -8,7 +8,7 @@ metadata:
 spec:
   selector:
     app: speedtest-tracker
-  type: LoadBalancer
+  type: ClusterIP
   ports:
   - name: web-ui
     protocol: TCP

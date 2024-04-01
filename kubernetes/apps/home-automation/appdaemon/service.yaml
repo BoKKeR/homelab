@@ -6,8 +6,8 @@ metadata:
 spec:
   selector:
     app: appdaemon
-  type: LoadBalancer
-  ports: 
+  type: ClusterIP
+  ports:
   - name: webui
     protocol: TCP
     port: 5050

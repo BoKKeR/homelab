@@ -6,8 +6,8 @@ metadata:
 spec:
   selector:
     app: esphome
-  type: LoadBalancer
-  ports: 
+  type: ClusterIP
+  ports:
   - name: communication-port
     protocol: TCP
     port: 6123

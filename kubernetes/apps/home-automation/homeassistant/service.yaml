@@ -6,7 +6,7 @@ metadata:
 spec:
   selector:
     app: home-assistant
-  type: LoadBalancer
+  type: ClusterIP
   ports:
   - name: webui
     protocol: TCP
