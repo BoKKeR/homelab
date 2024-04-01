@@ -8,7 +8,7 @@ metadata:
 spec:
   selector:
     app: zigbee2mqtt
-  type: LoadBalancer
+  type: ClusterIP
   ports:
   - name: web-ui
     protocol: TCP
