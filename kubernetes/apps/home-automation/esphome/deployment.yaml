@@ -19,13 +19,14 @@ spec:
       containers:
       - name: esphome
         image: ghcr.io/esphome/esphome
+        # git config --system --add safe.directory '*'
         ports:
           - containerPort: 6052
         envFrom:
         - configMapRef:
             name: esphome
         volumeMounts:
-        - mountPath: /config # change to /config
+        - mountPath: /config
           subPath: esphome
           name: unraid-storage
         - mountPath: /cache
