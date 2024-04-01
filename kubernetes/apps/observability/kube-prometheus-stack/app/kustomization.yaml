@@ -4,4 +4,3 @@ kind: Kustomization
 resources:
   - ./helmvalues.yaml
   - ./helmrelease.yaml
-  #- scrapeconfig.yaml
