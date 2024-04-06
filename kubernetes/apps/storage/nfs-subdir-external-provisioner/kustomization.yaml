@@ -1,0 +1,15 @@
+# kustomization.yaml
+namespace: nfs-provisioner
+resources:
+  - github.com/kubernetes-sigs/nfs-subdir-external-provisioner//deploy
+  - namespace.yaml
+patches:
+- target:
+    kind: StorageClass
+    name: nfs-client
+  patch: |-
+    - op: replace
+      path: /metadata/name
+      value: nfs-subdir-external-provisioner
+patchesStrategicMerge:
+  - patch_nfs_details.yaml
