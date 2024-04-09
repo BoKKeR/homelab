@@ -168,6 +168,5 @@ spec:
             - *host
     persistence:
       enabled: true
-      storageClassName: nfs-subdir-external-provisioner
     testFramework:
       enabled: false
