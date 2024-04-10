@@ -23,6 +23,7 @@ spec:
     - nconnect=8
     - rsize=131072
     - wsize=131072
+    - no_root_squash
 ---
 
 apiVersion: v1
