@@ -169,6 +169,6 @@ spec:
     persistence:
       enabled: true
       existingClaim: unraid-pvc
-      subPath: 0grafana
+      subPath: grafana
     testFramework:
       enabled: false
