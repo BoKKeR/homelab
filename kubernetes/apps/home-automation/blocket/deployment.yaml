@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   namespace: home-automation
-  name: blocket-2
+  name: blocket-optiplex
   labels:
     app: blocket
 spec:
@@ -47,7 +47,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   namespace: home-automation
-  name: blocket-3
+  name: blocket-optiplex-2
   labels:
     app: blocket
 spec:
@@ -92,7 +92,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   namespace: home-automation
-  name: blocket-4
+  name: blocket-uppgraderingspaket
   labels:
     app: blocket
 spec:
@@ -137,7 +137,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   namespace: home-automation
-  name: blocket-7
+  name: blocket-lenovo-p12
   labels:
     app: blocket
 spec:
