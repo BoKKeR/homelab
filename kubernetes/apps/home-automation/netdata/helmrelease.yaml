@@ -25,9 +25,9 @@ spec:
   values:
     parent:
       claiming: true
-      envFrom:
-        - secretRef:
-          name: netdata
+      # envFrom:
+      #   - secretRef:
+      #     name: netdata
       port: 19999
       resources: {}
       livenessProbe:
