@@ -22,12 +22,36 @@ spec:
       retries: 3
   uninstall:
     keepHistory: false
-  # values:
-  #   parent:
-  #     claiming: true
-  #     # envFrom:
-  #     #   - secretRef:
-  #     #     name: netdata
+  values:
+    parent:
+      claiming: true
+      envFrom:
+        - secretRef:
+          name: netdata
+      port: 19999
+      resources: {}
+      livenessProbe:
+        initialDelaySeconds: 0
+        failureThreshold: 3
+        periodSeconds: 30
+        successThreshold: 1
+        timeoutSeconds: 1
+      readinessProbe:
+        initialDelaySeconds: 0
+        failureThreshold: 3
+        periodSeconds: 30
+        successThreshold: 1
+        timeoutSeconds: 1
+      terminationGracePeriodSeconds: 300
+
+      nodeSelector: {}
+
+      tolerations: []
+
+      affinity: {}
+
+      priorityClassName: ""
+
   #   ingress:
   #     enabled: true
   #     annotations:
