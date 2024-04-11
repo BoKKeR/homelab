@@ -77,6 +77,32 @@ spec:
             editable: true
             options:
               path: /var/lib/grafana/dashboards/nginx
+          - name: unraid
+            orgId: 1
+            folder: Unraid
+            type: file
+            disableDeletion: false
+            editable: true
+            options:
+              path: /var/lib/grafana/dashboards/unraid
+          - name: aws
+            orgId: 1
+            folder: Aws
+            type: file
+            disableDeletion: false
+            editable: true
+            options:
+              path: /var/lib/grafana/dashboards/aws
+          - name: rsstt
+            orgId: 1
+            folder: RSSTT
+            type: file
+            disableDeletion: false
+            editable: true
+            options:
+              path: /var/lib/grafana/dashboards/rsstt
+
+
     datasources:
       datasources.yaml:
         apiVersion: 1
