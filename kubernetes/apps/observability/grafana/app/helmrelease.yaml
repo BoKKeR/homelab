@@ -27,6 +27,8 @@ spec:
     - name: local-path-provisioner
       namespace: storage
   values:
+    plugins:
+      - marcusolsson-json-datasource
     initChownData:
       enabled: false
     deploymentStrategy:
@@ -101,8 +103,6 @@ spec:
             editable: true
             options:
               path: /var/lib/grafana/dashboards/rsstt
-
-
     datasources:
       datasources.yaml:
         apiVersion: 1
