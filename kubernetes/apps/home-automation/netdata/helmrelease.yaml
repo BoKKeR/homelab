@@ -22,6 +22,12 @@ spec:
       retries: 3
   uninstall:
     keepHistory: false
+  values:
+    - parent:
+      claiming: true
+      envFrom:
+        - secretRef:
+          name: netdata
   # valuesFrom:
   #   - secretKeyRef:
   #       name: netdata
