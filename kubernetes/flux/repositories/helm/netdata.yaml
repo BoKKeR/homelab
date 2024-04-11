@@ -5,5 +5,5 @@ metadata:
   name: netdata
   namespace: home-automation
 spec:
-  interval: 5m0s
+  interval: 1h
   url: https://netdata.github.io/helmchart/
