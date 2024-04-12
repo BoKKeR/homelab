@@ -12,7 +12,6 @@ spec:
         kind: HelmRepository
         name: netdata
         namespace: flux-system
-  maxHistory: 2
   install:
     remediation:
       retries: 3
