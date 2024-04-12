@@ -24,7 +24,7 @@ spec:
     keepHistory: false
   values:
     parent:
-      claiming: true
+      enabled: true
       # envFrom:
       #   - secretRef:
       #     name: netdata
