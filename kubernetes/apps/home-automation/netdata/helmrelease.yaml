@@ -23,6 +23,12 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    child:
+      claiming:
+        enabled: true
+      envFrom:
+        - secretRef:
+            name: netdata
     parent:
       enabled: true
       envFrom:
