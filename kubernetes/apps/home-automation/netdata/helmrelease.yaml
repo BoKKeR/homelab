@@ -34,29 +34,29 @@ spec:
       envFrom:
         - secretRef:
           name: netdata
-      port: 19999
-      resources: {}
-      livenessProbe:
-        initialDelaySeconds: 0
-        failureThreshold: 3
-        periodSeconds: 30
-        successThreshold: 1
-        timeoutSeconds: 1
-      readinessProbe:
-        initialDelaySeconds: 0
-        failureThreshold: 3
-        periodSeconds: 30
-        successThreshold: 1
-        timeoutSeconds: 1
-      terminationGracePeriodSeconds: 300
+      # port: 19999
+      # resources: {}
+      # livenessProbe:
+      #   initialDelaySeconds: 0
+      #   failureThreshold: 3
+      #   periodSeconds: 30
+      #   successThreshold: 1
+      #   timeoutSeconds: 1
+      # readinessProbe:
+      #   initialDelaySeconds: 0
+      #   failureThreshold: 3
+      #   periodSeconds: 30
+      #   successThreshold: 1
+      #   timeoutSeconds: 1
+      # terminationGracePeriodSeconds: 300
 
-      nodeSelector: {}
+      # nodeSelector: {}
 
-      tolerations: []
+      # tolerations: []
 
-      affinity: {}
+      # affinity: {}
 
-      priorityClassName: ""
+      # priorityClassName: ""
 
   #   ingress:
   #     enabled: true
