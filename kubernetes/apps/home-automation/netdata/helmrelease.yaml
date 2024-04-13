@@ -57,16 +57,16 @@ spec:
 
       # priorityClassName: ""
 
-  #   ingress:
-  #     enabled: true
+    ingress:
+      enabled: true
   #     annotations:
   #       kubernetes.io/tls-acme: "true"
   #     path: /
   #     pathType: Prefix
   #     hosts:
   #       - netdata.k8s.local
-  #     spec:
-  #       ingressClassName: internal
+      spec:
+        ingressClassName: internal
   # valuesFrom:
   #   - secretKeyRef:
   #       name: netdata
