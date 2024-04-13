@@ -25,9 +25,9 @@ spec:
     child:
       claiming:
         enabled: true
-      # envFrom:
-      #   - secretRef:
-      #       name: netdata
+      envFrom:
+        - secretRef:
+            name: netdata
     parent:
       enabled: true
       envFrom:
