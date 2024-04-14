@@ -67,7 +67,7 @@ spec:
       path: /
       pathType: Prefix
       hosts:
-        - netdata.k8s.local
+        - netdata.tnorbert.com
       spec:
         ingressClassName: internal
   # valuesFrom:
