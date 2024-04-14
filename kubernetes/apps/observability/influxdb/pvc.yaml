@@ -1,0 +1,14 @@
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: unraid-pvc
+  namespace: observability
+spec:
+  accessModes:
+    - ReadWriteMany
+  volumeName: unraid-pv-observability
+  storageClassName: "local-unraid"
+  resources:
+    requests:
+      storage: 10G
