@@ -27,13 +27,7 @@ spec:
         app: influxdb
     spec:
       containers:
-      - env:
-          - name: INFLUXDB_ADMIN_USER_PASSWORD
-            valueFrom:
-              secretKeyRef:
-                name: influx-db-admin-password
-                key: influx-db-admin-password
-        image: influxdb:2.3.0-alpine
+      - image: influxdb:2.3.0-alpine
         imagePullPolicy: Always
         name: influxdb
         resources: {}
@@ -43,6 +37,12 @@ spec:
           - mountPath: /var/lib/influxdb
             subPath: influxdb
             name: var-lib-influxdb
+        env:
+          - name: INFLUXDB_ADMIN_USER_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: influx-db-admin-password
+                key: influx-db-admin-password
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
