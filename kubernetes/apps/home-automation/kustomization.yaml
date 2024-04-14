@@ -20,4 +20,4 @@ resources:
   - speedtest-tracker
   - netdata
   - blocket
-  - redis/ks.yaml
+  - ./redis/ks.yaml
