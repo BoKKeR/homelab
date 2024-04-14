@@ -25,14 +25,17 @@ spec:
     child:
       claiming:
         enabled: true
+        rooms: eb19e19a-1ecd-45a1-bf1b-459018e6b66a
       envFrom:
         - secretRef:
             name: netdata
-    # parent:
-    #   enabled: true
-    #   envFrom:
-    #     - secretRef:
-    #         name: netdata
+    parent:
+      claiming:
+        enabled: true
+        rooms: eb19e19a-1ecd-45a1-bf1b-459018e6b66a
+      envFrom:
+        - secretRef:
+            name: netdata
       # port: 19999
       # resources: {}
       # livenessProbe:
