@@ -25,14 +25,14 @@ spec:
     child:
       claiming:
         enabled: true
-      # envFrom:
-      #   - secretRef:
-      #       name: netdata
-    parent:
-      enabled: true
       envFrom:
         - secretRef:
             name: netdata
+    # parent:
+    #   enabled: true
+    #   envFrom:
+    #     - secretRef:
+    #         name: netdata
       # port: 19999
       # resources: {}
       # livenessProbe:
