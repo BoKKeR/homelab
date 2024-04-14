@@ -36,30 +36,6 @@ spec:
       envFrom:
         - secretRef:
             name: netdata
-      # port: 19999
-      # resources: {}
-      # livenessProbe:
-      #   initialDelaySeconds: 0
-      #   failureThreshold: 3
-      #   periodSeconds: 30
-      #   successThreshold: 1
-      #   timeoutSeconds: 1
-      # readinessProbe:
-      #   initialDelaySeconds: 0
-      #   failureThreshold: 3
-      #   periodSeconds: 30
-      #   successThreshold: 1
-      #   timeoutSeconds: 1
-      # terminationGracePeriodSeconds: 300
-
-      # nodeSelector: {}
-
-      # tolerations: []
-
-      # affinity: {}
-
-      # priorityClassName: ""
-
     ingress:
       enabled: true
       annotations:
@@ -70,13 +46,3 @@ spec:
         - netdata.tnorbert.com
       spec:
         ingressClassName: internal
-  # valuesFrom:
-  #   - secretKeyRef:
-  #       name: netdata
-  #       key: parent.claiming.enabled
-  #   - secretKeyRef:
-  #       name: netdata
-  #       key: parent.claiming.room
-  #   - secretKeyRef:
-  #       name: netdata
-  #       key: parent.claiming.token
