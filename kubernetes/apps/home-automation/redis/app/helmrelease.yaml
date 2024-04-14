@@ -7,7 +7,7 @@ spec:
   interval: 30m
   chart:
     spec:
-      chart: bitnami/redis
+      chart: redis
       version: 19.1.0
       sourceRef:
         kind: HelmRepository
