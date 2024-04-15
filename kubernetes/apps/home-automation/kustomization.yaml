@@ -20,4 +20,5 @@ resources:
   - speedtest-tracker
   - netdata
   - blocket
+  - influxdb
   # - ./redis/ks.yaml
