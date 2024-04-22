@@ -19,6 +19,6 @@ resources:
   - pihole-exporter
   - speedtest-tracker
   - netdata
-  - blocket
+  # - blocket
   - influxdb
   # - ./redis/ks.yaml
