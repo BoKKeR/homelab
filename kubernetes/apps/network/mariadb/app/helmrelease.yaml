@@ -7,7 +7,7 @@ spec:
   interval: 30m
   chart:
     spec:
-      chart: bitnami/mariadb-galera
+      chart: mariadb-galera
       sourceRef:
         kind: HelmRepository
         name: bitnami

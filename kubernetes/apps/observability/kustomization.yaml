@@ -5,6 +5,7 @@ resources:
   - ./namespace.yaml
   - ./grafana/ks.yaml
   - ./redis/ks.yaml
+  - ./mariadb-galera/ks.yaml
   - ./kube-prometheus-stack/ks.yaml
   - ./kubernetes-dashboard/ks.yaml
 
