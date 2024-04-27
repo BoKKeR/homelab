@@ -32,5 +32,3 @@ spec:
     bootstrap:
       forceSafeToBootstrap: true
       forceBootstrap: true
-  secondary:
-    replicaCount: 0
