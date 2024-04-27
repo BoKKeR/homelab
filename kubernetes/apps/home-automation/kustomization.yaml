@@ -22,4 +22,4 @@ resources:
   # - blocket
   - influxdb
   - ./mariadb/ks.yaml
-  - ./redis/ks.yaml
+  # - ./redis/ks.yaml
