@@ -27,3 +27,10 @@ spec:
         enabled: true
         existingClaim: unraid-pvc
         subPath: mariadb
+  galera:
+    name: mariadb-cluster
+    bootstrap:
+      forceSafeToBootstrap: true
+      forceBootstrap: true
+
+  replicaCount: 1
