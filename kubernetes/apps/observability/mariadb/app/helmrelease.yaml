@@ -21,3 +21,9 @@ spec:
       retries: 3
   uninstall:
     keepHistory: false
+  values:
+    primary:
+      persistence:
+        enabled: true
+        existingClaim: unraid-pvc
+        subPath: mariadb
