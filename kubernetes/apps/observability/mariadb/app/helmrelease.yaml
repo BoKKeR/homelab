@@ -4,7 +4,7 @@ kind: HelmRelease
 metadata:
   name: mariadb-galera
 spec:
-  interval: 30m
+  interval: 20m
   chart:
     spec:
       chart: mariadb-galera
