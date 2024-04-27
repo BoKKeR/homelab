@@ -27,9 +27,9 @@ spec:
         enabled: true
         existingClaim: unraid-pvc
         subPath: mariadb
-  galera:
-    name: mariadb-cluster
-    bootstrap:
-      bootstrapFromNode: 0
-      forceSafeToBootstrap: true
-      forceBootstrap: true
+    galera:
+      name: mariadb-cluster
+      bootstrap:
+        bootstrapFromNode: 0
+        forceSafeToBootstrap: true
+        forceBootstrap: true
