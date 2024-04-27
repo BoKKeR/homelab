@@ -21,4 +21,5 @@ resources:
   - netdata
   # - blocket
   - influxdb
+  - mariadb
   # - ./redis/ks.yaml
