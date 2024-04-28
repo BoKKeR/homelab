@@ -9,3 +9,4 @@ resources:
   - google-places-api-key.sops.yaml
   - configMap.yaml
   - service.yaml
+  - ingress.yaml
