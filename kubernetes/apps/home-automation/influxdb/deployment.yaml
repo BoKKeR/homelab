@@ -34,9 +34,9 @@ spec:
         terminationMessagePath: /dev/termination-log
         terminationMessagePolicy: File
         volumeMounts:
-          - mountPath: /var/lib/influxdb
+          - mountPath: /var/lib/influxdb2
             subPath: influxdb
-            name: var-lib-influxdb
+            name: data
         env:
           - name: INFLUXDB_ADMIN_USER_PASSWORD
             valueFrom:
