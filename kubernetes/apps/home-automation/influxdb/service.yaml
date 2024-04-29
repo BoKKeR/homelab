@@ -12,5 +12,6 @@ spec:
   type: ClusterIP
   ports:
     - protocol: TCP
+      name: "webui"
       port: 8086
       targetPort: 8086

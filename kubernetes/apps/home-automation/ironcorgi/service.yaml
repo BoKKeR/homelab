@@ -12,5 +12,6 @@ spec:
   type: ClusterIP
   ports:
     - protocol: TCP
+      name: "webui"
       port: 10050
       targetPort: 10050
