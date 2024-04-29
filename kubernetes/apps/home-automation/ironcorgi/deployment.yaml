@@ -41,5 +41,7 @@ spec:
           - configMapRef:
               name: ironcorgi
         imagePullPolicy: Always
+        ports:
+          - containerPort: 10050
       imagePullSecrets:
         - name: regcred
