@@ -43,6 +43,8 @@ spec:
               secretKeyRef:
                 name: influx-db-admin-password
                 key: influx-db-admin-password
+        ports:
+          - containerPort: 8086
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
