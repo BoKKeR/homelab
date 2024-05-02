@@ -15,7 +15,6 @@ spec:
         app: redisinsight
     spec:
       containers:
-
       - name:  redisinsight
         image: redislabs/redisinsight:1.7.0
         imagePullPolicy: IfNotPresent
