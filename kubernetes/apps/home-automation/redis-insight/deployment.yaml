@@ -24,7 +24,6 @@ spec:
           subPath: redisinsight
         ports:
         - containerPort: 8001
-          protocol: TCP
       volumes:
       - name: db
         persistentVolumeClaim:
