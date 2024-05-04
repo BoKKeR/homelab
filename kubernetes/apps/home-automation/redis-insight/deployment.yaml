@@ -23,6 +23,13 @@ spec:
           subPath: redisinsight
         ports:
         - containerPort: 5540
+        livenessProbe:
+            httpGet:
+              path : /api/health/
+              port: 5540
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            failureThreshold: 1
       volumes:
       - name: data
         persistentVolumeClaim:
