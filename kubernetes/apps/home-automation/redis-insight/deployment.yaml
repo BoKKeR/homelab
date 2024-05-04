@@ -23,7 +23,7 @@ spec:
           mountPath: /db
           subPath: redisinsight
         ports:
-        - containerPort: 8001
+        - containerPort: 5540
       volumes:
       - name: db
         persistentVolumeClaim:

@@ -6,9 +6,9 @@ metadata:
 spec:
   type: ClusterIP
   ports:
-    - port: 8001
+    - port: 5540
       protocol: TCP
       name: web-ui
-      targetPort: 8001
+      targetPort: 5540
   selector:
     app: redisinsight

@@ -15,4 +15,4 @@ spec:
           service:
             name: redisinsight
             port:
-              number: 8001
+              number: 5540
