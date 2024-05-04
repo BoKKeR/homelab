@@ -18,12 +18,12 @@ spec:
       - name:  redisinsight
         image: redislabs/redisinsight:latest
         volumeMounts:
-        - name: db
+        - name: data
           mountPath: /data
           subPath: redisinsight
         ports:
         - containerPort: 5540
       volumes:
-      - name: db
+      - name: data
         persistentVolumeClaim:
           claimName: unraid-pvc
