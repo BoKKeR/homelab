@@ -19,7 +19,7 @@ spec:
         image: redislabs/redisinsight:v2
         volumeMounts:
         - name: db
-          mountPath: /db
+          mountPath: /data
           subPath: redisinsight
         ports:
         - containerPort: 5540
