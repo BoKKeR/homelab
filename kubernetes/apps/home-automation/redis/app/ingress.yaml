@@ -15,4 +15,4 @@ spec:
           service:
             name: redis-master
             port:
-              number: 6379
+              number: 80
