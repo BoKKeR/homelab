@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name:  redisinsight
-        image: redislabs/redisinsight:v2
+        image: redislabs/redisinsight:latest
         volumeMounts:
         - name: db
           mountPath: /data
