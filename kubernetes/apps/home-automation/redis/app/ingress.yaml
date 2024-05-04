@@ -6,11 +6,11 @@ metadata:
 spec:
   ingressClassName: internal
   rules:
-  - host: redis-master.tnorbert.com
+  - host: redis-master.mydomain.com
     http:
       paths:
       - path: /
-        pathType: Prefix
+        pathType: ImplementationSpecific
         backend:
           service:
             name: redis-master
