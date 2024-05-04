@@ -6,7 +6,7 @@ metadata:
 spec:
   ingressClassName: internal
   rules:
-  - host: redis.tnorbert.com
+  - host: redis-master.tnorbert.com
     http:
       paths:
       - path: /
