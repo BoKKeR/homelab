@@ -13,8 +13,6 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: redis-master
+            name: redis-master-0
             port:
               number: 6379
-
-
