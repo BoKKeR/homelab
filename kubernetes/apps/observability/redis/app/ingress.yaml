@@ -1,0 +1,20 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  namespace: home-automation
+  name: redis-master
+spec:
+  ingressClassName: internal
+  rules:
+  - host: redis.tnorbert.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: redis-master
+            port:
+              number: 6379
+
+
