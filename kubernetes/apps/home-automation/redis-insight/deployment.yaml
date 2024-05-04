@@ -17,7 +17,6 @@ spec:
       containers:
       - name:  redisinsight
         image: redislabs/redisinsight:v2
-        imagePullPolicy: IfNotPresent
         volumeMounts:
         - name: db
           mountPath: /db
