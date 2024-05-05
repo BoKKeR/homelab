@@ -52,7 +52,7 @@ spec:
         command: ["/bin/bash", "-c"]
         args:
           - |
-            sed -i 's/${user} = 0/${user} = 1/g' /entrypoint.sh; cat /entrypoint.sh;
+            sed -i 's/${user} = 0/${user} = 1/g' /entrypoint.sh;
             /entrypoint.sh;
       dnsPolicy: ClusterFirst
       restartPolicy: Always
