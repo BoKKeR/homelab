@@ -43,6 +43,10 @@ spec:
               secretKeyRef:
                 name: influx-db-admin-password
                 key: influx-db-admin-password
+          - name: uid
+            value: '1000'
+          - name: gid
+            value: '1000'
         ports:
           - containerPort: 8086
       dnsPolicy: ClusterFirst
