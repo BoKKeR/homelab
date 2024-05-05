@@ -6,7 +6,9 @@ metadata:
     metallb.universe.tf/allow-shared-ip: local
 spec:
   selector:
-    app: redis
+    app.kubernetes.io/component: master
+    app.kubernetes.io/name: redis
+    apps.kubernetes.io/pod-index: "0"
   ports:
     - port: 6379
       targetPort: 6379
