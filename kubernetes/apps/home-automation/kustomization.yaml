@@ -24,4 +24,3 @@ resources:
   - influxdb
   - redis-insight
   # - ./mariadb/ks.yaml
-  - ./redis/ks.yaml
