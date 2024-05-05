@@ -14,4 +14,4 @@ spec:
       targetPort: 3306
       protocol: TCP
   type: LoadBalancer
-  loadBalancerIP: 10.0.0.20
+  loadBalancerIP: 10.0.0.19
