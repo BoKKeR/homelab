@@ -22,6 +22,9 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    auth:
+      redis-password-secret: redis
+      existingSecretPasswordKey: redis-password
     master:
       persistence:
         enabled: true
