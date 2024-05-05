@@ -10,7 +10,8 @@ spec:
     app.kubernetes.io/name: mariadb-galera
     apps.kubernetes.io/pod-index: "0"
   ports:
-    - port: 3306
-      protocol: TCP
+    - protocol: TCP
+      port: 3306
+      targetPort: 3306
   type: LoadBalancer
   loadBalancerIP: 10.0.0.19
