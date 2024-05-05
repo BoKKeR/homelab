@@ -21,3 +21,14 @@ spec:
       retries: 3
   uninstall:
     keepHistory: false
+values:
+  master:
+    persistence:
+      enabled: true
+      existingClaim: unraid-pvc
+      subPath: redis-master
+  replica:
+    persistence:
+      enabled: true
+      existingClaim: unraid-pvc
+      subPath: redis-replica
