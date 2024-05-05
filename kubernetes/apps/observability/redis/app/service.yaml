@@ -6,7 +6,7 @@ metadata:
     metallb.universe.tf/allow-shared-ip: local
 spec:
   selector:
-    app: redis-master-0
+    app: redis-master
   ports:
     - port: 6379
       targetPort: 6379
