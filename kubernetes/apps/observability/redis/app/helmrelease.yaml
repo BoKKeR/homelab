@@ -23,7 +23,7 @@ spec:
     keepHistory: false
   values:
     auth:
-      redis-password-secret: redis
+      existingSecret: redis
       existingSecretPasswordKey: redis-password
     master:
       persistence:
