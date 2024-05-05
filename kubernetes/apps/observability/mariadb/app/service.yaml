@@ -3,7 +3,6 @@ kind: Service
 metadata:
   name: mariadb-metallb
   annotations:
-    metallb.universe.tf/loadBalancerIPs: 10.0.0.20
     metallb.universe.tf/allow-shared-ip: local
 spec:
   selector:
