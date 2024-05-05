@@ -49,6 +49,11 @@ spec:
             value: '1000'
         ports:
           - containerPort: 8086
+        command: ["/bin/bash", "-c"]
+        args:
+          - |
+            sed -i 's/${user} = 0/${user} = 1/g' /entrypoint.sh;
+            /entrypoint.sh;
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
