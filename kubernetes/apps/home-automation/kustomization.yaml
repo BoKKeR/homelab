@@ -19,5 +19,5 @@ resources:
   - pihole-exporter
   - speedtest-tracker
   - netdata
-  # - influxdb
+  - influxdb
   - redis-insight
