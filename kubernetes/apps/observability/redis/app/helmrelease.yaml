@@ -30,8 +30,8 @@ spec:
         enabled: true
         existingClaim: unraid-pvc
         subPath: redis-master
-    replica:
-      persistence:
-        enabled: true
-        existingClaim: unraid-pvc
-        subPath: redis-replica
+    # replica:
+      # persistence:
+      #   enabled: true
+      #   existingClaim: unraid-pvc
+      #   subPath: redis-replica
