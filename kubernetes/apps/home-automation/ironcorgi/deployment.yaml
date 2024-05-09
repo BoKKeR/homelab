@@ -25,6 +25,10 @@ spec:
           httpGet:
             path: /healthz
             port: 10050
+        volumeMounts:
+          - mountPath: /data
+            subPath: ironcorgi
+            name: data
         image: ghcr.io/bokker/ironcorgi:master
         env:
           - name: GOOGLE_PLACES_API_KEY
@@ -45,3 +49,7 @@ spec:
           - containerPort: 10050
       imagePullSecrets:
         - name: regcred
+      volumes:
+      - name: data
+        persistentVolumeClaim:
+          claimName: unraid-pvc
