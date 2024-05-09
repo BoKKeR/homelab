@@ -41,6 +41,11 @@ spec:
               secretKeyRef:
                 name: database-connection-ironcorgi
                 key: database-connection-ironcorgi
+          - name: REDIS_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: redis
+                key: redis-password
         envFrom:
           - configMapRef:
               name: ironcorgi
