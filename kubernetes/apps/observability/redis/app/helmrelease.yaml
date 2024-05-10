@@ -26,11 +26,13 @@ spec:
       existingSecret: redis
       existingSecretPasswordKey: redis-password
     master:
+      resourcesPreset: small
       persistence:
         enabled: true
         existingClaim: unraid-pvc
         subPath: redis-master
     replica:
+      resourcesPreset: small
       persistence:
         enabled: false
       #   existingClaim: unraid-pvc
