@@ -24,10 +24,10 @@ spec:
   values:
     existingSecret: mariadb
     resourcesPreset: medium
-  persistence:
-    enabled: true
-    existingClaim: unraid-pvc
-    subPath: mariadb
+    persistence:
+      enabled: true
+      existingClaim: unraid-pvc
+      subPath: mariadb
     galera:
       name: mariadb-cluster-2
       # bootstrap:
