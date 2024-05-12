@@ -22,8 +22,8 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    resourcesPreset: small
     primary:
-      resourcesPreset: small
       persistence:
         enabled: true
         existingClaim: unraid-pvc
