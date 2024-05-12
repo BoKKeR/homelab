@@ -6,9 +6,8 @@ metadata:
     metallb.universe.tf/allow-shared-ip: local
 spec:
   selector:
-    app.kubernetes.io/instance: mariadb-galera
-    app.kubernetes.io/name: mariadb-galera
-    apps.kubernetes.io/pod-index: "0"
+    app.kubernetes.io/instance: mariadb
+    app.kubernetes.io/name: mariadb
   ports:
     - protocol: TCP
       port: 3306
