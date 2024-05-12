@@ -18,6 +18,6 @@ resources:
   - ironcorgi
   - pihole-exporter
   - speedtest-tracker
-  - netdata
+  # - netdata
   - influxdb
   - redis-insight
