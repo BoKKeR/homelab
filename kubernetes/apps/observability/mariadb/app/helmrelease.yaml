@@ -22,7 +22,6 @@ spec:
   uninstall:
     keepHistory: false
   values:
-    resourcesPreset: small
     primary:
       persistence:
         enabled: true
