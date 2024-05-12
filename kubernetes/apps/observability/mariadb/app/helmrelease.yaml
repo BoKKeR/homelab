@@ -26,11 +26,11 @@ spec:
     resourcesPreset: medium
     primary:
       persistence:
-        enabled: true
-        existingClaim: unraid-pvc
-        subPath: mariadb-galera
-    galera:
-      name: mariadb-cluster
+        enabled: false
+        # existingClaim: unraid-pvc
+        # subPath: mariadb-galera
+    # galera:
+    #   name: mariadb-cluster
       # bootstrap:
       #   bootstrapFromNode: 0
       #   forceSafeToBootstrap: true
