@@ -22,6 +22,7 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    existingSecret: mariadb
     resourcesPreset: small
     primary:
       persistence:
