@@ -30,7 +30,7 @@ spec:
       subPath: mariadb
     galera:
       name: mariadb-cluster-2
-      # bootstrap:
-      #   bootstrapFromNode: 0
-      #   forceSafeToBootstrap: true
-      #   forceBootstrap: true
+      bootstrap:
+        bootstrapFromNode: 0
+        forceSafeToBootstrap: true
+        forceBootstrap: true
