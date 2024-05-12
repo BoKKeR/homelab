@@ -23,7 +23,7 @@ spec:
     keepHistory: false
   values:
     existingSecret: mariadb
-    resourcesPreset: small
+    resourcesPreset: medium
     primary:
       persistence:
         enabled: true
