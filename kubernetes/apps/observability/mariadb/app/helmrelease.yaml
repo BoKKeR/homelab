@@ -2,12 +2,12 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta2
 kind: HelmRelease
 metadata:
-  name: mariadb-galera-2
+  name: mariadb
 spec:
   interval: 10m
   chart:
     spec:
-      chart: mariadb-galera
+      chart: mariadb
       sourceRef:
         kind: HelmRepository
         name: bitnami
@@ -22,15 +22,12 @@ spec:
   uninstall:
     keepHistory: false
   values:
-    existingSecret: mariadb
-    resourcesPreset: medium
+    auth:
+      existingSecret: mariadb
+      database: ironcorgi
+    primary:
+      resourcesPreset: small
     persistence:
       enabled: true
       existingClaim: unraid-pvc
       subPath: mariadb
-    galera:
-      name: mariadb-cluster-2
-      bootstrap:
-        bootstrapFromNode: 0
-        forceSafeToBootstrap: true
-        forceBootstrap: true
