@@ -27,7 +27,7 @@ spec:
       database: ironcorgi
     primary:
       resourcesPreset: small
-    persistence:
-      enabled: true
-      existingClaim: unraid-pvc
-      subPath: mariadb
+      persistence:
+        enabled: true
+        existingClaim: unraid-pvc
+        subPath: mariadb
