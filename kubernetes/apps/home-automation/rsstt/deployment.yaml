@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rsstt
+spec:
+  selector:
+    matchLabels:
+      app: rsstt
+  template:
+    metadata:
+      labels:
+        app: rsstt
+    spec:
+      containers:
+      - name: rsstt
+        image: bokker/rss.to.telegram:develop
+        env:
+          - name: REDIS_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: redis
+                key: redis-password
+          - name: TOKEN
+            valueFrom:
+              secretKeyRef:
+                name: rsstt-telegram-token
+                key: rsstt-telegram-token
+          - name: LOKI_HOST
+            valueFrom:
+              secretKeyRef:
+                name: loki-host
+                key: loki-host
+        envFrom:
+          - configMapRef:
+              name: rsstt
+        ports:
+        - containerPort: 5555
+        volumeMounts:
+        - name: data
+          mountPath: /app/config
+          subPath: rsstt
+      volumes:
+      - name: data
+        persistentVolumeClaim:
+          claimName: unraid-pvc
