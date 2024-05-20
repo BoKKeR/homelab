@@ -3,3 +3,4 @@ kind: Kustomization
 resources:
   - ./secret.sops.yaml
   - ./provider.yaml
+  - ./discord.provider.yaml
