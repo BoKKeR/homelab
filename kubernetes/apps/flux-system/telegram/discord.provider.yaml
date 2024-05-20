@@ -3,7 +3,7 @@ apiVersion: notification.toolkit.fluxcd.io/v1beta3
 kind: Provider
 metadata:
   name: discord
-  namespace: default
+  namespace: flux-system
 spec:
   type: discord
   secretRef:
@@ -12,7 +12,7 @@ spec:
 apiVersion: notification.toolkit.fluxcd.io/v1beta2
 kind: Alert
 metadata:
-  name: dsicord
+  name: discord
   namespace: flux-system
 spec:
   summary: "Flux Flagger"
