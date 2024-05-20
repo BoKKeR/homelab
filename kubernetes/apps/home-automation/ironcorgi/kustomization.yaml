@@ -11,6 +11,3 @@ resources:
   - service.yaml
   - ingress.yaml
   - job.yaml
-  - discord-webhook.secret.sops.yaml
-  - hello.yaml
-
