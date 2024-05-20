@@ -10,3 +10,4 @@ resources:
   - configMap.yaml
   - service.yaml
   - ingress.yaml
+  - job.yaml
