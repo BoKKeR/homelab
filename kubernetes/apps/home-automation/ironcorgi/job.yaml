@@ -14,5 +14,5 @@ spec:
             args:
             - /bin/sh
             - -c
-            - curl -X POST http://ironcorgi/manual-location-ids-fetch
+            - curl -X POST http://ironcorgi:10050/manual-location-ids-fetch
           restartPolicy: OnFailure
