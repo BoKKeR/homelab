@@ -22,5 +22,4 @@ resources:
   - influxdb
   - redis-insight
   - rsstt
-  - test
 
