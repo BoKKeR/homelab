@@ -5,3 +5,4 @@ resources:
   - ./provider.yaml
   - ./discord.provider.yaml
   - ./discord-webhook.secret.sops.yaml
+  - ./test.yaml
