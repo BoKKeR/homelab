@@ -4,3 +4,4 @@ resources:
   - ./secret.sops.yaml
   - ./provider.yaml
   - ./discord.provider.yaml
+  - ./discord-webhook.secret.sops.yaml
