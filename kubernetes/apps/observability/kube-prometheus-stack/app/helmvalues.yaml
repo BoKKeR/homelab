@@ -103,6 +103,7 @@ data:
         podMonitorSelectorNilUsesHelmValues: false
         probeSelectorNilUsesHelmValues: false
         scrapeConfigSelectorNilUsesHelmValues: false
+        scrapeConfigSelector: {}
         enableAdminAPI: true
         walCompression: true
         retentionSize: 8GB
