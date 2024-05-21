@@ -23,3 +23,4 @@ resources:
   - redis-insight
   - rsstt
   - busybox
+  - bullmq-exporter

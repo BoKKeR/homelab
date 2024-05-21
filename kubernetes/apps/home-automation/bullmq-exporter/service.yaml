@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: bull-exporter
+  namespace: home-automation
+spec:
+  selector:
+    app: bull-exporter
+  ports:
+    - protocol: TCP
+      port: 9538
+      targetPort: 9538
+  type: ClusterIP
