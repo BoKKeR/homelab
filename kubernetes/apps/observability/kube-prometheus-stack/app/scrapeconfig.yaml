@@ -11,3 +11,17 @@ spec:
         job: prometheus
       targets:
         - 10.0.0.168:9216
+---
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: ScrapeConfig
+metadata:
+  name: bullmq-exporter
+  namespace: observability
+  labels:
+    release: prom
+spec:
+  staticConfigs:
+    - labels:
+        job: prometheus
+      targets:
+        - bullmq-exporter.home-automation.svc.cluster.local:9538
