@@ -19,7 +19,5 @@ metadata:
   namespace: observability
 spec:
   staticConfigs:
-    - labels:
-        job: prometheus
     - targets:
         - 'bullmq-exporter.home-automation.svc.cluster.local:9538'
