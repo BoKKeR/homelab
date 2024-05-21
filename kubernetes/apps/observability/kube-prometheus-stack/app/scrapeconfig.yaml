@@ -17,11 +17,9 @@ kind: ScrapeConfig
 metadata:
   name: bullmq-exporter
   namespace: observability
-  labels:
-    app.kubernetes.io/name: prometheus
 spec:
   staticConfigs:
     - labels:
         job: prometheus
       targets:
-        - bullmq-exporter.home-automation.svc.cluster.local:9538
+        - 'bullmq-exporter.home-automation.svc.cluster.local:9538'
