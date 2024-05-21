@@ -18,7 +18,7 @@ metadata:
   name: bullmq-exporter
   namespace: observability
   labels:
-    release: prom
+    app.kubernetes.io/name: prometheus
 spec:
   staticConfigs:
     - labels:
