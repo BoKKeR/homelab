@@ -31,10 +31,10 @@ spec:
         enabled: true
         existingClaim: unraid-pvc
         subPath: mariadb
-sidecars:
-  - name: mysqld-exporter
-    image: prom/mysqld-exporter:latest
-    imagePullPolicy: Always
-    ports:
-    - name: mysqld-exporter
-      containerPort: 9104
+    sidecars:
+      - name: mysqld-exporter
+        image: prom/mysqld-exporter:latest
+        imagePullPolicy: Always
+        ports:
+        - name: mysqld-exporter
+          containerPort: 9104
