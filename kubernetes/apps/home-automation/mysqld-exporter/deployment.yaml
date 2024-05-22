@@ -27,7 +27,7 @@ spec:
               mountPath: "/home"
               readOnly: false
               subPath: mysqld-exporter
-    volumes:
-      - name: mysqld-conf
-        persistentVolumeClaim:
-          claimName: unraid-pvc
+      volumes:
+        - name: mysqld-conf
+          persistentVolumeClaim:
+            claimName: unraid-pvc
