@@ -23,10 +23,10 @@ spec:
             - configMapRef:
                 name: mysqld-exporter-config
           volumeMounts:
-          - name: mysqld-conf
-            mountPath: "/home"
-            readOnly: false
-            subPath: mysqld-exporter
+            - name: mysqld-conf
+              mountPath: "/home"
+              readOnly: false
+              subPath: mysqld-exporter
     volumes:
       - name: mysqld-conf
         persistentVolumeClaim:
