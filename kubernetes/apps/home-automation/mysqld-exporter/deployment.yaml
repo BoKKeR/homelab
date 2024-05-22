@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysqld-exporter
+  labels:
+    app: mysqld-exporter
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mysqld-exporter
+  template:
+    metadata:
+      labels:
+        app: mysqld-exporter
+    spec:
+      containers:
+        - name: mysqld-exporter
+          image: prom/mysqld-exporter:latest
+          ports:
+            - containerPort: 9104
+          envFrom:
+            - configMapRef:
+                name: mysqld-exporter-config
+          volumeMounts:
+          - name: mysqld-conf
+            mountPath: "/home"
+            readOnly: true
+            subPath: mysqld-exporter
+    volumes:
+      - name: mysqld-conf
+        persistentVolumeClaim:
+          claimName: unraid-pvc
