@@ -24,7 +24,7 @@ spec:
                 name: mysqld-exporter-config
           volumeMounts:
             - name: mysqld-conf
-              mountPath: "/home"
+              mountPath: "/cfg"
               readOnly: false
               subPath: mysqld-exporter
       volumes:
