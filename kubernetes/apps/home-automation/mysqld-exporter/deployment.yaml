@@ -17,6 +17,8 @@ spec:
       containers:
         - name: mysqld-exporter
           image: prom/mysqld-exporter:latest
+          args:
+            - "--config.my-cnf=/root/.my.cnf"
           ports:
             - containerPort: 9104
           envFrom:
