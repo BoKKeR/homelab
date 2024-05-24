@@ -22,3 +22,15 @@ spec:
     - targets:
         - 'bullmq-exporter.home-automation.svc.cluster.local:9538'
   metricsPath: /metrics
+---
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: ScrapeConfig
+metadata:
+  name: mariadb
+  namespace: observability
+spec:
+  staticConfigs:
+    - targets:
+        - 'mariadb.home-automation.svc.cluster.local:9104'
+  metricsPath: /metrics
+
