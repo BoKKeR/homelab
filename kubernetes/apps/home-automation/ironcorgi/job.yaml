@@ -3,7 +3,7 @@ kind: CronJob
 metadata:
   name: curl-cronjob
 spec:
-  schedule: "0 */8 * * *"  # “At minute 0 past every 8th hour.”
+  schedule: "14 6 * * *"  # “At 06:14.”
   jobTemplate:
     spec:
       template:
