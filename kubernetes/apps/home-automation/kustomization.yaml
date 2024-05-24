@@ -24,4 +24,4 @@ resources:
   - rsstt
   - busybox
   - bullmq-exporter
-  - mysqld-exporter
+  # - mysqld-exporter
