@@ -17,8 +17,8 @@ spec:
       containers:
         - name: mysqld-exporter
           image: prom/mysqld-exporter:latest
-          args:
-            - "--config.my-cnf=/root/.my.cnf"
+          # args:
+          #   - "--config.my-cnf=/root/.my.cnf"
           ports:
             - containerPort: 9104
           envFrom:
@@ -27,7 +27,7 @@ spec:
           volumeMounts:
             - name: mysqld-conf
               mountPath: "/cfg"
-              readOnly: false
+              readOnly: true
               subPath: mysqld-exporter
       volumes:
         - name: mysqld-conf
