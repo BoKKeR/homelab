@@ -35,5 +35,7 @@ spec:
       resourcesPreset: small
       persistence:
         enabled: false
+    metrics:
+      enable: true
       #   existingClaim: unraid-pvc
       #   subPath: redis-replica
