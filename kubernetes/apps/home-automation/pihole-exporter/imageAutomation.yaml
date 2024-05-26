@@ -1,11 +1,10 @@
----
-apiVersion: image.toolkit.fluxcd.io/v1beta1
+apiVersion: image.toolkit.fluxcd.io/v1beta2
 kind: ImageUpdateAutomation
 metadata:
-  name: test
+  name: flux-system
   namespace: flux-system
 spec:
-  interval: 1m0s
+  interval: 30m
   sourceRef:
     kind: GitRepository
     name: flux-system
@@ -15,8 +14,11 @@ spec:
         branch: main
     commit:
       author:
-        email: flux@example.com
-        name: flux
-      messageTemplate: '{{range .Updated.Images}}{{println .}}{{end}}'
+        email: fluxcdbot@users.noreply.github.com
+        name: fluxcdbot
+      messageTemplate: '{{range .Changed.Changes}}{{print .OldValue}} -> {{println .NewValue}}{{end}}'
     push:
       branch: main
+  update:
+    path: ./kubernetes/apps
+    strategy: Setters
