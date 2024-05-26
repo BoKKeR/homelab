@@ -53,7 +53,7 @@ spec:
           - configMapRef:
               name: rsstt
       - name: sqlite-exporter
-        image: adonato/query-exporter:latest
+        image: adonato/query-exporter:2.10.0
         ports:
         - containerPort: 9560
         volumeMounts:
