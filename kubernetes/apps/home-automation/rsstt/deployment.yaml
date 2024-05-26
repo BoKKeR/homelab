@@ -64,7 +64,7 @@ spec:
         command: ["sh", "-c"]
         args:
           - |
-            npx prisma studio --schema /app/prisma/schema.prisma
+            npx prisma studio --schema /app/prisma/
         ports:
         - containerPort: 5555
         volumeMounts:
