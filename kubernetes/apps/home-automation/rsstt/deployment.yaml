@@ -11,6 +11,27 @@ spec:
       labels:
         app: rsstt
     spec:
+      initContainers:
+      - name: prisma-studio
+        image: node:18-alpine
+        command: ["sh", "-c"]
+        args:
+          - |
+            npx prisma studio --schema /app/prisma/schema.prisma
+        ports:
+        - containerPort: 5555
+        volumeMounts:
+        - name: data
+          mountPath: /app/config
+          subPath: rsstt
+          readOnly: true
+        - name: data
+          mountPath: /app/prisma
+          subPath: rsstt-prisma
+          readOnly: true
+        envFrom:
+          - configMapRef:
+              name: rsstt
       containers:
       - name: rsstt
         image: bokker/rss.to.telegram:develop
@@ -37,29 +58,7 @@ spec:
         - name: data
           mountPath: /app/config
           subPath: rsstt
-        # - name: data
-        #   mountPath: /app/prisma
-        #   subPath: rsstt-prisma
-      - name: prisma-studio
-        image: node:18-alpine
-        command: ["sh", "-c"]
-        args:
-          - |
-            npx prisma studio --schema /app/prisma/schema.prisma
-        ports:
-        - containerPort: 5555
-        volumeMounts:
-        - name: data
-          mountPath: /app/config
-          subPath: rsstt
-          readOnly: true
-        - name: data
-          mountPath: /app/prisma
-          subPath: rsstt-prisma
-          readOnly: true
-        envFrom:
-          - configMapRef:
-              name: rsstt
+
       volumes:
       - name: data
         persistentVolumeClaim:
