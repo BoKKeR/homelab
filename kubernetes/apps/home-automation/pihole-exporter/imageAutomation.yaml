@@ -1,13 +1,13 @@
 apiVersion: image.toolkit.fluxcd.io/v1beta2
 kind: ImageUpdateAutomation
 metadata:
-  name: home-automation
-  namespace: home-automation
+  name: flux-system
+  namespace: flux-system
 spec:
   interval: 30m
   sourceRef:
     kind: GitRepository
-    name: home-automation
+    name: flux-system
   git:
     checkout:
       ref:
@@ -28,7 +28,7 @@ kind: ImageRepository
 
 metadata:
   name: podinfo
-  namespace: home-automation
+  namespace: flux-system
 spec:
   image: ghcr.io/stefanprodan/podinfo
   interval: 5m
@@ -39,7 +39,7 @@ apiVersion: image.toolkit.fluxcd.io/v1beta2
 kind: ImagePolicy
 metadata:
   name: podinfo
-  namespace: home-automation
+  namespace: flux-system
 spec:
   imageRepositoryRef:
     name: podinfo
