@@ -64,7 +64,7 @@ metadata:
   name: prisma-studio
 spec:
   selector:
-    app: prisma-studio
+    app: rsstt
   ports:
     - protocol: TCP
       port: 5555
