@@ -1,9 +1,34 @@
 apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImageUpdateAutomation
+metadata:
+  name: home-automation
+  namespace: home-automation
+spec:
+  interval: 30m
+  sourceRef:
+    kind: GitRepository
+    name: home-automation
+  git:
+    checkout:
+      ref:
+        branch: main
+    commit:
+      author:
+        email: fluxcdbot@users.noreply.github.com
+        name: fluxcdbot
+      messageTemplate: '{{range .Changed.Changes}}{{print .OldValue}} -> {{println .NewValue}}{{end}}'
+    push:
+      branch: main
+  update:
+    path: ./kubernetes/apps
+    strategy: Setters
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta2
 kind: ImageRepository
 
 metadata:
   name: podinfo
-  namespace: flux-system
+  namespace: home-automation
 spec:
   image: ghcr.io/stefanprodan/podinfo
   interval: 5m
@@ -14,7 +39,7 @@ apiVersion: image.toolkit.fluxcd.io/v1beta2
 kind: ImagePolicy
 metadata:
   name: podinfo
-  namespace: flux-system
+  namespace: home-automation
 spec:
   imageRepositoryRef:
     name: podinfo
