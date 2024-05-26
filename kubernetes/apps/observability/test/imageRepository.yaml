@@ -21,28 +21,43 @@ spec:
 ---
 apiVersion: image.toolkit.fluxcd.io/v1beta1
 kind: ImageUpdateAutomation
+metadata:
+  name: fastapi-example
+  namespace: flux-system
 spec:
-  sourceRef: # moved from `.spec.checkout`
+  interval: 30m
+  sourceRef:
     kind: GitRepository
-    name: auto-repo
-  interval: 5m
-  # omit suspend, which has not changed
-  update:
-    strategy: Setters
-    path: ./app
+    name: fastapi-example
   git:
-    checkout: # moved under `git`, loses `gitRepositoryRef`
+    checkout:
       ref:
-        branch: main # moved into `ref` struct
-    commit: # moved under `git`
+        branch: main
+    commit:
       author:
-        name: fluxbot  # moved from `authorName`
-        email: fluxbot@example.com # moved from `authorEmail`
+        email: fluxcdbot@users.noreply.github.com
+        name: fluxcdbot
       messageTemplate: |
-        An automated update from FluxBot
-        [ci skip]
-      signingKey:
-        secretRef:
-          name: git-pgp
-    push: # moved under `git`
-      branch: auto
+        chore: automated image update
+
+        Automation name: {{ .AutomationObject }}
+
+        Files:
+        {{ range $filename, $_ := .Updated.Files -}}
+        - {{ $filename }}
+        {{ end -}}
+
+        Objects:
+        {{ range $resource, $_ := .Updated.Objects -}}
+        - {{ $resource.Kind }} {{ $resource.Name }}
+        {{ end -}}
+
+        Images:
+        {{ range .Updated.Images -}}
+        - {{.}}
+        {{ end -}}
+    push:
+      branch: main
+  update:
+    path: ./deploy/base
+    strategy: Setters
