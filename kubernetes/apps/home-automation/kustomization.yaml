@@ -24,4 +24,3 @@ resources:
   - rsstt
   - busybox
   - bullmq-exporter
-  - test
