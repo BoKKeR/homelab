@@ -70,3 +70,22 @@ spec:
       port: 5555
       targetPort: 5555
   type: LoadBalancer
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  namespace: home-automation
+  name: prisma-studio
+spec:
+  ingressClassName: internal
+  rules:
+  - host: mealie.tnorbert.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: prisma-studio
+            port:
+              number: 5555
