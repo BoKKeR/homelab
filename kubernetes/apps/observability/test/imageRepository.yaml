@@ -19,16 +19,16 @@ spec:
     semver:
       range: 5.0.x
 ---
-apiVersion: image.toolkit.fluxcd.io/v1beta2
+apiVersion: image.toolkit.fluxcd.io/v1beta1
 kind: ImageUpdateAutomation
 metadata:
-  name: flux-system
+  name: fastapi-example
   namespace: flux-system
 spec:
   interval: 30m
   sourceRef:
     kind: GitRepository
-    name: flux-system
+    name: fastapi-example
   git:
     checkout:
       ref:
@@ -37,9 +37,27 @@ spec:
       author:
         email: fluxcdbot@users.noreply.github.com
         name: fluxcdbot
-      messageTemplate: '{{range .Changed.Changes}}{{print .OldValue}} -> {{println .NewValue}}{{end}}'
+      messageTemplate: |
+        chore: automated image update
+
+        Automation name: {{ .AutomationObject }}
+
+        Files:
+        {{ range $filename, $_ := .Updated.Files -}}
+        - {{ $filename }}
+        {{ end -}}
+
+        Objects:
+        {{ range $resource, $_ := .Updated.Objects -}}
+        - {{ $resource.Kind }} {{ $resource.Name }}
+        {{ end -}}
+
+        Images:
+        {{ range .Updated.Images -}}
+        - {{.}}
+        {{ end -}}
     push:
       branch: main
   update:
-    path: ./clusters/my-cluster
+    path: ./deploy/base
     strategy: Setters
