@@ -19,27 +19,30 @@ spec:
     semver:
       range: 5.0.x
 ---
-apiVersion: image.toolkit.fluxcd.io/v1alpha1
+apiVersion: image.toolkit.fluxcd.io/v1beta1
 kind: ImageUpdateAutomation
-metadata:
-  name: flux-system
-  namespace: flux-system
 spec:
-  interval: 30m
-  sourceRef:
+  sourceRef: # moved from `.spec.checkout`
     kind: GitRepository
-    name: flux-system
-  git:
-    checkout:
-      ref:
-        branch: main
-    commit:
-      author:
-        email: fluxcdbot@users.noreply.github.com
-        name: fluxcdbot
-      messageTemplate: '{{range .Changed.Changes}}{{print .OldValue}} -> {{println .NewValue}}{{end}}'
-    push:
-      branch: main
+    name: auto-repo
+  interval: 5m
+  # omit suspend, which has not changed
   update:
-    path: ./clusters/my-cluster
     strategy: Setters
+    path: ./app
+  git:
+    checkout: # moved under `git`, loses `gitRepositoryRef`
+      ref:
+        branch: main # moved into `ref` struct
+    commit: # moved under `git`
+      author:
+        name: fluxbot  # moved from `authorName`
+        email: fluxbot@example.com # moved from `authorEmail`
+      messageTemplate: |
+        An automated update from FluxBot
+        [ci skip]
+      signingKey:
+        secretRef:
+          name: git-pgp
+    push: # moved under `git`
+      branch: auto
