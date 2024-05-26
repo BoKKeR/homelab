@@ -33,12 +33,13 @@ spec:
         envFrom:
           - configMapRef:
               name: rsstt
-        ports:
-        - containerPort: 5555
         volumeMounts:
         - name: data
           mountPath: /app/config
           subPath: rsstt
+        - name: data
+          mountPath: /app/prisma
+          subPath: rsstt-prisma
       - name: prisma-studio
         image: node:18-alpine
         command: ["sh", "-c"]
@@ -51,6 +52,10 @@ spec:
         - name: data
           mountPath: /app/config
           subPath: rsstt
+          readOnly: true
+        - name: data
+          mountPath: /app/prisma
+          subPath: rsstt-prisma
           readOnly: true
         envFrom:
           - configMapRef:
