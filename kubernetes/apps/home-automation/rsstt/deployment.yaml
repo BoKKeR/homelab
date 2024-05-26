@@ -52,6 +52,17 @@ spec:
         envFrom:
           - configMapRef:
               name: rsstt
+      - name: sqlite-exporter
+        image: adonato/query-exporter:latest
+        ports:
+        - containerPort: 9560
+        volumeMounts:
+        - name: data
+          mountPath: /config
+          subPath: rsstt-sqlite-exporter
+        - name: data
+          mountPath: /mnt/rss-to-telegram-volume
+          subPath: rsstt
       volumes:
       - name: data
         persistentVolumeClaim:
