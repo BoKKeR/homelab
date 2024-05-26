@@ -43,3 +43,52 @@ spec:
       - name: data
         persistentVolumeClaim:
           claimName: unraid-pvc
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prisma-studio
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: prisma-studio
+  template:
+    metadata:
+      labels:
+        app: prisma-studio
+    spec:
+      containers:
+      - name: prisma-studio
+        image: node:18-alpine
+        command: ["sh", "-c"]
+        args:
+          - |
+            npx prisma studio
+        ports:
+        - containerPort: 5555
+        volumeMounts:
+        - name: data
+          mountPath: /app/config
+          subPath: rsstt
+          readOnly: true
+        envFrom:
+          - configMapRef:
+              name: rsstt
+      volumes:
+      - name: data
+        persistentVolumeClaim:
+          claimName: unraid-pvc
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: prisma-studio
+spec:
+  selector:
+    app: prisma-studio
+  ports:
+    - protocol: TCP
+      port: 5555
+      targetPort: 5555
+  type: LoadBalancer
