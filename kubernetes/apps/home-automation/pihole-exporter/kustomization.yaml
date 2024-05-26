@@ -6,4 +6,4 @@ resources:
   - configMap.yaml
   - deployment.yaml
   - secret.sops.yaml
-  # - imageAutomation.yaml
+  - imageAutomation.yaml
