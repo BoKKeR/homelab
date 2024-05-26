@@ -79,7 +79,7 @@ metadata:
 spec:
   ingressClassName: internal
   rules:
-  - host: mealie.tnorbert.com
+  - host: rsstt.tnorbert.com
     http:
       paths:
       - path: /
