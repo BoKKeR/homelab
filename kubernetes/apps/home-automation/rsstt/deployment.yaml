@@ -49,7 +49,6 @@ spec:
         - name: data
           mountPath: /app/config
           subPath: rsstt
-          readOnly: true
         envFrom:
           - configMapRef:
               name: rsstt
