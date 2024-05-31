@@ -37,7 +37,7 @@ spec:
       author:
         email: fluxcdbot@users.noreply.github.com
         name: fluxcdbot
-      messageTemplate: 'Automated image update for {{ .ObjectMeta.Name }} to {{ range .ImagePolicy.Images }}{{ . }}{{ end }}'
+      messageTemplate: 'Automated image update for to {{ range .ImagePolicy.Images }}{{ . }}{{ end }}'
     push:
       branch: main
   update:
