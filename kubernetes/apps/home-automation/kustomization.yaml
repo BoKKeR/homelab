@@ -24,3 +24,4 @@ resources:
   - rsstt
   - busybox
   - bullmq-exporter
+  - blocket

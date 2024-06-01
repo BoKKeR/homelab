@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   namespace: home-automation
-  name: blocket-optiplex
+  name: blocket-arc
   labels:
     app: blocket
 spec:
@@ -38,7 +38,7 @@ spec:
                 name: chat-id
                 key: chat-id
           - name: BLOCKET_URL
-            value: "https://www.blocket.se/annonser/stockholm?q=Dell%20optiplex%207070&r=11&st=s"
+            value: "https://www.blocket.se/annonser/stockholm/elektronik/ljud_bild/stereo_surround?cg=5044&q=sonos+arc&r=11"
         imagePullPolicy: Always
       imagePullSecrets:
         - name: regcred
@@ -47,7 +47,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   namespace: home-automation
-  name: blocket-optiplex-2
+  name: blocket-beam
   labels:
     app: blocket
 spec:
@@ -83,98 +83,7 @@ spec:
                 name: chat-id
                 key: chat-id
           - name: BLOCKET_URL
-            value: "https://www.blocket.se/annonser/stockholm?q=Dell%20optiplex%203070&r=11&st=s"
+            value: "https://www.blocket.se/annonser/stockholm?q=sonos+beam+&r=11"
         imagePullPolicy: Always
       imagePullSecrets:
         - name: regcred
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  namespace: home-automation
-  name: blocket-uppgraderingspaket
-  labels:
-    app: blocket
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: blocket
-  template:
-    metadata:
-      labels:
-        app: blocket
-    spec:
-      containers:
-      - name: blocket
-        readinessProbe:
-          httpGet:
-            path: /healthz
-            port: 80
-        livenessProbe:
-          httpGet:
-            path: /healthz
-            port: 80
-        image: ghcr.io/bokker/blocket-bot:master
-        env:
-          - name: TOKEN
-            valueFrom:
-              secretKeyRef:
-                name: bastu-bot-token
-                key: bastu-bot-token
-          - name: CHAT_ID
-            valueFrom:
-              secretKeyRef:
-                name: chat-id
-                key: chat-id
-          - name: BLOCKET_URL
-            value: "https://www.blocket.se/annonser/stockholm/elektronik/datorer_tv_spel/stationara_datorer?cg=5021&q=uppgraderingspaket&r=11&st=s"
-        imagePullPolicy: Always
-      imagePullSecrets:
-        - name: regcred
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  namespace: home-automation
-  name: blocket-lenovo-p12
-  labels:
-    app: blocket
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: blocket
-  template:
-    metadata:
-      labels:
-        app: blocket
-    spec:
-      containers:
-      - name: blocket
-        readinessProbe:
-          httpGet:
-            path: /healthz
-            port: 80
-        livenessProbe:
-          httpGet:
-            path: /healthz
-            port: 80
-        image: ghcr.io/bokker/blocket-bot:master
-        env:
-          - name: TOKEN
-            valueFrom:
-              secretKeyRef:
-                name: bastu-bot-token
-                key: bastu-bot-token
-          - name: CHAT_ID
-            valueFrom:
-              secretKeyRef:
-                name: chat-id
-                key: chat-id
-          - name: BLOCKET_URL
-            value: "https://www.blocket.se/annonser/stockholm?q=lenovo%20p12&r=11&st=s"
-        imagePullPolicy: Always
-      imagePullSecrets:
-        - name: regcred
----
