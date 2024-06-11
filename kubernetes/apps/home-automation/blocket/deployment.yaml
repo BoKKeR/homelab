@@ -128,7 +128,7 @@ spec:
                 name: chat-id
                 key: chat-id
           - name: BLOCKET_URL
-            value: "https://www.blocket.se/annonser/stockholm?q=Samsung+Galaxy+Tab+A9%2B&r=11"
+            value: "https://www.blocket.se/annonser/hela_sverige?q=Samsung+Galaxy+Tab+"
         imagePullPolicy: Always
       imagePullSecrets:
         - name: regcred
