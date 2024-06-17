@@ -25,3 +25,4 @@ resources:
   - busybox
   - bullmq-exporter
   - blocket
+  - unraid-rust-pvc
