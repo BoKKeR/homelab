@@ -5,6 +5,7 @@ namespace: home-automation
 
 resources:
   - unraid-pvc.yaml
+  - unraid-rust-pvc.yaml
   - namespace.yaml
   - esphome
   - mosquitto
@@ -25,4 +26,3 @@ resources:
   - busybox
   - bullmq-exporter
   - blocket
-  - unraid-rust-pvc
