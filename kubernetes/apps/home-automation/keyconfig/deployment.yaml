@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: home-automation
+  name: keyconfig
+  labels:
+    app: keyconfig
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: keyconfig
+  template:
+    metadata:
+      labels:
+        app: keyconfig
+    spec:
+      containers:
+      - name: keyconfig
+        envFrom:
+          - configMapRef:
+              name: keyconfig
+        image: ghcr.io/bokker/keyconfig:master
+        imagePullPolicy: Always
+        ports:
+          - containerPort: 10060
+      imagePullSecrets:
+        - name: regcred

@@ -26,3 +26,4 @@ resources:
   - busybox
   - bullmq-exporter
   - blocket
+  - keyconfig
