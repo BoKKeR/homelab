@@ -37,7 +37,7 @@ spec:
       author:
         email: fluxcdbot@users.noreply.github.com
         name: fluxcdbot
-      messageTemplate: 'Update image to {{ .ImagePolicy | semver }}'
+      messageTemplate: 'Automated image update by Flux'
     push:
       branch: main
   update:
