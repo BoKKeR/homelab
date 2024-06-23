@@ -20,7 +20,7 @@ spec:
         envFrom:
           - configMapRef:
               name: keyconfig
-        image: ghcr.io/bokker/keyconfig:master
+        image: ghcr.io/bokker/keyconfig:master  # {"$imagepolicy": "flux-system:keyconfig"}
         imagePullPolicy: Always
         ports:
           - containerPort: 10060
