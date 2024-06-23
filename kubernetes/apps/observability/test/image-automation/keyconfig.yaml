@@ -18,28 +18,28 @@ spec:
 #   policy:
 #     semver:
 #       range: 5.0.x
-# ---
-# apiVersion: image.toolkit.fluxcd.io/v1beta1
-# kind: ImageUpdateAutomation
-# metadata:
-#   name: keyconfig
-#   namespace: flux-system
-# spec:
-#   interval: 1m
-#   sourceRef:
-#     kind: GitRepository
-#     name: home-kubernetes
-#   git:
-#     checkout:
-#       ref:
-#         branch: main
-#     commit:
-#       author:
-#         email: fluxcdbot@users.noreply.github.com
-#         name: fluxcdbot
-#       messageTemplate: 'Automated image update for to'
-#     push:
-#       branch: main
-#   update:
-#     path: ./kubernetes/apps
-#     strategy: Setters
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta1
+kind: ImageUpdateAutomation
+metadata:
+  name: keyconfig
+  namespace: flux-system
+spec:
+  interval: 1m
+  sourceRef:
+    kind: GitRepository
+    name: home-kubernetes
+  git:
+    checkout:
+      ref:
+        branch: main
+    commit:
+      author:
+        email: fluxcdbot@users.noreply.github.com
+        name: fluxcdbot
+      messageTemplate: 'Automated image update for to'
+    push:
+      branch: main
+  update:
+    path: ./kubernetes/apps
+    strategy: Setters
