@@ -18,11 +18,11 @@ spec:
       containers:
       - name: keyconfig
         envFrom:
-          - configMapRef:
-              name: keyconfig
-        image: ghcr.io/bokker/keyconfig:1.0.34 # {"$imagepolicy": "flux-system:keyconfig"}
+        - configMapRef:
+            name: keyconfig
+        image: ghcr.io/bokker/keyconfig:1.0.37 # {"$imagepolicy": "flux-system:keyconfig"}
         imagePullPolicy: Always
         ports:
-          - containerPort: 10060
+        - containerPort: 10060
       imagePullSecrets:
-        - name: regcred
+      - name: regcred
