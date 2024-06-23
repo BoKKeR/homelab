@@ -2,7 +2,7 @@ apiVersion: image.toolkit.fluxcd.io/v1beta2
 kind: ImageRepository
 metadata:
   name: keyconfig
-  namespace: flux-system
+  namespace: home-automation
 spec:
   image: ghcr.io/bokker/keyconfig:master
   interval: 1m
@@ -11,7 +11,7 @@ spec:
 # kind: ImagePolicy
 # metadata:
 #   name: keyconfig
-#   namespace: flux-system
+#   namespace: home-automation
 # spec:
 #   imageRepositoryRef:
 #     name: keyconfig
@@ -23,7 +23,7 @@ apiVersion: image.toolkit.fluxcd.io/v1beta1
 kind: ImageUpdateAutomation
 metadata:
   name: keyconfig
-  namespace: flux-system
+  namespace: home-automation
 spec:
   interval: 1m
   sourceRef:
