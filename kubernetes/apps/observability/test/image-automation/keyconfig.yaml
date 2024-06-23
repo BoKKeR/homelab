@@ -6,18 +6,18 @@ metadata:
 spec:
   image: ghcr.io/bokker/keyconfig:master
   interval: 1m
-# ---
-# apiVersion: image.toolkit.fluxcd.io/v1beta2
-# kind: ImagePolicy
-# metadata:
-#   name: keyconfig
-#   namespace: flux-system
-# spec:
-#   imageRepositoryRef:
-#     name: keyconfig
-#   policy:
-#     semver:
-#       range: 5.0.x
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImagePolicy
+metadata:
+  name: keyconfig
+  namespace: flux-system
+spec:
+  imageRepositoryRef:
+    name: keyconfig
+  policy:
+    tag:
+      pattern: '^master$'
 ---
 apiVersion: image.toolkit.fluxcd.io/v1beta1
 kind: ImageUpdateAutomation
