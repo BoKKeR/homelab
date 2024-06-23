@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: podinfo
-  namespace: flux-system
+  namespace: home-automation
 spec:
   selector:
     matchLabels:
