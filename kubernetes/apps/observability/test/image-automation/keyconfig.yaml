@@ -4,7 +4,7 @@ metadata:
   name: keyconfig
   namespace: flux-system
 spec:
-  image: ghcr.io/bokker/keyconfig:master
+  image: ghcr.io/bokker/keyconfig
   interval: 1m
 ---
 apiVersion: image.toolkit.fluxcd.io/v1beta2
