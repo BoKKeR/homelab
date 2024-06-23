@@ -4,6 +4,8 @@ metadata:
   name: keyconfig
   namespace: flux-system
 spec:
+  secretRef:
+    name: regcred
   image: ghcr.io/bokker/keyconfig
   interval: 1m
 ---
