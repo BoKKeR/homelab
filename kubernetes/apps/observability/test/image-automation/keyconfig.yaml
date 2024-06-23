@@ -16,8 +16,8 @@ spec:
   imageRepositoryRef:
     name: keyconfig
   policy:
-    tag:
-      pattern: '^master$'
+    semver:
+      range: 1.x.x
 ---
 apiVersion: image.toolkit.fluxcd.io/v1beta1
 kind: ImageUpdateAutomation

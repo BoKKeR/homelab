@@ -27,4 +27,3 @@ resources:
   - bullmq-exporter
   - blocket
   - keyconfig
-  - deployment.yaml
