@@ -33,4 +33,15 @@ spec:
     - targets:
         - 'mariadb.home-automation.svc.cluster.local:9104'
   metricsPath: /metrics
+---
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: ScrapeConfig
+metadata:
+  name: libreelec
+  namespace: observability
+spec:
+  staticConfigs:
+    - targets:
+        - '10.0.0.49:9100'
+  metricsPath: /metrics
 
