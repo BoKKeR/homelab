@@ -30,6 +30,7 @@ spec:
         volumeMounts:
         - name: ssh-secret
           mountPath: /root/.ssh
+          readOnly: false
       containers:
       - name: home-assistant
         image: homeassistant/home-assistant:2023.11
