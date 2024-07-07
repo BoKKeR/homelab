@@ -12,7 +12,7 @@ resources:
   - pihole
   - appdaemon
   - zigbee2mqtt
-  # - homeassistant
+  - homeassistant
   - postgresql
   - mealie
   - telegram-mute
