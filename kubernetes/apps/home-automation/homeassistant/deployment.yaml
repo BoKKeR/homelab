@@ -34,11 +34,11 @@ spec:
           subPath: home_assistant
           name: unraid-storage
         - name: ssh-secret
-          mountPath: /root/.ssh
+          mountPath: /root/read-only-ssh
         ports:
         - containerPort: 8123
         command: ["/bin/sh", "-c"]
         args:
-          - chmod 600 /root/.ssh/id_rsa &&
+          - cp /root/read-only-ssh/* /root/.ssh/ &&
+            chmod 600 /root/.ssh/id_rsa &&
             exec /sbin/tini -- /docker-entrypoint.sh
-
