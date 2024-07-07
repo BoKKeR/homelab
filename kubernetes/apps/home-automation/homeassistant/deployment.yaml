@@ -37,9 +37,9 @@ spec:
           mountPath: /root/read-only-ssh/
         ports:
         - containerPort: 8123
-        # command: ["/bin/sh", "-c"]
-        # args:
-        #   - mkdir /root/.ssh/ &&
-        #     cp /root/read-only-ssh/* /root/.ssh/ &&
-        #     chmod 600 /root/.ssh/id_rsa &&
-        #     ./docker-entrypoint.sh
+        command: ["/bin/sh", "-c"]
+        args:
+          - mkdir /root/.ssh/ &&
+            cp /root/read-only-ssh/* /root/.ssh/ &&
+            chmod 600 /root/.ssh/id_rsa &&
+            ./init
