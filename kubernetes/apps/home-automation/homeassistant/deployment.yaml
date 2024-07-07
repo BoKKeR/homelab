@@ -23,14 +23,6 @@ spec:
         secret:
           secretName: ssh-secret-pi-screen
       hostNetwork: false
-      initContainers:
-      - name: init-permissions
-        image: busybox
-        command: ["sh", "-c", "chmod 600 /root/.ssh/id_rsa"]
-        volumeMounts:
-        - name: ssh-secret
-          mountPath: /root/.ssh
-          readOnly: false
       containers:
       - name: home-assistant
         image: homeassistant/home-assistant:2023.11
@@ -45,3 +37,8 @@ spec:
           mountPath: /root/.ssh
         ports:
         - containerPort: 8123
+        command: ["/bin/sh", "-c"]
+        args:
+          - chmod 600 /root/.ssh/id_rsa &&
+            exec /sbin/tini -- /docker-entrypoint.sh
+
