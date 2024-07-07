@@ -19,6 +19,9 @@ spec:
       - name: unraid-storage
         persistentVolumeClaim:
           claimName: unraid-pvc
+      - name: ssh-secret
+        secret:
+          secretName: ssh-secret-pi-screen
       hostNetwork: false
       containers:
       - name: home-assistant
@@ -30,5 +33,8 @@ spec:
         - mountPath: "/config"
           subPath: home_assistant
           name: unraid-storage
+        - name: ssh-secret
+          readOnly: true
+          mountPath: /root/.ssh
         ports:
         - containerPort: 8123
