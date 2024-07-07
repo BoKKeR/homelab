@@ -34,7 +34,6 @@ spec:
           subPath: home_assistant
           name: unraid-storage
         - name: ssh-secret
-          readOnly: true
           mountPath: /root/.ssh
         ports:
         - containerPort: 8123
