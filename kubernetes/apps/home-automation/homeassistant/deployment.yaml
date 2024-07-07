@@ -42,4 +42,4 @@ spec:
           - mkdir /root/.ssh/ &&
             cp /root/read-only-ssh/* /root/.ssh/ &&
             chmod 600 /root/.ssh/id_rsa &&
-            ./init
+            /init
