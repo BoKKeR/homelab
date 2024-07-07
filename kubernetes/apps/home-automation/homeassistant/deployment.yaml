@@ -23,6 +23,13 @@ spec:
         secret:
           secretName: ssh-secret-pi-screen
       hostNetwork: false
+      initContainers:
+      - name: init-permissions
+        image: busybox
+        command: ["sh", "-c", "chmod 600 /root/.ssh/id_rsa"]
+        volumeMounts:
+        - name: ssh-secret
+          mountPath: /root/.ssh
       containers:
       - name: home-assistant
         image: homeassistant/home-assistant:2023.11
