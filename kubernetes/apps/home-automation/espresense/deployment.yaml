@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: espresense
+spec:
+  selector:
+    matchLabels:
+      app: espresense
+  template:
+    metadata:
+      labels:
+        app: espresense
+    spec:
+      containers:
+      - name: espresense
+        image: espresense/espresense-companion
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8267
+        volumeMounts:
+        - mountPath: /config/espresense
+          subPath: espresense
+          name: unraid-storage
+    volumes:
+      - name: unraid-storage
+        persistentVolumeClaim:
+          claimName: unraid-pvc

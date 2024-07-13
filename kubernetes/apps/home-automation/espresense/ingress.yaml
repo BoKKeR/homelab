@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  namespace: home-automation
+  name: espresense-internal
+spec:
+  ingressClassName: internal
+  rules:
+  - host: espresense.tnorbert.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: espresense
+            port:
+              number: 8123

@@ -27,3 +27,4 @@ resources:
   - bullmq-exporter
   - blocket
   - keyconfig
+  - espresense
