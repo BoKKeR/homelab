@@ -15,4 +15,4 @@ spec:
           service:
             name: espresense
             port:
-              number: 8123
+              number: 8267
