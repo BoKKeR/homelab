@@ -56,13 +56,13 @@ spec:
         image: adonato/query-exporter:2.10.0
         ports:
         - containerPort: 9560
-        volumeMounts:
-        - name: data
-          mountPath: /config
-          subPath: rsstt-sqlite-exporter
-        - name: data
-          mountPath: /mnt/rss-to-telegram-volume
-          subPath: rsstt
+        # volumeMounts:
+        # - name: data
+        #   mountPath: /config
+        #   subPath: rsstt-sqlite-exporter
+        # - name: data
+        #   mountPath: /mnt/rss-to-telegram-volume
+        #   subPath: rsstt
       volumes:
       - name: data
         persistentVolumeClaim:
