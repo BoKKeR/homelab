@@ -6,4 +6,5 @@ resources:
   - ./loki-host.secret.sops.yaml
   - ./configMap.yaml
   - ./rssst-telegram-token.secret.sops.yaml
-
+  - ./service.yaml
+  - ./ingress.yaml
