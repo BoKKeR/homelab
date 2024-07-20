@@ -45,3 +45,15 @@ spec:
         - '10.0.0.49:9100'
   metricsPath: /metrics
 
+---
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: ScrapeConfig
+metadata:
+  name: mongodb-unraid
+  namespace: observability
+spec:
+  staticConfigs:
+    - targets:
+        - 'http://10.0.0.168:9216'
+  metricsPath: /metrics
+
