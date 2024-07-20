@@ -11,3 +11,4 @@ data:
   REDIS_USER: default
   REDIS_MUTEX: "cf3XGKnTs1r2fv6f"
   LOKI_APP: rsstt-dev-portainer
+  LOKI_HOST: http://10.0.0.168:3100
