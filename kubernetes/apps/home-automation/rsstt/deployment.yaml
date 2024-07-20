@@ -60,9 +60,10 @@ spec:
         - name: data
           mountPath: /config
           subPath: rsstt-sqlite-exporter
-        # - name: data
-        #   mountPath: /mnt/rss-to-telegram-volume
-        #   subPath: rsstt
+        - name: data
+          readOnly: true
+          mountPath: /mnt/rss-to-telegram-volume
+          subPath: rsstt
       volumes:
       - name: data
         persistentVolumeClaim:
