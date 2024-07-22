@@ -13,6 +13,6 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: prisma-studio
+            name: prisma-studio-service
             port:
               number: 5555
