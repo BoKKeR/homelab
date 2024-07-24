@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ear-wordpress
+spec:
+  selector:
+    matchLabels:
+      app: wordpress
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: wordpress
+    spec:
+      containers:
+      - image: wordpress:6-apache
+        name: ear-wordpress
+        env:
+        - name: WORDPRESS_DB_HOST
+          value: mariadb
+        - name: WORDPRESS_DB_NAME
+          value: ear
+        - name: WORDPRESS_DB_USER
+          value: ear
+        - name: WORDPRESS_DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: WORDPRESS_DB_PASSWORD
+              key: WORDPRESS_DB_PASSWORD
+        ports:
+        - containerPort: 80
+          name: wordpress
+        volumeMounts:
+          - mountPath: /var/www/html
+            subPath: ear_wordpress
+            name: data
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: unraid-pvc
