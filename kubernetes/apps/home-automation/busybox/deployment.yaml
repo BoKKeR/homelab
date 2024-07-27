@@ -45,5 +45,9 @@ spec:
     - mountPath: /var/www/html
       subPath: ear_wordpress
       name: data
+volumes:
+  - name: data
+    persistentVolumeClaim:
+      claimName: unraid-pvc
     # - mountPath: /var/www/html
     #   name: local-storage
