@@ -36,10 +36,10 @@ spec:
         ports:
           - containerPort: 80
         volumeMounts:
-          - mountPath: /var/www/html
+          - mountPath: /var/www/html3
             subPath: ear_wordpress
             name: data
-          - mountPath: /var/www/html2
+          - mountPath: /var/www/html
             name: local-storage
       volumes:
         - name: data
