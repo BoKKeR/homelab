@@ -24,6 +24,10 @@ spec:
           value: ear
         - name: WORDPRESS_DB_USER
           value: ear
+        - name: APACHE_RUN_USER
+          valua: www-data
+        - name: APACHE_RUN_GROUP
+          valua: www-data
         - name: WORDPRESS_DB_PASSWORD
           valueFrom:
             secretKeyRef:
