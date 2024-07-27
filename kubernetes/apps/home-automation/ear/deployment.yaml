@@ -39,6 +39,8 @@ spec:
           - mountPath: /var/www/html
             subPath: ear_wordpress
             name: data
+          - mountPath: /var/www/html2
+            name: local-storage
       volumes:
         - name: data
           persistentVolumeClaim:
