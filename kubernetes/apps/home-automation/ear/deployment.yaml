@@ -30,7 +30,7 @@ spec:
               key: wodpress-db-password
         ports:
         - containerPort: 80
-          name: wordpress
+          name: ear-wordpress
         volumeMounts:
           - mountPath: /var/www/html
             subPath: ear_wordpress
