@@ -2,9 +2,9 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: wordpress-ear
+  name: ear-wordpress
 spec:
   ports:
     - port: 80
   selector:
-    app: wordpress-ear
+    app: ear-wordpress
