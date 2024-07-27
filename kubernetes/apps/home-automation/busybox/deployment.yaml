@@ -29,3 +29,21 @@ spec:
     command: ["/bin/sh"]
     args: ["-c", "while true; do sleep 3600; done"]
     resources: {}
+    env:
+    - name: WORDPRESS_DB_HOST
+      value: mariadb
+    - name: WORDPRESS_DB_NAME
+      value: ear
+    - name: WORDPRESS_DB_USER
+      value: ear
+    - name: APACHE_RUN_USER
+      valua: www-data
+    - name: APACHE_RUN_GROUP
+      valua: www-data
+    - name: WORDPRESS_DB_PASSWORD
+  volumeMounts:
+    - mountPath: /var/www/html
+      subPath: ear_wordpress
+      name: data
+    # - mountPath: /var/www/html
+    #   name: local-storage
