@@ -26,13 +26,6 @@ spec:
   containers:
   - name: ubuntu
     image: ubuntu:latest
-    command:
-    - bash
-    - -c
-    - |
-      apt-get update && \
-      DEBIAN_FRONTEND=noninteractive apt-get install -y mysql-server && \
-      cp -r /var/lib/mysql /mysql-init && \
-      cp -r /etc/mysql /mysql-init
+    command: ["/bin/sh"]
     args: ["-c", "while true; do sleep 3600; done"]
     resources: {}
