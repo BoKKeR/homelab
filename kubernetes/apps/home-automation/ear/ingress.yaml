@@ -1,9 +1,9 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: wordpress-ingress
+  name: ear-wordpress
   labels:
-    name: wordpress-ingress
+    name: ear-wordpress
 spec:
   ingressClassName: internal
   rules:
@@ -16,4 +16,4 @@ spec:
           service:
             name: ear-wordpress
             port:
-              number: 80
+              servicePort: 80
