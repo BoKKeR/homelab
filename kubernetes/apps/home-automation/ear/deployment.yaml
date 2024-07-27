@@ -5,13 +5,13 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: wordpress
+      app: ear-wordpress
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        app: wordpress
+        app: ear-wordpress
     spec:
       containers:
       - image: wordpress:6-apache
