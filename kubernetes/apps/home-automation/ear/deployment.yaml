@@ -43,3 +43,17 @@ spec:
         - name: data
           persistentVolumeClaim:
             claimName: unraid-pvc
+        - name: local-storage
+          persistentVolumeClaim:
+            claimName: local-pvc
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: local-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
