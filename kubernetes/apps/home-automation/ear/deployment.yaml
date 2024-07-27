@@ -13,6 +13,7 @@ spec:
       labels:
         app: ear-wordpress
     spec:
+
       containers:
       - image: wordpress:6-apache
         name: ear-wordpress
