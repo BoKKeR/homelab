@@ -9,6 +9,7 @@ spec:
   ingressClassName: external
   rules:
   - host: ear.tnorbert.com
+
     http:
       paths:
       - path: /
