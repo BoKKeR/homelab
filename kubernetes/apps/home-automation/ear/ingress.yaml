@@ -1,9 +1,10 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: ear-wordpress
-  labels:
-    name: ear-wordpress
+  namespace: ear-wordpress
+  name: ear-wordpress-external
+  annotations:
+    external-dns.alpha.kubernetes.io/target: "external.tnorbert.com"
 spec:
   ingressClassName: external
   rules:
