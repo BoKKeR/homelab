@@ -5,7 +5,7 @@ metadata:
   labels:
     name: ear-wordpress
 spec:
-  ingressClassName: internal
+  ingressClassName: external
   rules:
   - host: ear.tnorbert.com
     http:
