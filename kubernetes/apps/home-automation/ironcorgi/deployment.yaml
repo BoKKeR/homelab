@@ -26,34 +26,34 @@ spec:
             path: /healthz
             port: 10050
         volumeMounts:
-          - mountPath: /data
-            subPath: ironcorgi-symlink
-            name: data
-        image: ghcr.io/bokker/ironcorgi:1.0.1 # {"$imagepolicy": "flux-system:ironcorgi"}
+        - mountPath: /data
+          subPath: ironcorgi-symlink
+          name: data
+        image: ghcr.io/bokker/ironcorgi:1.0.79 # {"$imagepolicy": "flux-system:ironcorgi"}
         env:
-          - name: GOOGLE_PLACES_API_KEY
-            valueFrom:
-              secretKeyRef:
-                name: google-places-api-key
-                key: google-places-api-key
-          - name: DATABASE_URL
-            valueFrom:
-              secretKeyRef:
-                name: database-connection-ironcorgi
-                key: database-connection-ironcorgi
-          - name: REDIS_PASSWORD
-            valueFrom:
-              secretKeyRef:
-                name: redis
-                key: redis-password
+        - name: GOOGLE_PLACES_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: google-places-api-key
+              key: google-places-api-key
+        - name: DATABASE_URL
+          valueFrom:
+            secretKeyRef:
+              name: database-connection-ironcorgi
+              key: database-connection-ironcorgi
+        - name: REDIS_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: redis
+              key: redis-password
         envFrom:
-          - configMapRef:
-              name: ironcorgi
+        - configMapRef:
+            name: ironcorgi
         imagePullPolicy: Always
         ports:
-          - containerPort: 10050
+        - containerPort: 10050
       imagePullSecrets:
-        - name: regcred
+      - name: regcred
       volumes:
       - name: data
         persistentVolumeClaim:
