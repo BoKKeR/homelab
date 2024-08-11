@@ -51,11 +51,11 @@ data:
               - alertname = "Watchdog"
         receivers:
           - name: 'discord'
+            send_resolved: true
             webhook_configs:
-            - url:
+            - apiURL:
               name: alertmanager-discord-webhook
               key: alertmanager-discord-webhook
-            send_resolved: true
         templates:
         - '/etc/alertmanager/config/*.tmpl'
     kube-state-metrics:
