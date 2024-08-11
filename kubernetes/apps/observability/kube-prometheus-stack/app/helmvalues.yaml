@@ -52,7 +52,7 @@ data:
         receivers:
           - name: 'discord'
             webhook_configs:
-            - apiURL:
+            - url:
               name: alertmanager-discord-webhook
               key: alertmanager-discord-webhook
             send_resolved: true
