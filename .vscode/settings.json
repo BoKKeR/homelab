@@ -1,27 +1,45 @@
 {
-    "ansible.ansible.path": ".venv/bin/ansible",
-    "ansible.python.activationScript": ".venv/bin/activate",
-    "ansible.python.interpreterPath": ".venv/bin/python3",
-    "ansible.validation.enabled": true,
-    "ansible.validation.lint.arguments": "-c ansible/.ansible-lint",
-    "ansible.validation.lint.enabled": true,
-    "ansible.validation.lint.path": ".venv/bin/ansible-lint",
-    "files.associations": {
-        "*.json5": "jsonc",
-        "./ansible/**/*.yaml": "ansible",
-        "./ansible/**/*.sops.yaml": "yaml",
-        "./ansible/**/inventory/**/*.yaml": "yaml",
-        "./kubernetes/**/*.sops.toml": "plaintext"
-    },
-    "sops.defaults.ageKeyFile": "age.key",
-    "yaml.schemas": {
-        "ansible": "./ansible/*.yaml",
-        "Kubernetes": "./kubernetes/*.yaml"
-    },
-    "vs-kubernetes": {
-        "vs-kubernetes.kubeconfig": "./kubeconfig",
-        "vs-kubernetes.knownKubeconfigs": [
-          "./kubeconfig"
-      ]
-    }
+  "ansible.ansible.path": ".venv/bin/ansible",
+  "ansible.python.activationScript": ".venv/bin/activate",
+  "ansible.python.interpreterPath": ".venv/bin/python3",
+  "ansible.validation.enabled": true,
+  "ansible.validation.lint.arguments": "-c ansible/.ansible-lint",
+  "ansible.validation.lint.enabled": true,
+  "ansible.validation.lint.path": ".venv/bin/ansible-lint",
+  "files.associations": {
+    "*.json5": "jsonc",
+    "./ansible/**/*.yaml": "ansible",
+    "./ansible/**/*.sops.yaml": "yaml",
+    "./ansible/**/inventory/**/*.yaml": "yaml",
+    "./kubernetes/**/*.sops.toml": "plaintext"
+  },
+  "sops.defaults.ageKeyFile": "age.key",
+  "yaml.schemas": {
+    "ansible": "./ansible/*.yaml",
+    "Kubernetes": "./kubernetes/*.yaml"
+  },
+  "vs-kubernetes": {
+    "vs-kubernetes.kubeconfig": "./kubeconfig",
+    "vs-kubernetes.knownKubeconfigs": ["./kubeconfig"]
+  },
+  "workbench.colorCustomizations": {
+    "activityBar.activeBackground": "#dcde99",
+    "activityBar.background": "#dcde99",
+    "activityBar.foreground": "#15202b",
+    "activityBar.inactiveForeground": "#15202b99",
+    "activityBarBadge.background": "#37a5a9",
+    "activityBarBadge.foreground": "#15202b",
+    "commandCenter.border": "#15202b99",
+    "sash.hoverBorder": "#dcde99",
+    "statusBar.background": "#cfd173",
+    "statusBar.foreground": "#15202b",
+    "statusBarItem.hoverBackground": "#c2c44d",
+    "statusBarItem.remoteBackground": "#cfd173",
+    "statusBarItem.remoteForeground": "#15202b",
+    "titleBar.activeBackground": "#cfd173",
+    "titleBar.activeForeground": "#15202b",
+    "titleBar.inactiveBackground": "#cfd17399",
+    "titleBar.inactiveForeground": "#15202b99"
+  },
+  "peacock.color": "#cfd173"
 }
