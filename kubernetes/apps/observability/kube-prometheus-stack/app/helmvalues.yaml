@@ -55,7 +55,7 @@ data:
             - apiURL:
               name: alertmanager-discord-webhook
               key: alertmanager-discord-webhook
-              send_resolved: true
+            send_resolved: true
         templates:
         - '/etc/alertmanager/config/*.tmpl'
     kube-state-metrics:
