@@ -48,7 +48,8 @@ data:
           routes:
           - receiver: 'null'
             matchers:
-              - alertname = "Watchdog"
+              - severity = critical
+            receiver: discord
         receivers:
           - name: 'null'
           - name: 'discord'
