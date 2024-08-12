@@ -55,9 +55,7 @@ data:
           - name: 'discord'
             send_resolved: true
             webhook_configs:
-            - apiURL:
-              name: alertmanager-discord-webhook
-              key: alertmanager-discord-webhook
+            - url: https://discord.com/api/webhooks/1272301646759854222/37_Uc9VFMT_lPjNcqmLN3z3imPTtJ4-OX-PvwdiruJbFoNW-IFqxCc1mfLWTelCvNgUo
         templates:
         - '/etc/alertmanager/config/*.tmpl'
     kube-state-metrics:
