@@ -42,12 +42,16 @@ spec:
               value: speedtest_tracker
             - name: DB_USERNAME
               value: postgres
+            - name: APP_KEY
+              valueFrom:
+                secretKeyRef:
+                  key: speedtest-app-key
+                  name: speedtest-app-key
             - name: DB_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: postgres-secret
                   key: postgres-secret
-
           volumeMounts:
             - mountPath: /config
               subPath: speedtest-tracker
