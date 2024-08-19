@@ -37,6 +37,7 @@ spec:
           mountPath: /root/read-only-ssh/
         ports:
         - containerPort: 8123
+        - containerPort: 1400
         command: ["/bin/sh", "-c"]
         args:
           - mkdir /root/.ssh/ &&
