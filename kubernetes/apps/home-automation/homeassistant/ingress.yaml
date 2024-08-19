@@ -46,9 +46,7 @@ metadata:
     metallb.universe.tf/allow-shared-ip: local
 spec:
   selector:
-    app.kubernetes.io/component: master
-    app.kubernetes.io/name: redis
-    apps.kubernetes.io/pod-index: "0"
+    name: home-assistant
   ports:
     - port: 1400
       targetPort: 1400
