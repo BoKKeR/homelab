@@ -46,7 +46,7 @@ metadata:
     metallb.universe.tf/allow-shared-ip: local
 spec:
   selector:
-    name: home-assistant
+    app: home-assistant
   ports:
     - port: 1400
       targetPort: 1400
