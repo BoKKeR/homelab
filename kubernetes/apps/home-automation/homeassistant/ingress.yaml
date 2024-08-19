@@ -41,12 +41,17 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: home-assistant
-  namespace: home-automation
+  name: home-assistant-sonos-metallb
+  annotations:
+    metallb.universe.tf/allow-shared-ip: local
 spec:
   selector:
-    app: home-assistant
+    app.kubernetes.io/component: master
+    app.kubernetes.io/name: redis
+    apps.kubernetes.io/pod-index: "0"
   ports:
     - port: 1400
       targetPort: 1400
       protocol: TCP
+  type: LoadBalancer
+  loadBalancerIP: 10.0.0.20
