@@ -15,7 +15,7 @@ spec:
       containers:
         - name: node-red
           image: nodered/node-red:latest
-          envFrom:
+          env:
             - name: NODE_RED_FLOW_SECRET
               valueFrom:
                 secretKeyRef:
