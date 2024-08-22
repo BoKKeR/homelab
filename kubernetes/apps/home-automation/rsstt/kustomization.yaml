@@ -7,4 +7,4 @@ resources:
   - ./configMap.yaml
   - ./rssst-telegram-token.secret.sops.yaml
   - ./service.yaml
-  - ./ingress.yaml
+  # - ./ingress.yaml
