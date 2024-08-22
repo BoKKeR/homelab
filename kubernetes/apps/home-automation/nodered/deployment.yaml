@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: node-red
+  name: nodered
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: node-red
+      app: nodered
   template:
     metadata:
       labels:
-        app: node-red
+        app: nodered
     spec:
       containers:
-        - name: node-red
+        - name: nodered
           image: nodered/node-red:latest
           env:
             - name: NODE_RED_FLOW_SECRET
