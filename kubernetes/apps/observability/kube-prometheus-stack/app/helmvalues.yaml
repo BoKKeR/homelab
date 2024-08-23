@@ -10,11 +10,12 @@ data:
     cleanPrometheusOperatorObjectNames: true
     alertmanager:
       alertmanagerSpec:
+        logLevel:
+          - warn
         secrets:
           - alertmanager-discord-webhook
       enabled: true
       config:
-
         global:
           resolve_timeout: 5m
         inhibit_rules:
