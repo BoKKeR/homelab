@@ -10,6 +10,8 @@ data:
     cleanPrometheusOperatorObjectNames: true
     alertmanager:
       alertmanagerSpec:
+        logLevel:
+          - 'debug'
         secrets:
           - alertmanager-discord-webhook
       enabled: true
@@ -46,10 +48,9 @@ data:
           repeat_interval: 12h
           receiver: 'null'
           routes:
-          - receiver: 'null'
+          - receiver: 'discord'
             matchers:
               - severity = critical
-            receiver: discord
         receivers:
           - name: 'null'
           - name: 'discord'
