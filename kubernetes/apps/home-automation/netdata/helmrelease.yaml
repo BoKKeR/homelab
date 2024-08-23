@@ -42,7 +42,7 @@ spec:
         kubernetes.io/tls-acme: "true"
       path: /
       pathType: Prefix
-      hosts:
-        - netdata.tnorbert.com
-      spec:
-        ingressClassName: internal
+      # hosts:
+      #   - netdata.tnorbert.com
+      # spec:
+      #   ingressClassName: internal
