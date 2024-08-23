@@ -10,8 +10,6 @@ data:
     cleanPrometheusOperatorObjectNames: true
     alertmanager:
       alertmanagerSpec:
-        logLevel:
-          - 'debug'
         secrets:
           - alertmanager-discord-webhook
       enabled: true
