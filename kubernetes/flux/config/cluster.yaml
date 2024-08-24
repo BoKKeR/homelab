@@ -39,7 +39,7 @@ spec:
       - kind: Secret
         name: cluster-secrets
 ---
-apiVersion: source.toolkit.fluxcd.io/v1beta2
+apiVersion: source.toolkit.fluxcd.io/v1
 kind: GitRepository
 metadata:
   name: home-kubernetes
