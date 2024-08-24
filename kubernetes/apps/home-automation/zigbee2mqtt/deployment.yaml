@@ -27,7 +27,7 @@ spec:
                 - zigbee
       containers:
       - name: zigbee2mqtt
-        image: koenkk/zigbee2mqtt:1.30.0
+        image: koenkk/zigbee2mqtt:1.39.1
         securityContext:
           privileged: true
         envFrom:
