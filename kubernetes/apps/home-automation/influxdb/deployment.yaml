@@ -27,7 +27,7 @@ spec:
         app: influxdb
     spec:
       containers:
-      - image: influxdb:2.3.0-alpine
+      - image: influxdb:2.3.0
         imagePullPolicy: Always
         name: influxdb
         resources: {}
