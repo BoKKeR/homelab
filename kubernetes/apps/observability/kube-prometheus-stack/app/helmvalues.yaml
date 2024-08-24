@@ -50,7 +50,6 @@ data:
             matchers:
               - severity = critical
         receivers:
-          - name: 'null'
           - name: 'discord'
             send_resolved: true
             webhook_configs:
