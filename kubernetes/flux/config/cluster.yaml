@@ -6,9 +6,9 @@ metadata:
   namespace: flux-system
 spec:
   interval: 30m
+  url: "https://github.com/bokker/homelab"
   ref:
-    branch: main
-  url: "https://github.com/BoKKeR/homelab.git"
+    branch: "master"
   ignore: |
     # exclude all
     /*
@@ -38,17 +38,3 @@ spec:
         name: cluster-settings
       - kind: Secret
         name: cluster-secrets
----
-apiVersion: source.toolkit.fluxcd.io/v1beta2
-kind: GitRepository
-metadata:
-  name: home-kubernetes
-  namespace: flux-system
-spec:
-  interval: 10m
-  # 6a: Change this to your user and repo names
-  url: ssh://git@github.com/BoKKeR/homelab
-  ref:
-    branch: main
-  secretRef:
-    name: github-deploy-key

@@ -1,0 +1,3 @@
+---
+providerRegex: ^(cat01|cat02|cat03)$
+bypassDnsResolution: true
