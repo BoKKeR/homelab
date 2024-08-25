@@ -11,16 +11,16 @@ resources:
   - mosquitto
   - pihole
   - appdaemon
-  # - zigbee2mqtt
-  # - homeassistant
-  # - postgresql
-  # - mealie
-  # - telegram-mute
+  - zigbee2mqtt
+  - homeassistant
+  - postgresql
+  - mealie
+  - telegram-mute
   # - ironcorgi
   - pihole-exporter
   # - speedtest-tracker
   # - netdata
-  # - influxdb
+  - influxdb
   # - redis-insight
   # - rsstt
   # - busybox
