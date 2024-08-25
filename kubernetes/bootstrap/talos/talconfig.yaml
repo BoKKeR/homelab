@@ -6,13 +6,13 @@ talosVersion: v1.7.6
 kubernetesVersion: v1.30.3
 
 clusterName: "homelab"
-endpoint: https://10.0.0.24:6443
+endpoint: https://10.0.0.14:6443
 clusterPodNets:
   - "10.69.0.0/16"
 clusterSvcNets:
   - "10.96.0.0/16"
 additionalApiServerCertSans: &sans
-  - "10.0.0.24"
+  - "10.0.0.14"
   - 127.0.0.1 # KubePrism
 additionalMachineCertSans: *sans
 
@@ -37,7 +37,7 @@ nodes:
             gateway: "10.0.0.1"
         mtu: 1500
         vip:
-          ip: "10.0.0.24"
+          ip: "10.0.0.14"
   - hostname: "cat02"
     ipAddress: "10.0.0.12"
     installDisk: "/dev/sdb"
@@ -54,7 +54,7 @@ nodes:
             gateway: "10.0.0.1"
         mtu: 1500
         vip:
-          ip: "10.0.0.24"
+          ip: "10.0.0.14"
   - hostname: "cat03"
     ipAddress: "10.0.0.13"
     installDisk: "/dev/nvme0n1"
@@ -71,7 +71,7 @@ nodes:
             gateway: "10.0.0.1"
         mtu: 1500
         vip:
-          ip: "10.0.0.24"
+          ip: "10.0.0.14"
 
 # Global patches
 patches:
