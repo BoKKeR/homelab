@@ -17,7 +17,7 @@ resources:
   # - mealie
   # - telegram-mute
   # - ironcorgi
-  # - pihole-exporter
+  - pihole-exporter
   # - speedtest-tracker
   # - netdata
   # - influxdb
