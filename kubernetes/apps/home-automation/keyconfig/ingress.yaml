@@ -1,0 +1,39 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  namespace: home-automation
+  name: keyconfig-external
+  annotations:
+    external-dns.alpha.kubernetes.io/target: "external.tnorbert.com"
+spec:
+  ingressClassName: external
+  rules:
+  - host: keyconfig.tnorbert.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: keyconfig
+            port:
+              number: 10060
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  namespace: home-automation
+  name: keyconfig-internal
+spec:
+  ingressClassName: internal
+  rules:
+  - host: keyconfig.tnorbert.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: keyconfig
+            port:
+              number: 10060

@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mealie
+  namespace: home-automation
+data:
+  ALLOW_SIGNUP: "false"
+  PUID: "1000"
+  PGID: "1000"
+  TZ: Europe/Stockholm
+  MAX_WORKERS: "1"
+  WEB_CONCURRENCY: "1"
+  BASE_URL: https://mealie.tnorbert.com
+
+    # Database Settings
+  DB_ENGINE: postgres
+  POSTGRES_USER: postgres
+  POSTGRES_SERVER: "10.0.0.168"
+  POSTGRES_PORT: "5432"
+  POSTGRES_DB: mealie

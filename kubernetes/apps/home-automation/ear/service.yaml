@@ -1,0 +1,15 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ear-wordpress
+  namespace: home-automation
+spec:
+  selector:
+    app: ear-wordpress
+  type: ClusterIP
+  ports:
+  - name: webui
+    protocol: TCP
+    port: 80
+    targetPort: 80

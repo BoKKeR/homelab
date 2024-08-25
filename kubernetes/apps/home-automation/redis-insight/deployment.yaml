@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redisinsight
+  labels:
+    app: redisinsight
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redisinsight
+  template:
+    metadata:
+      labels:
+        app: redisinsight
+    spec:
+      containers:
+      - name:  redisinsight
+        image: redislabs/redisinsight:latest
+        volumeMounts:
+        - name: data
+          mountPath: /data
+          subPath: redisinsight
+        ports:
+        - containerPort: 5540
+        livenessProbe:
+            httpGet:
+              path : /api/health/
+              port: 5540
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            failureThreshold: 1
+      volumes:
+      - name: data
+        persistentVolumeClaim:
+          claimName: unraid-pvc

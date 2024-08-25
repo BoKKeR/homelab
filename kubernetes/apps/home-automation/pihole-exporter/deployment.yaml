@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pihole-exporter
+  labels:
+    app: pihole-exporter
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pihole-exporter
+  template:
+    metadata:
+      labels:
+        app: pihole-exporter
+    spec:
+      containers:
+      - name: pihole-exporter
+        image: ekofr/pihole-exporter
+        env:
+          - name: PIHOLE_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: pihole-password
+                key: pihole-password
+        envFrom:
+        - configMapRef:
+            name: pihole-exporter
+        ports:
+          - containerPort: 9617

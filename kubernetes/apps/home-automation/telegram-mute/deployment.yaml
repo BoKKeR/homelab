@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: telegram-mute
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: telegram-mute
+  template:
+    metadata:
+      labels:
+        app: telegram-mute
+    spec:
+      containers:
+        - name: telegram-mute
+          image: ghcr.io/bokker/mute-telegram:master
+          volumeMounts:
+            - mountPath: /app/config
+              subPath: telegram-mute
+              name: unraid-storage
+      imagePullSecrets:
+        - name: regcred
+      volumes:
+        - name: unraid-storage
+          persistentVolumeClaim:
+            claimName: unraid-pvc

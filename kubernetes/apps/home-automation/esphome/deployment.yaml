@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: home-automation
+  name: esphome
+  labels:
+    app: esphome
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: esphome
+  template:
+    metadata:
+      labels:
+        app: esphome
+    spec:
+      hostNetwork: true
+      containers:
+      - name: esphome
+        image: ghcr.io/esphome/esphome
+        # git config --system --add safe.directory '*'
+        ports:
+          - containerPort: 6052
+        envFrom:
+        - configMapRef:
+            name: esphome
+        volumeMounts:
+        - mountPath: /config
+          subPath: esphome
+          name: unraid-storage
+        - mountPath: /cache
+          name: cache-volume
+      volumes:
+      - name: unraid-storage
+        persistentVolumeClaim:
+          claimName: unraid-pvc
+      - name: cache-volume
+        emptyDir:
+          sizeLimit: 5Gi

@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: prisma-studio-service
+  namespace: home-automation
+spec:
+  selector:
+    app: prisma-studio
+  type: ClusterIP
+  ports:
+  - name: webui
+    protocol: TCP
+    port: 5555
+    targetPort: 5555
