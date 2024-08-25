@@ -1,7 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: pihole-exporter
-data:
-  PIHOLE_HOSTNAME: "10.0.0.5"
-  PORT: "9617"

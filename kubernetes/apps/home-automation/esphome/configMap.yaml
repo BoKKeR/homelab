@@ -1,7 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: esphome
-  namespace: home-automation
-data:
-  TEST: test

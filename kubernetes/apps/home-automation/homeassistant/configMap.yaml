@@ -1,7 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: home-assistant
-  namespace: home-automation
-data:
-  TZ: Europe/Stockholm

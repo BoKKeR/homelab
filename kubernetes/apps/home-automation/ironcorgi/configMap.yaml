@@ -1,8 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: ironcorgi
-  namespace: home-automation
-data:
-  PORT: "10050"
-  REDIS_HOST: redis-master

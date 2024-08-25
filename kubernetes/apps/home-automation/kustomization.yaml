@@ -1,32 +1,8 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
-namespace: home-automation
+namespace: "home-automation"
 
 resources:
-  - unraid-pvc.yaml
-  - unraid-rust-pvc.yaml
   - namespace.yaml
-  - esphome
-  - mosquitto
-  - pihole
-  - appdaemon
-  - zigbee2mqtt
-  - homeassistant
-  - postgresql
-  - mealie
-  - telegram-mute
-  - ironcorgi
-  - pihole-exporter
-  - speedtest-tracker
-  - netdata
-  - influxdb
-  - redis-insight
-  - rsstt
-  - busybox
-  - bullmq-exporter
-  - blocket
-  - keyconfig
-  - espresense
-  - ear
-  - nodered
+  - secret.sops.yaml
