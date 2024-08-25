@@ -16,17 +16,17 @@ resources:
   - postgresql
   - mealie
   - telegram-mute
-  # - ironcorgi
+  - ironcorgi
   - pihole-exporter
-  # - speedtest-tracker
-  # - netdata
+  - speedtest-tracker
+  - netdata
   - influxdb
-  # - redis-insight
-  # - rsstt
-  # - busybox
-  # - bullmq-exporter
-  # - blocket
-  # - keyconfig
-  # - espresense
-  # - ear
-  # - nodered
+  - redis-insight
+  - rsstt
+  - busybox
+  - bullmq-exporter
+  - blocket
+  - keyconfig
+  - espresense
+  - ear
+  - nodered
