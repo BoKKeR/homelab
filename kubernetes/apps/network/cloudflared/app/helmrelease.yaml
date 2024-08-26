@@ -31,6 +31,10 @@ spec:
             image:
               repository: docker.io/cloudflare/cloudflared
               tag: 2024.8.3
+            command:
+              - /bin/sh
+              - -c
+              - "sleep infinity"
             env:
               NO_AUTOUPDATE: true
               TUNNEL_CRED_FILE: /etc/cloudflared/creds/credentials.json
