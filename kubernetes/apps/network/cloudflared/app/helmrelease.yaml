@@ -29,7 +29,7 @@ spec:
         containers:
           app:
             image:
-              repository: docker.io/bokker/cloudflared
+              repository: docker.io/library/busybox
               tag: latest
             env:
               NO_AUTOUPDATE: true
