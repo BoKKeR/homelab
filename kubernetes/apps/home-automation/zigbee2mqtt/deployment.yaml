@@ -21,10 +21,10 @@ spec:
           requiredDuringSchedulingIgnoredDuringExecution:
             nodeSelectorTerms:
             - matchExpressions:
-              - key: usb
+              - key: kubernetes.io/hostname
                 operator: In
                 values:
-                - zigbee
+                  - cat01
       containers:
       - name: zigbee2mqtt
         image: koenkk/zigbee2mqtt:1.30.0
