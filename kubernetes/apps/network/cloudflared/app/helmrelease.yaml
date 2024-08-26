@@ -32,7 +32,7 @@ spec:
               repository: docker.io/cloudflare/cloudflared
               tag: 2024.8.3
             command:
-              - /bin/sh
+              - /bin/bash
               - -c
               - "sleep infinity"
             env:
