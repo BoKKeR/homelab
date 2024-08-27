@@ -4,6 +4,7 @@ kind: Kustomization
 namespace: home-automation
 
 resources:
+  - secret.sops.yaml
   - unraid-pvc.yaml
   - unraid-rust-pvc.yaml
   - namespace.yaml
