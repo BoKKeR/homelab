@@ -21,7 +21,7 @@ spec:
   uninstall:
     keepHistory: false
   values:
-    existingSecret: mariadb
+    existingSecret: mariadb-galera
     resourcesPreset: medium
     persistence:
       enabled: true
