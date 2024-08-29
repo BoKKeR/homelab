@@ -6,3 +6,4 @@ resources:
   - ./prometheus-operator-crds/ks.yaml
   - ./mariadb/ks.yaml
   - ./redis/ks.yaml
+  - ./test
