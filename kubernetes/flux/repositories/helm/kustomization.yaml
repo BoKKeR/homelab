@@ -17,3 +17,4 @@ resources:
   - ./k8s-gateway.yaml
   - ./bitnami.yaml
   - ./netdata.yaml
+  - ./grafana.yaml
