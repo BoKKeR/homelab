@@ -4,7 +4,7 @@ kind: Kustomization
 resources:
   - ./namespace.yaml
   - ./prometheus-operator-crds/ks.yaml
-  # - ./mariadb/ks.yaml
-  - ./mariadb-galera/ks.yaml
+  - ./mariadb/ks.yaml
+  # - ./mariadb-galera/ks.yaml
   - ./redis/ks.yaml
   - ./test
