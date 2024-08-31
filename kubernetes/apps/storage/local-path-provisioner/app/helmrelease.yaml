@@ -22,7 +22,7 @@ spec:
       fsGroupPolicy: File # fsGroupChangePolicy
 
     storageClasses:
-      - name: local-hostpath
+      - name: local-path-provisioner
         defaultClass: false
         reclaimPolicy: Delete
         volumeBindingMode: WaitForFirstConsumer
