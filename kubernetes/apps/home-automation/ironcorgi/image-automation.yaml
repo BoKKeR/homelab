@@ -36,14 +36,14 @@ spec:
   git:
     checkout:
       ref:
-        branch: main
+        branch: master
     commit:
       author:
         email: fluxcdbot@users.noreply.github.com
         name: fluxcdbot
       messageTemplate: 'Automated image update by Flux'
     push:
-      branch: main
+      branch: master
   update:
     path: ./kubernetes/apps
     strategy: Setters
