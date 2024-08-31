@@ -1,0 +1,47 @@
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImageRepository
+metadata:
+  name: ironcorgi
+  namespace: home-automation
+spec:
+  secretRef:
+    name: regcred
+  image: ghcr.io/bokker/ironcorgi
+  interval: 1m
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImagePolicy
+metadata:
+  name: ironcorgi
+  namespace: flux-system
+spec:
+  imageRepositoryRef:
+    name: ironcorgi
+  policy:
+    semver:
+      range: 1.x.x
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImageUpdateAutomation
+metadata:
+  name: ironcorgi
+  namespace: flux-system
+spec:
+  interval: 1m
+  sourceRef:
+    kind: GitRepository
+    name: home-kubernetes
+  git:
+    checkout:
+      ref:
+        branch: main
+    commit:
+      author:
+        email: fluxcdbot@users.noreply.github.com
+        name: fluxcdbot
+      messageTemplate: 'Automated image update by Flux'
+    push:
+      branch: main
+  update:
+    path: ./kubernetes/apps
+    strategy: Setters
