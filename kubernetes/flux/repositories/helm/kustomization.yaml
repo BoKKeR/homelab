@@ -18,3 +18,4 @@ resources:
   - ./bitnami.yaml
   - ./netdata.yaml
   - ./grafana.yaml
+  - ./democratic-csi.yaml
