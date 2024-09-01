@@ -2,7 +2,7 @@ apiVersion: image.toolkit.fluxcd.io/v1beta2
 kind: ImageRepository
 metadata:
   name: ironcorgi
-  namespace: flux-system
+  namespace: home-automation
 spec:
   secretRef:
     name: regcred
@@ -13,11 +13,11 @@ apiVersion: image.toolkit.fluxcd.io/v1beta2
 kind: ImagePolicy
 metadata:
   name: ironcorgi
-  namespace: flux-system
+  namespace: home-automation
 spec:
   imageRepositoryRef:
     name: ironcorgi
-    namespace: flux-system  # Refer to the ImageRepository in flux-system
+    namespace: home-automation  # Refer to the ImageRepository in home-automation
   policy:
     semver:
       range: 1.x.x
@@ -26,7 +26,7 @@ apiVersion: image.toolkit.fluxcd.io/v1beta2
 kind: ImageUpdateAutomation
 metadata:
   name: ironcorgi
-  namespace: flux-system
+  namespace: home-automation
 spec:
   interval: 1m
   sourceRef:
