@@ -27,6 +27,24 @@ spec:
             - mountPath: "/data"
               subPath: nodered
               name: unraid-storage
+        - name: data-checker
+          image: busybox
+          command: ["/bin/sh", "-c"]
+          # Check if /data is available, if not exit to restart the pod
+          args:
+            - while true; do
+                if [ ! -d "/data" ]; then
+                  echo "/data is unavailable, exiting...";
+                  exit 1;
+                else
+                  echo "/data is available.";
+                fi;
+                sleep 10;
+              done;
+          volumeMounts:
+            - mountPath: "/data"
+              subPath: nodered
+              name: unraid-storage
       volumes:
         - name: unraid-storage
           persistentVolumeClaim:
