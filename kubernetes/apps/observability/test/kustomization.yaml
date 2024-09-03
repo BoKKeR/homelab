@@ -4,4 +4,4 @@ kind: Kustomization
 resources:
   - ./image-automation
   - deployment.yaml
-
+  - github-deploy-key.sops.yaml
