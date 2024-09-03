@@ -47,7 +47,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   namespace: home-automation
-  name: blocket-p12
+  name: blocket-kitchen-aid
   labels:
     app: blocket
 spec:
