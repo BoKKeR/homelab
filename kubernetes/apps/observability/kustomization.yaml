@@ -7,4 +7,4 @@ resources:
   - ./mariadb/ks.yaml
   # - ./mariadb-galera/ks.yaml
   - ./redis/ks.yaml
-  # - ./grafana/ks.yaml
+  - ./grafana/ks.yaml
