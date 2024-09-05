@@ -8,4 +8,3 @@ resources:
   # - ./mariadb-galera/ks.yaml
   - ./redis/ks.yaml
   # - ./grafana/ks.yaml
-  - ./test

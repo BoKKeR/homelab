@@ -7,3 +7,4 @@ resources:
   - ingress.yaml
   - service.yaml
   - configMap.yaml
+  - imageautomation.yaml
