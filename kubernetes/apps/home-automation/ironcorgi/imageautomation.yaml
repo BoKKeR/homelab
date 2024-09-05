@@ -55,16 +55,3 @@ rules:
   - apiGroups: ["source.toolkit.fluxcd.io"]
     resources: ["gitrepositories"]
     verbs: ["get", "list", "watch"]
----
-apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRoleBinding
-metadata:
-  name: flux-system-read-access-binding
-subjects:
-  - kind: ServiceAccount
-    name: default
-    namespace: home-automation
-roleRef:
-  kind: ClusterRole
-  name: flux-system-read-access
-  apiGroup: rbac.authorization.k8s.io
