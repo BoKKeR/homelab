@@ -40,8 +40,6 @@ spec:
       messageTemplate: 'Automated image update for to'
     push:
       branch: master
-      secretRef:
-        name: github-deploy-key
   update:
     path: ./kubernetes/apps
     strategy: Setters
