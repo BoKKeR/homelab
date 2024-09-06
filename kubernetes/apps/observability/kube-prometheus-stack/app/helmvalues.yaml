@@ -8,6 +8,10 @@ data:
     crds:
       enabled: true
     cleanPrometheusOperatorObjectNames: true
+    alertmanager:
+      alertmanagerSpec:
+        secrets:
+          - alertmanager-discord-webhook
       enabled: true
       config:
         global:
@@ -143,7 +147,7 @@ data:
         storageSpec:
           volumeClaimTemplate:
             spec:
-              storageClassName: local-path-provisioner
+              storageClassName: nfs-subdir-external-provisioner
               resources:
                 requests:
                   storage: 10Gi
