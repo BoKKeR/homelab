@@ -147,7 +147,7 @@ data:
         storageSpec:
           volumeClaimTemplate:
             spec:
-              storageClassName: nfs-subdir-external-provisioner
+              storageClassName: local-path-provisioner
               resources:
                 requests:
                   storage: 10Gi
