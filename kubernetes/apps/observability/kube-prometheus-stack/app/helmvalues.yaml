@@ -8,10 +8,6 @@ data:
     crds:
       enabled: true
     cleanPrometheusOperatorObjectNames: true
-    alertmanager:
-      alertmanagerSpec:
-        secrets:
-          - alertmanager-discord-webhook
       enabled: true
       config:
         global:
