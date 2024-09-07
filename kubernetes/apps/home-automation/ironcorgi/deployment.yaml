@@ -29,7 +29,7 @@ spec:
         - mountPath: /data
           subPath: ironcorgi-symlink
           name: data
-        image: ghcr.io/bokker/ironcorgi:1.0.96 # {"$imagepolicy": "home-automation:ironcorgi"}
+        image: ghcr.io/bokker/ironcorgi:1.0.97 # {"$imagepolicy": "home-automation:ironcorgi"}
         env:
         - name: GOOGLE_PLACES_API_KEY
           valueFrom:
