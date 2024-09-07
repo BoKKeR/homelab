@@ -1,0 +1,34 @@
+---
+apiVersion: notification.toolkit.fluxcd.io/v1beta2
+kind: Provider
+metadata:
+  name: telegram
+  namespace: flux-system
+spec:
+  type: telegram
+  address: https://api.telegram.org
+  channel: "-1001116967488"
+  secretRef:
+    name: fluxcdbot
+---
+apiVersion: notification.toolkit.fluxcd.io/v1beta2
+kind: Alert
+metadata:
+  name: telegram
+  namespace: flux-system
+spec:
+  summary: "Flux Flagger"
+  providerRef:
+    name: telegram
+  eventSeverity: error
+  eventSources:
+    - kind: HelmRepository
+      name: '*'
+    - kind: HelmRelease
+      name: '*'
+    - kind: GitRepository
+      name: '*'
+    - kind: Kustomization
+      name: '*'
+  exclusionList:
+    - "^Dependencies.*"
