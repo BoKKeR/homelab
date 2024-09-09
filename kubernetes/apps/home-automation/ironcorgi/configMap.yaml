@@ -6,3 +6,5 @@ metadata:
 data:
   PORT: "10050"
   REDIS_HOST: redis-master
+  REDIS_PORT: "6379"
+  BASE_FOLDER_PATH: ./data
