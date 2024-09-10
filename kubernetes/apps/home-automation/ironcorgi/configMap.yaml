@@ -5,6 +5,7 @@ metadata:
   namespace: home-automation
 data:
   PORT: "10050"
+  REDIS_USER: default
   REDIS_HOST: redis-master
   REDIS_PORT: "6379"
   BASE_FOLDER_PATH: ./data
