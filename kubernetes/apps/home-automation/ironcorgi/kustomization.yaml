@@ -7,9 +7,10 @@ resources:
   # - deployment.yaml
   # - imageautomation.yaml
   - database-connection.sops.yaml
+  - deployment-backend.yaml
   - google-places-api-key.sops.yaml
   - configMap.yaml
   - service.yaml
   - ingress.yaml
   - job.yaml
-  - imageautomation.yaml
+  - imageautomation-backend.yaml

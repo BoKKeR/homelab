@@ -1,0 +1,60 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: home-automation
+  name: ironcorgi-backend
+  labels:
+    app: ironcorgi-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ironcorgi-backend
+  template:
+    metadata:
+      labels:
+        app: ironcorgi-backend
+    spec:
+      containers:
+      - name: ironcorgi-backend
+        readinessProbe:
+          httpGet:
+            path: /healthz
+            port: 10050
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 10050
+        volumeMounts:
+        - mountPath: /data
+          subPath: ironcorgi-symlink
+          name: data
+        image: ghcr.io/bokker/ironcorgi-backend:1.0.3 # {"$imagepolicy": "home-automation:ironcorgi-backend"}
+        env:
+        - name: GOOGLE_PLACES_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: google-places-api-key
+              key: google-places-api-key
+        - name: DATABASE_HOST
+          valueFrom:
+            secretKeyRef:
+              name: database-connection-ironcorgi
+              key: database-connection-ironcorgi
+        - name: REDIS_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: redis
+              key: redis-password
+        envFrom:
+        - configMapRef:
+            name: ironcorgi
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 10050
+      imagePullSecrets:
+      - name: regcred
+      volumes:
+      - name: data
+        persistentVolumeClaim:
+          claimName: unraid-rust-pvc
