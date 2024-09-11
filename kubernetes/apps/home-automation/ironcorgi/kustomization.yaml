@@ -4,13 +4,13 @@ kind: Kustomization
 namespace: home-automation
 
 resources:
-  # - deployment.yaml
-  # - imageautomation.yaml
+  - deployment.yaml
+  - imageautomation.yaml
   - database-connection.sops.yaml
-  - deployment-backend.yaml
+  # - deployment-backend.yaml
   - google-places-api-key.sops.yaml
   - configMap.yaml
   - service.yaml
   - ingress.yaml
   - job.yaml
-  - imageautomation-backend.yaml
+  # - imageautomation-backend.yaml
