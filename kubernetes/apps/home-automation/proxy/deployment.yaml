@@ -15,12 +15,14 @@ spec:
       - name: proxy
         image: ghcr.io/kitabisa/mubeng:latest
         args:
-          - "-a"
+          - "-address"
           - "localhost:8089"
-          - "-f"
+          - "-file"
           - "/app/proxy.txt"
-          - "-r"
+          - "-rotate"
           - "1"
+          - "-auth"
+          - "$(PROXY_USER):$(PROXY_PASSWORD)"
         env:
           - name: PROXY_USER
             valueFrom:
