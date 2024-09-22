@@ -21,6 +21,7 @@ spec:
           - "/app/proxy.txt"
           - "--rotate"
           - "1"
+          - "--sync"
         env:
           - name: PROXY_USER
             valueFrom:
