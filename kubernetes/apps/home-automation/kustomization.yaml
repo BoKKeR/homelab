@@ -30,3 +30,4 @@ resources:
   - keyconfig
   - espresense
   - nodered
+  - proxy

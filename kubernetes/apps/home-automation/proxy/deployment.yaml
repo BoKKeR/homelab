@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: proxy
+spec:
+  selector:
+    matchLabels:
+      app: proxy
+  template:
+    metadata:
+      labels:
+        app: proxy
+    spec:
+      containers:
+      - name: proxy
+        image: ghcr.io/kitabisa/mubeng:latest
+        args:
+          - "-a"
+          - "localhost:8089"
+          - "-f"
+          - "/app/proxy.txt"
+          - "-r"
+          - "1"
+        env:
+          - name: PROXY_USER
+            valueFrom:
+              secretKeyRef:
+                name: proxy-user
+                key: proxy-user
+          - name: PROXY_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: proxy-password
+                key: proxy-password
+        envFrom:
+          - configMapRef:
+              name: proxy
+        volumeMounts:
+          - name: proxy-ips
+            mountPath: /app/proxy.txt
+            subPath: proxy.txt
