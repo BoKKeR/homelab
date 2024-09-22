@@ -3,9 +3,10 @@ kind: Kustomization
 namespace: home-automation
 resources:
   - deployment.yaml
-  - ingress.yaml
   - service.yaml
   - configMap.yaml
+  - proxy-user.secret.sops.yaml
+  - proxy-password.secret.sops.yaml
 
 configMapGenerator:
   - name: proxy-ips
