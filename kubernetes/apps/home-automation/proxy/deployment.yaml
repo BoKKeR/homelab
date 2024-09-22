@@ -13,15 +13,14 @@ spec:
     spec:
       containers:
       - name: proxy
-        image: ubuntu
-        command: [ "cat", "/app/proxy.txt" ]
-        # args:
-        #   - "-a"
-        #   - "localhost:8089"
-        #   - "-f"
-        #   - "/app/proxy.txt"
-        #   - "-r"
-        #   - "1"
+        image: ghcr.io/kitabisa/mubeng:latest
+        args:
+          - "-a"
+          - "localhost:8089"
+          - "-f"
+          - "/app/proxy.txt"
+          - "-r"
+          - "1"
         env:
           - name: PROXY_USER
             valueFrom:
