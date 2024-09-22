@@ -14,6 +14,7 @@ spec:
       containers:
       - name: proxy
         image: ghcr.io/kitabisa/mubeng:latest
+        command: [ "tail", "-f", "/dev/null" ]
         args:
           - "-a"
           - "localhost:8089"
