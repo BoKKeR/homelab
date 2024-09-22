@@ -8,5 +8,3 @@ resources:
   - proxy-user.secret.sops.yaml
   - proxy-password.secret.sops.yaml
 
-configMapGenerator:
-  - name: proxy-ips

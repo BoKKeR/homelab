@@ -36,6 +36,10 @@ spec:
           - configMapRef:
               name: proxy
         volumeMounts:
-          - name: proxy-ips
+          - name: proxy-ip-file
             mountPath: /app/proxy.txt
             subPath: proxy.txt
+      volumes:
+        - name: proxy-ip-file
+          configMap:
+            name: proxy-ips
