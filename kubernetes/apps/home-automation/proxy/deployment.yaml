@@ -36,6 +36,8 @@ spec:
           - name: proxy-ip-file
             mountPath: /app/proxy.txt
             subPath: proxy.txt
+        ports:
+        - containerPort: 8089
       volumes:
         - name: proxy-ip-file
           configMap:
