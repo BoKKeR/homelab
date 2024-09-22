@@ -14,7 +14,7 @@ spec:
       containers:
       - name: proxy
         image: ubuntu
-        command: [ "ls", "/app/proxy.txt" ]
+        command: [ "cat", "/app/proxy.txt" ]
         # args:
         #   - "-a"
         #   - "localhost:8089"
