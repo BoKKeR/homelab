@@ -32,9 +32,6 @@ spec:
               secretKeyRef:
                 name: proxy-password
                 key: proxy-password
-        envFrom:
-          - configMapRef:
-              name: proxy
         volumeMounts:
           - name: proxy-ip-file
             mountPath: /app/proxy.txt
