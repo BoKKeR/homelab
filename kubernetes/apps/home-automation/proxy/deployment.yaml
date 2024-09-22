@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: proxy
-        image: ghcr.io/kitabisa/mubeng:latest
+        image: ubuntu
         command: [ "ls", "/app/proxy.txt" ]
         # args:
         #   - "-a"
