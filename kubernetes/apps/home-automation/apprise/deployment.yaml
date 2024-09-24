@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: apprise-deployment
+  labels:
+    app: apprise
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: apprise
+  template:
+    metadata:
+      labels:
+        app: apprise
+    spec:
+      containers:
+      - name: apprise
+        image: caronc/apprise:latest
+        ports:
+        - containerPort: 8000
+        volumeMounts:
+          - mountPath: "/config"
+            subPath: apprise
+            name: unraid-storage
+      volumes:
+        - name: unraid-storage
+          persistentVolumeClaim:
+            claimName: unraid-pvc
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: apprise-service
+spec:
+  selector:
+    app: apprise
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8000
+  type: ClusterIP

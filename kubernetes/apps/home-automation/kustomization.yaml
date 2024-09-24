@@ -31,3 +31,4 @@ resources:
   - espresense
   - nodered
   - proxy
+  - apprise
