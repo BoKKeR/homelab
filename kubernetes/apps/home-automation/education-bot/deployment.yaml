@@ -42,3 +42,48 @@ spec:
         imagePullPolicy: Always
       imagePullSecrets:
         - name: regcred
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: home-automation
+  name: education-master
+  labels:
+    app: education
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: education
+  template:
+    metadata:
+      labels:
+        app: education
+    spec:
+      containers:
+      - name: education
+        readinessProbe:
+          httpGet:
+            path: /healthz
+            port: 80
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 80
+        image: ghcr.io/bokker/education-bot:master
+        env:
+          - name: TOKEN
+            valueFrom:
+              secretKeyRef:
+                name: bastu-bot-token
+                key: bastu-bot-token
+          - name: CHAT_ID
+            valueFrom:
+              secretKeyRef:
+                name: chat-id
+                key: chat-id
+          - name: SCHOOL_URL
+            value: "https://www.studentum.se/utbildning/avancerad-niva-magister-och-masterexamen-data-it-stockholm/a66-c91-d82783"
+        imagePullPolicy: Always
+      imagePullSecrets:
+        - name: regcred
