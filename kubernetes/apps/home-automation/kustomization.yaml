@@ -32,3 +32,4 @@ resources:
   - nodered
   - proxy
   - apprise
+  - education-bot
