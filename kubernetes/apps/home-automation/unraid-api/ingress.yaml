@@ -6,7 +6,7 @@ metadata:
 spec:
   ingressClassName: internal
   rules:
-  - host: unraid.tnorbert.com
+  - host: uapi.tnorbert.com
     http:
       paths:
       - path: /
