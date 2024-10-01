@@ -4570,7 +4570,7 @@ spec:
             resourceFieldRef:
               containerName: manager
               resource: limits.memory
-        image: ghcr.io/fluxcd/source-controller:v1.4.1
+        image: ghcr.io/fluxcd/source-controller:v1.3.0
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:
@@ -6441,7 +6441,7 @@ spec:
             resourceFieldRef:
               containerName: manager
               resource: limits.memory
-        image: ghcr.io/fluxcd/kustomize-controller:v1.4.0
+        image: ghcr.io/fluxcd/kustomize-controller:v1.3.0
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:
@@ -10301,7 +10301,7 @@ spec:
             resourceFieldRef:
               containerName: manager
               resource: limits.memory
-        image: ghcr.io/fluxcd/helm-controller:v1.1.0
+        image: ghcr.io/fluxcd/helm-controller:v1.0.1
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:
@@ -12331,7 +12331,7 @@ spec:
             resourceFieldRef:
               containerName: manager
               resource: limits.memory
-        image: ghcr.io/fluxcd/notification-controller:v1.4.0
+        image: ghcr.io/fluxcd/notification-controller:v1.3.0
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:
@@ -13407,7 +13407,7 @@ spec:
             resourceFieldRef:
               containerName: manager
               resource: limits.memory
-        image: ghcr.io/fluxcd/image-reflector-controller:v0.33.0
+        image: ghcr.io/fluxcd/image-reflector-controller:v0.32.0
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:
@@ -14258,7 +14258,7 @@ spec:
             resourceFieldRef:
               containerName: manager
               resource: limits.memory
-        image: ghcr.io/fluxcd/image-automation-controller:v0.39.0
+        image: ghcr.io/fluxcd/image-automation-controller:v0.38.0
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:
