@@ -10,7 +10,7 @@ spec:
       chart: harbor
       sourceRef:
         kind: HelmRepository
-        name: harbor
+        name: bitnami
         namespace: flux-system
   install:
     remediation:
