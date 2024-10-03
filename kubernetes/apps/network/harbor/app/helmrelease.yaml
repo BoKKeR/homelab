@@ -27,6 +27,9 @@ spec:
         hostname: harbor.tnorbert.com
     persistence:
       persistentVolumeClaim:
-        existingClaim: unraid-pvc
-        subPath: harbor
-
+        registry:
+          existingClaim: unraid-pvc
+          subPath: harbor-registry
+        jobservice:
+          existingClaim: unraid-pvc
+          subPath: harbor-jobservice
