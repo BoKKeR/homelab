@@ -19,3 +19,4 @@ resources:
   - ./netdata.yaml
   - ./grafana.yaml
   - ./democratic-csi.yaml
+  - ./harbor.yaml
