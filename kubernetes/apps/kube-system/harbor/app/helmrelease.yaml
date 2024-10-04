@@ -26,9 +26,9 @@ spec:
   uninstall:
     keepHistory: false
   values:
-    ingress:
-      core:
-        hostname: harbor.tnorbert.com
+    # ingress:
+    #   core:
+    #     hostname: harbor.tnorbert.com
     persistence:
       enabled: true
       persistentVolumeClaim:
