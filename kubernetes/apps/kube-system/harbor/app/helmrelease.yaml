@@ -30,6 +30,8 @@ spec:
         registry:
           existingClaim: unraid-pvc
           subPath: harbor-registry
+          storageClass: local-unraid
         jobservice:
           existingClaim: unraid-pvc
           subPath: harbor-jobservice
+          storageClass: local-unraid
