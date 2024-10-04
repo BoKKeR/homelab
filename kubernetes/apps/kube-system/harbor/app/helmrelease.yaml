@@ -30,6 +30,7 @@ spec:
       core:
         hostname: harbor.tnorbert.com
     persistence:
+      enabled: true
       persistentVolumeClaim:
         registry:
           existingClaim: unraid-pvc
