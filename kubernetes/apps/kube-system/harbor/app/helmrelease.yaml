@@ -14,11 +14,15 @@ spec:
         namespace: flux-system
   install:
     remediation:
-      retries: 3
+      retries: 10
+      retryInterval: 1m        # Interval between retries
+      strategy: Retry          # Retry on failure
   upgrade:
     cleanupOnFail: true
     remediation:
-      retries: 3
+      retries: 10
+      retryInterval: 1m        # Interval between retries
+      strategy: rollback          # Retry on failure
   uninstall:
     keepHistory: false
   values:
