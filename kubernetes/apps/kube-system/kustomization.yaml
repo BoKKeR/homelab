@@ -9,5 +9,5 @@ resources:
   - ./reloader/ks.yaml
   - ./kubelet-csr-approver/ks.yaml
   - ./spegel/ks.yaml
-  - ./harbor/ks.yaml
+
   - ./unraid-pvc.yaml
