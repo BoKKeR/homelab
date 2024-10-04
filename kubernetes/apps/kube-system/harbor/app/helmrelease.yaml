@@ -36,10 +36,6 @@ spec:
           existingClaim: unraid-pvc
           subPath: harbor-registry
           storageClass: local-unraid
-        jobservice:
-          existingClaim: unraid-pvc
-          subPath: harbor-jobservice
-          storageClass: local-unraid
         jobService:
           jobLog:
             storageClass: local-path-provision
