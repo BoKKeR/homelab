@@ -33,4 +33,4 @@ resources:
   - proxy
   - apprise
   - education-bot
-  - ./harbor/ks.yaml
+
