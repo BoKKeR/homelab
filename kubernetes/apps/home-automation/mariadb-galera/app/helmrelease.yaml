@@ -2,6 +2,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
   name: mariadb-galera
+  namespace: home-automation
 spec:
   interval: 10m
   chart:

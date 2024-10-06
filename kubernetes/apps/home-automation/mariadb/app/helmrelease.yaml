@@ -2,12 +2,13 @@
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: redis
+  name: mariadb
+  namespace: home-automation
 spec:
-  interval: 30m
+  interval: 10m
   chart:
     spec:
-      chart: redis
+      chart: mariadb
       sourceRef:
         kind: HelmRepository
         name: bitnami
@@ -23,19 +24,13 @@ spec:
     keepHistory: false
   values:
     auth:
-      existingSecret: redis
-      existingSecretPasswordKey: redis-password
-    master:
+      existingSecret: mariadb
+      database: ironcorgi
+    primary:
       resourcesPreset: small
       persistence:
         enabled: true
         existingClaim: unraid-pvc
-        subPath: redis-master
-    replica:
-      resourcesPreset: small
-      persistence:
-        enabled: false
+        subPath: mariadb
     metrics:
-      enable: true
-      #   existingClaim: unraid-pvc
-      #   subPath: redis-replica
+      enabled: true

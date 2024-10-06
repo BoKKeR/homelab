@@ -2,6 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: redis-master-metallb
+  namespace: home-automation
   annotations:
     metallb.universe.tf/allow-shared-ip: local
 spec:
