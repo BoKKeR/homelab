@@ -22,4 +22,4 @@ spec:
   decryption:
     provider: sops
     secretRef:
-      name: sops-key
+      name: sops-age
