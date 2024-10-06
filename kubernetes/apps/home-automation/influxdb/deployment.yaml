@@ -7,7 +7,7 @@ metadata:
   labels:
     app: influxdb
   name: influxdb
-  namespace: observability
+  namespace: home-automation
 spec:
   progressDeadlineSeconds: 600
   replicas: 1
