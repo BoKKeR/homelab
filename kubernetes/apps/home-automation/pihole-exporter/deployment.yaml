@@ -1,6 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  namespace: home-automation
   name: pihole-exporter
   labels:
     app: pihole-exporter
