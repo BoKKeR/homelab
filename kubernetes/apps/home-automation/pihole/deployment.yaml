@@ -1,9 +1,9 @@
 ---
 apiVersion: v1
 kind: ServiceAccount
-namespace: home-automation
 metadata:
   name: pihole-external-dns
+  namespace: home-automation
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
