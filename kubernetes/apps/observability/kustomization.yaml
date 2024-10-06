@@ -9,4 +9,3 @@ resources:
   - ./redis/ks.yaml
   - ./grafana/ks.yaml
   - ./kube-prometheus-stack/ks.yaml
-  - ./mediawiki/ks.yaml

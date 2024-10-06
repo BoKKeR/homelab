@@ -1,0 +1,2737 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  labels:
+    name: home-automation
+  name: home-automation
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: pihole-external-dns
+  namespace: home-automation
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: flux-system-read-access
+rules:
+- apiGroups:
+  - source.toolkit.fluxcd.io
+  resources:
+  - gitrepositories
+  verbs:
+  - get
+  - list
+  - watch
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: pihole-external-dns
+rules:
+- apiGroups:
+  - ""
+  resources:
+  - services
+  - endpoints
+  - pods
+  verbs:
+  - get
+  - watch
+  - list
+- apiGroups:
+  - extensions
+  - networking.k8s.io
+  resources:
+  - ingresses
+  verbs:
+  - get
+  - watch
+  - list
+- apiGroups:
+  - ""
+  resources:
+  - nodes
+  verbs:
+  - list
+  - watch
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: pihole-external-dns-viewer
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: pihole-external-dns
+subjects:
+- kind: ServiceAccount
+  name: pihole-external-dns
+  namespace: home-automation
+---
+apiVersion: v1
+data:
+  HA_URL: http://home-assistant:8123
+kind: ConfigMap
+metadata:
+  name: appdaemon
+  namespace: home-automation
+---
+apiVersion: v1
+data:
+  TEST: test
+kind: ConfigMap
+metadata:
+  name: bullmq-exporter
+  namespace: home-automation
+---
+apiVersion: v1
+data:
+  TEST: test
+kind: ConfigMap
+metadata:
+  name: esphome
+  namespace: home-automation
+---
+apiVersion: v1
+data:
+  TZ: Europe/Stockholm
+kind: ConfigMap
+metadata:
+  name: home-assistant
+  namespace: home-automation
+---
+apiVersion: v1
+data:
+  BASE_FOLDER_PATH: ./data
+  PORT: "10050"
+  REDIS_HOST: redis-master
+  REDIS_PORT: "6379"
+  REDIS_USER: default
+kind: ConfigMap
+metadata:
+  name: ironcorgi
+  namespace: home-automation
+---
+apiVersion: v1
+data:
+  PORT: "10060"
+kind: ConfigMap
+metadata:
+  name: keyconfig
+  namespace: home-automation
+---
+apiVersion: v1
+data:
+  ALLOW_SIGNUP: "false"
+  BASE_URL: https://mealie.tnorbert.com
+  DB_ENGINE: postgres
+  MAX_WORKERS: "1"
+  PGID: "1000"
+  POSTGRES_DB: mealie
+  POSTGRES_PORT: "5432"
+  POSTGRES_SERVER: 10.0.0.168
+  POSTGRES_USER: postgres
+  PUID: "1000"
+  TZ: Europe/Stockholm
+  WEB_CONCURRENCY: "1"
+kind: ConfigMap
+metadata:
+  name: mealie
+  namespace: home-automation
+---
+apiVersion: v1
+data:
+  RUN_INSECURE_MQTT_SERVER: "0"
+kind: ConfigMap
+metadata:
+  name: mosquitto
+  namespace: home-automation
+---
+apiVersion: v1
+data:
+  PIHOLE_HOSTNAME: 10.0.0.5
+  PORT: "9617"
+kind: ConfigMap
+metadata:
+  name: pihole-exporter
+  namespace: home-automation
+---
+apiVersion: v1
+data:
+  ADMIN_CHATID: "-1001116967488"
+  DEBUG: "true"
+  DELAY: "300"
+  LOKI_APP: rsstt-dev-portainer
+  REDIS_HOST: redis-master
+  REDIS_MUTEX: cf3XGKnTs1r2fv6f
+  REDIS_PORT: "6379"
+  REDIS_USER: default
+kind: ConfigMap
+metadata:
+  name: rsstt
+  namespace: home-automation
+---
+apiVersion: v1
+data:
+  TZ: Europe/Stockholm
+kind: ConfigMap
+metadata:
+  name: zigbee2mqtt
+  namespace: home-automation
+---
+apiVersion: v1
+data:
+  appdaemon-ha-token: ENC[AES256_GCM,data:Y4mhi1tI0UyXMt4FZbUPNDnjz1wV3hkyBoT2ZV2GxlofZEYy7wdI5BYdgwy2m63YfAODMamPKLXapY7bfmBjrsurY+DOd7UBJJD3frcjhHza9RRM4PgWtyd2c0uLkRNl0gRSZvrCvBE9xZtezO8lQEaSEPqID0b1Oc+LzT/eyQ++4vnAqArcDho1ZeAixpr6jJWz+nrVXPb/uRSY6M7Yl5lAHF5+nZc4inhjQNfomTPsavdGiBr/jVzhBeiXRqLGWYNuvT8r9ov88IM3eeS9Pv3FM/k9h1M/WETsJ9Eulaq0GPmfPNHeWj37rvjDoMTfSjr1ng==,iv:JtuJ8v2hTLs+Ls2QHPHZGk8galDfXpo6JtiAMxO4GIM=,tag:WE6fKm46R+PVl5SJr0ofQg==,type:str]
+kind: Secret
+metadata:
+  name: appdaemon-ha-token
+  namespace: home-automation
+sops:
+  age:
+  - enc: |
+      -----BEGIN AGE ENCRYPTED FILE-----
+      YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBGL01tSkdPMDI2Qlp4bXBV
+      V3gzdTlZOWhGbkNJTnNXeXNBQ1ZNTCtGbUdzCnJsZnBucTZqd3lnRkpTdklXN0xy
+      ZU5XM3l1cWJrQy85ejhISnd4U2dXRHMKLS0tIEdaa0d5YllSYUZ5U3hyVWcxbjhG
+      M3hpWW1Mekx1bXRTNG8zRWQ5eGx6K1EKw7/Jrev6YEQ1MhutmeBvcKUFdAtO3UDj
+      xCD7hu5PaliBRHdcyuhMt5Daoc9LME1hIIR2ZaGjUKYiyfWg245bFQ==
+      -----END AGE ENCRYPTED FILE-----
+    recipient: age1gz9latge3y94hecqmjy3z9swp08c59pxy683uttfaqss0famtfzsr46nq9
+  azure_kv: []
+  encrypted_regex: ^(data|stringData)$
+  gcp_kms: []
+  hc_vault: []
+  kms: []
+  lastmodified: "2023-10-30T16:17:13Z"
+  mac: ENC[AES256_GCM,data:rl3qe1g3NOt/me9rfW6cKkjyjDRszg1pI9ii/teOGpg9GfBFvHmyhdVocKZPvmkYulMg2cUcV7Kq//w2uAtxGeVWGYLtY8f41OOd88dGNocC7CsI+jbIEjWhbv/VkbgBERlxzv1+z03cU4N5SgjbD0sR8WpPy5fa+pxzx4AStLc=,iv:RdxfrZQh0xBHxVTt/9iQvhcz4uC811dsdtJ+ciw0kAk=,tag:ke/k/QV3bVldg2Pha8+VbQ==,type:str]
+  pgp: []
+  version: 3.8.0
+---
+apiVersion: v1
+data:
+  bastu-bot-token: ENC[AES256_GCM,data:Hl/lz0yMjABZQpD2aAdReHsOvxAzKYaOYX1GIS6VLUQhKc+Eso3OxxvqC3TtWprBylmJFO7gh0cRwQbWiQLPOA==,iv:kIMlfKpfldL3zm1TeQZBVSoWjpamRXZwPZewmP/Eq5s=,tag:fzVJdaD+uS0ASlpt40qhFw==,type:str]
+kind: Secret
+metadata:
+  name: bastu-bot-token
+  namespace: home-automation
+sops:
+  age:
+  - enc: |
+      -----BEGIN AGE ENCRYPTED FILE-----
+      YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBUQnpTdENqL3lJRlRzSkNU
+      R09jSzdET21FVlpYM0NjeXFUZVEyODViOGg0CnNTdnBJSWtTQW1LUlhFUDJocld5
+      cDEyd3p6djBJZTJWOW9SSDF4dkoxWlUKLS0tIE5TeTJPa09IWHAxTzRqNnA0N2Yv
+      M05ROENIeHhGQkxSeW5VaTFHRFhqSm8Kud5+KlBLNBkzMuhKYjmlLMqd118Jkp2B
+      cICM2+162xnbgCF63fXYEvrrU4poav7UCQqq50xEaXxXbASOg+vUkA==
+      -----END AGE ENCRYPTED FILE-----
+    recipient: age1gz9latge3y94hecqmjy3z9swp08c59pxy683uttfaqss0famtfzsr46nq9
+  azure_kv: []
+  encrypted_regex: ^(data|stringData)$
+  gcp_kms: []
+  hc_vault: []
+  kms: []
+  lastmodified: "2024-03-12T17:16:53Z"
+  mac: ENC[AES256_GCM,data:x3CaAYt2DWnh1QOefXV+mX5FSlhv2w48UpfqM7XBBYmt+sP9EJprwpT5oF9crd62cGu9/ctfxNtIalFD/dhYbNkdn2gYPkt+Qt5S3xPbulS7hmrdrthy4qZaPQSFi8u9nTGd+57qd/+T4rUOY+3hGXmK9kO/JXMoZ2fXTzESMCQ=,iv:fyhe4Gmyt+gWSZAjBZLNReM4oi+HylU46h0ecuZsWpQ=,tag:Du2M2Ic6vDnIIjb9uWl2gw==,type:str]
+  pgp: []
+  version: 3.8.1
+type: Opaque
+---
+apiVersion: v1
+data:
+  chat-id: ENC[AES256_GCM,data:2MDVDXlx1/jAjX98Y0H+RwMgL6Y=,iv:TJiRbnU9ahFdsuXoSrOCovDVceFwF3Zo4x/i8Tk5xLY=,tag:DpGohu0iJXZPiTOD9/lAdg==,type:str]
+kind: Secret
+metadata:
+  name: chat-id
+  namespace: home-automation
+sops:
+  age:
+  - enc: |
+      -----BEGIN AGE ENCRYPTED FILE-----
+      YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSB2eHhKWGdBdnh3UzJZbWJL
+      c2lsdkVpbVFYMnFha1lsaHFKbUFSTU8xd0JjCkN3V0k2THFIdXovTXhaZExMeHJE
+      d0kxOEFtWEt2SXJyTTdrd0JoLzdNR3MKLS0tIForSmJaeDkvdllNTWxJMklIdXlX
+      MHFBVWlGblhLaCtzaHR3b2RLUmliM1UKPDjr72ekCeNm1Lbca97OiJ2dSshlALdT
+      oDz3StWTuNZredJ1K8+gOMIsPVQS2iq+INH3v++Vp4T+1Dkl546uVA==
+      -----END AGE ENCRYPTED FILE-----
+    recipient: age1gz9latge3y94hecqmjy3z9swp08c59pxy683uttfaqss0famtfzsr46nq9
+  azure_kv: []
+  encrypted_regex: ^(data|stringData)$
+  gcp_kms: []
+  hc_vault: []
+  kms: []
+  lastmodified: "2024-03-12T17:17:12Z"
+  mac: ENC[AES256_GCM,data:a/WFM5kxmWBGUhXJ5k0C0Om938W2NCsSBEwC7iH67M0qRqT/vcdn3HaVAUUT1QtLGye8cBvQIhfebs6fy+IgNNtkEXs7IT11tfThqBxntdowPw4V0Lc7t3qX6GhwWfwrxnsU4d1cFLdSm0j1ISa8UcC+cp6JtxZpqfrLwjg6Dm8=,iv:yaV27AasD8ibFoVejDcdlBma9DpFMmTSUD5RTEPmu5Q=,tag:lwncqaqY+Kcf4mduf3Zs8A==,type:str]
+  pgp: []
+  version: 3.8.1
+type: Opaque
+---
+apiVersion: v1
+data:
+  database-connection-ironcorgi: ENC[AES256_GCM,data:Xjw4fJiWEcX82JjscyU0sR7MwLBsJQ4zmpVaswYVQBswkARmV/goiZyi+WkXyxxG8zZoP0o0mnV7qzFug6U+Uw==,iv:OY0VqWqo6yMTB8AUiWXq5x3rwQGyTi/rYrTxjMr9FEE=,tag:NMjYPRnr2cookMPaBGRtSg==,type:str]
+kind: Secret
+metadata:
+  name: database-connection-ironcorgi
+  namespace: home-automation
+sops:
+  age:
+  - enc: |
+      -----BEGIN AGE ENCRYPTED FILE-----
+      YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSB4ZmdHdVhMM1VxOXRzK0lS
+      TnNoSzI2NEk5bzhENDlGbTM1bXkxa1p3R0M4Ckg1UHpEUGp1ZEoyaFcyQWc2U1FU
+      RGczSlRsRklQSm5vRGp2SmJEZ3BiZzgKLS0tIFJFdC93UElzY25HWXFBbXJBMzZj
+      QlhYaHlKWHNNOHl4ZFVXbHc2WlEwS3cKCWKKPsU4F7z8RtLvUla7qpT1rGgfw9xx
+      xHlQlR6kNznytDxoaaozpHQCHibSaYXi7EO67VSFZcwB/5h+un4+qg==
+      -----END AGE ENCRYPTED FILE-----
+    recipient: age1gz9latge3y94hecqmjy3z9swp08c59pxy683uttfaqss0famtfzsr46nq9
+  azure_kv: []
+  encrypted_regex: ^(data|stringData)$
+  gcp_kms: []
+  hc_vault: []
+  kms: []
+  lastmodified: "2024-05-12T19:37:22Z"
+  mac: ENC[AES256_GCM,data:m1a2VY1S02uX5ccx3AdmWQrPqFDamVoftyxY4ed/v8ZlunZIwJac/+pOVIcMpWCgwR1e+IlHVWqxwmtx8HQ54vV24JeEup8/qPE91f3Beaw03ljErPd78kFIpJ2pL3MDWnKBPWR1BpTkWJaLZQ3U52JSgN4k/yg+0jy9utZFeQw=,iv:rIIr1+5gFjEcL8eS+t+jhUGlFjDWUzggB1ob4XdeNjA=,tag:BsHXpGu8cXCu2ogODPk78w==,type:str]
+  pgp: []
+  version: 3.8.1
+type: Opaque
+---
+apiVersion: v1
+data:
+  exporter-redis-url: ENC[AES256_GCM,data:0zgdFD58Zr5rCMYTMCARfRla+jeNSWsaRqMU4JqAcfHj1yXq28o5OBO0NXc2HVc1iOU0qQ==,iv:Iev8ZMSXm23dtXH532jmCgqJetcjgyF6q9TD7Sm0kXY=,tag:0r53y1Hj2ovE1fI8SlU3Tw==,type:str]
+kind: Secret
+metadata:
+  name: exporter-redis-url
+  namespace: home-automation
+sops:
+  age:
+  - enc: |
+      -----BEGIN AGE ENCRYPTED FILE-----
+      YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBBbzFKZU9rdlgxWTc3bWZT
+      MjVvbE9BT3BzMmUxVFhUeEhxZWgvUG1Cd1JZCnJwbW9jNHQ1aGF5bjRsNGN3Z3pN
+      OG1mTy9MekV1QXVwZmdZRFlNNFZTUWMKLS0tIGY0d3FiNlBwdTJWck1GVUNrTDJE
+      N0cxbytsSG1ZTHhLVkdXLzUxd1RFN1EKXx2w+bqme4Bqja5qR7241Pfm9Kw+pbXR
+      B7BH+7SR5HuzzA+0SRXcaaOeBhGldYNC6vimInsWByYXTWjZzOpbuA==
+      -----END AGE ENCRYPTED FILE-----
+    recipient: age1gz9latge3y94hecqmjy3z9swp08c59pxy683uttfaqss0famtfzsr46nq9
+  azure_kv: []
+  encrypted_regex: ^(data|stringData)$
+  gcp_kms: []
+  hc_vault: []
+  kms: []
+  lastmodified: "2024-05-21T19:28:39Z"
+  mac: ENC[AES256_GCM,data:II8TbphDMSthE0NahOhDbPqeE17cs6gSW74rG4Ro4KBguXDoBbxqU2K2MSzmjmumT24SAUkXoHHCCcofbUlx0HQIgViel2kbN8ydBcCuB8epDdNu/k8Ve4K7Lhh2YlgsK1UzYhdCsV1nOIgb9B18WzBWNYXkKmmWxlTztwhEOI4=,iv:LQNolXQ0Z5SWgi5Hu3GqB20f7viMFgNggzrOxZMhpWs=,tag:rLAtyb51uiaG3QF1CK7KGA==,type:str]
+  pgp: []
+  version: 3.8.1
+type: Opaque
+---
+apiVersion: v1
+data:
+  google-places-api-key: ENC[AES256_GCM,data:xo9KjNBM91rWAU/p27NO4/f39VVVMsDbSikNauvsuhPu0y/NrQztBQuVhorx4+2fjyUGWQ==,iv:Js/4Y6NIL4VPJZ0Ng+zDVO5yyCS4cZ95lw3Yhh3xTSc=,tag:WCD9CWlhKT/xzq9eGhjQQA==,type:str]
+kind: Secret
+metadata:
+  name: google-places-api-key
+  namespace: home-automation
+sops:
+  age:
+  - enc: |
+      -----BEGIN AGE ENCRYPTED FILE-----
+      YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSA3YXJ0ZzV4Yk56UTlOK01I
+      WWRQM2daZ0VtOFN5cFZlU2VwN0o3Qlp0UEh3CmFYUUJIdVc0V1FZYmhjN2FyWUxD
+      VS9hREVLbGZsVzBZT3ZGRHA2THZ0VmsKLS0tICs5bzd4OGVQZjA4a3c1SjJxSFFK
+      Y1dieVV1Q1BBWHloVFZnVG1IMVo0R1EK8pTLGqvafpA8j1BJ9zBUAI83eas8X7Mw
+      CsKygjAK9UHM39DyjpHAG+wWhyPTHJgMe3+Jbe5VUlGcap2DbaE15g==
+      -----END AGE ENCRYPTED FILE-----
+    recipient: age1gz9latge3y94hecqmjy3z9swp08c59pxy683uttfaqss0famtfzsr46nq9
+  azure_kv: []
+  encrypted_regex: ^(data|stringData)$
+  gcp_kms: []
+  hc_vault: []
+  kms: []
+  lastmodified: "2024-04-28T12:31:31Z"
+  mac: ENC[AES256_GCM,data:G4akSyyy1u5FXYP28RLmoeRoAOZJ4JUm2P40yQX+PpIZjgWuUBPvf535UEFU+afGb8kXiVDTys3GpKYEWn/zNdrogn90Ha0+juOgny4DmODUyw/4IBOsZsG89WxryXpeDcHxx6IV2EiuEbawsqSymL3FWfmzMKjQ/FxU6jTD8JA=,iv:obFKW/U1UyJCW5as93ZA+k0dltWxRSavtqODEmpmFQA=,tag:0gBvSAJ1NUNi2cYhleShzQ==,type:str]
+  pgp: []
+  version: 3.8.1
+type: Opaque
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: influx-db-admin-password
+  namespace: home-automation
+sops:
+  age:
+  - enc: |
+      -----BEGIN AGE ENCRYPTED FILE-----
+      YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSB5aFowMDI5enYxRkJ4UGIx
+      NU9iYUh0N3EzSGs5N0xHc21wY09zeXY2U2hjCkNOdzNiZk9qeEc2Uk5lN2VuWEY4
+      ZGpuNXIwQ0VEWDA4UGltYTBWYnZjaVkKLS0tIC9FaktROUdwaHlHK3k0SWs2UmVi
+      Mnc4eWh5c2ZiT1B5N2ZBZ0lZdHJzMDQKFGghsQxO6+AxIPeALi6u+ZNhOc81Cibv
+      Jn05SXbs1cQOtlv1VQlGCYSkhbiWtuu16iUaihUnsgxPHRsQW0BLTA==
+      -----END AGE ENCRYPTED FILE-----
+    recipient: age1gz9latge3y94hecqmjy3z9swp08c59pxy683uttfaqss0famtfzsr46nq9
+  azure_kv: []
+  encrypted_regex: ^(data|stringData)$
+  gcp_kms: []
+  hc_vault: []
+  kms: []
+  lastmodified: "2024-04-15T08:58:33Z"
+  mac: ENC[AES256_GCM,data:RNgX0ZewDFLe+xzKQg1qWyow79bOL+bB94wO3kgTbY2u1M4UEVipGPnBXDzZbqLSu0V2s+PPKYNfCPwkVHfsdhuvm5MjLO4Ok/Zze3tOlrWJ6O34syM8r7HtHKp0kLwDr3IHFVgvj1r2ZN3lq5zkVNpLj49IuiaLbEzmD9Y1hmg=,iv:uDuyZH+qJmsUgA1RDPlm4U67mZstLAs/GgrhkuYPGzQ=,tag:Qq5ZCWCZ22btZWbnt4Aj8g==,type:str]
+  pgp: []
+  version: 3.8.1
+stringData:
+  influx-db-admin-password: ENC[AES256_GCM,data:FKyFYzK8CLg4vtoKd6aKbw==,iv:Zd4KKsrc7rY3h3ze5th6vmmYnVbatrXk+wMAykPefYw=,tag:ggONT3AJj2SdxkfS85/nhQ==,type:str]
+---
+apiVersion: v1
+data:
+  loki-host: ENC[AES256_GCM,data:cdTUclJX3j43XB2ErFfpBG8RPsFdemDWQra+Ral+39d3Cx5oxgZV9A==,iv:H7jrAjAiCkoDkTBV5C9WVqmImzzXB339/hk0JZ+ELG4=,tag:EB493il4ggDO9+uBw4kokA==,type:str]
+kind: Secret
+metadata:
+  name: loki-host
+  namespace: home-automation
+sops:
+  age:
+  - enc: |
+      -----BEGIN AGE ENCRYPTED FILE-----
+      YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSB1MzZrbm91UGgwOXRNcWJW
+      WFc2ekdTTiszMmNpdUdNZnpNQ3NSMUUvd0VNClpVMWZDSk9EK080aWhPVHZUZjU2
+      N2NWN3hDRUhIaXlXd0VGdFU1bk01cVkKLS0tIHpZZHlvQzVOaVMwR0MzYUtzVC9W
+      Z09hRTdXUTJTVUNXbGhURDk0T2pqd28Kbl9OHeYux2j887LPBwnGWXsBZOUtuE2u
+      HrH94ycl2o1zxMwyFgvzx6FaPy+SlfDiQWMm6wlVjdsFtahUCdnwnA==
+      -----END AGE ENCRYPTED FILE-----
+    recipient: age1gz9latge3y94hecqmjy3z9swp08c59pxy683uttfaqss0famtfzsr46nq9
+  azure_kv: []
+  encrypted_regex: ^(data|stringData)$
+  gcp_kms: []
+  hc_vault: []
+  kms: []
+  lastmodified: "2024-05-14T13:47:50Z"
+  mac: ENC[AES256_GCM,data:VNVOZxCCHo30L6TltrqdPcATbkxmizSy8hxAX6jEdbiAv6cqvMCqdj441p77rxRCt5mPAWDxPbEEL+PRYmYH5CU6pIamwUcmEU7dnChda6CTosG+4rkMMo2lgBOeHT6zgPZRiJ+LI2OthdL5OPxfnC87FFUBAOv0CrrkUJ/BgMA=,iv:+sZpYGPVI/Dj8RCsoiVOdzBUXUxwc2bmrtkRDWlmGY0=,tag:XgLWwoXSzVbhtiOSfqSjAg==,type:str]
+  pgp: []
+  version: 3.8.1
+type: Opaque
+---
+apiVersion: v1
+data:
+  NETDATA_CLAIM_TOKEN: ENC[AES256_GCM,data:qWkbnI7CMAzIYf3BjOw33zMv4/VvAxJ9vZWShtmGMRfWmr1AJFBPOUbllPDHmbEzi9X/Z9eEACzPJevi4ElxvzsILuwlQBk8r8KaJOyBTXd2oGtCz2+0usBTNoBSsh8xsSj1F3c6t7t+sSBPyJLzLW5FSZqYItRKVhd6IX9vAZNdGCvBh0VZqCImq4m+NGjhwRkQu2aiycs8nJTobQ3uZU/5/U1rXf0125kuQY3Qig8JAzHD,iv:lizBCItWtEOwGql1i7gQbz+Kjh1L53eJUIFju2gvgck=,tag:6XZd16udg4aZgE5CxFwBNg==,type:str]
+kind: Secret
+metadata:
+  creationTimestamp: null
+  name: netdata
+  namespace: home-automation
+sops:
+  age:
+  - enc: |
+      -----BEGIN AGE ENCRYPTED FILE-----
+      YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSAvbVBlOXJJY0V3aVpYM3Rk
+      MzZYT3hvR204dG15R2hhbTc4QlZZYW9ybFdZCmMvOHFVbXJ6eVBCRHhKNUdudEw2
+      UXFMeXhjSHRWM3hhaUwzVnlFRDlLQVUKLS0tIDFGTzZ3MEVLQWNOK2tCdmREQURY
+      UzhxNlcwa1dnYTZuUFpYWVVUUTNlbTQKi6S/ThmvvNPmAjrwI2BEaXaDAtof5pTe
+      hIrnd9YoJ0sqm7jzdmjn+2iQ/rZ4sFx0qAnCM0Ce0GbPKQOcPmHErA==
+      -----END AGE ENCRYPTED FILE-----
+    recipient: age1gz9latge3y94hecqmjy3z9swp08c59pxy683uttfaqss0famtfzsr46nq9
+  azure_kv: []
+  encrypted_regex: ^(data|stringData)$
+  gcp_kms: []
+  hc_vault: []
+  kms: []
+  lastmodified: "2024-04-14T06:58:44Z"
+  mac: ENC[AES256_GCM,data:HW3kHYUxKtJ/q51kJ/pDevVwr0Ont9IU/CvY7DTeUYCm9wRcKmNQ7maX6wQ1BSTrJsRI1rhAZ0crXcO12W70R3SKHK7SW6Z4gy37i6Qh+G8ob+pqvnw+t7ZTTVnfgaoWFIe3LCYFVXeLphQxBN7Z0xWj2K3kk8JRsnIWCrpVU20=,iv:6fdSfWR3hFlY/MgHfKeBmhzjkpXBvRyJSLIxVPa1rEo=,tag:2k36mouP4dlOnEGDwQWSQA==,type:str]
+  pgp: []
+  version: 3.8.1
+---
+apiVersion: v1
+data:
+  node-red-flow-secret: ENC[AES256_GCM,data:GN2AIo/SyVWv/hHWgiCzzpD/83J/YOpDi1tskw==,iv:ssb0x6p2AFFivS8sj7p8otuKaKH8AQlHjPmcrwkjApg=,tag:YFKmOn3X60VpoKQzfv+q/g==,type:str]
+kind: Secret
+metadata:
+  name: node-red-flow-secret
+  namespace: home-automation
+sops:
+  age:
+  - enc: |
+      -----BEGIN AGE ENCRYPTED FILE-----
+      YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBTK1RkUjIvNFdQK1RkdEZS
+      a21GZVZNRkNNVG9md0ZKd0VyQStvSXlnRUY4Cm9DZWVoeERPLzJNeEh2Mm9VSndX
+      YVp2aWRLOXUvTVdZa0xsV1NoZW80bmcKLS0tIGplZEtSNURCMDdZdFkwRVNVaEpS
+      NGEvcnNMT3hPVkFzaTUzY2U5SDBMNXcKbHnOs9vyvMDLQsiKWuAqrGGIOuuGIa3X
+      1HCPhRKkXznKqDm+4hL9Q8UcU7DSVxjLATZG/aEMIGw7LCo+fuN9Sg==
+      -----END AGE ENCRYPTED FILE-----
+    recipient: age1gz9latge3y94hecqmjy3z9swp08c59pxy683uttfaqss0famtfzsr46nq9
+  azure_kv: []
+  encrypted_regex: ^(data|stringData)$
+  gcp_kms: []
+  hc_vault: []
+  kms: []
+  lastmodified: "2024-08-22T11:15:56Z"
+  mac: ENC[AES256_GCM,data:3njX0VENZPhCE8r004bKiPZBjtVqo2/QjS9/xAml/UijD27MaZvew5tMfTFfpkT3jjSNjZNqZpSA0llPBgI9MWVWhPvvrn202coUzzs/RKn5J4M7LW/n6DmtHhWCq34DANqHbQVIfR7SXsgOSCXDOQUu2jqbDg6V2LSqjbNt14o=,iv:Nfv7e/fYwK9VUNuPTRS1mTj7WQ1NtIEjM6OFvcUfxrM=,tag:/UT4A310LxrveJNR6fo/6g==,type:str]
+  pgp: []
+  version: 3.8.1
+type: Opaque
+---
+apiVersion: v1
+data:
+  pihole-password: ENC[AES256_GCM,data:qtg4nMuuupwOvLH/,iv:qalGv6nBQd/w5Zn8Gu30oyfQRPcvmbndt+ygg9/H4wk=,tag:9TvZWr9pXXW5NtjRA2TFHw==,type:str]
+kind: Secret
+metadata:
+  name: pihole-password
+  namespace: home-automation
+sops:
+  age:
+  - enc: |
+      -----BEGIN AGE ENCRYPTED FILE-----
+      YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBWV1Rtdis4dHNVUTJWdnd1
+      aGhBNjd6VmRlQy93WUZPY2hWTW1YUWwvYVdZCjVaT3Zmd1prK3hCMjhKUW9XNm5W
+      TU16cEwzV2o5L0YrTFZ4WWg1SDVlU1kKLS0tIC9BZUZMUm1WK3dmSzR5cnlmUDk4
+      WEtPQ2pGVlRFYTFYMnUvR0tBaGhla28KuX0l3aLmEL3ZawOw7YUibFrvA2/aaXsO
+      Wo9Jb/dD5lZqBkW0d9UqSN21pcTZTEeY6VMkm8Oo63mIBj+VHZFljQ==
+      -----END AGE ENCRYPTED FILE-----
+    recipient: age1gz9latge3y94hecqmjy3z9swp08c59pxy683uttfaqss0famtfzsr46nq9
+  azure_kv: []
+  encrypted_regex: ^(data|stringData)$
+  gcp_kms: []
+  hc_vault: []
+  kms: []
+  lastmodified: "2023-10-29T08:52:50Z"
+  mac: ENC[AES256_GCM,data:euAoiswYgOqThcze8MiWA0PSgSnb3CZw7Tbl2YnmiYtkASvyXF96C0uXSgcbx4/na6x70euqUDCDWcgyktf5oWDj7kzL2OjdWSef+RlrEu5AYrv4HzWWs0euznrSMjh62AAdxWWNNbpMxpVP0H83/ojFF0xuYaJXsEnmBlu0HJI=,iv:q9QoSLoZSb8k7JbpOZPj0/0Y4D3xr6tjcY1sf5olQjI=,tag:z7yFHCCjDWu44f8/obk1RA==,type:str]
+  pgp: []
+  version: 3.8.0
+type: Opaque
+---
+apiVersion: v1
+data:
+  postgres-secret: ENC[AES256_GCM,data:gp4EbO1/7uQd+UX0FQ6FSA==,iv:gPUD31w+NE38XtfSBcUUHu1Cne7mJsA0JM4FV1rRihk=,tag:Xq+OeBxkXecM4xEQXRccCw==,type:str]
+kind: Secret
+metadata:
+  name: postgres-secret
+  namespace: home-automation
+sops:
+  age:
+  - enc: |
+      -----BEGIN AGE ENCRYPTED FILE-----
+      YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSB0bndkdk5ZdGFvd1hrUzNI
+      YkR2ak9YQTYrUFdUZmI1bXFQWnBxZFJMTXk0CjBZaFNPQkhUUTdOTXpwRWM0TVpO
+      MVFDeC9GT2VMNFFzYWIyb3l5UG5aK1UKLS0tIFNPOCtucE9heDRNaUdIdVkxNDJL
+      UHVEcUwrN25vUUhGTlV5NDE1bVNZT1kK9bkXqamMsitHfnooFUqaCDTlrBkecvyF
+      Y4waeXXJEdRFeanRSgj0gHdKOI87lpx0MRi2E457H2sPD2Wnyc1rVg==
+      -----END AGE ENCRYPTED FILE-----
+    recipient: age1gz9latge3y94hecqmjy3z9swp08c59pxy683uttfaqss0famtfzsr46nq9
+  azure_kv: []
+  encrypted_regex: ^(data|stringData)$
+  gcp_kms: []
+  hc_vault: []
+  kms: []
+  lastmodified: "2024-01-23T14:30:12Z"
+  mac: ENC[AES256_GCM,data:eOKrEUitb1+CvGiPZlzzSRJMEJ6Mj3qq2PPanvYZFquJ5Y/yQeaMFXKb29f3iMl7/4OGAaCxuRPW6v1tcFrsa26ZR01Lnxl9Wfao4KerJYGNCJCgHThyD0tkpN3PtBnSm/kEEMLASsQlPQcZCgDgl34+K8EXNtQ6FdPcCVXKacY=,iv:WG/NdWjaDqT/+T2c6YBxclIfI6+RYJNPM4atVoGta4c=,tag:yml7FnkJInvYdeLBmg5n5g==,type:str]
+  pgp: []
+  version: 3.8.1
+---
+apiVersion: v1
+data:
+  proxy.txt: ENC[AES256_GCM,data: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,iv:oL/nLDWl1yD2/WboOvKlz6TvY+4W/99I4PGMt9OQz1g=,tag:1UdoGgiqJDj/HJ2HEO792A==,type:str]
+kind: Secret
+metadata:
+  name: proxy-ips
+  namespace: home-automation
+sops:
+  age:
+  - enc: |
+      -----BEGIN AGE ENCRYPTED FILE-----
+      YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBEM0RVVWZIQzZldUhLSjVo
+      bW1GdG5GSzdRaURGdS9oOUVPK0d6RVNuQngwCk5IT1RhOStpai8vaEpnSEgwd3Qv
+      WGV5U0R5M3EzNXpBd3F0UEtPWnVNc3MKLS0tIDFzZHZoUk1HNE1YeFhEbkExaDNl
+      bFh3SlJNY1cya3BKMHNaUHk1d0hMRjQKRQ/AtHNKh8nXd61JHPqgiBt1b7EhAycJ
+      4fYm4uKKgs762gEfVZhnRKICOArths8nDeiIB8sNlvHDAmalMR3Bpg==
+      -----END AGE ENCRYPTED FILE-----
+    recipient: age1gz9latge3y94hecqmjy3z9swp08c59pxy683uttfaqss0famtfzsr46nq9
+  azure_kv: []
+  encrypted_regex: ^(data|stringData)$
+  gcp_kms: []
+  hc_vault: []
+  kms: []
+  lastmodified: "2024-09-22T12:13:27Z"
+  mac: ENC[AES256_GCM,data:iCmULAAOmL9GXRgQsWsxgAvtJ+1q/4//UV0GkspbpwZ8LBhqOctUPmZrAWvqwpyzKRPBoziRU6KnhsNQ1/3J3pByppsFCb+s3QWzb4DYKbH8uSZEDg5s1E37i5b+LuQmNo+O34cD8makbpnsyq6V/AGskBXMCtE/7iF11hk1//M=,iv:S5bJOax3DNiECR3l0na1mvUCM4xxR7vGDgum3uxYp4s=,tag:z81B2UbQCQpBr0RJmeVgAA==,type:str]
+  pgp: []
+  version: 3.9.0
+type: Opaque
+---
+apiVersion: v1
+data:
+  proxy-password: ENC[AES256_GCM,data:W7pmyn4nGiyq7TzGZs860NWS3eo=,iv:23dQbRtD58fbEfT8hz0l9WK58DYyq439MhdS5zHwpF4=,tag:TbMRMg5M/UsRbV/vP1Z2uw==,type:str]
+kind: Secret
+metadata:
+  name: proxy-password
+  namespace: home-automation
+sops:
+  age:
+  - enc: |
+      -----BEGIN AGE ENCRYPTED FILE-----
+      YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBjSjhtZU1xeXlXdUFDekpk
+      VG1seDVBZHhtQWswdmlXZ1d0d01YRUdLVlR3ClBpTmt6UWN0RjRJdCt6eEYyVWdq
+      RkhXamYvTS9MYTFEYW5hQ0JSUzJIZUEKLS0tIFh0MFdaMDdabGJQbWtuaHpEdnFM
+      VGJmcXlLaDFQL2JSQ2NxanpUakpSeWsKr5ID2qStSHLOdHgxWcEEpyozETOehV5y
+      IpjVeNDSadMZ577Ms1QBUAZphsEQk2zFmUJxSvNPPpVCEXzg6gXRTA==
+      -----END AGE ENCRYPTED FILE-----
+    recipient: age1gz9latge3y94hecqmjy3z9swp08c59pxy683uttfaqss0famtfzsr46nq9
+  azure_kv: []
+  encrypted_regex: ^(data|stringData)$
+  gcp_kms: []
+  hc_vault: []
+  kms: []
+  lastmodified: "2024-09-22T06:25:14Z"
+  mac: ENC[AES256_GCM,data:/ZXjxJ4qZc7r3MPHsFQO5TqiDzCFTIr01rTTFm4fyu4iOuwoDHNm58fzATCvDA1LjsIjIZaenITVeglTV6pjkorx7arJEGHefQ3tp+sFM6jisOP8AQn8MSde8I7Yq7UFfTsxSSrOBaWafeIYZ6irQLtrVSGMTWc37mtKsbnDHkk=,iv:TEk6P54nm+ZhVXuRfiMrlaDVuVZR0WKrI6wL4tEqFBU=,tag:TWhhrv68mLOiUkOIiI4Gfg==,type:str]
+  pgp: []
+  version: 3.9.0
+type: Opaque
+---
+apiVersion: v1
+data:
+  proxy-user: ENC[AES256_GCM,data:BBz0AvKHFdnowv7ulajD1SiW7oo=,iv:IskDi8aZaKbhVSBhYBxqkfeQdFfmDiiZFPAd7lP5Ggg=,tag:QvgX5bW2bHhW73mR8DkLow==,type:str]
+kind: Secret
+metadata:
+  name: proxy-user
+  namespace: home-automation
+sops:
+  age:
+  - enc: |
+      -----BEGIN AGE ENCRYPTED FILE-----
+      YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSB3VUM4UDV4MU56Zk1uUytJ
+      RnFQNmkzTTBtQ3BnSk1yTFpWdTJRamh0R1RJCittWFYvTnFhdyt0K21GQ2xvUUtq
+      TlJhUm9vaC9YU2twc2xNbHFmaVJINmsKLS0tIFBtTjEyNDdvZzdzam5JYmF6dUpt
+      SGlMdTJydlZ1ZDhiQ1VBbm5aRWp6SjQKMAgfj4TBr/qHlh/5RhCfBxJVeEVm0kh6
+      wM0ii9hqoECs4YfAYInkdf/OrkvTFgz1+FW65LjYtAU/rt2bpLzNtQ==
+      -----END AGE ENCRYPTED FILE-----
+    recipient: age1gz9latge3y94hecqmjy3z9swp08c59pxy683uttfaqss0famtfzsr46nq9
+  azure_kv: []
+  encrypted_regex: ^(data|stringData)$
+  gcp_kms: []
+  hc_vault: []
+  kms: []
+  lastmodified: "2024-09-22T06:25:18Z"
+  mac: ENC[AES256_GCM,data:1WaurTos/UM9YXzmwVDbVBaDx/cGAKUa4Ss9Gn6kp37LXC7vaJ9Kq+SJkJtZ4B2BxZUIqlubuKxXiNKpBW6r34dauzSIwvUDtIPxbVDgbiSJ/piPvkn2DIeDB/AXWnbRm/PlfoeMR3zKPGjfaaOSczuVimrS6C2PFR+EnDS0DA0=,iv:+cqFhCyornB7tXZSogLf3bKRwL9cmjTpY5khByKQzMA=,tag:5Lx1PxG3qv+os4foObQdrw==,type:str]
+  pgp: []
+  version: 3.9.0
+type: Opaque
+---
+apiVersion: v1
+data:
+  queues: ENC[AES256_GCM,data:d4gJcRkRiuWzF3YQkTiGeFoJPldbMuB2nX4a+MEGYYsCXSq8YJQAbacRTGwxl6xJR6iMsegzvEQSEXrUA7k5Feumv27ZfO7lzA1reswCTMJDIexIIEkGHDE3ggGpowf3Jz/jXV8gSqj+6CmckzBoD9FMYizGWXNA,iv:Z/s5IQI+iWleLskYecPmcwypbbNkFnRFvHzLlfjTwKA=,tag:khTHs+hxW50/euvrqX5jvA==,type:str]
+kind: Secret
+metadata:
+  name: queues
+  namespace: home-automation
+sops:
+  age:
+  - enc: |
+      -----BEGIN AGE ENCRYPTED FILE-----
+      YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBZYmdoSTdqZHVyUS9YT0c5
+      MldhNGRDL2FmRy9BZkpPNmJZbE9RNm5EK1hRCmVwbDlOdURseUE1N0FYaVBXN09m
+      bFVSUTR2aFlNa2tzODU0c295Rm9mZmMKLS0tIEJwYkJ6akg3cmpQSUFpMnkvdlhr
+      TUhPTGdlSDVzUEJJOEJORE8zM3d1WkEKhITRcKVxnw3JIA8vsk4M2S1UCckFXBrm
+      2edZzIjem/ddXUd0I5YiV0AQghLu1D/VppdAf6tQ8PF4yOWzi59x3g==
+      -----END AGE ENCRYPTED FILE-----
+    recipient: age1gz9latge3y94hecqmjy3z9swp08c59pxy683uttfaqss0famtfzsr46nq9
+  azure_kv: []
+  encrypted_regex: ^(data|stringData)$
+  gcp_kms: []
+  hc_vault: []
+  kms: []
+  lastmodified: "2024-05-26T10:44:47Z"
+  mac: ENC[AES256_GCM,data:wcEu7Oq5rIoYj+1nAoSxQfTjsFmPvGf7vu7ySRVHXWovSUipNbTiRAGUPpOsVxxpta7QWBoARUWZEyuj0vaR+Yeeyr4DS6ixwiHHMEseteQJbv/oOKcPEE7kNFuT08Q7ayKX23xsWCc46byJwUkyCAOqmua4Ydy2o5bQVdaxcbc=,iv:zJi+aWXdLy7/adqGXgm5XRCvVsanY3mzAlNiXvddpos=,tag:+7yqR8GB4b/n+KlzZeTYmQ==,type:str]
+  pgp: []
+  version: 3.8.1
+type: Opaque
+---
+apiVersion: v1
+data:
+  .dockerconfigjson: ENC[AES256_GCM,data:lHMkl/2Ihsnflu55wkOcbxUxUvzL4NZj5KSsMN0cVRNRoeUQg88ARmr9XUjPIhA0GnAanTkJ/QXxTTpEuzcnWaoqAXMGTx+qZ/bVuVsjJRvLE8Uid6fsVP6YSCfTCw92d1NslkvteMk0zEhqwyX9uQJmSQlojG/zLrEYfn4jCJEzW/uSiJTAz4utSPsQsu+eyngvpUDnJ6cKXwzc3YpN+pegJdO4O8XzCNypsBs1KxuLUE57qHA1J7HQ2AHkPeneOTwY0Gf8LBqibSF+bVBgzpA0acsUa4tRYFP+a7jfX8PbvBXjOtHgR1//0vsc2VXp5q38nYNNccTmk1akoLyOxa/0LipaZLGe9VeiyU20x6b9O+RF0Jpnv4KaHxGhLmKhFXr/tNbQzJtT0CY7zDqjDHOsgIkQ7TWXAWmFXw==,iv:Tj5SgBBYlhjWqF6MUN/ivHWqa4AzvhZyDBTnFN7mtYM=,tag:QOTcKnAe4OLuAoUpZ7nftg==,type:str]
+kind: Secret
+metadata:
+  creationTimestamp: null
+  name: regcred
+  namespace: home-automation
+sops:
+  age:
+  - enc: |
+      -----BEGIN AGE ENCRYPTED FILE-----
+      YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBYZ040RXVJMnRPaG1waitN
+      TXFCUW1BOE9JMWdVYm9EbTZkdlEvc0IwOHdVCkg5dUpRdk5HUDhieVNpRzU4MDcx
+      OENSbXNHQlFWR3lOaHlHc3JjSHYyUzgKLS0tIDRoemNJalNMUWhLTXd0T25Ebzd3
+      dmh4N0g2N1R5bjJhZWpoTXJ5WTZvbVUKJykyeIWQoumZU+HT11EtHFdTSMnANPY/
+      uZDdwem3mlbUex9vy5D947pGhjWkQ8tjnOqBiMIIpGyG3UzS4ZYP6A==
+      -----END AGE ENCRYPTED FILE-----
+    recipient: age1gz9latge3y94hecqmjy3z9swp08c59pxy683uttfaqss0famtfzsr46nq9
+  azure_kv: []
+  encrypted_regex: ^(data|stringData)$
+  gcp_kms: []
+  hc_vault: []
+  kms: []
+  lastmodified: "2024-08-27T18:41:31Z"
+  mac: ENC[AES256_GCM,data:1+Psnv9F/dG6s07Yv5M+5WIig+2F/akRG/TlWUpFadDJ0UzFXO7nJftaK9ld3VHazeLOAPY0UEIfU7bImb3MNl5ONy989DUvZK/U4PldTNESjvU0+CR4B7K9E7IhSXiC9Y1D2jYkjqQV2+/oehRM82zm7ODR99YoPPzcoH78H9g=,iv:rdjZ/z3XUNofki4AN5jea4WfXagkn7uUtBG+jGSzADk=,tag:HkTxGiXaa3ecWn26vDDNfQ==,type:str]
+  pgp: []
+  version: 3.9.0
+type: kubernetes.io/dockerconfigjson
+---
+apiVersion: v1
+data:
+  rsstt-telegram-token: ENC[AES256_GCM,data:f3HDyQhBnxMotMaNyB4VUfticO8iuPqVhok3rBZ5OYVmEVzz0iJAyWMy5sLDYoNm2A9L03wzEdf9bUQsD6UEtw==,iv:3cwiSOQbFyqw3AaE2zd33kTrdBpwkJfMaQcZbfPimdM=,tag:1q2scA+GjC2StTXI/Wgxfg==,type:str]
+kind: Secret
+metadata:
+  name: rsstt-telegram-token
+  namespace: home-automation
+sops:
+  age:
+  - enc: |
+      -----BEGIN AGE ENCRYPTED FILE-----
+      YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBzc0VybFRLbGhFN0k4VnBY
+      am1TMnVBVXJlcjZHK2Rab2twcW1LM3NrQ1NBCjRYVzNhMi9xY09sMDlMSGRDK1BV
+      Uk5BV1dlZ3V5bWlmZzV1a29JMVhQTnMKLS0tIElvZ1BNZGxoSTRWU1dWcFZhMWxk
+      cXViNDRrb3BMM2NXa3lpLzlQZTc0VWcKDLTMrFfqb6KejleBOec5e8rvp0OtEXjl
+      QmpLwbEqIoBMZoEUnjvm/U8WKvdZA/PaHPg1DteI1YUFrC7rBEOzZw==
+      -----END AGE ENCRYPTED FILE-----
+    recipient: age1gz9latge3y94hecqmjy3z9swp08c59pxy683uttfaqss0famtfzsr46nq9
+  azure_kv: []
+  encrypted_regex: ^(data|stringData)$
+  gcp_kms: []
+  hc_vault: []
+  kms: []
+  lastmodified: "2024-05-14T13:50:05Z"
+  mac: ENC[AES256_GCM,data:w/pMBk9bRMungnBbB+d9d/JpPVafVxKc9GFklcjnRFsvxn3OHM045nViI8RCN+uFFMBhO5jFBhkDXrXVPQJVdtwFxe2EUeRoJ8dpbP1+bPRDDuS6gpu+z+3xNsXBFPoR06iqgysMEt+ODp7JF4oT67L1rtJneUBMuWfwrWXguE4=,iv:xL2BOTshCz9Pth/54Hw8nmtlf0FzWyn+Z+naovfbHds=,tag:lXhhv7L9gnV9DmoPxqaUZQ==,type:str]
+  pgp: []
+  version: 3.8.1
+type: Opaque
+---
+apiVersion: v1
+data:
+  speedtest-app-key: ENC[AES256_GCM,data:Z8l2zeC6Dq2deD6ZBzEL0VdE+JYHtUlij3zWdskpJDgNkHY4j3xUEotLbp0BXFFFD1L3LFo/sR0iOtfRTyIi4Xtzqs0=,iv:coqkG35iBMvPjcK7H30cTrFRpNwbW1cGi3o+hy09YwI=,tag:1DnsTIDBWG0Y0hPh2r23Fw==,type:str]
+kind: Secret
+metadata:
+  name: speedtest-app-key
+  namespace: home-automation
+sops:
+  age:
+  - enc: |
+      -----BEGIN AGE ENCRYPTED FILE-----
+      YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBtNkZYNUtOcWdFbi81WW80
+      RExSTEJtaE1PSjFYNXdNTDVYNURHMUY2OFYwCjdVVHBXckNrQ0RxQzdHN081TS9I
+      WjZkQ3BaTjZYbHRCaVVIYzN3c3FMaEUKLS0tIHBpSUhpak16K29sSG16eEtuck40
+      M0FMamQwK1F3NXpxRXdRLzUwdmFvZm8Kba9MUlul6AEQSeR0Ybm5cSsBJii89ojF
+      cKudoe8JrxphRNbkLQCiVUsRfHrYq6Bceo0DdR3oBlElLEXXlqdgXg==
+      -----END AGE ENCRYPTED FILE-----
+    recipient: age1gz9latge3y94hecqmjy3z9swp08c59pxy683uttfaqss0famtfzsr46nq9
+  azure_kv: []
+  encrypted_regex: ^(data|stringData)$
+  gcp_kms: []
+  hc_vault: []
+  kms: []
+  lastmodified: "2024-08-14T06:16:24Z"
+  mac: ENC[AES256_GCM,data:Z2FAGVxRNb5JVDFxuonqQ2YdYyy8Haa3xqX6rQBos8SJ/jWUfSk1cbp/Af/8uB8PD1iztCZs+xrE+dRFXWTen4lnvguiT7w1FLh3BQOjb1+H092Gva9l7wodYot+j+NxfUs72XkPnD2n5igW5aFyGKgMgjPbnh3bY/5W1EFQ740=,iv:GLme/Q99YJpAhTTzr0xfwLoBRZiD+fnloduwHV0jQ2A=,tag:dFhk96zVPsdg1YoIzJrwDw==,type:str]
+  pgp: []
+  version: 3.8.1
+type: Opaque
+---
+apiVersion: v1
+data:
+  id_rsa: ENC[AES256_GCM,data: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,iv:/mjIIpwY0F3eQIB/YNTmpwVp7SZi09Ed1KHL/ebVce0=,tag:gs0v9soAx5esZxeybasG3w==,type:str]
+  id_rsa.pub: ENC[AES256_GCM,data:dKawWOHoPms51diuRUjNVrTg5hT7ta+yVFUTmqKR9hE0MkDe0m5SdefD6bFv6YPGdAvEVtfr3q4l5qg13xJFpS8Nu7XEJjQTzCNo9mZpU2YTJdvHMf736NoD3S3FIlkdR6adehR0C6fGigrtx7tUUcmx7FnfmzUpTY0HnMIE85svTlFeDz9wjkpkuY5L4Bu9vGcJImj4kA9BJjTQFTaAsmcmANTjG6x8Rio9lUeaYpyPY0qTV9qcEeana8coLkF2MhzOPOuFpJKqIG7JFdJQLPx34x7Hxozpvc2GaJb6aChPsouHO/M+zY1oLIx4SpHKa3YgnzA4aKT+uQjIxGdIltYw9R0Rqmp0iUqCTNMhf693p6iI/l41r/kRlOCRfFoN8Q3uoyFevKxSl9bqeTp+fdzZsx5ysxduo8AOycpQ30wXhyuAN/xbC6vSE1mqLCqJboPnlIJ5WfRBc7Q2ToygXWUo1n3lP91O/iRlUmJ5iWFLd5lIC2fa6nt/f7sYLQMmzfhtvp/+GNWveHxkI1aPPK/01VlrMNCQ7lC1fj+RVkTSYYmw61IHCNFCRzm38N6YWfthPCCoZpDi1fRHLRmGVZyRP2nwtd9P9IBBpb+By6sMF2yxWuTiEoK7QUONZEU2dZtWMhQ4Rh5yZfwpXU0XN2JdnroHlKnGJP/zpG4sSv34evZ45EC+tJBNP5yB9i0bLuale/Fb2ftQeQUT4HLGCFLqtjyNfjy/lTtsDaIbl/sMLi7smdPrw+YeOXrJefTw/1ehAs6Ub1kBOvXlaB/KA6VgbaexitsciTScZh4pbS/OyqUdqUWk58qkN2X5MCJTKSWo9IehqhzXzeyzE9M7u2/K1Ol2Abgc8AFhtkas/LGMfk7HIuOXXjB4yiMao8ktsrgxAZczYmTjPKf+WYv/W7Sq2r1BJA9ImpKfcYyRlbi10IKal0nSFfoADHtLEMqDMqCVh8GXvQOzNXV4TuqJupzn/RpLbXk2pWpKvZoOOJd43cExilCPtNbWUg1SViUXg5d7RMOGPpvfKCYoBpX/ALTSeXo9OC8vGbBCCra12tVmHXD0cPWDW8p/RD3M99jyz+c4jsKoCLDCrIoStuVQ1uM3sRuKQUw/8o6r07R1b/4sR/FsYZTqAHh6/sf7qO/aZtajI4RU+OylPWVbqYb9gIbOhsVeC5sIh8gU0oHQzvVe63QuWi4gIW1TvRtUkcBpZ/hRSoQvq8UKA7KtV2yACz6iycNohTOCd1xUBupNNZ23su9RQ//XMnQkMLM5YBfVvLXyZ48eX556ClC6NK7LPu4vBFuUPNVHnaXYIbAQX5eXpKVaSrQ3Jw==,iv:zAaiKKfOif8R99Bo10IvLEJ12lz9zIPWCtWQLHWdSTY=,tag:6VqT42j2VuWUIlICQX+vTQ==,type:str]
+kind: Secret
+metadata:
+  creationTimestamp: "2024-07-07T17:40:34Z"
+  name: ssh-secret-pi-screen
+  namespace: home-automation
+sops:
+  age:
+  - enc: |
+      -----BEGIN AGE ENCRYPTED FILE-----
+      YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBDdUUvNVZXNE02OFhDVmZJ
+      cFp6am9PVE0rbE5qTFQ0aG13ekJhSURJeW5VCm81UHgxMzlGY3JtTnNSYTRCU2g5
+      dE81Y3RUVG13ZmlXQkZNU2pMS2RTRGMKLS0tIGpsQmdFaXROd1JOdDRJc3ExTGxj
+      MytTWGhmZWZxZzZrakFlYkZhRlZHUFkKFvHFJDe2xE8JiPXXZCiyf0SEPUt23ZfU
+      Oz0PMV486vheBTIiWyv9VCDBmgnqRjMMYC3b+ULyZGUE4iMpj/4BfA==
+      -----END AGE ENCRYPTED FILE-----
+    recipient: age1gz9latge3y94hecqmjy3z9swp08c59pxy683uttfaqss0famtfzsr46nq9
+  azure_kv: []
+  encrypted_regex: ^(data|stringData)$
+  gcp_kms: []
+  hc_vault: []
+  kms: []
+  lastmodified: "2024-07-07T18:16:03Z"
+  mac: ENC[AES256_GCM,data:WBE24FikPEJlz5lAQ69VXKiT+nFuEs4SM8J1VN8aFBThvZrsmVwrnijgL1FKakoNnmvbh5s11HaPG+RTuTMjRpEeZZ0hmem5Tw1CqRNWRpNsrR6iaREa+T8Se5y/o20f3ium3GXCnc0Ps3gD6Pn5Rymc/zkR/rYsYA54XBR8vVE=,iv:0TdCR2R8uoo9EDtaOmhnRMHBmeyTjxAEB1TIvavmcyA=,tag:dZRclV8dvpkbYdmmrbKYeg==,type:str]
+  pgp: []
+  version: 3.8.1
+type: Opaque
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: appdaemon
+  namespace: home-automation
+spec:
+  ports:
+  - name: webui
+    port: 5050
+    protocol: TCP
+    targetPort: 5050
+  selector:
+    app: appdaemon
+  type: ClusterIP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: apprise-service
+  namespace: home-automation
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 8000
+  selector:
+    app: apprise
+  type: ClusterIP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: bullmq-exporter
+  namespace: home-automation
+spec:
+  ports:
+  - port: 9538
+    protocol: TCP
+    targetPort: 9538
+  selector:
+    app: bullmq-exporter
+  type: ClusterIP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: esphome
+  namespace: home-automation
+spec:
+  ports:
+  - name: communication-port
+    port: 6123
+    protocol: TCP
+    targetPort: 6123
+  - name: web-ui
+    port: 6052
+    protocol: TCP
+    targetPort: 6052
+  selector:
+    app: esphome
+  type: ClusterIP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: espresense
+  namespace: home-automation
+spec:
+  ports:
+  - name: webui
+    port: 8267
+    protocol: TCP
+    targetPort: 8267
+  selector:
+    app: espresense
+  type: ClusterIP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: home-assistant
+  namespace: home-automation
+spec:
+  ports:
+  - name: webui
+    port: 8123
+    protocol: TCP
+    targetPort: 8123
+  - name: sonos
+    port: 1400
+    protocol: TCP
+    targetPort: 1400
+  selector:
+    app: home-assistant
+  type: ClusterIP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    metallb.universe.tf/allow-shared-ip: local
+  name: home-assistant-sonos-metallb
+  namespace: home-automation
+spec:
+  loadBalancerIP: 10.0.0.20
+  ports:
+  - port: 1400
+    protocol: TCP
+    targetPort: 1400
+  selector:
+    app: home-assistant
+  type: LoadBalancer
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: influxdb
+  name: influxdb
+  namespace: home-automation
+spec:
+  ports:
+  - name: webui
+    port: 8086
+    protocol: TCP
+    targetPort: 8086
+  selector:
+    app: influxdb
+  type: ClusterIP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: ironcorgi
+  name: ironcorgi
+  namespace: home-automation
+spec:
+  ports:
+  - name: webui
+    port: 10050
+    protocol: TCP
+    targetPort: 10050
+  selector:
+    app: ironcorgi
+  type: ClusterIP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: keyconfig
+  namespace: home-automation
+spec:
+  ports:
+  - name: web
+    port: 10060
+    protocol: TCP
+    targetPort: 10060
+  selector:
+    app: keyconfig
+  type: ClusterIP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mealie
+  namespace: home-automation
+spec:
+  ports:
+  - name: webui
+    port: 9000
+    protocol: TCP
+    targetPort: 9000
+  selector:
+    app: mealie
+  type: ClusterIP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mosquitto
+  namespace: home-automation
+spec:
+  ports:
+  - name: webui
+    port: 1883
+    protocol: TCP
+    targetPort: 1883
+  selector:
+    app: mosquitto
+  type: ClusterIP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    metallb.universe.tf/allow-shared-ip: local
+  name: mosquitto-metallb
+  namespace: home-automation
+spec:
+  loadBalancerIP: 10.0.0.20
+  ports:
+  - port: 1883
+    protocol: TCP
+    targetPort: 1883
+  selector:
+    app: mosquitto
+  type: LoadBalancer
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: nodered
+  name: nodered
+  namespace: home-automation
+spec:
+  ports:
+  - name: webui
+    port: 1880
+    protocol: TCP
+    targetPort: 1880
+  selector:
+    app: nodered
+  type: ClusterIP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: prisma-studio
+  namespace: home-automation
+spec:
+  ports:
+  - port: 5555
+    protocol: TCP
+    targetPort: 5555
+  selector:
+    app: rsstt
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: prisma-studio-service
+  namespace: home-automation
+spec:
+  ports:
+  - name: webui
+    port: 5555
+    protocol: TCP
+    targetPort: 5555
+  selector:
+    app: prisma-studio
+  type: ClusterIP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: proxy
+  name: proxy
+  namespace: home-automation
+spec:
+  ports:
+  - name: webui
+    port: 8089
+    protocol: TCP
+    targetPort: 8089
+  selector:
+    app: proxy
+  type: ClusterIP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: redisinsight
+  namespace: home-automation
+spec:
+  ports:
+  - name: web-ui
+    port: 5540
+    protocol: TCP
+    targetPort: 5540
+  selector:
+    app: redisinsight
+  type: ClusterIP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: speedtest-tracker
+  name: speedtest-tracker
+  namespace: home-automation
+spec:
+  ports:
+  - name: web-ui
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: speedtest-tracker
+  type: ClusterIP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: zigbee2mqtt
+  name: zigbee2mqtt
+  namespace: home-automation
+spec:
+  ports:
+  - name: web-ui
+    port: 9442
+    protocol: TCP
+    targetPort: 9442
+  selector:
+    app: zigbee2mqtt
+  type: ClusterIP
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: unraid-pv
+spec:
+  accessModes:
+  - ReadWriteMany
+  capacity:
+    storage: 10G
+  mountOptions:
+  - nfsvers=4.2
+  - tcp
+  - intr
+  - hard
+  - relatime
+  - nocto
+  - noacl
+  - nconnect=8
+  - rsize=131072
+  - wsize=131072
+  nfs:
+    path: /mnt/user/kubernetes
+    server: 10.0.0.168
+  storageClassName: local-unraid
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: unraid-rust-pv
+spec:
+  accessModes:
+  - ReadWriteMany
+  capacity:
+    storage: 200G
+  mountOptions:
+  - nfsvers=4.2
+  - tcp
+  - intr
+  - hard
+  - relatime
+  - nocto
+  - noacl
+  - nconnect=8
+  - rsize=131072
+  - wsize=131072
+  nfs:
+    path: /mnt/user/kubernetes-rust
+    server: 10.0.0.168
+  storageClassName: local-unraid-rust
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: unraid-pvc
+  namespace: home-automation
+spec:
+  accessModes:
+  - ReadWriteMany
+  resources:
+    requests:
+      storage: 10G
+  storageClassName: local-unraid
+  volumeName: unraid-pv
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: unraid-rust-pvc
+  namespace: home-automation
+spec:
+  accessModes:
+  - ReadWriteMany
+  resources:
+    requests:
+      storage: 200G
+  storageClassName: local-unraid-rust
+  volumeName: unraid-rust-pv
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: appdaemon
+  name: appdaemon
+  namespace: home-automation
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: appdaemon
+  template:
+    metadata:
+      labels:
+        app: appdaemon
+    spec:
+      containers:
+      - env:
+        - name: TOKEN
+          valueFrom:
+            secretKeyRef:
+              key: appdaemon-ha-token
+              name: appdaemon-ha-token
+        envFrom:
+        - configMapRef:
+            name: appdaemon
+        image: acockburn/appdaemon
+        name: appdaemon
+        ports:
+        - containerPort: 5050
+        volumeMounts:
+        - mountPath: /conf
+          name: unraid-storage
+          subPath: appdaemon
+      volumes:
+      - name: unraid-storage
+        persistentVolumeClaim:
+          claimName: unraid-pvc
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: apprise
+  name: apprise-deployment
+  namespace: home-automation
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: apprise
+  template:
+    metadata:
+      labels:
+        app: apprise
+    spec:
+      containers:
+      - image: caronc/apprise:latest
+        name: apprise
+        ports:
+        - containerPort: 8000
+        volumeMounts:
+        - mountPath: /config
+          name: unraid-storage
+          subPath: apprise
+      volumes:
+      - name: unraid-storage
+        persistentVolumeClaim:
+          claimName: unraid-pvc
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: blocket
+  name: blocket-p12
+  namespace: home-automation
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: blocket
+  template:
+    metadata:
+      labels:
+        app: blocket
+    spec:
+      containers:
+      - env:
+        - name: TOKEN
+          valueFrom:
+            secretKeyRef:
+              key: bastu-bot-token
+              name: bastu-bot-token
+        - name: CHAT_ID
+          valueFrom:
+            secretKeyRef:
+              key: chat-id
+              name: chat-id
+        - name: BLOCKET_URL
+          value: https://www.blocket.se/annonser/hela_sverige?q=lenovo+p12
+        image: ghcr.io/bokker/blocket-bot:master
+        imagePullPolicy: Always
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 80
+        name: blocket
+        readinessProbe:
+          httpGet:
+            path: /healthz
+            port: 80
+      imagePullSecrets:
+      - name: regcred
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bullmq-exporter
+  namespace: home-automation
+spec:
+  selector:
+    matchLabels:
+      app: bullmq-exporter
+  template:
+    metadata:
+      labels:
+        app: bullmq-exporter
+    spec:
+      containers:
+      - env:
+        - name: EXPORTER_REDIS_URL
+          valueFrom:
+            secretKeyRef:
+              key: exporter-redis-url
+              name: exporter-redis-url
+        - name: EXPORTER_QUEUES
+          valueFrom:
+            secretKeyRef:
+              key: queues
+              name: queues
+        envFrom:
+        - configMapRef:
+            name: bullmq-exporter
+        image: uphabit/bull_exporter:latest
+        name: bullmq-exporter
+        ports:
+        - containerPort: 9538
+        resources:
+          limits:
+            cpu: 500m
+            memory: 128Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: busybox
+  namespace: home-automation
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: busybox
+  template:
+    metadata:
+      labels:
+        app: busybox
+    spec:
+      containers:
+      - command:
+        - sh
+        - -c
+        - while true; do echo Hello, Kubernetes!; sleep 3600; done
+        image: busybox
+        name: busybox
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: education
+  name: education-master
+  namespace: home-automation
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: education
+  template:
+    metadata:
+      labels:
+        app: education
+    spec:
+      containers:
+      - env:
+        - name: TOKEN
+          valueFrom:
+            secretKeyRef:
+              key: bastu-bot-token
+              name: bastu-bot-token
+        - name: CHAT_ID
+          valueFrom:
+            secretKeyRef:
+              key: chat-id
+              name: chat-id
+        - name: SCHOOL_URL
+          value: https://www.studentum.se/utbildning/avancerad-niva-magister-och-masterexamen-data-it-stockholm/a66-c91-d82783
+        image: ghcr.io/bokker/education-bot:master
+        imagePullPolicy: Always
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 80
+        name: education
+        readinessProbe:
+          httpGet:
+            path: /healthz
+            port: 80
+      imagePullSecrets:
+      - name: regcred
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: education
+  name: education-top-up
+  namespace: home-automation
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: education
+  template:
+    metadata:
+      labels:
+        app: education
+    spec:
+      containers:
+      - env:
+        - name: TOKEN
+          valueFrom:
+            secretKeyRef:
+              key: bastu-bot-token
+              name: bastu-bot-token
+        - name: CHAT_ID
+          valueFrom:
+            secretKeyRef:
+              key: chat-id
+              name: chat-id
+        - name: SCHOOL_URL
+          value: https://www.studentum.se/utbildning/top-up-degree
+        image: ghcr.io/bokker/education-bot:master
+        imagePullPolicy: Always
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 80
+        name: education
+        readinessProbe:
+          httpGet:
+            path: /healthz
+            port: 80
+      imagePullSecrets:
+      - name: regcred
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: esphome
+  name: esphome
+  namespace: home-automation
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: esphome
+  template:
+    metadata:
+      labels:
+        app: esphome
+    spec:
+      containers:
+      - envFrom:
+        - configMapRef:
+            name: esphome
+        image: ghcr.io/esphome/esphome
+        name: esphome
+        ports:
+        - containerPort: 6052
+        volumeMounts:
+        - mountPath: /config
+          name: unraid-storage
+          subPath: esphome
+        - mountPath: /cache
+          name: cache-volume
+      hostNetwork: true
+      volumes:
+      - name: unraid-storage
+        persistentVolumeClaim:
+          claimName: unraid-pvc
+      - emptyDir:
+          sizeLimit: 5Gi
+        name: cache-volume
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: espresense
+  namespace: home-automation
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: espresense
+  template:
+    metadata:
+      labels:
+        app: espresense
+    spec:
+      containers:
+      - image: espresense/espresense-companion
+        name: espresense
+        ports:
+        - containerPort: 8267
+        volumeMounts:
+        - mountPath: /config/espresense
+          name: unraid-storage
+          subPath: espresense
+      volumes:
+      - name: unraid-storage
+        persistentVolumeClaim:
+          claimName: unraid-pvc
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: home-assistant
+  name: home-assistant
+  namespace: home-automation
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: home-assistant
+  template:
+    metadata:
+      labels:
+        app: home-assistant
+    spec:
+      containers:
+      - args:
+        - mkdir /root/.ssh/ && cp /root/read-only-ssh/* /root/.ssh/ && chmod 600 /root/.ssh/id_rsa
+          && /init
+        command:
+        - /bin/sh
+        - -c
+        envFrom:
+        - configMapRef:
+            name: home-assistant
+        image: homeassistant/home-assistant:2024.10.1
+        name: home-assistant
+        ports:
+        - containerPort: 8123
+        - containerPort: 1400
+        volumeMounts:
+        - mountPath: /config
+          name: unraid-storage
+          subPath: home_assistant
+        - mountPath: /root/read-only-ssh/
+          name: ssh-secret
+      hostNetwork: false
+      volumes:
+      - name: unraid-storage
+        persistentVolumeClaim:
+          claimName: unraid-pvc
+      - name: ssh-secret
+        secret:
+          secretName: ssh-secret-pi-screen
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  generation: 1
+  labels:
+    app: influxdb
+  name: influxdb
+  namespace: home-automation
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: influxdb
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: influxdb
+    spec:
+      containers:
+      - args:
+        - |
+          sed -i 's/${user} = 0/${user} = 1/g' /entrypoint.sh;
+          /entrypoint.sh;
+        command:
+        - /bin/bash
+        - -c
+        env:
+        - name: INFLUXDB_ADMIN_USER_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: influx-db-admin-password
+              name: influx-db-admin-password
+        - name: uid
+          value: "1000"
+        - name: gid
+          value: "1000"
+        image: influxdb:2.7.10-alpine
+        imagePullPolicy: Always
+        name: influxdb
+        ports:
+        - containerPort: 8086
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /var/lib/influxdb2
+          name: data
+          subPath: influxdb
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+      volumes:
+      - name: data
+        persistentVolumeClaim:
+          claimName: unraid-pvc
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: ironcorgi
+  name: ironcorgi
+  namespace: home-automation
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ironcorgi
+  template:
+    metadata:
+      labels:
+        app: ironcorgi
+    spec:
+      containers:
+      - env:
+        - name: GOOGLE_PLACES_API_KEY
+          valueFrom:
+            secretKeyRef:
+              key: google-places-api-key
+              name: google-places-api-key
+        - name: DATABASE_URL
+          valueFrom:
+            secretKeyRef:
+              key: database-connection-ironcorgi
+              name: database-connection-ironcorgi
+        - name: REDIS_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: redis-password
+              name: redis
+        envFrom:
+        - configMapRef:
+            name: ironcorgi
+        image: ghcr.io/bokker/ironcorgi:1.0.105
+        imagePullPolicy: Always
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 10050
+        name: ironcorgi
+        ports:
+        - containerPort: 10050
+        readinessProbe:
+          httpGet:
+            path: /healthz
+            port: 10050
+        volumeMounts:
+        - mountPath: /data
+          name: data
+          subPath: ironcorgi-symlink
+      imagePullSecrets:
+      - name: regcred
+      volumes:
+      - name: data
+        persistentVolumeClaim:
+          claimName: unraid-rust-pvc
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: keyconfig
+  name: keyconfig
+  namespace: home-automation
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: keyconfig
+  template:
+    metadata:
+      labels:
+        app: keyconfig
+    spec:
+      containers:
+      - envFrom:
+        - configMapRef:
+            name: keyconfig
+        image: ghcr.io/bokker/keyconfig:1.0.57
+        imagePullPolicy: Always
+        name: keyconfig
+        ports:
+        - containerPort: 10060
+      imagePullSecrets:
+      - name: regcred
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: mealie
+  name: mealie
+  namespace: home-automation
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mealie
+  template:
+    metadata:
+      labels:
+        app: mealie
+    spec:
+      containers:
+      - env:
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: postgres-secret
+              name: postgres-secret
+        envFrom:
+        - configMapRef:
+            name: mealie
+        image: ghcr.io/mealie-recipes/mealie:v1.12.0
+        name: mealie
+        ports:
+        - containerPort: 9000
+        resources:
+          limits:
+            memory: 1000Mi
+        volumeMounts:
+        - mountPath: /app/data/
+          name: unraid-storage
+          subPath: mealie
+      volumes:
+      - name: unraid-storage
+        persistentVolumeClaim:
+          claimName: unraid-pvc
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: mosquitto
+  name: mosquitto
+  namespace: home-automation
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mosquitto
+  template:
+    metadata:
+      labels:
+        app: mosquitto
+    spec:
+      containers:
+      - args:
+        - -c
+        - /mosquitto/config/mosquitto-unraid-default.conf
+        command:
+        - /usr/sbin/mosquitto
+        envFrom:
+        - configMapRef:
+            name: mosquitto
+        image: eclipse-mosquitto
+        name: mosquitto
+        ports:
+        - containerPort: 1883
+        volumeMounts:
+        - mountPath: /mosquitto/config
+          name: unraid-storage
+          subPath: mosquitto
+      volumes:
+      - name: unraid-storage
+        persistentVolumeClaim:
+          claimName: unraid-pvc
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodered
+  namespace: home-automation
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nodered
+  template:
+    metadata:
+      labels:
+        app: nodered
+    spec:
+      containers:
+      - env:
+        - name: NODE_RED_FLOW_SECRET
+          valueFrom:
+            secretKeyRef:
+              key: node-red-flow-secret
+              name: node-red-flow-secret
+        image: nodered/node-red:latest
+        name: nodered
+        ports:
+        - containerPort: 1880
+        volumeMounts:
+        - mountPath: /data
+          name: unraid-storage
+          subPath: nodered
+      - args:
+        - while true; do if [ ! -d "/data" ]; then echo "/data is unavailable, exiting...";
+          exit 1; else echo "/data is available."; fi; sleep 10; done;
+        command:
+        - /bin/sh
+        - -c
+        image: busybox
+        name: data-checker
+        volumeMounts:
+        - mountPath: /data
+          name: unraid-storage
+          subPath: nodered
+      volumes:
+      - name: unraid-storage
+        persistentVolumeClaim:
+          claimName: unraid-pvc
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: pihole-exporter
+  name: pihole-exporter
+  namespace: home-automation
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pihole-exporter
+  template:
+    metadata:
+      labels:
+        app: pihole-exporter
+    spec:
+      containers:
+      - env:
+        - name: PIHOLE_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: pihole-password
+              name: pihole-password
+        envFrom:
+        - configMapRef:
+            name: pihole-exporter
+        image: ekofr/pihole-exporter
+        name: pihole-exporter
+        ports:
+        - containerPort: 9617
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pihole-external-dns
+  namespace: home-automation
+spec:
+  selector:
+    matchLabels:
+      app: pihole-external-dns
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: pihole-external-dns
+    spec:
+      containers:
+      - args:
+        - --source=service
+        - --source=ingress
+        - --registry=noop
+        - --policy=upsert-only
+        - --provider=pihole
+        - --interval=10m0s
+        - --pihole-server=http://10.0.0.5
+        env:
+        - name: EXTERNAL_DNS_PIHOLE_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: pihole-password
+              name: pihole-password
+        image: registry.k8s.io/external-dns/external-dns:v0.15.0
+        name: pihole-external-dns
+      securityContext:
+        fsGroup: 65534
+      serviceAccountName: pihole-external-dns
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: proxy
+  namespace: home-automation
+spec:
+  selector:
+    matchLabels:
+      app: proxy
+  template:
+    metadata:
+      labels:
+        app: proxy
+    spec:
+      containers:
+      - args:
+        - --address
+        - localhost:8089
+        - --file
+        - /app/proxy.txt
+        - --rotate
+        - "1"
+        - --sync
+        env:
+        - name: PROXY_USER
+          valueFrom:
+            secretKeyRef:
+              key: proxy-user
+              name: proxy-user
+        - name: PROXY_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: proxy-password
+              name: proxy-password
+        image: ghcr.io/kitabisa/mubeng:latest
+        name: proxy
+        ports:
+        - containerPort: 8089
+        volumeMounts:
+        - mountPath: /app/
+          name: proxy-ips-secret
+          readOnly: true
+      volumes:
+      - name: proxy-ips-secret
+        secret:
+          secretName: proxy-ips
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: redisinsight
+  name: redisinsight
+  namespace: home-automation
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redisinsight
+  template:
+    metadata:
+      labels:
+        app: redisinsight
+    spec:
+      containers:
+      - image: redislabs/redisinsight:latest
+        livenessProbe:
+          failureThreshold: 1
+          httpGet:
+            path: /api/health/
+            port: 5540
+          initialDelaySeconds: 5
+          periodSeconds: 5
+        name: redisinsight
+        ports:
+        - containerPort: 5540
+        volumeMounts:
+        - mountPath: /data
+          name: data
+          subPath: redisinsight
+      volumes:
+      - name: data
+        persistentVolumeClaim:
+          claimName: unraid-pvc
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rsstt
+  namespace: home-automation
+spec:
+  selector:
+    matchLabels:
+      app: rsstt
+  template:
+    metadata:
+      labels:
+        app: rsstt
+    spec:
+      containers:
+      - env:
+        - name: REDIS_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: redis-password
+              name: redis
+        - name: TOKEN
+          valueFrom:
+            secretKeyRef:
+              key: rsstt-telegram-token
+              name: rsstt-telegram-token
+        - name: LOKI_HOST
+          valueFrom:
+            secretKeyRef:
+              key: loki-host
+              name: loki-host
+        envFrom:
+        - configMapRef:
+            name: rsstt
+        image: bokker/rss.to.telegram:develop
+        name: rsstt
+        volumeMounts:
+        - mountPath: /app/config
+          name: data
+          subPath: rsstt
+      - args:
+        - |
+          npx prisma studio --schema /app/prisma/schema.prisma
+        command:
+        - sh
+        - -c
+        envFrom:
+        - configMapRef:
+            name: rsstt
+        image: bokker/rss.to.telegram:develop
+        name: prisma-studio
+        ports:
+        - containerPort: 5555
+        volumeMounts:
+        - mountPath: /app/config
+          name: data
+          subPath: rsstt
+      volumes:
+      - name: data
+        persistentVolumeClaim:
+          claimName: unraid-pvc
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: speedtest-tracker
+  namespace: home-automation
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: speedtest-tracker
+  template:
+    metadata:
+      labels:
+        app: speedtest-tracker
+    spec:
+      containers:
+      - env:
+        - name: PUID
+          value: "99"
+        - name: PGID
+          value: "100"
+        - name: DB_CONNECTION
+          value: pgsql
+        - name: DB_HOST
+          value: 10.0.0.168
+        - name: DB_PORT
+          value: "5432"
+        - name: DB_DATABASE
+          value: speedtest_tracker
+        - name: DB_USERNAME
+          value: postgres
+        - name: APP_KEY
+          valueFrom:
+            secretKeyRef:
+              key: speedtest-app-key
+              name: speedtest-app-key
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: postgres-secret
+              name: postgres-secret
+        image: lscr.io/linuxserver/speedtest-tracker:latest
+        name: speedtest-tracker
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - mountPath: /config
+          name: unraid-storage
+          subPath: speedtest-tracker
+      dnsConfig:
+        nameservers:
+        - 10.0.0.5
+        - 8.8.8.8
+        options:
+        - name: ndots
+          value: "5"
+        searches:
+        - speedtest-tracker.svc.cluster.local
+      dnsPolicy: None
+      volumes:
+      - name: unraid-storage
+        persistentVolumeClaim:
+          claimName: unraid-pvc
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: telegram-mute
+  namespace: home-automation
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: telegram-mute
+  template:
+    metadata:
+      labels:
+        app: telegram-mute
+    spec:
+      containers:
+      - image: ghcr.io/bokker/mute-telegram:master
+        name: telegram-mute
+        volumeMounts:
+        - mountPath: /app/config
+          name: unraid-storage
+          subPath: telegram-mute
+      imagePullSecrets:
+      - name: regcred
+      volumes:
+      - name: unraid-storage
+        persistentVolumeClaim:
+          claimName: unraid-pvc
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ubuntu-deployment
+  namespace: home-automation
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ubuntu
+  template:
+    metadata:
+      labels:
+        app: ubuntu
+    spec:
+      containers:
+      - args:
+        - -c
+        - while true; do sleep 3600; done
+        command:
+        - /bin/sh
+        env:
+        - name: WORDPRESS_DB_HOST
+          value: mariadb
+        - name: WORDPRESS_DB_NAME
+          value: ear
+        - name: WORDPRESS_DB_USER
+          value: ear
+        - name: APACHE_RUN_USER
+          value: www-data
+        - name: APACHE_RUN_GROUP
+          value: www-data
+        - name: WORDPRESS_DB_PASSWORD
+        image: ubuntu:latest
+        name: ubuntu
+        resources: {}
+        volumeMounts:
+        - mountPath: /var/www/html
+          name: data
+          subPath: ear_wordpress
+      volumes:
+      - name: data
+        persistentVolumeClaim:
+          claimName: unraid-pvc
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: zigbee2mqtt
+  name: zigbee2mqtt
+  namespace: home-automation
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: zigbee2mqtt
+  template:
+    metadata:
+      labels:
+        app: zigbee2mqtt
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: kubernetes.io/hostname
+                operator: In
+                values:
+                - cat01
+      containers:
+      - envFrom:
+        - configMapRef:
+            name: zigbee2mqtt
+        image: koenkk/zigbee2mqtt:1.40.2
+        name: zigbee2mqtt
+        ports:
+        - containerPort: 9442
+        securityContext:
+          privileged: true
+        volumeMounts:
+        - mountPath: /dev/serial/by-id/usb-1a86_USB_Serial-if00-port0
+          name: zigbee-device
+        - mountPath: /app/data
+          name: unraid-storage
+          subPath: zigbee2mqtt
+      volumes:
+      - name: unraid-storage
+        persistentVolumeClaim:
+          claimName: unraid-pvc
+      - hostPath:
+          path: /dev/serial/by-id/usb-1a86_USB_Serial-if00-port0
+        name: zigbee-device
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: curl-cronjob
+  namespace: home-automation
+spec:
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - args:
+            - /bin/sh
+            - -c
+            - set -e; curl --fail -d '{}' -X POST http://ironcorgi:10050/hemnet/manual-location-ids-fetch
+            image: curlimages/curl:latest
+            name: curl-container
+          restartPolicy: OnFailure
+  schedule: 14 6 * * *
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: netdata
+  namespace: home-automation
+spec:
+  chart:
+    spec:
+      chart: netdata
+      sourceRef:
+        kind: HelmRepository
+        name: netdata
+        namespace: flux-system
+  install:
+    remediation:
+      retries: 3
+  interval: 30m
+  uninstall:
+    keepHistory: false
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  values:
+    child:
+      claiming:
+        enabled: true
+        rooms: eb19e19a-1ecd-45a1-bf1b-459018e6b66a
+      envFrom:
+      - secretRef:
+          name: netdata
+    ingress:
+      annotations:
+        kubernetes.io/tls-acme: "true"
+      enabled: true
+      path: /
+      pathType: Prefix
+    k8sState:
+      persistence:
+        enabled: true
+        storageclass: local-path-provisioner
+    parent:
+      alarms:
+        storageclass: local-path-provisioner
+      claiming:
+        enabled: true
+        rooms: eb19e19a-1ecd-45a1-bf1b-459018e6b66a
+      database:
+        storageclass: local-path-provisioner
+      envFrom:
+      - secretRef:
+          name: netdata
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImagePolicy
+metadata:
+  name: ironcorgi
+  namespace: home-automation
+spec:
+  imageRepositoryRef:
+    name: ironcorgi
+  policy:
+    semver:
+      range: 1.x.x
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImagePolicy
+metadata:
+  name: keyconfig
+  namespace: home-automation
+spec:
+  imageRepositoryRef:
+    name: keyconfig
+  policy:
+    semver:
+      range: 1.x.x
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImageRepository
+metadata:
+  name: ironcorgi
+  namespace: home-automation
+spec:
+  image: ghcr.io/bokker/ironcorgi
+  interval: 1m
+  secretRef:
+    name: regcred
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImageRepository
+metadata:
+  name: keyconfig
+  namespace: home-automation
+spec:
+  image: ghcr.io/bokker/keyconfig
+  interval: 1m
+  secretRef:
+    name: regcred
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImageUpdateAutomation
+metadata:
+  name: ironcorgi
+  namespace: home-automation
+spec:
+  git:
+    checkout:
+      ref:
+        branch: master
+    commit:
+      author:
+        email: fluxcdbot@users.noreply.github.com
+        name: fluxcdbot
+      messageTemplate: Automated image update by Flux
+    push:
+      branch: master
+  interval: 1m
+  sourceRef:
+    kind: GitRepository
+    name: home-kubernetes
+    namespace: flux-system
+  update:
+    path: ./kubernetes/apps
+    strategy: Setters
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImageUpdateAutomation
+metadata:
+  name: keyconfig
+  namespace: home-automation
+spec:
+  git:
+    checkout:
+      ref:
+        branch: master
+    commit:
+      author:
+        email: fluxcdbot@users.noreply.github.com
+        name: fluxcdbot
+      messageTemplate: Automated image update by Flux
+    push:
+      branch: master
+  interval: 1m
+  sourceRef:
+    kind: GitRepository
+    name: home-kubernetes
+    namespace: flux-system
+  update:
+    path: ./kubernetes/apps
+    strategy: Setters
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: mediawiki
+  namespace: home-automation
+spec:
+  commonMetadata:
+    labels:
+      app.kubernetes.io/name: mediawiki
+  interval: 30m
+  path: ./kubernetes/apps/home-automation/mediawiki/app
+  prune: false
+  retryInterval: 1m
+  sourceRef:
+    kind: GitRepository
+    name: home-kubernetes
+    namespace: flux-system
+  targetNamespace: home-automation
+  timeout: 5m
+  wait: false
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: appdaemon
+  namespace: home-automation
+spec:
+  ingressClassName: internal
+  rules:
+  - host: appdaemon.tnorbert.com
+    http:
+      paths:
+      - backend:
+          service:
+            name: appdaemon
+            port:
+              number: 5050
+        path: /
+        pathType: Prefix
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: esphome
+  namespace: home-automation
+spec:
+  ingressClassName: internal
+  rules:
+  - host: esphome.tnorbert.com
+    http:
+      paths:
+      - backend:
+          service:
+            name: esphome
+            port:
+              number: 6052
+        path: /
+        pathType: Prefix
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: espresense-internal
+  namespace: home-automation
+spec:
+  ingressClassName: internal
+  rules:
+  - host: espresense.tnorbert.com
+    http:
+      paths:
+      - backend:
+          service:
+            name: espresense
+            port:
+              number: 8267
+        path: /
+        pathType: Prefix
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    external-dns.alpha.kubernetes.io/target: external.tnorbert.com
+  name: home-assistant-external
+  namespace: home-automation
+spec:
+  ingressClassName: external
+  rules:
+  - host: ha.tnorbert.com
+    http:
+      paths:
+      - backend:
+          service:
+            name: home-assistant
+            port:
+              number: 8123
+        path: /
+        pathType: Prefix
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: home-assistant-internal
+  namespace: home-automation
+spec:
+  ingressClassName: internal
+  rules:
+  - host: ha.tnorbert.com
+    http:
+      paths:
+      - backend:
+          service:
+            name: home-assistant
+            port:
+              number: 8123
+        path: /
+        pathType: Prefix
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  labels:
+    name: influxdb
+  name: influxdb
+  namespace: home-automation
+spec:
+  ingressClassName: internal
+  rules:
+  - host: influx.tnorbert.com
+    http:
+      paths:
+      - backend:
+          service:
+            name: influxdb
+            port:
+              number: 8086
+        path: /
+        pathType: Prefix
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ironcorgi-internal
+  namespace: home-automation
+spec:
+  ingressClassName: internal
+  rules:
+  - host: ironcorgi.tnorbert.com
+    http:
+      paths:
+      - backend:
+          service:
+            name: ironcorgi
+            port:
+              number: 10050
+        path: /
+        pathType: Prefix
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    external-dns.alpha.kubernetes.io/target: external.tnorbert.com
+  name: keyconfig-external
+  namespace: home-automation
+spec:
+  ingressClassName: external
+  rules:
+  - host: keyconfig.tnorbert.com
+    http:
+      paths:
+      - backend:
+          service:
+            name: keyconfig
+            port:
+              number: 10060
+        path: /
+        pathType: Prefix
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: keyconfig-internal
+  namespace: home-automation
+spec:
+  ingressClassName: internal
+  rules:
+  - host: keyconfig.tnorbert.com
+    http:
+      paths:
+      - backend:
+          service:
+            name: keyconfig
+            port:
+              number: 10060
+        path: /
+        pathType: Prefix
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    external-dns.alpha.kubernetes.io/target: external.tnorbert.com
+  name: mealie-external
+  namespace: home-automation
+spec:
+  ingressClassName: external
+  rules:
+  - host: mealie.tnorbert.com
+    http:
+      paths:
+      - backend:
+          service:
+            name: mealie
+            port:
+              number: 9000
+        path: /
+        pathType: Prefix
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: mealie-internal
+  namespace: home-automation
+spec:
+  ingressClassName: internal
+  rules:
+  - host: mealie.tnorbert.com
+    http:
+      paths:
+      - backend:
+          service:
+            name: mealie
+            port:
+              number: 9000
+        path: /
+        pathType: Prefix
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: nodered-internal
+  namespace: home-automation
+spec:
+  ingressClassName: internal
+  rules:
+  - host: nodered.tnorbert.com
+    http:
+      paths:
+      - backend:
+          service:
+            name: nodered
+            port:
+              number: 1880
+        path: /
+        pathType: Prefix
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: prisma-studio
+  namespace: home-automation
+spec:
+  ingressClassName: internal
+  rules:
+  - host: rsstt.tnorbert.com
+    http:
+      paths:
+      - backend:
+          service:
+            name: prisma-studio
+            port:
+              number: 5555
+        path: /
+        pathType: Prefix
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: redisinsight
+  namespace: home-automation
+spec:
+  ingressClassName: internal
+  rules:
+  - host: redis.tnorbert.com
+    http:
+      paths:
+      - backend:
+          service:
+            name: redisinsight
+            port:
+              number: 5540
+        path: /
+        pathType: Prefix
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: speedtest-tracker
+  namespace: home-automation
+spec:
+  ingressClassName: internal
+  rules:
+  - host: speedtest.tnorbert.com
+    http:
+      paths:
+      - backend:
+          service:
+            name: speedtest-tracker
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: zigbee2mqtt
+  namespace: home-automation
+spec:
+  ingressClassName: internal
+  rules:
+  - host: z2m.tnorbert.com
+    http:
+      paths:
+      - backend:
+          service:
+            name: zigbee2mqtt
+            port:
+              number: 9442
+        path: /
+        pathType: Prefix
