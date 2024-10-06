@@ -34,4 +34,4 @@ resources:
   - ./mediawiki/ks.yaml
   - ./mariadb/ks.yaml
   - ./redis/ks.yaml
-  - ./mariadb-galera/ks.yaml
+  # - ./mariadb-galera/ks.yaml
