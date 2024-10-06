@@ -2,6 +2,7 @@ apiVersion: v1
 kind: Secret
 metadata:
     name: database-connection-ironcorgi
+    namespace: home-automation
 type: Opaque
 data:
     database-connection-ironcorgi: ENC[AES256_GCM,data:Xjw4fJiWEcX82JjscyU0sR7MwLBsJQ4zmpVaswYVQBswkARmV/goiZyi+WkXyxxG8zZoP0o0mnV7qzFug6U+Uw==,iv:OY0VqWqo6yMTB8AUiWXq5x3rwQGyTi/rYrTxjMr9FEE=,tag:NMjYPRnr2cookMPaBGRtSg==,type:str]
@@ -20,8 +21,8 @@ sops:
             QlhYaHlKWHNNOHl4ZFVXbHc2WlEwS3cKCWKKPsU4F7z8RtLvUla7qpT1rGgfw9xx
             xHlQlR6kNznytDxoaaozpHQCHibSaYXi7EO67VSFZcwB/5h+un4+qg==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-05-12T19:37:22Z"
-    mac: ENC[AES256_GCM,data:m1a2VY1S02uX5ccx3AdmWQrPqFDamVoftyxY4ed/v8ZlunZIwJac/+pOVIcMpWCgwR1e+IlHVWqxwmtx8HQ54vV24JeEup8/qPE91f3Beaw03ljErPd78kFIpJ2pL3MDWnKBPWR1BpTkWJaLZQ3U52JSgN4k/yg+0jy9utZFeQw=,iv:rIIr1+5gFjEcL8eS+t+jhUGlFjDWUzggB1ob4XdeNjA=,tag:BsHXpGu8cXCu2ogODPk78w==,type:str]
+    lastmodified: "2024-10-06T14:09:47Z"
+    mac: ENC[AES256_GCM,data:fp7nX7OEItUzDhOX+cr/ofIl2SA0362ltsefgxpSQ7UM8q4KDEtMXMhaJgx4By0wyTB0Qzg86CilKNEiiQikgMOfjit+dgRFYcQ1QqcLSqOLrW03dYf5IBb/wZy8JdTOC1eAyKX/GmSqGGZjanCfSYUrU4+HKHV0+mkSOLYuCb4=,iv:vs8ST5rvHMbQ1VH268nwFAu/SS9fj9PeV1NyzHvkbi4=,tag:KHmcQR0aE5Zdyjfz+qPMjg==,type:str]
     pgp: []
     encrypted_regex: ^(data|stringData)$
-    version: 3.8.1
+    version: 3.9.0

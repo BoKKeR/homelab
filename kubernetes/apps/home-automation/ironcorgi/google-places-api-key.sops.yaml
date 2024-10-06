@@ -2,6 +2,7 @@ apiVersion: v1
 kind: Secret
 metadata:
     name: google-places-api-key
+    namespace: home-automation
 type: Opaque
 data:
     google-places-api-key: ENC[AES256_GCM,data:xo9KjNBM91rWAU/p27NO4/f39VVVMsDbSikNauvsuhPu0y/NrQztBQuVhorx4+2fjyUGWQ==,iv:Js/4Y6NIL4VPJZ0Ng+zDVO5yyCS4cZ95lw3Yhh3xTSc=,tag:WCD9CWlhKT/xzq9eGhjQQA==,type:str]
@@ -20,8 +21,8 @@ sops:
             Y1dieVV1Q1BBWHloVFZnVG1IMVo0R1EK8pTLGqvafpA8j1BJ9zBUAI83eas8X7Mw
             CsKygjAK9UHM39DyjpHAG+wWhyPTHJgMe3+Jbe5VUlGcap2DbaE15g==
             -----END AGE ENCRYPTED FILE-----
-    lastmodified: "2024-04-28T12:31:31Z"
-    mac: ENC[AES256_GCM,data:G4akSyyy1u5FXYP28RLmoeRoAOZJ4JUm2P40yQX+PpIZjgWuUBPvf535UEFU+afGb8kXiVDTys3GpKYEWn/zNdrogn90Ha0+juOgny4DmODUyw/4IBOsZsG89WxryXpeDcHxx6IV2EiuEbawsqSymL3FWfmzMKjQ/FxU6jTD8JA=,iv:obFKW/U1UyJCW5as93ZA+k0dltWxRSavtqODEmpmFQA=,tag:0gBvSAJ1NUNi2cYhleShzQ==,type:str]
+    lastmodified: "2024-10-06T14:09:51Z"
+    mac: ENC[AES256_GCM,data:gDvBTl1/mVJYVD1keeeqmf34VezHotRHd5HlT+ndfLUi/lDJXblPCe/+pM7rZ2DOvswZyekXbMuqjXsRMGbejZU7mNyI1HiGW7EGwucclZyk3K8CxcDhtR+msicZiAHwEx0DBX3PWcPMMMwXtK8TlsJfkwW9rTuYN9gdPgPVbEg=,iv:8OyuUbQnr5YIAkyzufi+9cSlM64tm0966BGGz3etwhM=,tag:MeOws32N5Cr5TbHKh3eydQ==,type:str]
     pgp: []
     encrypted_regex: ^(data|stringData)$
-    version: 3.8.1
+    version: 3.9.0
