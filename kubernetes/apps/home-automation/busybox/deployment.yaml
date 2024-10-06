@@ -22,6 +22,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ubuntu-deployment
+  namespace: home-automation
 spec:
   replicas: 1
   selector:

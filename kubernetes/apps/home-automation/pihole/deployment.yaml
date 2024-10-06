@@ -7,6 +7,7 @@ metadata:
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
+namespace: home-automation
 metadata:
   name: pihole-external-dns
 rules:
@@ -22,6 +23,7 @@ rules:
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
+namespace: home-automation
 metadata:
   name: pihole-external-dns-viewer
 roleRef:
@@ -37,6 +39,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: pihole-external-dns
+  namespace: home-automation
 spec:
   strategy:
     type: Recreate
