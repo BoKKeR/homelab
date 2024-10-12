@@ -24,7 +24,6 @@ spec:
     keepHistory: false
   values:
     global:
-      storageClass: "local-unraid"
       defaultStorageClass: "local-unraid"
     auth:
       enabled: true
@@ -35,6 +34,5 @@ spec:
         enabled: true
     persistance:
       enabled: true
-      existingClaim: unraid-pvc
       subPath: mongodb
     architecture: replicaset
