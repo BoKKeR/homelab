@@ -23,6 +23,7 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    storageClass: "local-unraid"
     auth:
       enabled: true
       existingSecretPasswordKey: mongodb
@@ -34,5 +35,4 @@ spec:
       enabled: true
       existingClaim: unraid-pvc
       subPath: mongodb
-      storageClass: "local-unraid"
     architecture: replicaset
