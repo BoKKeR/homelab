@@ -11,8 +11,8 @@ spec:
     app.kubernetes.io/name: mongodb
     apps.kubernetes.io/pod-index: "0"
   ports:
-    - port: 6379
-      targetPort: 6379
+    - port: 27017
+      targetPort: 27017
       protocol: TCP
   type: LoadBalancer
   loadBalancerIP: 10.0.0.20
