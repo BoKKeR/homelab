@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tnorbert-blog
+  namespace: home-automation
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tnorbert-blog
+  template:
+    metadata:
+      labels:
+        app: tnorbert-blog
+    spec:
+      containers:
+        - name: tnorbert-blog
+          image: bokker/tnorbert-payload
+          ports:
+            - containerPort: 3000
