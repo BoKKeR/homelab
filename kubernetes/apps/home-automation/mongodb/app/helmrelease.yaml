@@ -24,6 +24,7 @@ spec:
     keepHistory: false
   values:
     storageClass: "local-unraid"
+    defaultStorageClass: "local-unraid"
     auth:
       enabled: true
       existingSecretPasswordKey: mongodb
