@@ -34,4 +34,4 @@ resources:
   - ./mariadb/ks.yaml
   - ./redis/ks.yaml
   # - ./mariadb-galera/ks.yaml
-  - ./mongodb/ks.yaml
+  # - ./mongodb/ks.yaml
