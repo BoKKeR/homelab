@@ -24,7 +24,7 @@ spec:
     keepHistory: false
   values:
     global:
-      defaultStorageClass: "local-unraid"
+      defaultStorageClass: "local-path-provisioner"
     auth:
       enabled: true
       existingSecretPasswordKey: mongodb
@@ -36,5 +36,5 @@ spec:
       enabled: true
       subPath: mongodb
       existingClaim: unraid-pvc
-      storageClass: local-unraid
+      storageClass: local-path-provisioner
     architecture: standalone
