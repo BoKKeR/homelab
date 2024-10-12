@@ -34,4 +34,5 @@ spec:
       enabled: true
       existingClaim: unraid-pvc
       subPath: mongodb
+      storageClass: "local-unraid"
     architecture: replicaset
