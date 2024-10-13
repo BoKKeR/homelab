@@ -15,4 +15,4 @@ spec:
       targetPort: 27017
       protocol: TCP
   type: LoadBalancer
-  loadBalancerIP: 10.0.0.22
+  loadBalancerIP: 10.0.0.25
