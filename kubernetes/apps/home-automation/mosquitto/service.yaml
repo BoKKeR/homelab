@@ -20,7 +20,7 @@ metadata:
   name: mosquitto-metallb
   annotations:
     metallb.universe.tf/allow-shared-ip: shared-ip
-    metallb.universe.tf/loadBalancerIPs: 10.0.0.25
+    metallb.universe.tf/loadBalancerIPs: 10.0.0.26
 spec:
   selector:
     app: mosquitto
