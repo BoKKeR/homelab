@@ -35,7 +35,6 @@ spec:
     persistance:
       enabled: true
       subPath: mongodb
-      existingClaim: unraid-pvc
       storageClass: local-path-provisioner
     architecture: replicaset
     backup:
@@ -43,9 +42,7 @@ spec:
       cronjob:
         schedule: "@hourly"
         storage:
-          existingClaim: unraid-pv
-          storageClass: unraid-local
-          subPath: mongodb-cronjob-backup
+          storageClass: local-path-provisioner
     externalAccess:
       enabled: true
       service:
