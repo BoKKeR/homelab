@@ -19,7 +19,7 @@ metadata:
   namespace: home-automation
   name: mosquitto-metallb
   annotations:
-    metallb.universe.tf/loadBalancerIPs: 10.0.0.28
+    metallb.universe.tf/loadBalancerIPs: 10.0.0.27
 spec:
   selector:
     app: mosquitto
