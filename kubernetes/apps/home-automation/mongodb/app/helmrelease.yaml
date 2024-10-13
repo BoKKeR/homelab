@@ -41,7 +41,9 @@ spec:
     externalAccess:
       enabled: true
       service:
-        type: NodePort
+        type: LoadBalancer
         nodePorts:
-          - '27017'
-          - '27018'
+          - '10.0.0.28'
+          - '10.0.0.29'
+
+
