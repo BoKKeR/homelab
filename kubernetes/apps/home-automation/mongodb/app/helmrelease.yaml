@@ -34,7 +34,6 @@ spec:
         enabled: true
     persistance:
       enabled: true
-      subPath: mongodb
       storageClass: local-path-provisioner
     architecture: replicaset
     backup:
