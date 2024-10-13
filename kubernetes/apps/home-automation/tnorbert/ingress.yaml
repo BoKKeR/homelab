@@ -13,6 +13,27 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: tnorbert
+            name: tnorbert-blog
+            port:
+              number: 3000
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  namespace: home-automation
+  name: tnorbert-blog-external
+  annotations:
+    external-dns.alpha.kubernetes.io/target: "external.tnorbert.com"
+spec:
+  ingressClassName: external
+  rules:
+  - host: blog.tnorbert.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: tnorbert-blog
             port:
               number: 3000

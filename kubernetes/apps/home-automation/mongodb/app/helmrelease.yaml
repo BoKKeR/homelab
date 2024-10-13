@@ -50,6 +50,3 @@ spec:
         loadBalancerIPs:
           - '10.0.0.28'
           - '10.0.0.29'
-
-
-
