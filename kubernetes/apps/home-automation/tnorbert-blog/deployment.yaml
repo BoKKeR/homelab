@@ -18,3 +18,5 @@ spec:
           image: bokker/tnorbert-payload:1.0.0 # {"$imagepolicy": "home-automation:tnorbert-payload"}
           ports:
             - containerPort: 3000
+      imagePullSecrets:
+      - name: regcred
