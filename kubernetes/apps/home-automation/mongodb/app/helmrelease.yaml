@@ -43,5 +43,5 @@ spec:
       service:
         type: NodePort
         nodePorts:
-        - '27017'
-        - '27018'
+          - '27017'
+          - '27018'
