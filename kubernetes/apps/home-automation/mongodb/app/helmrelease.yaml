@@ -39,7 +39,7 @@ spec:
     backup:
       enabled: true
       cronjob:
-        schedule: "@hourly"
+        schedule: "@daily"
         storage:
           storageClass: local-path-provisioner
     externalAccess:
