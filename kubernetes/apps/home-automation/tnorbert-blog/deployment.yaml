@@ -16,7 +16,7 @@ spec:
       containers:
         - name: tnorbert-blog
           # command: [ "tail", "-f", "/dev/null" ]
-          image: ghcr.io/bokker/tnorbert-payload:1.0.28 # {"$imagepolicy": "home-automation:tnorbert-payload"}
+          image: ghcr.io/bokker/tnorbert-payload:1.0.29 # {"$imagepolicy": "home-automation:tnorbert-payload"}
           ports:
             - containerPort: 3000
           env:
