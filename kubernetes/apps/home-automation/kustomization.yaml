@@ -35,4 +35,5 @@ resources:
   - ./redis/ks.yaml
   # - ./mariadb-galera/ks.yaml
   - ./mongodb/ks.yaml
+  - tnorbert-blog
   - metallb
