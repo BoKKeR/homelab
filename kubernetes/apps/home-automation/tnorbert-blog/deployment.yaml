@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: tnorbert-blog
-          image: bokker/tnorbert-payload:1.0.0 # {"$imagepolicy": "home-automation:tnorbert-payload"}
+          image: ghcr.io/bokker/tnorbert-payload:1.0.28 # {"$imagepolicy": "home-automation:tnorbert-payload"}
           ports:
             - containerPort: 3000
       imagePullSecrets:
