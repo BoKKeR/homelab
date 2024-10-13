@@ -5,6 +5,7 @@ metadata:
   namespace: home-automation
   annotations:
     metallb.universe.tf/allow-shared-ip: shared-ip
+    metallb.universe.tf/loadBalancerIPs: 10.0.0.25
 spec:
   selector:
     app.kubernetes.io/component: master
@@ -15,4 +16,4 @@ spec:
       targetPort: 27017
       protocol: TCP
   type: LoadBalancer
-  loadBalancerIP: 10.0.0.25
+
