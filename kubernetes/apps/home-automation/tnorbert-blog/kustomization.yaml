@@ -8,3 +8,5 @@ resources:
   - ingress.yaml
   - service.yaml
   - imageautomation.yaml
+  - payload.secret.sops.yaml
+  - mongodb-database-uri.secret.sops.yaml

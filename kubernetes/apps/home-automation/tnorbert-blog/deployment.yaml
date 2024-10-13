@@ -18,5 +18,16 @@ spec:
           image: ghcr.io/bokker/tnorbert-payload:1.0.28 # {"$imagepolicy": "home-automation:tnorbert-payload"}
           ports:
             - containerPort: 3000
+          env:
+            - name: PAYLOAD_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: payload-secret
+                  key: payload-secret
+            - name: DATABASE_URI
+              valueFrom:
+                secretKeyRef:
+                  name: mongodb-database-uri
+                  key: mongodb-database-uri
       imagePullSecrets:
       - name: regcred
