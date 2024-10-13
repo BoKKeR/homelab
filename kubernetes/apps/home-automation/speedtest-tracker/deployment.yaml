@@ -26,7 +26,6 @@ spec:
       containers:
         - name: speedtest-tracker
           image: lscr.io/linuxserver/speedtest-tracker:latest
-          command: [ "tail", "-f", "/dev/null" ]
           ports:
             - containerPort: 80
           env:
