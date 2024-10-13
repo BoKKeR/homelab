@@ -19,7 +19,7 @@ metadata:
   namespace: home-automation
   name: mosquitto-metallb
   annotations:
-    metallb.universe.tf/allow-shared-ip: local
+    metallb.universe.tf/allow-shared-ip: 10.0.0.25
 spec:
   selector:
     app: mosquitto
@@ -28,4 +28,4 @@ spec:
       port: 1883
       targetPort: 1883
   type: LoadBalancer
-  loadBalancerIP: 10.0.0.27
+  loadBalancerIP: 10.0.0.25

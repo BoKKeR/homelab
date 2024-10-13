@@ -4,7 +4,7 @@ metadata:
   name: mongodb-metallb
   namespace: home-automation
   annotations:
-    metallb.universe.tf/allow-shared-ip: local
+    metallb.universe.tf/allow-shared-ip: 10.0.0.25
 spec:
   selector:
     app.kubernetes.io/component: master
