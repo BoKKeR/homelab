@@ -43,8 +43,6 @@ kind: Service
 metadata:
   name: home-assistant-sonos-metallb
   namespace: home-automation
-  annotations:
-    metallb.universe.tf/allow-shared-ip: local
 spec:
   selector:
     app: home-assistant

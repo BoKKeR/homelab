@@ -4,7 +4,6 @@ metadata:
   name: mongodb-metallb
   namespace: home-automation
   annotations:
-    metallb.universe.tf/allow-shared-ip: shared-ip
     metallb.universe.tf/loadBalancerIPs: 10.0.0.25
 spec:
   selector:
