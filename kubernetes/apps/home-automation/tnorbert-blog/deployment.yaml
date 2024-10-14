@@ -16,7 +16,7 @@ spec:
       containers:
         - name: tnorbert-blog
           # command: [ "tail", "-f", "/dev/null" ]
-          image: ghcr.io/bokker/tnorbert-payload:1.0.46 # {"$imagepolicy": "home-automation:tnorbert-blog"}
+          image: ghcr.io/bokker/tnorbert-payload:1.0.47 # {"$imagepolicy": "home-automation:tnorbert-blog"}
           ports:
             - containerPort: 3000
           env:
@@ -51,8 +51,8 @@ spec:
                   name: payload-secret
                   key: revalidation-key
           envFrom:
-          - configMapRef:
-              name: tnorbert-blog-configmap
+            - configMapRef:
+                name: tnorbert-blog-configmap
           volumeMounts:
             - mountPath: /home/node/app/media
               subPath: tnorbert-blog
