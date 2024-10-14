@@ -4,7 +4,7 @@ metadata:
   name: tnorbert-blog-configmap
   namespace: home-automation
 data:
-  NEXT_PUBLIC_SERVER_URL: http://localhost:3000
-  PAYLOAD_PUBLIC_SERVER_URL: http://localhost:3000
+  NEXT_PUBLIC_SERVER_URL: https://blog.tnorbert.com
+  PAYLOAD_PUBLIC_SERVER_URL: https://blog.tnorbert.com
   NEXT_PUBLIC_IS_LIVE: "true"
   PORT: "3000"
