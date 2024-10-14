@@ -10,3 +10,4 @@ resources:
   - imageautomation.yaml
   - payload.secret.sops.yaml
   - mongodb-database-uri.secret.sops.yaml
+  - configMap.yaml
