@@ -33,22 +33,22 @@ spec:
             - name: PAYLOAD_PUBLIC_DRAFT_SECRET
               valueFrom:
                 secretKeyRef:
-                  name: draft-secret
+                  name: payload-secret
                   key: draft-secret
             - name: NEXT_PRIVATE_DRAFT_SECRET
               valueFrom:
                 secretKeyRef:
-                  name: draft-secret
+                  name: payload-secret
                   key: draft-secret
             - name: REVALIDATION_KEY
               valueFrom:
                 secretKeyRef:
-                  name: revalidation-key
+                  name: payload-secret
                   key: revalidation-key
             - name: NEXT_PRIVATE_REVALIDATION_KEY
               valueFrom:
                 secretKeyRef:
-                  name: revalidation-key
+                  name: payload-secret
                   key: revalidation-key
           envFrom:
           - configMapRef:
