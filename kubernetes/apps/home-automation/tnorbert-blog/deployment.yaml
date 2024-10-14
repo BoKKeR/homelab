@@ -30,5 +30,14 @@ spec:
                 secretKeyRef:
                   name: mongodb-database-uri
                   key: mongodb-database-uri
+          volumeMounts:
+            - mountPath: /home/node/app/media
+              subPath: tnorbert-blog
+              name: unraid-storage
       imagePullSecrets:
         - name: regcred
+      volumes:
+      - name: unraid-storage
+        persistentVolumeClaim:
+          claimName: unraid-pvc
+
