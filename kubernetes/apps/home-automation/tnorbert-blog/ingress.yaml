@@ -6,7 +6,7 @@ metadata:
 spec:
   ingressClassName: internal
   rules:
-  - host: tnorbert.com
+  - host: blog.tnorbert.com
     http:
       paths:
       - path: /
@@ -27,7 +27,7 @@ metadata:
 spec:
   ingressClassName: external
   rules:
-  - host: tnorbert.com
+  - host: blog.tnorbert.com
     http:
       paths:
       - path: /
