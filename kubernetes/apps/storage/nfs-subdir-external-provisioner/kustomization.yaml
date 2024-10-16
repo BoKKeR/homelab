@@ -10,6 +10,6 @@ patches:
   patch: |-
     - op: replace
       path: /metadata/name
-      value: nfs-subdir-external-provisioner
+      value: nfs-dynamic-provisioner
 patchesStrategicMerge:
   - patch_nfs_details.yaml
