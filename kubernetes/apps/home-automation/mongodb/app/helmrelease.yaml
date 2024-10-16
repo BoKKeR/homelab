@@ -41,7 +41,7 @@ spec:
       cronjob:
         schedule: "@daily"
         storage:
-          storageClass: nfs-dynamic-provisioner2
+          storageClass: nfs-dynamic-provisioner
     externalAccess:
       enabled: true
       service:
