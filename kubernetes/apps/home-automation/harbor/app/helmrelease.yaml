@@ -23,7 +23,7 @@ spec:
     keepHistory: false
   values:
     global:
-      defaultStorageClass: nfs-dynamic-provisioner
+      defaultStorageClass: "local-path-provisioner"
     ingress:
       core:
         hostname: harbor.tnorbert.com
