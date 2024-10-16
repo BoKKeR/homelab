@@ -37,4 +37,4 @@ resources:
   - ./mongodb/ks.yaml
   - tnorbert-blog
   - metallb
-  # - harbor/ks.yaml
+  - harbor/ks.yaml
