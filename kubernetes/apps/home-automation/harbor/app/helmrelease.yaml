@@ -22,14 +22,11 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    global:
+      defaultStorageClass: nfs-dynamic-provisioner
     ingress:
       core:
         hostname: harbor.tnorbert.com
     persistence:
-      persistentVolumeClaim:
-        registry:
-          existingClaim: unraid-pvc
-          subPath: harbor-registry
-        jobservice:
-          existingClaim: unraid-pvc
-          subPath: harbor-jobservice
+      enabled: true
+
