@@ -9,7 +9,7 @@ spec:
   commonMetadata:
     labels:
       app.kubernetes.io/name: *app
-  path: ./kubernetes/apps/kube-system/harbor/app
+  path: ./kubernetes/apps/home-automation/harbor/app
   prune: true
   sourceRef:
     kind: GitRepository
