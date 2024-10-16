@@ -47,7 +47,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   namespace: home-automation
-  name: blocket-iphone
+  name: blocket-iphone-256
   labels:
     app: blocket
 spec:
@@ -84,6 +84,51 @@ spec:
                 key: chat-id
           - name: BLOCKET_URL
             value: "https://www.blocket.se/annonser/stockholm?q=iphone+15+256gb&r=11"
+        imagePullPolicy: Always
+      imagePullSecrets:
+        - name: regcred
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: home-automation
+  name: blocket-iphone-512
+  labels:
+    app: blocket
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: blocket
+  template:
+    metadata:
+      labels:
+        app: blocket
+    spec:
+      containers:
+      - name: blocket
+        readinessProbe:
+          httpGet:
+            path: /healthz
+            port: 80
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 80
+        image: ghcr.io/bokker/blocket-bot:master
+        env:
+          - name: TOKEN
+            valueFrom:
+              secretKeyRef:
+                name: bastu-bot-token
+                key: bastu-bot-token
+          - name: CHAT_ID
+            valueFrom:
+              secretKeyRef:
+                name: chat-id
+                key: chat-id
+          - name: BLOCKET_URL
+            value: "https://www.blocket.se/annonser/stockholm?q=iphone+15+512gb&r=11"
         imagePullPolicy: Always
       imagePullSecrets:
         - name: regcred
