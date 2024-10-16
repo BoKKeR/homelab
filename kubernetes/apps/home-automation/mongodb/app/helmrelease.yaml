@@ -37,7 +37,7 @@ spec:
       storageClass: local-path-provisioner
     architecture: replicaset
     backup:
-      enabled: false
+      enabled: true
       cronjob:
         schedule: "@daily"
         storage:
