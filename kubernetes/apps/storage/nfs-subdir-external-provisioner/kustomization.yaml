@@ -2,6 +2,7 @@
 namespace: nfs-provisioner
 resources:
   - github.com/kubernetes-sigs/nfs-subdir-external-provisioner//deploy
+  - namespace.yaml
 patches:
 - target:
     kind: StorageClass
