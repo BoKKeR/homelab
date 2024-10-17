@@ -55,5 +55,4 @@ spec:
       persistence:
         enabled: true
         storageclass: local-path-provisioner
-      # spec:
-      #   ingressClassName: internal
+
