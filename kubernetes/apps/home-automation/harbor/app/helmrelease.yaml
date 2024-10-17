@@ -22,6 +22,11 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    expose:
+      type: ingress
+      ingress:
+        hosts:
+          core: harbor.tnorbert.com
     global:
       defaultStorageClass: "local-path-provisioner"
     ingress:
