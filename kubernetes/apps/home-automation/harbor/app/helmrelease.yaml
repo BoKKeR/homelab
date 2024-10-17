@@ -10,7 +10,7 @@ spec:
       chart: harbor
       sourceRef:
         kind: HelmRepository
-        name: bitnami
+        name: goharbor
         namespace: flux-system
   install:
     remediation:
@@ -25,19 +25,32 @@ spec:
     expose:
       type: ingress
       ingress:
+        ingressClassName: external
         hosts:
           core: harbor.tnorbert.com
-    global:
-      defaultStorageClass: "local-path-provisioner"
-    ingress:
-      core:
-        ingressClassName: external
-        exposureType: ingress
-        hostname: harbor.tnorbert.com
         annotations:
           external-dns.alpha.kubernetes.io/target: "external.tnorbert.com"
+    global:
+      defaultStorageClass: "local-path-provisioner"
+    notary:
+      enabled: false
     persistence:
       enabled: true
+      resourcePolicy: "keep"
+      persistentVolumeClaim:
+        registry:
+          storageClass: nfs-dynamic-provisioner
+        chartmuseum:
+          storageClass: "${PRIMARY_STORAGE_CLASS}"
+        jobservice:
+          jobLog:
+            storageClass: nfs-dynamic-provisioner
+          scanDataExports:
+            storageClass: nfs-dynamic-provisioner
+        redis:
+          storageClass: nfs-dynamic-provisioner
+        trivy:
+          storageClass: nfs-dynamic-provisioner
   # valuesFrom:
   #   - targetPath: harborAdminPassword
   #     kind: Secret
