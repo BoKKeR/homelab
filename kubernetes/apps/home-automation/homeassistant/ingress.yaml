@@ -51,4 +51,4 @@ spec:
       targetPort: 1400
       protocol: TCP
   type: LoadBalancer
-  loadBalancerIP: 10.0.0.21
+  loadBalancerIP: 10.0.0.20
