@@ -47,11 +47,13 @@ spec:
         kubernetes.io/tls-acme: "true"
       path: /
       pathType: Prefix
+      hosts:
+        - netdata.tnorbert.com
+      spec:
+        ingressClassName: internal
     k8sState:
       persistence:
         enabled: true
         storageclass: local-path-provisioner
-      # hosts:
-      #   - netdata.tnorbert.com
       # spec:
       #   ingressClassName: internal
