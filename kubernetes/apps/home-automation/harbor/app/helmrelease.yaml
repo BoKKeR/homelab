@@ -26,6 +26,7 @@ spec:
       defaultStorageClass: "local-path-provisioner"
     ingress:
       core:
+        ingressClassName: internal
         exposureType: ingress
         hostname: harbor.tnorbert.com
         annotations:
