@@ -5,7 +5,7 @@ metadata:
   name: &app harbor2
   namespace: flux-system
 spec:
-  targetNamespace: kube-system
+  targetNamespace: home-automation
   commonMetadata:
     labels:
       app.kubernetes.io/name: *app
