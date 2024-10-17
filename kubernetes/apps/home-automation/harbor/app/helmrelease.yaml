@@ -29,4 +29,9 @@ spec:
         hostname: harbor.tnorbert.com
     persistence:
       enabled: true
+  valuesFrom:
+    - targetPath: harborAdminPassword
+      kind: Secret
+      name: harbor-secrets
+      valuesKey: harborAdminPassword
 
