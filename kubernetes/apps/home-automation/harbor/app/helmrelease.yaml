@@ -26,7 +26,10 @@ spec:
       defaultStorageClass: "local-path-provisioner"
     ingress:
       core:
+        exposureType: ingress
         hostname: harbor.tnorbert.com
+        annotations:
+          external-dns.alpha.kubernetes.io/target: "external.tnorbert.com"
     persistence:
       enabled: true
   # valuesFrom:
