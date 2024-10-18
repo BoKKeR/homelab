@@ -54,4 +54,12 @@ spec:
           storageClass: nfs-dynamic-provisioner
         database:
           storageClass: local-path-provisioner
+          # type: external
+          # external:
+          #   host: http://postgres
+          #   existingSecret: harbor-postgresql-password
+          #   coreDatabase: harbor
+          #   username: harbor
+          #   port: 5432
+
 

@@ -4,3 +4,4 @@ kind: Kustomization
 resources:
   - ./helmrelease.yaml
   - ./harbor.admin.secret.sops.yaml
+  - ./postgresql-password.secret.sops.yaml
