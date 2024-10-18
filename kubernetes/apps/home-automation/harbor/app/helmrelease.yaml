@@ -25,7 +25,7 @@ spec:
     expose:
       type: ingress
       ingress:
-        ingressClassName: external
+        className: external
         hosts:
           core: harbor.tnorbert.com
         annotations:
@@ -41,7 +41,7 @@ spec:
         registry:
           storageClass: nfs-dynamic-provisioner
         chartmuseum:
-          storageClass: "${PRIMARY_STORAGE_CLASS}"
+          storageClass: nfs-dynamic-provisioner
         jobservice:
           jobLog:
             storageClass: nfs-dynamic-provisioner
