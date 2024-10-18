@@ -22,6 +22,7 @@ spec:
   uninstall:
     keepHistory: false
   values:
+  harborAdminPassword:
     expose:
       type: ingress
       ingress:
@@ -53,9 +54,9 @@ spec:
           storageClass: nfs-dynamic-provisioner
         database:
           storageClass: local-path-provisioner
-  # valuesFrom:
-  #   - targetPath: harborAdminPassword
-  #     kind: Secret
-  #     name: harbor-secrets
-  #     valuesKey: harborAdminPassword
+  valuesFrom:
+    - targetPath: harborAdminPassword
+      kind: Secret
+      name: harbor-secrets
+      valuesKey: harborAdminPassword
 
