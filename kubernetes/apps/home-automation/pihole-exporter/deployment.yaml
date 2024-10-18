@@ -18,12 +18,6 @@ spec:
       containers:
       - name: pihole-exporter
         image: ekofr/pihole-exporter
-        env:
-          - name: PIHOLE_PASSWORD
-            valueFrom:
-              secretKeyRef:
-                name: pihole-password
-                key: pihole-password
         envFrom:
         - configMapRef:
             name: pihole-exporter
