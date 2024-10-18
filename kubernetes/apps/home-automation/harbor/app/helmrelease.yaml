@@ -52,7 +52,7 @@ spec:
         trivy:
           storageClass: nfs-dynamic-provisioner
         database:
-          storageClass: nfs-dynamic-provisioner
+          storageClass: local-path-provisioner
   # valuesFrom:
   #   - targetPath: harborAdminPassword
   #     kind: Secret
