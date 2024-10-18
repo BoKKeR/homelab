@@ -31,6 +31,7 @@ spec:
           core: harbor.tnorbert.com
         annotations:
           external-dns.alpha.kubernetes.io/target: "external.tnorbert.com"
+    externalURL: https://harbor.tnorbert.com
     global:
       defaultStorageClass: "local-path-provisioner"
     notary:
