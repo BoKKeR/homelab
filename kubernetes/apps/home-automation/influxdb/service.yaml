@@ -3,7 +3,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: influxdb
-  namespace: observability
+  namespace: home-automation
   labels:
     app: influxdb
 spec:
