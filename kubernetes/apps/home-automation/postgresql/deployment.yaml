@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: postgres
+  namespace: home-automation
 spec:
   serviceName: postgres
   replicas: 1
