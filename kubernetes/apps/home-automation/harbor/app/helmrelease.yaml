@@ -35,6 +35,8 @@ spec:
       defaultStorageClass: "local-path-provisioner"
     notary:
       enabled: false
+    metrics:
+      enabled: true
     persistence:
       enabled: true
       resourcePolicy: "keep"
