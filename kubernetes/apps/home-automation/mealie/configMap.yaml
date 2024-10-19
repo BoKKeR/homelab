@@ -18,3 +18,11 @@ data:
   POSTGRES_SERVER: "10.0.0.168"
   POSTGRES_PORT: "5432"
   POSTGRES_DB: mealie
+
+  # oidc
+  OIDC_AUTH_ENABLED: "true"
+  OIDC_PROVIDER_NAME: authentik
+  OIDC_REMEMBER_ME: "true"
+  OIDC_SIGNUP_ENABLED: "true"
+
+

@@ -27,11 +27,26 @@ spec:
         - configMapRef:
             name: mealie
         env:
-        - name: POSTGRES_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: postgres-secret
-              key: postgres-secret
+          - name: POSTGRES_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: postgres-secret
+                key: postgres-secret
+          - name: OIDC_CONFIGURATION_URL
+            valueFrom:
+              secretKeyRef:
+                name: mealie-oidc
+                key: configuration-url
+          - name: OIDC_CLIENT_ID
+            valueFrom:
+              secretKeyRef:
+                name: mealie-oidc
+                key: configuration-url
+          - name: OIDC_CLIENT_ID
+            valueFrom:
+              secretKeyRef:
+                name: mealie-oidc
+                key: client-secret
         volumeMounts:
         - mountPath: /app/data/
           subPath: mealie
