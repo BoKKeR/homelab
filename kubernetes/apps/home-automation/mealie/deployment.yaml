@@ -41,8 +41,8 @@ spec:
             valueFrom:
               secretKeyRef:
                 name: mealie-oidc
-                key: configuration-url
-          - name: OIDC_CLIENT_ID
+                key: client-id
+          - name: OIDC_CLIENT_SECRET
             valueFrom:
               secretKeyRef:
                 name: mealie-oidc
