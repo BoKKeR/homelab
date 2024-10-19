@@ -37,6 +37,8 @@ spec:
       enabled: false
     metrics:
       enabled: true
+      serviceMonitor:
+        enabled: true
     persistence:
       enabled: true
       resourcePolicy: "keep"
