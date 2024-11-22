@@ -23,8 +23,7 @@ cniConfig:
 nodes:
   - hostname: "cat01"
     ipAddress: "10.0.0.11"
-    installDiskSelector:
-      serial: "S50ANF1N275976"
+    installDisk: "/dev/sdb"
     talosImageURL: factory.talos.dev/installer/376567988ad370138ad8b2698212367b8edcb69b5fd68c80be1f2ec7d603b4ba
     controlPlane: true
     networkInterfaces:
@@ -58,8 +57,7 @@ nodes:
           ip: "10.0.0.14"
   - hostname: "cat03"
     ipAddress: "10.0.0.13"
-    installDiskSelector:
-      serial: "S50ANF1N284157"
+    installDisk: "/dev/sdb"
     talosImageURL: factory.talos.dev/installer/376567988ad370138ad8b2698212367b8edcb69b5fd68c80be1f2ec7d603b4ba
     controlPlane: true
     networkInterfaces:
