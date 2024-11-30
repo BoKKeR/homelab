@@ -222,3 +222,48 @@ spec:
         imagePullPolicy: Always
       imagePullSecrets:
         - name: regcred
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: home-automation
+  name: blocket-passat
+  labels:
+    app: blocket
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: blocket
+  template:
+    metadata:
+      labels:
+        app: blocket
+    spec:
+      containers:
+      - name: blocket
+        readinessProbe:
+          httpGet:
+            path: /healthz
+            port: 80
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 80
+        image: ghcr.io/bokker/blocket-bot:master
+        env:
+          - name: TOKEN
+            valueFrom:
+              secretKeyRef:
+                name: bastu-bot-token
+                key: bastu-bot-token
+          - name: CHAT_ID
+            valueFrom:
+              secretKeyRef:
+                name: chat-id
+                key: chat-id
+          - name: BLOCKET_URL
+            value: "https://www.blocket.se/bilar/sok?q=passat&filter=%7B%22key%22%3A%22make%22%2C%22values%22%3A%5B%22Volkswagen%22%5D%7D&filter=%7B%22key%22%3A%22models%22%2C%22values%22%3A%5B%22Passat%22%5D%7D&filter=%7B%22key%22%3A%22fuel%22%2C%22values%22%3A%5B%22Bensin%22%2C%22Milj%C3%B6br%C3%A4nsle%2FHybrid%22%5D%7D&filter=%7B%22key%22%3A%22price%22%2C%22range%22%3A%7B%22start%22%3A%22%22%2C%22end%22%3A%22100000%22%7D%7D&filter=%7B%22key%22%3A%22sellerType%22%2C%22values%22%3A%5B%22Privat%22%5D%7D&filter=%7B%22key%22%3A%22modelYear%22%2C%22range%22%3A%7B%22start%22%3A%222012%22%2C%22end%22%3A%22%22%7D%7D"
+        imagePullPolicy: Always
+      imagePullSecrets:
+        - name: regcred
