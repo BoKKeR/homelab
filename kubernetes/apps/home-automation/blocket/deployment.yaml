@@ -218,7 +218,52 @@ spec:
                 name: chat-id
                 key: chat-id
           - name: BLOCKET_URL
-            value: "https://www.blocket.se/annonser/hela_sverige?price_end=100000&q=toyota+corolla+1.8&sort=price&f=p"
+            value: "https://www.blocket.se/annonser/hela_sverige?f=p&price_end=100000&q=toyota+&sort=price"
+        imagePullPolicy: Always
+      imagePullSecrets:
+        - name: regcred
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: home-automation
+  name: blocket-apple-watch
+  labels:
+    app: blocket
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: blocket
+  template:
+    metadata:
+      labels:
+        app: blocket
+    spec:
+      containers:
+      - name: blocket
+        readinessProbe:
+          httpGet:
+            path: /healthz
+            port: 80
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 80
+        image: ghcr.io/bokker/blocket-bot:master
+        env:
+          - name: TOKEN
+            valueFrom:
+              secretKeyRef:
+                name: bastu-bot-token
+                key: bastu-bot-token
+          - name: CHAT_ID
+            valueFrom:
+              secretKeyRef:
+                name: chat-id
+                key: chat-id
+          - name: BLOCKET_URL
+            value: "https://www.blocket.se/annonser/hela_sverige?q=apple+watch+se+2nd"
         imagePullPolicy: Always
       imagePullSecrets:
         - name: regcred
