@@ -195,7 +195,7 @@ spec:
         - hosts:
             - *host
     persistence:
-      enabled: true
+      enabled: false
       existingClaim: unraid-pvc
       subPath: grafana
     testFramework:
