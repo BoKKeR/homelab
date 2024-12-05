@@ -32,7 +32,7 @@ spec:
         nfsMount: "true"
       persistence:
         enabled: true
-        existingClaim: unraid-pvc
+        existingClaim: unraid-un-nvme-pvc
         subPath: mariadb
     metrics:
       enabled: true

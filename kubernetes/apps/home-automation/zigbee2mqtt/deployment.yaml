@@ -45,7 +45,7 @@ spec:
       volumes:
       - name: unraid-storage
         persistentVolumeClaim:
-          claimName: unraid-pvc
+          claimName: unraid-un-nvme-pvc
       - name: zigbee-device
         hostPath:
           path: /dev/serial/by-id/usb-1a86_USB_Serial-if00-port0

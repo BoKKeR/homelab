@@ -28,7 +28,7 @@ spec:
     resourcesPreset: medium
     persistence:
       enabled: true
-      existingClaim: unraid-pvc
+      existingClaim: unraid-un-nvme-pvc
       subPath: mariadb-galera
     galera:
       name: mariadb-cluster
