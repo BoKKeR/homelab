@@ -6,7 +6,7 @@ metadata:
 spec:
   storageClassName: "local-unraid"
   capacity:
-    storage: 10G
+    storage: 20G
   accessModes:
     - ReadWriteMany
   nfs:
