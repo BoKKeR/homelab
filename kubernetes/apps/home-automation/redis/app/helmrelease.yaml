@@ -27,7 +27,7 @@ spec:
       existingSecret: redis
       existingSecretPasswordKey: redis-password
     master:
-      resourcesPreset: small
+      resourcesPreset: medium
       podLabels:
         nfsMount: "true"
       persistence:
@@ -37,7 +37,7 @@ spec:
     replica:
       podLabels:
         nfsMount: "true"
-      resourcesPreset: small
+      resourcesPreset: medium
       persistence:
         enabled: false
     metrics:
