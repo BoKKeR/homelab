@@ -28,7 +28,7 @@ spec:
       volumes:
         - name: unraid-storage
           persistentVolumeClaim:
-            claimName: unraid-pvc
+            claimName: unraid-un-nvme-pvc
 ---
 apiVersion: v1
 kind: Service

@@ -59,6 +59,6 @@ spec:
       volumes:
       - name: data
         persistentVolumeClaim:
-          claimName: unraid-pvc
+          claimName: unraid-un-nvme-pvc
     # - mountPath: /var/www/html
     #   name: local-storage
