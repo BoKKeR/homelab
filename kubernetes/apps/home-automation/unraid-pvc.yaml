@@ -11,7 +11,7 @@ spec:
     - ReadWriteMany
   nfs:
     server: 10.0.0.168
-    path: /mnt/user/UN_NVME/kubernetes
+    path: /mnt/disks/UN_NVME/kubernetes
   mountOptions:
     - nfsvers=4.2
     - tcp
