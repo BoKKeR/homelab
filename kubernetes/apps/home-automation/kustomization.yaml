@@ -5,6 +5,7 @@ resources:
   - secret.sops.yaml
   - unraid-pvc.yaml
   - unraid-rust-pvc.yaml
+  - unraid-un-nvme-pvc.yaml
   - namespace.yaml
   - esphome
   - mosquitto

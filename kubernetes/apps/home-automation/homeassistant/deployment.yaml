@@ -19,7 +19,7 @@ spec:
       volumes:
       - name: unraid-storage
         persistentVolumeClaim:
-          claimName: unraid-pvc
+          claimName: unraid-un-nvme-pvc
       - name: ssh-secret
         secret:
           secretName: ssh-secret-pi-screen
