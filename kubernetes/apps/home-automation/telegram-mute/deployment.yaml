@@ -12,6 +12,7 @@ spec:
     metadata:
       labels:
         app: telegram-mute
+        nfsMount: "true"
     spec:
       containers:
         - name: telegram-mute

@@ -27,6 +27,8 @@ spec:
     - name: local-path-provisioner
       namespace: storage
   values:
+    podLabels:
+      nfsMount: "true"
     plugins:
       - marcusolsson-json-datasource
     initChownData:
@@ -195,7 +197,7 @@ spec:
         - hosts:
             - *host
     persistence:
-      enabled: false
+      enabled: true
       existingClaim: unraid-pvc
       subPath: grafana
     testFramework:

@@ -14,6 +14,7 @@ spec:
     metadata:
       labels:
         app: appdaemon
+        nfsMount: "true"
     spec:
       containers:
       - name: appdaemon

@@ -11,6 +11,7 @@ spec:
     metadata:
       labels:
         app: rsstt
+        nfsMount: "true"
     spec:
       containers:
       - name: rsstt

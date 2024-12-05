@@ -13,6 +13,7 @@ spec:
     metadata:
       labels:
         app: postgres
+        nfsMount: "true"
     spec:
       securityContext:
         runAsUser: 1000

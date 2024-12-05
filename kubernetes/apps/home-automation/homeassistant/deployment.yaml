@@ -14,6 +14,7 @@ spec:
     metadata:
       labels:
         app: home-assistant
+        nfsMount: "true"
     spec:
       volumes:
       - name: unraid-storage

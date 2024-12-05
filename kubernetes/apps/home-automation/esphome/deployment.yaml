@@ -14,6 +14,7 @@ spec:
     metadata:
       labels:
         app: esphome
+        nfsMount: "true"
     spec:
       hostNetwork: true
       containers:

@@ -12,6 +12,7 @@ spec:
     metadata:
       labels:
         app: speedtest-tracker
+        nfsMount: "true"
     spec:
       dnsPolicy: None
       dnsConfig:

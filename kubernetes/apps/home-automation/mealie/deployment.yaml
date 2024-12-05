@@ -14,6 +14,7 @@ spec:
     metadata:
       labels:
         app: mealie
+        nfsMount: "true"
     spec:
       containers:
       - name: mealie

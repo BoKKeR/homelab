@@ -22,6 +22,8 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    podLabels:
+      nfsMount: "true"
     existingSecret: mariadb-galera
     resourcesPreset: medium
     persistence:

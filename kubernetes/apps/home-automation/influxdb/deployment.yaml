@@ -25,6 +25,7 @@ spec:
       creationTimestamp: null
       labels:
         app: influxdb
+        nfsMount: "true"
     spec:
       containers:
       - image: influxdb:2.7.10-alpine

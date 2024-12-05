@@ -12,6 +12,7 @@ spec:
     metadata:
       labels:
         app: espresense
+        nfsMount: "true"
     spec:
       containers:
         - name: espresense

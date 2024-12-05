@@ -28,9 +28,15 @@ spec:
       database: ironcorgi
     primary:
       resourcesPreset: small
+      podLabels:
+        nfsMount: "true"
       persistence:
         enabled: true
         existingClaim: unraid-pvc
         subPath: mariadb
     metrics:
       enabled: true
+    secondary:
+      podLabels:
+        nfsMount: "true"
+

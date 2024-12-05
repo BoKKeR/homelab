@@ -12,6 +12,7 @@ spec:
     metadata:
       labels:
         app: nodered
+        nfsMount: "true"
     spec:
       containers:
         - name: nodered

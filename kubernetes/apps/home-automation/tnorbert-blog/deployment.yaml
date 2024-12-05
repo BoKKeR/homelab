@@ -12,6 +12,7 @@ spec:
     metadata:
       labels:
         app: tnorbert-blog
+        nfsMount: "true"
     spec:
       containers:
         - name: tnorbert-blog

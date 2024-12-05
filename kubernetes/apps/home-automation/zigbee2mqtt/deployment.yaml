@@ -15,6 +15,7 @@ spec:
     metadata:
       labels:
         app: zigbee2mqtt
+        nfsMount: "true"
     spec:
       affinity:
         nodeAffinity:

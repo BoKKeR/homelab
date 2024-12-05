@@ -28,11 +28,15 @@ spec:
       existingSecretPasswordKey: redis-password
     master:
       resourcesPreset: small
+      podLabels:
+        nfsMount: "true"
       persistence:
         enabled: true
         existingClaim: unraid-pvc
         subPath: redis-master
     replica:
+      podLabels:
+        nfsMount: "true"
       resourcesPreset: small
       persistence:
         enabled: false
