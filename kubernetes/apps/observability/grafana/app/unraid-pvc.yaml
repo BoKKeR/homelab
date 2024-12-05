@@ -33,7 +33,7 @@ metadata:
 spec:
   accessModes:
     - ReadWriteMany
-  volumeName: unraid-pv-observability
+  volumeName: unraid-un-nvme-pv-observability
   storageClassName: "local-unraid"
   resources:
     requests:
