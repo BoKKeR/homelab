@@ -6,12 +6,12 @@ metadata:
 spec:
   storageClassName: "local-unraid"
   capacity:
-    storage: 20G
+    storage: 10G
   accessModes:
     - ReadWriteMany
   nfs:
     server: 10.0.0.168
-    path: /mnt/disks/UN_NVME/kubernetes
+    path: /mnt/user/kubernetes
   mountOptions:
     - nfsvers=4.2
     - tcp
