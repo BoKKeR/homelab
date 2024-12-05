@@ -28,7 +28,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: unraid-un-nvme-pv-observability
+  name: unraid-un-nvme-pvc
   namespace: observability
 spec:
   accessModes:
