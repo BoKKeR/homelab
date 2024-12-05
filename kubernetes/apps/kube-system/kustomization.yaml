@@ -9,4 +9,4 @@ resources:
   - ./reloader/ks.yaml
   - ./kubelet-csr-approver/ks.yaml
   - ./spegel/ks.yaml
-
+  - ./unraid-un-nvme-pvc.yaml
