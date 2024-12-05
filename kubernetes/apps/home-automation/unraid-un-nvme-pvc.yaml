@@ -37,4 +37,4 @@ spec:
   storageClassName: "local-unraid"
   resources:
     requests:
-      storage: 20G
+      storage: 10G
