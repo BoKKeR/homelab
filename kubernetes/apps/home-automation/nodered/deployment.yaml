@@ -30,6 +30,9 @@ spec:
               subPath: nodered
               name: unraid-storage
         - name: data-checker
+          securityContext:
+            runAsUser: 99
+            runAsGroup: 100
           image: busybox
           command: ["/bin/sh", "-c"]
           # Check if /data is available, if not exit to restart the pod
