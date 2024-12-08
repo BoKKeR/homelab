@@ -36,3 +36,8 @@ spec:
         bootstrapFromNode: 0
         forceSafeToBootstrap: true
         forceBootstrap: true
+    podSecurityContext:
+      fsGroup: 100
+    containerSecurityContext:
+      runAsUser: 99
+      fsGroup: 100
