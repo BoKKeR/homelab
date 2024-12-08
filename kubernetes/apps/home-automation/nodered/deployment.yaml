@@ -16,6 +16,9 @@ spec:
     spec:
       containers:
         - name: nodered
+          securityContext:
+            runAsUser: 99
+            runAsGroup: 100
           image: nodered/node-red:latest
           env:
             - name: NODE_RED_FLOW_SECRET
