@@ -23,6 +23,11 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    primary:
+      containerSecurityContext:
+        runAsUser: 99
+        runAsGroup: 100
+        readOnlyRootFilesystem: false
     global:
       defaultStorageClass: "local-path-provisioner"
     auth:
