@@ -27,6 +27,10 @@ spec:
       existingSecret: mariadb
       database: ironcorgi
     primary:
+      containerSecurityContext:
+        runAsUser: 99
+        runAsGroup: 100
+        readOnlyRootFilesystem: false
       resourcesPreset: small
       podLabels:
         nfsMount: "true"
