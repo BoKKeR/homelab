@@ -27,6 +27,9 @@ spec:
     - name: local-path-provisioner
       namespace: storage
   values:
+    securityContext:
+      runAsUser: 99
+      runAsGroup: 100
     podLabels:
       nfsMount: "true"
     plugins:
