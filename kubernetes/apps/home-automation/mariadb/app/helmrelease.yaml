@@ -31,7 +31,7 @@ spec:
         runAsUser: 99
         runAsGroup: 100
         readOnlyRootFilesystem: false
-      resourcesPreset: small
+      resourcesPreset: medium
       podLabels:
         nfsMount: "true"
       persistence:
