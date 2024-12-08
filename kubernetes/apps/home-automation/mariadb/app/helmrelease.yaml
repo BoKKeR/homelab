@@ -30,7 +30,7 @@ spec:
       containerSecurityContext:
         runAsUser: 99
         runAsGroup: 100
-        readOnlyRootFilesystem: true
+        readOnlyRootFilesystem: false
       resourcesPreset: medium
       podLabels:
         nfsMount: "true"
