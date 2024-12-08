@@ -18,6 +18,9 @@ spec:
     spec:
       containers:
       - name:  redisinsight
+        securityContext:
+          runAsUser: 99
+          runAsGroup: 100
         image: redislabs/redisinsight:latest
         volumeMounts:
         - name: data
