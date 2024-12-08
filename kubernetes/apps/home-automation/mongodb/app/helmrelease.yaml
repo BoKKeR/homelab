@@ -15,11 +15,11 @@ spec:
         namespace: flux-system
   install:
     remediation:
-      retries: 3
+      retries: 10
   upgrade:
     cleanupOnFail: true
     remediation:
-      retries: 3
+      retries: 10
   uninstall:
     keepHistory: false
   values:
