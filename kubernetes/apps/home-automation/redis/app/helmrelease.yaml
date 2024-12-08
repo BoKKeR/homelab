@@ -34,12 +34,18 @@ spec:
         enabled: true
         existingClaim: unraid-un-nvme-pvc
         subPath: redis-master
+      containerSecurityContext:
+        runAsUser: 99
+        runAsGroup: 100
     replica:
       podLabels:
         nfsMount: "true"
       resourcesPreset: medium
       persistence:
         enabled: false
+      containerSecurityContext:
+        runAsUser: 99
+        runAsGroup: 100
     metrics:
       enable: true
       #   existingClaim: unraid-pvc
