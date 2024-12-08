@@ -28,7 +28,7 @@ spec:
         nfsMount: "true"
     spec:
       containers:
-      - image: influxdb:2.7.10-alpine
+      - image: influxdb:2.7.11-alpine
         imagePullPolicy: Always
         name: influxdb
         resources: {}
