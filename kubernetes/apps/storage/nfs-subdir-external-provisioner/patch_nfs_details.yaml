@@ -18,4 +18,4 @@ spec:
         - name: nfs-client-root
           nfs:
             server: 10.0.0.168
-            path: /mnt/disks/un_nvme/kubernetes-nfs-provisioner
+            path: /mnt/disks/un_nvme/
