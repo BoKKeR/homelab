@@ -39,4 +39,3 @@ resources:
   - tnorbert-blog
   - metallb
   - harbor/ks.yaml
-  - pihole-second/ks.yaml
