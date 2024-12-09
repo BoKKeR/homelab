@@ -13,9 +13,9 @@ spec:
             - name: NFS_SERVER
               value: 10.0.0.168
             - name: NFS_PATH
-              value: /mnt/user/kubernetes-nfs-provisioner
+              value: /mnt/disks/un_nvme/kubernetes-nfs-provisioner
       volumes:
         - name: nfs-client-root
           nfs:
             server: 10.0.0.168
-            path: /mnt/user/kubernetes-nfs-provisioner
+            path: /mnt/disks/un_nvme/kubernetes-nfs-provisioner
