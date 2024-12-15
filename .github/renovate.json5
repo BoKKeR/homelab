@@ -38,6 +38,15 @@
   "commitMessageSuffix": "",
   // package rules
   "packageRules": [
+    // Global auto merge
+    {
+      "description": ["Auto merge all patch updates"],
+      "matchUpdateTypes": ["patch", "minor"],
+      "automerge": true,
+      "automergeType": "branch",
+      "ignoreTests": true
+    },
+
     // automerge
     {
       "description": ["Auto merge Github Actions"],
