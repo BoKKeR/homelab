@@ -20,6 +20,14 @@ spec:
           image: ghcr.io/bokker/tnorbert-payload:1.0.102 # {"$imagepolicy": "home-automation:tnorbert-blog"}
           ports:
             - containerPort: 3000
+          readinessProbe:
+            httpGet:
+              path: /admin # Adjust this path to the health endpoint of your application
+              port: 3000
+            initialDelaySeconds: 10
+            periodSeconds: 5
+            successThreshold: 1
+            failureThreshold: 3
           env:
             - name: PAYLOAD_SECRET
               valueFrom:
