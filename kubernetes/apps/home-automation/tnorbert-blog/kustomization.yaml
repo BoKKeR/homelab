@@ -11,3 +11,4 @@ resources:
   - payload.secret.sops.yaml
   - mongodb-database-uri.secret.sops.yaml
   - configMap.yaml
+  - smtp.secret.sops.yaml
