@@ -39,6 +39,21 @@ spec:
                 secretKeyRef:
                   name: mongodb-database-uri
                   key: mongodb-database-uri
+            - name: SMTP_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: smtp-internal-tnorbert
+                  key: smtp-host
+            - name: SMTP_USER
+              valueFrom:
+                secretKeyRef:
+                  name: smtp-internal-tnorbert
+                  key: smtp-user
+            - name: SMTP_PASS
+              valueFrom:
+                secretKeyRef:
+                  name: smtp-internal-tnorbert
+                  key: smtp-password
           envFrom:
             - configMapRef:
                 name: tnorbert-blog-configmap
