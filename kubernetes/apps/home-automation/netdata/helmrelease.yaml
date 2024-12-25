@@ -43,8 +43,6 @@ spec:
         storageclass: local-path-provisioner
     ingress:
       enabled: true
-      annotations:
-        kubernetes.io/tls-acme: "true"
       path: /
       pathType: Prefix
       hosts:
