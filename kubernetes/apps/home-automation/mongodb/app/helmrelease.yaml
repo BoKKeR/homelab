@@ -41,7 +41,8 @@ spec:
       cronjob:
         schedule: "@daily"
         storage:
-          storageClass: nfs-dynamic-provisioner
+          subPath: mongodb-backup
+          existingClaim: unraid-un-nvme-pvc
     externalAccess:
       enabled: true
       service:
