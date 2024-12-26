@@ -61,6 +61,9 @@ spec:
             - mountPath: /home/node/app/public/media
               subPath: tnorbert-blog
               name: unraid-storage
+            - mountPath: /home/node/app/.next
+              subPath: tnorbert-blog-build
+              name: unraid-storage
       imagePullSecrets:
         - name: regcred
       volumes:
