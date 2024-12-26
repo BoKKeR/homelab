@@ -58,7 +58,7 @@ spec:
             - configMapRef:
                 name: tnorbert-blog-configmap
           volumeMounts:
-            - mountPath: /home/node/app/media
+            - mountPath: /home/node/app/public/media
               subPath: tnorbert-blog
               name: unraid-storage
       imagePullSecrets:
