@@ -8,6 +8,4 @@ data:
   PAYLOAD_PUBLIC_SERVER_URL: https://blog.tnorbert.com
   NEXT_PUBLIC_IS_LIVE: "true"
   PORT: "3000"
-  DISABLE_ESLINT_PLUGIN: "true"
-  TSC_COMPILE_ON_ERROR: "true"
 
