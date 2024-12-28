@@ -39,3 +39,4 @@ resources:
   - tnorbert-blog
   - metallb
   - harbor/ks.yaml
+  - matomo/ks.yaml
