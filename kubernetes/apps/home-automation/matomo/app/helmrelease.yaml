@@ -27,6 +27,8 @@ spec:
       enabled: true
       serviceMonitor:
         enabled: true
+    mariadb:
+      enabled: false
     externalDatabase:
       host: mariadb
       port: 3306
