@@ -35,3 +35,6 @@ spec:
       user: matomo_user
       database: matomo
       existingSecret: matomo-db
+    cronjobs:
+      archive:
+        enabled: false
