@@ -38,3 +38,4 @@ spec:
     cronjobs:
       archive:
         enabled: false
+    resourcesPreset: small
