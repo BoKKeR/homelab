@@ -29,12 +29,13 @@ spec:
         enabled: true
     mariadb:
       enabled: false
+    existingSecret: "matomo-secret"
     externalDatabase:
       host: mariadb
       port: 3306
       user: matomo_user
       database: matomo
-      existingSecret: matomo-db
+      existingSecret: matomo-secret
     cronjobs:
       archive:
         enabled: false
