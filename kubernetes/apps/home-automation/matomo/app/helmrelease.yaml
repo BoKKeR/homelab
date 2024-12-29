@@ -44,7 +44,7 @@ spec:
     ingress:
       enabled: true
       ingressClassName: external
-      hostname: matomo.${SECRET_DOMAIN}
+      hostname: matomo.tnorbert.com
       # tls:
       #   - hosts:
       #       - *host
