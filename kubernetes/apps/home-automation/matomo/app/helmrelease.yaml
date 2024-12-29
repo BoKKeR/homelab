@@ -32,6 +32,7 @@ spec:
     existingSecret: "matomo-secret"
     smtpExistingSecret: smtp-internal-tnorbert
     smtpHost: smtp.purelymail.com
+    matomoUsername: BoKKeR
     smtpPort: 465
     smtpProtocol: "tls"
     smtpUser: "${SECRET_INTERNAL_EMAIL}"
