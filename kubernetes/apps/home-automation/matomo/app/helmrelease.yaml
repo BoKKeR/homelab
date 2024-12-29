@@ -39,3 +39,5 @@ spec:
       archive:
         enabled: false
     resourcesPreset: small
+    global:
+      defaultStorageClass: "local-path-provisioner"
