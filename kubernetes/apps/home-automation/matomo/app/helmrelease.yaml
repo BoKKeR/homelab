@@ -43,7 +43,7 @@ spec:
     global:
       defaultStorageClass: "local-path-provisioner"
     ingress:
-      enabled: false
+      enabled: true
       ingressClassName: external
       hostname: "matomo.${SECRET_DOMAIN}"
       # tls:
