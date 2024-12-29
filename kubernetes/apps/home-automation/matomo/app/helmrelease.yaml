@@ -41,3 +41,11 @@ spec:
     resourcesPreset: small
     global:
       defaultStorageClass: "local-path-provisioner"
+    ingress:
+      enabled: true
+      ingressClassName: internal
+      hostname:
+        - "matomo.${SECRET_DOMAIN}"
+      # tls:
+      #   - hosts:
+      #       - *host
