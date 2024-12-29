@@ -30,6 +30,11 @@ spec:
     mariadb:
       enabled: false
     existingSecret: "matomo-secret"
+    smtpExistingSecret: smtp-internal-tnorbert
+    smtpHost: smtp.purelymail.com
+    smtpPort: 465
+    smtpProtocol: "tls"
+    smtpUser: "${SECRET_INTERNAL_EMAIL}"
     externalDatabase:
       host: mariadb
       port: 3306
@@ -43,7 +48,7 @@ spec:
     global:
       defaultStorageClass: "local-path-provisioner"
     ingress:
-      enabled: true
+      enabled: false
       ingressClassName: external
       hostname: "matomo.${SECRET_DOMAIN}"
       # tls:
