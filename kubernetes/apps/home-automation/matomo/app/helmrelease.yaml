@@ -50,8 +50,10 @@ spec:
       defaultStorageClass: "local-path-provisioner"
     ingress:
       enabled: true
-      ingressClassName: internal
+      ingressClassName: external
       hostname: "matomo.${SECRET_DOMAIN}"
       # tls:
       #   - hosts:
       #       - *host
+      annotations:
+        external-dns.alpha.kubernetes.io/target: external.${SECRET_DOMAIN}
