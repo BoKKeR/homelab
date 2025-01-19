@@ -25,7 +25,7 @@ spec:
               - key: kubernetes.io/hostname
                 operator: In
                 values:
-                  - cat01
+                  - cat03
       containers:
       - name: zigbee2mqtt
         image: koenkk/zigbee2mqtt:1.42.0
