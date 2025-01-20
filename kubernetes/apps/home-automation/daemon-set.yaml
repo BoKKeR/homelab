@@ -75,3 +75,85 @@ spec:
         effect: "NoExecute"
       nodeSelector:
         kubernetes.io/hostname: "cat02"  # Targets specific nodes
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kbench-second
+  labels:
+    app: kbench-second
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kbench-second
+  template:
+    metadata:
+      labels:
+        app: kbench-second
+    spec:
+      containers:
+        - name: kbench-second
+          image: ghcr.io/xridge/kbench:latest # Update this to the correct image version
+          imagePullPolicy: Always
+          args:
+            - "--cpu=4"
+            - "--memory=8Gi"
+            - "--duration=60s"
+          resources:
+            requests:
+              cpu: "4"
+              memory: "8Gi"
+            limits:
+              cpu: "4"
+              memory: "8Gi"
+          volumeMounts:
+            - name: benchmark-output
+              mountPath: /output
+      volumes:
+        - name: benchmark-output
+          emptyDir: {}
+      restartPolicy: Never
+      nodeSelector:
+        kubernetes.io/hostname: "cat02"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kbench-third
+  labels:
+    app: kbench-third
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kbench-third
+  template:
+    metadata:
+      labels:
+        app: kbench-third
+    spec:
+      containers:
+        - name: kbench-third
+          image: ghcr.io/xridge/kbench:latest # Update this to the correct image version
+          imagePullPolicy: Always
+          args:
+            - "--cpu=4"
+            - "--memory=8Gi"
+            - "--duration=60s"
+          resources:
+            requests:
+              cpu: "4"
+              memory: "8Gi"
+            limits:
+              cpu: "4"
+              memory: "8Gi"
+          volumeMounts:
+            - name: benchmark-output
+              mountPath: /output
+      volumes:
+        - name: benchmark-output
+          emptyDir: {}
+      restartPolicy: Never
+      nodeSelector:
+        kubernetes.io/hostname: "cat03"
