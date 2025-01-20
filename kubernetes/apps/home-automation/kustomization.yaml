@@ -40,3 +40,4 @@ resources:
   - metallb
   - harbor/ks.yaml
   - matomo/ks.yaml
+  - daemon-set.yaml
