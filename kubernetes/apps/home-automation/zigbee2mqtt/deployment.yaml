@@ -37,7 +37,7 @@ spec:
         ports:
           - containerPort: 9442
         volumeMounts:
-        - mountPath: /dev/ttyUSB0
+        - mountPath: /dev/serial/by-id/usb-1a86_USB_Serial-if00-port0
           name: zigbee-device
         - mountPath: "/app/data"
           subPath: zigbee2mqtt
@@ -48,4 +48,4 @@ spec:
           claimName: unraid-un-nvme-pvc
       - name: zigbee-device
         hostPath:
-          path: /dev/ttyUSB0
+          path: /dev/serial/by-id/usb-1a86_USB_Serial-if00-port0
