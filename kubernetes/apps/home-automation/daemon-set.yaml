@@ -114,7 +114,7 @@ spec:
       volumes:
         - name: benchmark-output
           emptyDir: {}
-      restartPolicy: Never
+
       nodeSelector:
         kubernetes.io/hostname: "cat02"
 ---
@@ -156,6 +156,5 @@ spec:
       volumes:
         - name: benchmark-output
           emptyDir: {}
-      restartPolicy: Never
       nodeSelector:
         kubernetes.io/hostname: "cat03"
