@@ -40,19 +40,19 @@ spec:
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:
-  name: disk-benchmark
+  name: disk-benchmark-second
   namespace: default
 spec:
   selector:
     matchLabels:
-      app: disk-benchmark
+      app: disk-benchmark-second
   template:
     metadata:
       labels:
-        app: disk-benchmark
+        app: disk-benchmark-second
     spec:
       containers:
-      - name: disk-benchmark
+      - name: disk-benchmark-second
         image: ubuntu:latest
         command:
         - sleep
