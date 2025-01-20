@@ -79,6 +79,7 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  namespace: home-automation
   name: kbench-second
   labels:
     app: kbench-second
@@ -121,6 +122,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: kbench-third
+  namespace: home-automation
   labels:
     app: kbench-third
 spec:
