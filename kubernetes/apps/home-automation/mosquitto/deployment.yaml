@@ -16,6 +16,15 @@ spec:
         app: mosquitto
         nfsMount: "true"
     spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: kubernetes.io/hostname
+                operator: In
+                values:
+                  - cat03
       containers:
       - name: mosquitto
         image: eclipse-mosquitto
