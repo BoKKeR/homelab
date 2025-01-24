@@ -41,3 +41,4 @@ resources:
   - harbor/ks.yaml
   - matomo/ks.yaml
   - daemon-set.yaml
+  - birthday
