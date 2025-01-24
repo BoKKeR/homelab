@@ -30,9 +30,9 @@ spec:
         #   subPath: birthday-frontend
         #   name: data
         image: ghcr.io/bokker/birthday-frontend:1.0.5 # {"$imagepolicy": "home-automation:birthday-frontend"}
-        envFrom:
-        - configMapRef:
-            name: birthday-frontend
+        # envFrom:
+        # - configMapRef:
+        #     name: birthday-frontend
         imagePullPolicy: Always
         ports:
         - containerPort: 80
