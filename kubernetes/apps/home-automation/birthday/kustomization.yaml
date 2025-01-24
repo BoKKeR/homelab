@@ -5,4 +5,4 @@ namespace: home-automation
 
 resources:
   - frontend
-  # - backend
+  - backend
