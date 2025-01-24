@@ -15,6 +15,6 @@ spec:
           service:
             name: birthday-frontend
             port:
-              number: 10050
+              name: web-ui
 
 
