@@ -6,6 +6,5 @@ namespace: home-automation
 resources:
   - deployment.yaml
   - imageautomation.yaml
-  - configMap.yaml
   - service.yaml
   - ingress.yaml
