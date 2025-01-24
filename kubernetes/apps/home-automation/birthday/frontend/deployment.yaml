@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: home-automation
+  name: birthday-frontend
+  labels:
+    app: birthday-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: birthday-frontend
+  template:
+    metadata:
+      labels:
+        app: birthday-frontend
+    spec:
+      containers:
+      - name: birthday-frontend
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 80
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 80
+        # volumeMounts:
+        # - mountPath: /data
+        #   subPath: birthday-frontend
+        #   name: data
+        image: ghcr.io/bokker/birthday-frontend:1.0.105 # {"$imagepolicy": "home-automation:birthday-frontend"}
+        envFrom:
+        - configMapRef:
+            name: birthday-frontend
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+      imagePullSecrets:
+      - name: regcred
+      # volumes:
+      #   - name: data
+      #     persistentVolumeClaim:
+      #       claimName: unraid-un-nvme-pvc

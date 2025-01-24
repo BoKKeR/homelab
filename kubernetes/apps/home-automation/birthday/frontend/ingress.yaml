@@ -1,0 +1,20 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  namespace: home-automation
+  name: birthday-frontend-internal
+spec:
+  ingressClassName: internal
+  rules:
+  - host: birthday.tnorbert.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: birthday-frontend
+            port:
+              number: 10050
+
+

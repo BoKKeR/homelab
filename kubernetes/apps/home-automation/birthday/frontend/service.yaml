@@ -1,0 +1,17 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: birthday-frontend
+  namespace: home-automation
+  labels:
+    app: birthday-frontend
+spec:
+  selector:
+    app: birthday-frontend
+  type: ClusterIP
+  ports:
+    - protocol: TCP
+      name: "webui"
+      port: 80
+      targetPort: 80
