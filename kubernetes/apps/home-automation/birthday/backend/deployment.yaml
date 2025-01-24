@@ -29,7 +29,7 @@ spec:
         # - mountPath: /data
         #   subPath: birthday-backend
         #   name: data
-        image: ghcr.io/bokker/birthday-backend:1.0.6 # {"$imagepolicy": "home-automation:birthday-backend"}
+        image: ghcr.io/bokker/birthday-backend:1.0.3 # {"$imagepolicy": "home-automation:birthday-backend"}
         # envFrom:
         # - configMapRef:
         #     name: birthday-backend
