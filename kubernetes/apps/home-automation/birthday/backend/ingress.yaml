@@ -15,6 +15,6 @@ spec:
           service:
             name: birthday-backend
             port:
-              number: 80
+              number: 10040
 
 
