@@ -15,6 +15,6 @@ spec:
           service:
             name: birthday-frontend
             port:
-              name: webui
+              number: 80
 
 
