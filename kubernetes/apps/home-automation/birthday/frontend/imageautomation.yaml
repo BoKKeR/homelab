@@ -46,12 +46,3 @@ spec:
   update:
     path: ./kubernetes/apps
     strategy: Setters
----
-apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRole
-metadata:
-  name: flux-system-read-access
-rules:
-  - apiGroups: ["source.toolkit.fluxcd.io"]
-    resources: ["gitrepositories"]
-    verbs: ["get", "list", "watch"]
