@@ -41,3 +41,4 @@ resources:
   - harbor/ks.yaml
   - matomo/ks.yaml
   - birthday
+  - gotosocial/ks.yaml
