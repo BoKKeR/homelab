@@ -19,14 +19,14 @@ spec:
       gotosocial:
         type: deployment
         replicas: 1
-        # initContainers:
-        #   init-db:
-        #     image:
-        #       repository: ghcr.io/tnorbert/postgres-init
-        #       tag: 16
-        #     envFrom: &envFrom
-        #       - secretRef:
-        #           name: gotosocial
+        initContainers:
+          init-db:
+            image:
+              repository: ghcr.io/onedr0p/postgres-init
+              tag: 16.6
+            envFrom: &envFrom
+              - secretRef:
+                  name: gotosocial
         containers:
           main:
             image:
