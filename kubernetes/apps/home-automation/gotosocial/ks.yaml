@@ -8,7 +8,7 @@ spec:
   commonMetadata:
     labels:
       app.kubernetes.io/name: *app
-  path: ./kubernetes/apps/default/gotosocial/app
+  path: ./kubernetes/apps/home-automation/gotosocial/app
   prune: true
   sourceRef:
     kind: GitRepository
