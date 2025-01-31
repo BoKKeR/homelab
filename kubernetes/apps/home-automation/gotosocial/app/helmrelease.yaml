@@ -48,7 +48,7 @@ spec:
               # GTS_OIDC_IDP_NAME: "tnorbert SSO"
               # GTS_OIDC_ISSUER: https://auth.tnorbert.com/application/o/gotosocial/
               GTS_STORAGE_BACKEND: "local"
-            # envFrom: *envFrom
+            envFrom: *envFrom
             securityContext:
               readOnlyRootFilesystem: true
               allowPrivilegeEscalation: false
