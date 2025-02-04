@@ -89,3 +89,11 @@ spec:
                 service:
                   identifier: app
                   port: http
+
+          - host: "{{ .Release.Name }}.${FRIDAY_DOMAIN}"
+            paths:
+              - path: /
+                service:
+                  identifier: app
+                  port: http
+
