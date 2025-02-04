@@ -73,7 +73,7 @@ spec:
       main:
         className: external
         annotations:
-          external-dns.alpha.kubernetes.io/target: external.tnorbert.com
+          external-dns.alpha.kubernetes.io/target: external.${FRIDAY_DOMAIN}
           nginx.ingress.kubernetes.io/proxy-body-size: 4096m
         hosts:
           - host: *host
