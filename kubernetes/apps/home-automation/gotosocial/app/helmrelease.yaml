@@ -35,7 +35,7 @@ spec:
             env:
               TZ: "Europe/Lisbon"
               GTS_HOST: &host social.tnorbert.com
-              GTS_ACCOUNT_DOMAIN: "tnorbert.com"
+              GTS_ACCOUNT_DOMAIN: ${FRIDAY_DOMAIN}
               GTS_LANDING_PAGE_USER: "bokker"
               GTS_ACCOUNTS_REGISTRATION_OPEN: "false"
               GTS_APPLICATION_NAME: "tnorbert's galaxy"
