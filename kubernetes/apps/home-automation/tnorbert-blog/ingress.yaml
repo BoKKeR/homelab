@@ -4,11 +4,11 @@ metadata:
   namespace: home-automation
   name: tnorbert-blog-external
   annotations:
-    external-dns.alpha.kubernetes.io/target: "external.tnorbert.com"
+    external-dns.alpha.kubernetes.io/target: "external.deploy-on-friday.com"
 spec:
   ingressClassName: external
   rules:
-  - host: tnorbert.com
+  - host: deploy-on-friday.com
     http:
       paths:
       - path: /
