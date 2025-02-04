@@ -28,4 +28,4 @@ spec:
   commonName: "${FRIDAY_DOMAIN}"
   dnsNames:
     - "${FRIDAY_DOMAIN}"
-    - "*${FRIDAY_DOMAIN}"
+    - "*.${FRIDAY_DOMAIN}"
