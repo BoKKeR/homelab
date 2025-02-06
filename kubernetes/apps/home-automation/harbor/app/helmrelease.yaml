@@ -22,7 +22,7 @@ spec:
   uninstall:
     keepHistory: false
   values:
-    existingSecretAdminPassword: harbor-secret
+    existingSecretAdminPassword: harbor-init-secrets
     existingSecretAdminPasswordKey: harborAdminPassword
     registry:
       initContainers:
