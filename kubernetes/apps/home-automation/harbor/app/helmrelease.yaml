@@ -69,7 +69,7 @@ spec:
       # storageClass: local-path-provisioner
       type: external
       external:
-        host: http://10.0.0.168
+        host: 10.0.0.168
         existingSecret: harbor-init-secrets
         coreDatabase: harbor
         username: harbor
