@@ -22,6 +22,15 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    core:
+      initContainers:
+        init-db:
+          image:
+            repository: ghcr.io/onedr0p/postgres-init
+            tag: 16.6
+          envFrom:
+            - secretRef:
+                name: harbor-secrets
     expose:
       type: ingress
       ingress:
@@ -57,13 +66,13 @@ spec:
         trivy:
           storageClass: nfs-dynamic-provisioner
         database:
-          storageClass: local-path-provisioner
-          # type: external
-          # external:
-          #   host: http://postgres
-          #   existingSecret: harbor-postgresql-password
-          #   coreDatabase: harbor
-          #   username: harbor
-          #   port: 5432
+          # storageClass: local-path-provisioner
+          type: external
+          external:
+            host: http://10.0.0.168
+            existingSecret: harbor-secrets
+            coreDatabase: harbor
+            username: harbor
+            port: 5432
 
 
