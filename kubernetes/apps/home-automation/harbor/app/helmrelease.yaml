@@ -22,7 +22,7 @@ spec:
   uninstall:
     keepHistory: false
   values:
-    core:
+    registry:
       initContainers:
         - name: init-db
           image:
