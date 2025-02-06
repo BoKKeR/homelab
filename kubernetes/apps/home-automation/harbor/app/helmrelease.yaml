@@ -22,7 +22,7 @@ spec:
   uninstall:
     keepHistory: false
   values:
-    existingSecretAdminPassword: harbor-init-secrets
+    existingSecretAdminPassword: harbor-secrets
     existingSecretAdminPasswordKey: harborAdminPassword
     registry:
       initContainers:
@@ -30,7 +30,7 @@ spec:
           image: ghcr.io/onedr0p/postgres-init:16.6
           envFrom:
             - secretRef:
-                name: harbor-init-secrets
+                name: harbor-secrets
     expose:
       type: ingress
       ingress:
@@ -70,7 +70,7 @@ spec:
       type: external
       external:
         host: 10.0.0.168
-        existingSecret: harbor-init-secrets
+        existingSecret: harbor-secrets
         coreDatabase: harbor
         username: harbor
         port: 5432
