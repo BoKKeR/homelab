@@ -65,14 +65,14 @@ spec:
           storageClass: nfs-dynamic-provisioner
         trivy:
           storageClass: nfs-dynamic-provisioner
-        database:
-          # storageClass: local-path-provisioner
-          type: external
-          external:
-            host: http://10.0.0.168
-            existingSecret: harbor-secrets
-            coreDatabase: harbor
-            username: harbor
-            port: 5432
+    database:
+      # storageClass: local-path-provisioner
+      type: external
+      external:
+        host: http://10.0.0.168
+        existingSecret: harbor-secrets
+        coreDatabase: harbor
+        username: harbor
+        port: 5432
 
 
