@@ -30,7 +30,7 @@ spec:
             tag: 16.6
           envFrom:
             - secretRef:
-                name: harbor-secrets
+                name: harbor-init-secrets
     expose:
       type: ingress
       ingress:
@@ -70,7 +70,7 @@ spec:
       type: external
       external:
         host: http://10.0.0.168
-        existingSecret: harbor-secrets
+        existingSecret: harbor-init-secrets
         coreDatabase: harbor
         username: harbor
         port: 5432
