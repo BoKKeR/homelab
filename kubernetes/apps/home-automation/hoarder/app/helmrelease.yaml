@@ -30,8 +30,8 @@ spec:
               DISABLE_SIGNUPS: false
               OAUTH_WELLKNOWN_URL: https://authentik.${SECRET_DOMAIN}/application/o/hoarder/.well-known/openid-configuration
               OAUTH_PROVIDER_NAME: Holton Cloud Auth
-            # envFrom:
-            #   - secret: hoarder-secret
+            envFrom:
+              - secret: hoarder-secret
       chrome:
         containers:
           chrome:
