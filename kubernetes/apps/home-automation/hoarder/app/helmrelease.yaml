@@ -23,7 +23,7 @@ spec:
               repository: ghcr.io/hoarder-app/hoarder
               tag: 0.22.0
             env:
-              # MEILI_ADDR: http://hoarder-meilisearch:7700
+              MEILI_ADDR: http://hoarder-meilisearch:7700
               BROWSER_WEB_URL: http://hoarder-chrome:9222
               DATA_DIR: /data
               NEXTAUTH_URL: https://link.${SECRET_DOMAIN}
@@ -89,16 +89,18 @@ spec:
         #   - hosts:
         #       - *host
         #     secretName: hoarder-tls
-    # persistence:
-    #   web:
-    #     existingClaim: hoarder-storage
-    #     advancedMounts:
-    #       web:
-    #         web:
-    #           - path: /data
-    #   meilisearch:
-    #     existingClaim: meili-storage
-    #     advancedMounts:
-    #       meilisearch:
-    #         meilisearch:
-    #           - path: /meili_data
+    persistence:
+      web:
+        existingClaim: unraid-un-nvme-pvc
+        advancedMounts:
+          web:
+            web:
+              - path: /data
+                subPath: hoarder
+      meilisearch:
+        existingClaim: unraid-un-nvme-pvc
+        advancedMounts:
+          meilisearch:
+            meilisearch:
+              - path: /meili_data
+                subPath: meili
