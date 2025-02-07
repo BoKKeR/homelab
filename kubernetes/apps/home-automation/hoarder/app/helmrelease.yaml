@@ -26,7 +26,7 @@ spec:
               # MEILI_ADDR: http://hoarder-meilisearch:7700
               BROWSER_WEB_URL: http://hoarder-chrome:9222
               DATA_DIR: /data
-              NEXTAUTH_URL: https://hoarder.${SECRET_DOMAIN}
+              NEXTAUTH_URL: https://link.${SECRET_DOMAIN}
               DISABLE_SIGNUPS: false
               OAUTH_WELLKNOWN_URL: https://authentik.${SECRET_DOMAIN}/application/o/hoarder/.well-known/openid-configuration
               OAUTH_PROVIDER_NAME: Holton Cloud Auth
