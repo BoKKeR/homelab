@@ -77,7 +77,7 @@ spec:
         # annotations:
         #   cert-manager.io/cluster-issuer: letsencrypt-prod
         hosts:
-          - host: &host hoarder.${SECRET_DOMAIN}
+          - host: &host link.${SECRET_DOMAIN}
             paths:
               - path: /
                 service:
