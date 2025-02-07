@@ -55,22 +55,22 @@ spec:
               tag: v1.6
             env:
               MEILI_NO_ANALYTICS: true
-    # service:
-    #   web:
-    #     controller: web
-    #     ports:
-    #       http:
-    #         port: 3000
-    #   chrome:
-    #     controller: chrome
-    #     ports:
-    #       http:
-    #         port: 9222
-    #   meilisearch:
-    #     controller: meilisearch
-    #     ports:
-    #       http:
-    #         port: 7700
+    service:
+      web:
+        controller: web
+        ports:
+          http:
+            port: 3000
+      chrome:
+        controller: chrome
+        ports:
+          http:
+            port: 9222
+      meilisearch:
+        controller: meilisearch
+        ports:
+          http:
+            port: 7700
     ingress:
       main:
         className: external
