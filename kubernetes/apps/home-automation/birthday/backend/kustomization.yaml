@@ -8,3 +8,4 @@ resources:
   - imageautomation.yaml
   - service.yaml
   - ingress.yaml
+  - birthday.secret.sops.yaml

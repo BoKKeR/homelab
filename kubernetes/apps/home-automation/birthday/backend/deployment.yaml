@@ -17,6 +17,14 @@ spec:
     spec:
       containers:
       - name: birthday-backend
+        initContainers:
+          - name: init-db
+            image:
+              repository: ghcr.io/onedr0p/postgres-init
+              tag: 16.6
+            envFrom:
+              - secretRef:
+                  name: birthday-backend
         readinessProbe:
           httpGet:
             path: /
