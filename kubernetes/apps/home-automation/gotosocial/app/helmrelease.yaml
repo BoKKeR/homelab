@@ -36,7 +36,7 @@ spec:
               TZ: "Europe/Lisbon"
               GTS_HOST: &host social.${FRIDAY_DOMAIN}
               GTS_ACCOUNT_DOMAIN: ${FRIDAY_DOMAIN}
-              GTS_LANDING_PAGE_USER: "bokker"
+              GTS_LANDING_PAGE_USER: "commit"
               GTS_ACCOUNTS_REGISTRATION_OPEN: "false"
               GTS_APPLICATION_NAME: "tnorbert's galaxy"
               GTS_PROTOCOL: "https" # not HTTP server listen mode, but used for generating URLs etc
