@@ -4,8 +4,8 @@ metadata:
   name: tnorbert-blog-configmap
   namespace: home-automation
 data:
-  NEXT_PUBLIC_SERVER_URL: https://deploy-on-friday.com
-  PAYLOAD_PUBLIC_SERVER_URL: https://deploy-on-friday.com
+  NEXT_PUBLIC_SERVER_URL: https://tnorbert.com
+  PAYLOAD_PUBLIC_SERVER_URL: https://tnorbert.com
   NEXT_PUBLIC_IS_LIVE: "true"
   PORT: "3000"
 
