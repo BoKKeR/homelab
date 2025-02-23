@@ -72,4 +72,7 @@ spec:
       enabled: true
       annotations:
         grafana_folder: Cilium
-    tolerations: []
+    tolerations:
+      - key: "node.cilium.io/agent-not-ready"
+        operator: "Exists"
+        effect: "NoSchedule"
