@@ -8,7 +8,7 @@ metadata:
 spec:
   ingressClassName: external
   rules:
-  - host: blog.deploy-on-friday.com
+  - host: deploy-on-friday.com
     http:
       paths:
       - path: /
