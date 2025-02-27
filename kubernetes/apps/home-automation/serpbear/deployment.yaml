@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: home-automation
+  name: serpbear
+spec:
+  selector:
+    matchLabels:
+      app: serpbear
+  template:
+    metadata:
+      labels:
+        app: serpbear
+    spec:
+      containers:
+      - name: serpbear
+        image: towfiqi/serpbear
+        ports:
+          - containerPort: 3000
+        volumeMounts:
+          - name: data
+            mountPath: /app/data
+            subPath: serpbear
+      volumes:
+      - name: data
+        persistentVolumeClaim:
+          claimName: unraid-un-nvme-pvc
