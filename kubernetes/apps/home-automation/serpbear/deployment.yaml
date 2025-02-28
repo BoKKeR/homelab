@@ -21,6 +21,27 @@ spec:
           - name: data
             mountPath: /app/data
             subPath: serpbear
+        env:
+          - name: PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: serpbear
+                key: PASSWORD
+          - name: USER
+            valueFrom:
+              secretKeyRef:
+                name: serpbear
+                key: USER
+          - name: SECRET
+            valueFrom:
+              secretKeyRef:
+                name: serpbear
+                key: SECRET
+          - name: APIKEY
+            valueFrom:
+              secretKeyRef:
+                name: serpbear
+                key: APIKEY
       volumes:
       - name: data
         persistentVolumeClaim:
