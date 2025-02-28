@@ -43,3 +43,4 @@ resources:
   - birthday
   - gotosocial/ks.yaml
   - hoarder/ks.yaml
+  - serpbear
