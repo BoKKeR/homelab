@@ -18,6 +18,25 @@ spec:
             name: tnorbert-blog
             port:
               number: 3000
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  namespace: home-automation
+  name: tnorbert-blog-internal
+spec:
+  ingressClassName: internal
+  rules:
+  - host: deploy-on-friday.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: tnorbert-blog
+            port:
+              number: 3000
 
 ---
 apiVersion: networking.k8s.io/v1
