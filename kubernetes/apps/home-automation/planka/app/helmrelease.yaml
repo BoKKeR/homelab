@@ -49,17 +49,6 @@ spec:
             envFrom:
               - secretRef:
                   name: planka-secrets
-      ombi:
-        initContainers:
-          database-config:
-            image:
-              repository: docker.io/library/alpine
-              tag: 3.21.3
-
-            command: [ "/bin/sh", "-c" ]
-            args:
-              - cp /template/database.template.json /config/database.json
-
         containers:
           app:
             image:
