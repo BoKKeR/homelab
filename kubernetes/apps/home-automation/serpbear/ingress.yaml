@@ -4,8 +4,8 @@ kind: Ingress
 metadata:
   namespace: home-automation
   name: serpbear-external
-annotations:
-  external-dns.alpha.kubernetes.io/target: "external.tnorbert.com"
+  annotations:
+    external-dns.alpha.kubernetes.io/target: "external.tnorbert.com"
 spec:
   ingressClassName: external
   rules:
