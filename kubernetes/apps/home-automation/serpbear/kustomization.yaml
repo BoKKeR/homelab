@@ -5,3 +5,4 @@ resources:
   - deployment.yaml
   - serpbear.secret.sops.yaml
   - ingress.yaml
+  - service.yaml

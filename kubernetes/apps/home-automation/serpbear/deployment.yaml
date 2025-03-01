@@ -17,7 +17,6 @@ spec:
         image: towfiqi/serpbear
         ports:
           - containerPort: 3000
-            name: serpbear
         volumeMounts:
           - name: data
             mountPath: /app/data
