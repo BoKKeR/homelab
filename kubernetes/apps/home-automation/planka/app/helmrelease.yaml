@@ -62,7 +62,7 @@ spec:
                     name: &secret planka-secrets
                     key: POSTGRES_URI
               BASE_URL:
-                value: '/'
+                value: 'kanban.tnorbert.com'
               TRUST_PROXY: 1
               OIDC_ENFORCED: 'true'
               OIDC_SCOPES: openid profile email
