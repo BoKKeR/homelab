@@ -42,5 +42,6 @@ resources:
   - matomo/ks.yaml
   - birthday
   - gotosocial/ks.yaml
+  - planka/ks.yaml
   - hoarder/ks.yaml
   - serpbear
