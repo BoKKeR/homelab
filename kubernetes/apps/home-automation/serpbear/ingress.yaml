@@ -9,7 +9,7 @@ annotations:
 spec:
   ingressClassName: external
   rules:
-  - host: serpbear.tnorbert.com
+  - host: seo.tnorbert.com
     http:
       paths:
       - path: /
