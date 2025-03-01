@@ -64,10 +64,10 @@ spec:
               BASE_URL:
                 value: 'kanban.tnorbert.com'
               TRUST_PROXY: 1
-              OIDC_ENFORCED: 'true'
-              OIDC_SCOPES: openid profile email
-              # OIDC_ADMIN_ROLES: 'planka-admin'
-              OIDC_ROLES_ATTRIBUTE: 'groups'
+              # OIDC_ENFORCED: 'true'
+              # OIDC_SCOPES: openid profile email
+              # # OIDC_ADMIN_ROLES: 'planka-admin'
+              # OIDC_ROLES_ATTRIBUTE: 'groups'
               ALLOW_ALL_TO_CREATE_PROJECTS: 'true'
               S3_ENABLE: false
               S3_FORCE_PATH_STYLE: true
