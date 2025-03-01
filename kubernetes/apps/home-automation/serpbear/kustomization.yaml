@@ -4,3 +4,4 @@ kind: Kustomization
 resources:
   - deployment.yaml
   - serpbear.secret.sops.yaml
+  - ingress.yaml
