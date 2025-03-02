@@ -105,7 +105,9 @@ spec:
     ingress:
       app:
         enabled: true
-        className: internal
+        className: external
+        annotations:
+          kubernetes.io/ingress.class: external
         hosts:
           - host: kanban.${SECRET_DOMAIN}
             paths:
