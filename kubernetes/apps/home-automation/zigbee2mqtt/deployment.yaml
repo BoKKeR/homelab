@@ -28,7 +28,7 @@ spec:
                   - cat03
       containers:
       - name: zigbee2mqtt
-        image: koenkk/zigbee2mqtt:2.1.2
+        image: koenkk/zigbee2mqtt:2.1.3
         securityContext:
           privileged: true
         envFrom:
