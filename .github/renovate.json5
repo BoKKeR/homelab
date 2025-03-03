@@ -13,7 +13,7 @@
   "suppressNotifications": ["prEditedNotification", "prIgnoreNotification"],
   "rebaseWhen": "conflicted",
   "schedule": ["every weekend"],
-  "ignorePaths": ["**/*.sops.*", "kubernetes/apps/network/external-dns/app/helmrelease.yaml"],
+  "ignorePaths": ["**/*.sops.*", "kubernetes/apps/network/external-dns/app/helmrelease.yaml", "kubernetes/apps/home-automation/hoarder/app/helmrelease.yaml"],
   "flux": {
     "fileMatch": ["(^|/)kubernetes/.+\\.ya?ml$"]
   },
