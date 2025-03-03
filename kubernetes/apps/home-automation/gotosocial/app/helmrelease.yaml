@@ -47,7 +47,7 @@ spec:
 
               # OIDC
               GTS_OIDC_ENABLED: "true"
-              GTS_OIDC_IDP_NAME: "tnorbert SSO"
+              GTS_OIDC_IDP_NAME: "authentik"
               GTS_OIDC_ISSUER: https://auth.tnorbert.com/application/o/gotosocial/
               GTS_STORAGE_BACKEND: "local"
             envFrom: *envFrom
