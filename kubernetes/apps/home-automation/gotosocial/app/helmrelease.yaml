@@ -42,6 +42,7 @@ spec:
               GTS_PROTOCOL: "https" # not HTTP server listen mode, but used for generating URLs etc
               GTS_PORT: "8080"
               GTS_METRICS_ENABLED: "true"
+              GTS_TRUSTED_PROXIES: "${IP_POD_CIDR_V4}"
               # OIDC
               GTS_OIDC_ENABLED: "false"
               # GTS_OIDC_IDP_NAME: "tnorbert SSO"
