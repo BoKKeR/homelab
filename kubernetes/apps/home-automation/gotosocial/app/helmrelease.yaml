@@ -50,6 +50,9 @@ spec:
               GTS_OIDC_IDP_NAME: "authentik"
               GTS_OIDC_ISSUER: https://auth.tnorbert.com/application/o/gotosocial/
               GTS_STORAGE_BACKEND: "local"
+
+              # Storage
+              GTS_STORAGE_LOCAL_BASE_PATH: &media "/gotosocial/storage"
             envFrom: *envFrom
             securityContext:
               readOnlyRootFilesystem: true
@@ -93,7 +96,7 @@ spec:
         advancedMounts:
           gotosocial:
             main:
-              - path: /var/www/html/storage/upload
+              - path: *media
                 subPath: gotosocial
       tmp:
         type: emptyDir
