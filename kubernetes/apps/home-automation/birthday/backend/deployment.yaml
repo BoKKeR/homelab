@@ -16,11 +16,50 @@ spec:
         app: birthday-backend
     spec:
       initContainers:
-        - name: init-db
-          image: ghcr.io/onedr0p/postgres-init:16.8
-          envFrom:
-            - secretRef:
+        - name: init-mysql
+          image: mysql:8
+          command:
+            - "sh"
+            - "-c"
+            - |
+              echo "Creating database and user..."
+              mysql -h $INIT_MYSQL_HOST -u root -P $INIT_MYSQL_PORT -p$INIT_POSTGRES_SUPER_PASS -e "
+              CREATE DATABASE IF NOT EXISTS $INIT_MYSQL_DBNAME;
+              CREATE USER IF NOT EXISTS '$INIT_MYSQL_PASSWORD'@'%' IDENTIFIED BY '$INIT_MYSQL_PASSWORD';
+              GRANT ALL PRIVILEGES ON $INIT_MYSQL_DBNAME.* TO '$INIT_MYSQL_USER'@'%';
+              FLUSH PRIVILEGES;"
+          env:
+          - name: INIT_MYSQL_SUPER_PASSWORD
+            valueFrom:
+              secretKeyRef:
                 name: birthday-backend
+                key: INIT_MYSQL_SUPER_PASSWORD
+          - name: INIT_MYSQL_DBNAME
+            valueFrom:
+              secretKeyRef:
+                name: birthday-backend
+                key: INIT_MYSQL_DBNAME
+          - name: INIT_MYSQL_USER
+            valueFrom:
+              secretKeyRef:
+                name: birthday-backend
+                key: INIT_MYSQL_USER
+          - name: INIT_MYSQL_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: birthday-backend
+                key: INIT_MYSQL_PASSWORD
+          - name: INIT_MYSQL_HOST
+            valueFrom:
+              secretKeyRef:
+                name: birthday-backend
+                key: INIT_MYSQL_HOST
+          - name: INIT_MYSQL_PORT
+            valueFrom:
+              secretKeyRef:
+                name: birthday-backend
+                key: INIT_MYSQL_PORT
+
       containers:
       - name: birthday-backend
         readinessProbe:
