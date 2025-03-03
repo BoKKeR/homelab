@@ -75,6 +75,33 @@ spec:
         #   subPath: birthday-backend
         #   name: data
         image: ghcr.io/bokker/birthday-backend:1.0.11 # {"$imagepolicy": "home-automation:birthday-backend"}
+        env:
+          - name: INIT_MYSQL_DBNAME
+            valueFrom:
+              secretKeyRef:
+                name: birthday-backend
+                key: INIT_MYSQL_DBNAME
+          - name: MARIADB_USER
+            valueFrom:
+              secretKeyRef:
+                name: birthday-backend
+                key: INIT_MYSQL_USER
+          - name: MARIADB_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: birthday-backend
+                key: INIT_MYSQL_PASSWORD
+          - name: MARIADB_HOST
+            valueFrom:
+              secretKeyRef:
+                name: birthday-backend
+                key: INIT_MYSQL_HOST
+          - name: MARIADB_PORT
+            valueFrom:
+              secretKeyRef:
+                name: birthday-backend
+                key: INIT_MYSQL_PORT
+
         # envFrom:
         # - configMapRef:
         #     name: birthday-backend
