@@ -87,6 +87,14 @@ spec:
                   identifier: gotosocial
                   port: http
     persistence:
+      data:
+        enabled: true
+        existingClaim: unraid-un-nvme-pvc
+        advancedMounts:
+          gotosocial:
+            gotosocial:
+              - path: /var/www/html/storage/upload
+                subPath: gotosocial
       tmp:
         type: emptyDir
         medium: Memory
