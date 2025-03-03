@@ -23,7 +23,7 @@ spec:
             - "-c"
             - |
               echo "Creating database and user..."
-              mysql -h $INIT_MYSQL_HOST -u root -P $INIT_MYSQL_PORT -p$INIT_POSTGRES_SUPER_PASS -e "
+              mysql -h $INIT_MYSQL_HOST -u root -P $INIT_MYSQL_PORT -p$INIT_MYSQL_SUPER_PASSWORD -e "
               CREATE DATABASE IF NOT EXISTS $INIT_MYSQL_DBNAME;
               CREATE USER IF NOT EXISTS '$INIT_MYSQL_PASSWORD'@'%' IDENTIFIED BY '$INIT_MYSQL_PASSWORD';
               GRANT ALL PRIVILEGES ON $INIT_MYSQL_DBNAME.* TO '$INIT_MYSQL_USER'@'%';
