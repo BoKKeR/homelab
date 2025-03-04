@@ -16,6 +16,12 @@ spec:
         app: mealie
         nfsMount: "true"
     spec:
+      initContainers:
+        - name: init-db
+          image: ghcr.io/onedr0p/postgres-init:16.8
+          envFrom:
+            - secretRef:
+                name: mealie-secrets
       containers:
       - name: mealie
         image: ghcr.io/mealie-recipes/mealie:v2.7.1
@@ -31,22 +37,37 @@ spec:
           - name: POSTGRES_PASSWORD
             valueFrom:
               secretKeyRef:
-                name: postgres-secret
-                key: postgres-secret
+                name: mealie-secrets
+                key: INIT_POSTGRES_PASS
+          - name: POSTGRES_DB
+            valueFrom:
+              secretKeyRef:
+                name: mealie-secrets
+                key: INIT_POSTGRES_DBNAME
+          - name: POSTGRES_SERVER
+            valueFrom:
+              secretKeyRef:
+                name: mealie-secrets
+                key: INIT_POSTGRES_HOST
+          - name: POSTGRES_USER
+            valueFrom:
+              secretKeyRef:
+                name: mealie-secrets
+                key: INIT_POSTGRES_USER
           - name: OIDC_CONFIGURATION_URL
             valueFrom:
               secretKeyRef:
-                name: mealie-oidc
+                name: mealie-secrets
                 key: configuration-url
           - name: OIDC_CLIENT_ID
             valueFrom:
               secretKeyRef:
-                name: mealie-oidc
+                name: mealie-secrets
                 key: client-id
           - name: OIDC_CLIENT_SECRET
             valueFrom:
               secretKeyRef:
-                name: mealie-oidc
+                name: mealie-secrets
                 key: client-secret
         volumeMounts:
         - mountPath: /app/data/
