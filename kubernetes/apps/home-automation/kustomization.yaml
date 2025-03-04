@@ -13,7 +13,7 @@ resources:
   - appdaemon
   - zigbee2mqtt
   - homeassistant
-  - postgresql
+  # - postgresql
   - mealie
   - telegram-mute
   - ironcorgi
