@@ -36,6 +36,8 @@ spec:
           ports:
             - containerPort: 80
           env:
+            - name: APP_DEBUG
+              value: "true"
             - name: PUID
               value: "99"
             - name: PGID
