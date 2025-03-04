@@ -69,6 +69,21 @@ spec:
                 secretKeyRef:
                   name: speedtest-secret
                   key: INIT_POSTGRES_PASS
+            - name: ADMIN_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: speedtest-secret
+                  key: ADMIN_NAME
+            - name: ADMIN_EMAIL
+              valueFrom:
+                secretKeyRef:
+                  name: speedtest-secret
+                  key: ADMIN_EMAIL
+            - name: ADMIN_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: speedtest-secret
+                  key: ADMIN_PASSWORD
           volumeMounts:
             - mountPath: /config
               subPath: speedtest-tracker
