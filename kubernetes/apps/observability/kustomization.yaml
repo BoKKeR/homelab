@@ -6,3 +6,4 @@ resources:
   - ./prometheus-operator-crds/ks.yaml
   - ./grafana/ks.yaml
   - ./kube-prometheus-stack/ks.yaml
+  - ./loki/ks.yaml
