@@ -63,7 +63,7 @@ spec:
       replicas: 1
       persistence:
         enabled: true
-        storageClass: local-hostpath
+        storageClass: local-path-provisioner
         size: 25Gi
       resources:
         requests:
