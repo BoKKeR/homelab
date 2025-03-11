@@ -1,11 +1,9 @@
-# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/helm.toolkit.fluxcd.io/helmrelease_v2beta2.json
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
   name: loki
-  namespace: observability
 spec:
-  interval: 5m
+  interval: 1h
   chart:
     spec:
       chart: loki
@@ -14,87 +12,83 @@ spec:
         kind: HelmRepository
         name: grafana
         namespace: flux-system
-      interval: 10m
   install:
-    timeout: 10m
-    replace: true
-    crds: CreateReplace
-    createNamespace: true
+    crds: Skip
     remediation:
       retries: 3
   upgrade:
+    cleanupOnFail: true
+    crds: Skip
     remediation:
-      remediateLastFailure: true
-      retries: 3
       strategy: rollback
-    cleanupOnFail: true
-    crds: CreateReplace
-  test:
-    enable: true
-  rollback:
-    recreate: true
-    force: true
-    cleanupOnFail: true
-  uninstall:
-    keepHistory: false
-  driftDetection:
-    mode: enabled
-  maxHistory: 3
+      retries: 3
   values:
-    singleBinary:
-      replicas: 1
+    deploymentMode: SingleBinary
     loki:
-      storage:
-        type: filesystem
       auth_enabled: false
-      commonConfig:
-        replication_factor: 1
-      limits_config:
-        retention_period: 180d
-        enforce_metric_name: false
-        reject_old_samples: true
-        reject_old_samples_max_age: 168h
-        max_cache_freshness_per_query: 10m
-        split_queries_by_interval: 15m
-        ingestion_rate_mb: 8
-        ingestion_burst_size_mb: 16
-        shard_streams:
-          enabled: true
-      compactor:
-        working_directory: /var/loki/boltdb-shipper-compactor
-        shared_store: filesystem
-        compaction_interval: 10m
-        retention_enabled: true
-        retention_delete_delay: 2h
-        retention_delete_worker_count: 150
-      ingester:
-        max_chunk_age: 1h
       analytics:
         reporting_enabled: false
+      server:
+        log_level: info
+      commonConfig:
+        replication_factor: 1
+      compactor:
+        working_directory: /var/loki/compactor/retention
+        delete_request_store: filesystem
+        retention_enabled: true
+      ingester:
+        chunk_encoding: snappy
+      storage:
+        type: filesystem
+      schemaConfig:
+        configs:
+          - from: '2024-04-01' # quote
+            store: tsdb
+            object_store: filesystem
+            schema: v13
+            index:
+              prefix: loki_index_
+              period: 24h
+      querier:
+        # Default is 4, if you have enough memory and CPU you can increase, reduce if OOMing
+        max_concurrent: 4
+      pattern_ingester:
+        enabled: true
+      limits_config:
+        allow_structured_metadata: true
+        volume_enabled: true
+        retention_period: 14d
+    singleBinary:
+      replicas: 1
+      persistence:
+        enabled: false
+      resources:
+        requests:
+          cpu: 100m
+          memory: 768Mi
+        limits:
+          memory: 2Gi
+    gateway:
+      replicas: 0
+    backend:
+      replicas: 0
+    read:
+      replicas: 0
+    write:
+      replicas: 0
+    chunksCache:
+      enabled: false
+    resultsCache:
+      enabled: false
+    lokiCanary:
+      enabled: false
     test:
       enabled: false
-    read:
-      replicas: 1
-      # persistence:
-      #   storageClass: cstor-replica-raspberry-pi-pool
-    write:
-      replicas: 1
-      # persistence:
-      #   storageClass: cstor-replica-raspberry-pi-pool
-    backend:
-      replicas: 1
-      # persistence:
-      #   storageClass: cstor-replica-raspberry-pi-pool
+    sidecar:
+      image:
+        repository: ghcr.io/kiwigrid/k8s-sidecar
+      rules:
+        searchNamespace: ALL
     monitoring:
-      dashboards:
-        annotations:
-          grafana_folder: Loki
-      selfMonitoring:
-        enabled: false
-        grafanaAgent:
-          installOperator: false
-      lokiCanary:
-        enabled: false
-      # structuredConfig:
-      #   memberlist:
-      #     join_members: ["loki-memberlist"]
+      serviceMonitor:
+        enabled: true
