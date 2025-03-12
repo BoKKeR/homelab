@@ -42,6 +42,11 @@ spec:
   maxHistory: 3
 
   values:
+
+    admissionWebhooks:
+      certManager:
+        enabled: true
+
     manager:
       collectorImage:
         repository: ghcr.io/open-telemetry/opentelemetry-operator/opentelemetry-operator
