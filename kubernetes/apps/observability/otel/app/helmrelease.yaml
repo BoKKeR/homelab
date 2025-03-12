@@ -40,7 +40,8 @@ spec:
   driftDetection:
     mode: enabled
   maxHistory: 3
+
   values:
     manager:
-      image:
+      collectorImage:
         repository: ghcr.io/open-telemetry/opentelemetry-operator/opentelemetry-operator
