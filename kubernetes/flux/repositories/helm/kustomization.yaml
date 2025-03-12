@@ -20,3 +20,4 @@ resources:
   - ./grafana.yaml
   - ./democratic-csi.yaml
   - ./goharbor.yaml
+  - ./otel.yaml
