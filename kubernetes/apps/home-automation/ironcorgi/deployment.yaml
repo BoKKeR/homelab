@@ -14,6 +14,9 @@ spec:
     metadata:
       labels:
         app: ironcorgi
+      annotations:
+        instrumentation.opentelemetry.io/inject-nodejs: "true"
+        instrumentation.opentelemetry.io/container-names: "ironcorgi-backend"
     spec:
       containers:
       - name: ironcorgi
