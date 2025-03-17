@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: bullmq-exporter
+  name: bullmq-ironcorgi-exporter
   namespace: home-automation
 spec:
   selector:
-    app: bullmq-exporter
+    app: bullmq-ironcorgi-exporter
   ports:
     - protocol: TCP
       port: 9538
