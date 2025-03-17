@@ -34,6 +34,7 @@ resources:
   - education-bot
   - ./mariadb/ks.yaml
   - ./redis/ks.yaml
+  - ./redis-ironcorgi/ks.yaml
   # - ./mariadb-galera/ks.yaml
   - ./mongodb/ks.yaml
   - friday-blog
