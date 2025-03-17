@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: bullmq-exporter-ironcorgi
+  name: bullmq-exporter
   namespace: home-automation
 spec:
   selector:
     matchLabels:
-      app: bullmq-exporter-ironcorgi
+      app: bullmq-exporter
   template:
     metadata:
       labels:
-        app: bullmq-exporter-ironcorgi
+        app: bullmq-exporter
     spec:
       containers:
-      - name: bullmq-exporter-ironcorgi
+      - name: bullmq-exporter
         image: uphabit/bull_exporter:latest
         resources:
           limits:
@@ -21,13 +21,13 @@ spec:
             cpu: "500m"
         envFrom:
           - configMapRef:
-              name: bullmq-exporter-ironcorgi
+              name: bullmq-exporter
         env:
           - name: EXPORTER_REDIS_URL
             valueFrom:
               secretKeyRef:
-                name: exporter-ironcorgi-redis-url
-                key: exporter-ironcorgi-redis-url
+                name: exporter-redis-url
+                key: exporter-redis-url
           - name: EXPORTER_QUEUES
             valueFrom:
               secretKeyRef:

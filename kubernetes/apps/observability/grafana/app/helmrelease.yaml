@@ -43,7 +43,7 @@ spec:
     env:
       GF_EXPLORE_ENABLED: true
       GF_SERVER_ROOT_URL: "https://grafana.${SECRET_DOMAIN}"
-      GF_AUTH_DISABLE_LOGIN_FORM: true
+      GF_AUTH_DISABLE_LOGIN_FORM: false
     envFromSecrets:
       - name: auth-generic-oauth-secret
     grafana.ini:
