@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: bullmq-exporter
+  name: bullmq-ironcorgi-exporter
   namespace: home-automation
 spec:
   selector:
     matchLabels:
-      app: bullmq-exporter
+      app: bullmq-ironcorgi-exporter
   template:
     metadata:
       labels:
-        app: bullmq-exporter
+        app: bullmq-ironcorgi-exporter
     spec:
       containers:
-      - name: bullmq-exporter
+      - name: bullmq-ironcorgi-exporter
         image: uphabit/bull_exporter:latest
         resources:
           limits:
