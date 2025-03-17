@@ -19,9 +19,6 @@ spec:
           limits:
             memory: "128Mi"
             cpu: "500m"
-        envFrom:
-          - configMapRef:
-              name: bullmq-exporter
         env:
           - name: EXPORTER_REDIS_URL
             valueFrom:
