@@ -5,7 +5,6 @@ namespace: home-automation
 
 resources:
   - deployment.yaml
-  - configMap.yaml
   - secret.sops.yaml
   - service.yaml
   - queues.secret.sops.yaml
