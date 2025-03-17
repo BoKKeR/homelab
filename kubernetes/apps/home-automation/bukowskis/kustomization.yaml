@@ -5,4 +5,4 @@ namespace: home-automation
 
 resources:
   - deployment.yaml
-  - secret.sops.yaml
+
