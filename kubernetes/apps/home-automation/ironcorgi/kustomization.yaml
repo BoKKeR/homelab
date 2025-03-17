@@ -4,7 +4,7 @@ kind: Kustomization
 namespace: home-automation
 
 resources:
-  - deployment.yaml
+  # - deployment.yaml
   - imageautomation.yaml
   - database-connection.sops.yaml
   - deployment-backend.yaml

@@ -14,5 +14,5 @@ spec:
             args:
             - /bin/sh
             - -c
-            - set -e; curl --fail -d '{}' -X POST http://ironcorgi:10050/hemnet/manual-location-ids-fetch
+            - set -e; curl --fail -d '{}' -X POST http://ironcorgi-backend:10050/hemnet/manual-location-ids-fetch
           restartPolicy: OnFailure
