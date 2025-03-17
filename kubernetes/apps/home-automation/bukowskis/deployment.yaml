@@ -1,0 +1,46 @@
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: home-automation
+  name: bukowskis-byra
+  labels:
+    app: bukowskis
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bukowskis
+  template:
+    metadata:
+      labels:
+        app: bukowskis
+    spec:
+      containers:
+      - name: bukowskis
+        readinessProbe:
+          httpGet:
+            path: /healthz
+            port: 80
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 80
+        image: ghcr.io/bokker/bukowskis-bot:master
+        env:
+          - name: TOKEN
+            valueFrom:
+              secretKeyRef:
+                name: bastu-bot-token
+                key: bastu-bot-token
+          - name: CHAT_ID
+            valueFrom:
+              secretKeyRef:
+                name: chat-id
+                key: chat-id
+          - name: SCRAPE_URL
+            value: "https://www.bukowskis.com/en/lots/category/354-furniture-cabinets-bureaus/city/stockholm"
+        imagePullPolicy: Always
+      imagePullSecrets:
+        - name: regcred
