@@ -52,7 +52,7 @@ spec:
         check_for_plugin_updates: false
         reporting_enabled: false
       auth.generic_oauth:
-        allow_sign_up: false
+        allow_sign_up: true
         api_url: https://auth.${SECRET_DOMAIN}/application/o/userinfo/
         auth_url: https://auth.${SECRET_DOMAIN}/application/o/authorize/
         empty_scopes: false
