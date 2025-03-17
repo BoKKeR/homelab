@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: curl-cronjob
+  name: ironcorgi-backend-curl-cronjob
 spec:
   schedule: "14 6 * * *"  # “At 06:14.”
   jobTemplate:
