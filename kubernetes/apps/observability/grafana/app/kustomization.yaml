@@ -5,4 +5,4 @@ resources:
   - ./secret.sops.yaml
   - ./helmrelease.yaml
   - ./unraid-pvc.yaml
-
+  - ./auth-oauth.secret.sops.yaml

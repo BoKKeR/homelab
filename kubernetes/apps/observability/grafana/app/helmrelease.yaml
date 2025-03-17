@@ -203,3 +203,9 @@ spec:
       subPath: grafana
     testFramework:
       enabled: false
+    extraSecretMounts:
+      - name: auth-generic-oauth-secret-mount
+        secretName: auth-generic-oauth-secret
+        defaultMode: 0440
+        mountPath: /etc/secrets/auth_generic_oauth
+        readOnly: true
