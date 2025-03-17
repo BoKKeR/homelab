@@ -25,6 +25,7 @@ resources:
   - rsstt
   - busybox
   - bullmq-exporter
+  - bullmq-ironcorgi-exporter
   - blocket
   - keyconfig
   - espresense
