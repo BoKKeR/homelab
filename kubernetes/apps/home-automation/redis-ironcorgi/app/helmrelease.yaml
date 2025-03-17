@@ -24,6 +24,7 @@ spec:
     keepHistory: false
   values:
     nameOverride: redis-ironcorgi
+    fullnameOverride: redis-ironcorgi
     auth:
       enabled: false
     master:
