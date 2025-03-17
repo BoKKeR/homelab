@@ -28,7 +28,7 @@ spec:
           - name: EXPORTER_QUEUES
             valueFrom:
               secretKeyRef:
-                name: queues
+                name: queues-ironcorgi
                 key: queues
         ports:
         - containerPort: 9538
