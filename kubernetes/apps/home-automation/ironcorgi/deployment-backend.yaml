@@ -35,7 +35,7 @@ spec:
         image: ghcr.io/bokker/ironcorgi-backend:1.0.5 # {"$imagepolicy": "home-automation:ironcorgi-backend"}
         env:
         - name: REDIS_HOST
-          value: redis-ironcorgi-0
+          value: redis-ironcorgi-master
         - name: GOOGLE_PLACES_API_KEY
           valueFrom:
             secretKeyRef:
