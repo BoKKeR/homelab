@@ -23,6 +23,7 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    nameOverride: redis-ironcorgi
     auth:
       enabled: false
     master:
