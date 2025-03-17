@@ -79,6 +79,16 @@ spec:
               secretKeyRef:
                 name: bastu-bot-token
                 key: bastu-bot-token
+          - name: CHAT_ID
+            valueFrom:
+              secretKeyRef:
+                name: chat-id
+                key: chat-id
+          - name: BLOCKET_URL
+            value: "https://www.blocket.se/annonser/hela_sverige?q=m720q"
+        imagePullPolicy: Always
+      imagePullSecrets:
+        - name: regcred
 ---
 apiVersion: apps/v1
 kind: Deployment
