@@ -16,8 +16,7 @@ resources:
   # - postgresql
   - mealie
   - telegram-mute
-  # - ironcorgi
-  - ironcorgi-backend
+  - ironcorgi
   - pihole-exporter
   - speedtest-tracker
   - netdata
