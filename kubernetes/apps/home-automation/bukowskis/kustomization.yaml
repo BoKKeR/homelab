@@ -5,5 +5,4 @@ namespace: home-automation
 
 resources:
   - deployment.yaml
-  - chat-secret.sops.yaml
   - secret.sops.yaml
