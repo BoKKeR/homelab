@@ -32,5 +32,7 @@ spec:
                 key: queues
           - name: EXPORTER_PREFIX
             value: ironcorgi
+          - name: EXPORTER_STAT_PREFIX
+            value: ironcorgi_queue
         ports:
         - containerPort: 9538
