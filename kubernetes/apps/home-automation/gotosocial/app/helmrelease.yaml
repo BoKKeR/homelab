@@ -43,7 +43,7 @@ spec:
               GTS_PORT: "8080"
               GTS_METRICS_ENABLED: "true"
               #GTS_TRUSTED_PROXIES: "${IP_POD_CIDR_V4}"
-              GTS_TRUSTED_PROXIES: "10.69.2.179/32,::1"
+              GTS_TRUSTED_PROXIES: "10.69.2.179/32,10.69.2.94/32,::1,"
 
               # OIDC
               GTS_OIDC_ENABLED: "true"
