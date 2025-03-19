@@ -47,6 +47,7 @@ spec:
     envFromSecrets:
       - name: auth-generic-oauth-secret
     grafana.ini:
+      allow_embedding: true
       analytics:
         check_for_updates: false
         check_for_plugin_updates: false
