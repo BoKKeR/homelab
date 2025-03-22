@@ -38,4 +38,4 @@ spec:
           claimName: unraid-un-nvme-pvc
       - name: cache-volume
         emptyDir:
-          sizeLimit: 5Gi
+          sizeLimit: 20Gi
