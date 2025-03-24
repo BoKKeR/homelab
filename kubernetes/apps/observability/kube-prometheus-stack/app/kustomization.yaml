@@ -7,3 +7,4 @@ resources:
   - ./scrapeconfig.yaml
   - ./ingress.yaml
   - ./alertmanager-discord-webhook.secret.sops.yaml
+  - ./prometheus-rules.yaml

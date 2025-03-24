@@ -1,0 +1,17 @@
+---
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: node-rules
+spec:
+  groups:
+    - name: node.rules
+      rules:
+        - alert: NodeDown
+          annotations:
+            summary: Node went down!
+          expr: |
+            up{job="node-exporter"} == 0
+          for: 15m
+          labels:
+            severity: critical
