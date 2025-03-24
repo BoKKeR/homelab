@@ -12,6 +12,6 @@ spec:
             summary: Node went down!
           expr: |
             up{job="node-exporter"} == 0
-          for: 15m
+          for: 1m
           labels:
             severity: critical
