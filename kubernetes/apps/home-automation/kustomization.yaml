@@ -48,3 +48,4 @@ resources:
   - hoarder/ks.yaml
   - serpbear
   - bukowskis
+  - redlib/ks.yaml
