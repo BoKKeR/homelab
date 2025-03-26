@@ -63,16 +63,16 @@ spec:
         useAllDevices: false
         config:
           osdsPerDevice: "1"
-        nodes:
-          # - name: cat01
-          #   devices:
-          #     - name: /dev/disk/by-id/nvme-PC601_NVMe_SK_hynix_512GB_SI97N008610707NDF-part3
-          - name: cat02
-            devices:
-              - name: /sys/devices/pci0000:00/0000:00:1b.0/0000:01:00.0/nvme/nvme0/nvme0n1
-          - name: cat03
-            devices:
-              - name: /sys/devices/pci0000:00/0000:00:1d.0/0000:02:00.0/nvme/nvme0/nvme0n1
+        # nodes:
+        #   # - name: cat01
+        #   #   devices:
+        #   #     - name: /dev/disk/by-id/nvme-PC601_NVMe_SK_hynix_512GB_SI97N008610707NDF-part3
+        #   - name: cat02
+        #     devices:
+        #       - name: /sys/devices/pci0000:00/0000:00:1b.0/0000:01:00.0/nvme/nvme0/nvme0n1
+        #   - name: cat03
+        #     devices:
+        #       - name: /sys/devices/pci0000:00/0000:00:1d.0/0000:02:00.0/nvme/nvme0/nvme0n1
       placement:
         osd:
           tolerations:
