@@ -17,6 +17,6 @@ spec:
     - apiVersion: helm.toolkit.fluxcd.io/v2
       kind: HelmRelease
       name: rook-ceph-operator
-      namespace: storage
+      namespace: rook-ceph
   interval: 30m
   timeout: 3m
