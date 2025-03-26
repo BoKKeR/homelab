@@ -21,3 +21,4 @@ resources:
   - ./democratic-csi.yaml
   - ./goharbor.yaml
   - ./otel.yaml
+  - ./rook-ceph.yaml
