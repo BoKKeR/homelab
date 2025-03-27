@@ -11,6 +11,7 @@ spec:
     labels: *l
   path: ./kubernetes/apps/network/e1000e-fix/app
   targetNamespace: "e1000e-fix"
+  interval: 5m
   prune: true
   sourceRef:
     kind: GitRepository
