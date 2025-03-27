@@ -9,6 +9,6 @@ metadata:
 spec:
   commonMetadata:
     labels: *l
-  path: ./kubernetes/apps/networking/e1000e-fix/app
+  path: ./kubernetes/apps/network/e1000e-fix/app
   targetNamespace: "e1000e-fix"
   dependsOn: []
