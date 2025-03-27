@@ -11,4 +11,8 @@ spec:
     labels: *l
   path: ./kubernetes/apps/network/e1000e-fix/app
   targetNamespace: "e1000e-fix"
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: home-kubernetes
   dependsOn: []
