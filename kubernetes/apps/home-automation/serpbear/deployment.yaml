@@ -42,6 +42,11 @@ spec:
               secretKeyRef:
                 name: serpbear
                 key: APIKEY
+          - name: NEXT_PUBLIC_APP_URL
+            valueFrom:
+              secretKeyRef:
+                name: serpbear
+                key: NEXT_PUBLIC_APP_URL
       volumes:
       - name: data
         persistentVolumeClaim:
