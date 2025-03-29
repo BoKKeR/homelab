@@ -43,8 +43,7 @@ spec:
               GTS_PORT: "8080"
               GTS_METRICS_ENABLED: "true"
               #GTS_TRUSTED_PROXIES: "${IP_POD_CIDR_V4}"
-              GTS_TRUSTED_PROXIES: "10.69.2.0/24,::1"
-
+              GTS_TRUSTED_PROXIES: "10.69.2.0/22,::1"
               # OIDC
               GTS_OIDC_ENABLED: "true"
               GTS_OIDC_IDP_NAME: "authentik"
