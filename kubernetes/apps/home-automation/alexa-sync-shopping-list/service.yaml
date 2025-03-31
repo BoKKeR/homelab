@@ -20,7 +20,7 @@ metadata:
 
 spec:
   selector:
-    app.kubernetes.io/name: alexa-sync-shopping-list
+    app: alexa-sync-shopping-list
   ports:
     - protocol: TCP
       port: 4000
