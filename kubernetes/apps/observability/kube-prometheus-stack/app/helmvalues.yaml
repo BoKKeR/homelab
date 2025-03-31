@@ -14,7 +14,7 @@ data:
     #       - alertmanager-discord-webhook
       enabled: true
       receivers:
-        - name: "null"
+        #- name: "null"
         - name: "discord"
           discord_configs:
             - webhook_url: ${DISCORD_WEBHOOK_URL}
