@@ -6,5 +6,4 @@ resources:
   - ./helmrelease.yaml
   - ./scrapeconfig.yaml
   - ./ingress.yaml
-  - ./alertmanager-discord-webhook.secret.sops.yaml
   - ./prometheus-rules.yaml
