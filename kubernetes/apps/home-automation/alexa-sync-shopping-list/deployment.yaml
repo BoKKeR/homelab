@@ -21,3 +21,11 @@ spec:
             cpu: "500m"
         ports:
         - containerPort: 4000
+        volumeMounts:
+          - mountPath: /config
+            subPath: alexa-sync-shopping-list
+            name: unraid-storage
+      volumes:
+        - name: unraid-storage
+          persistentVolumeClaim:
+            claimName: unraid-un-nvme-pvc
