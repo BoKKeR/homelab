@@ -11,3 +11,20 @@ spec:
       port: 4000
       targetPort: 4000
   type: ClusterIP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: alexa-sync-shopping-list-metallb
+  namespace: home-automation
+
+spec:
+  selector:
+    app.kubernetes.io/instance: alexa-sync-shopping-list
+    app.kubernetes.io/name: alexa-sync-shopping-list
+  ports:
+    - protocol: TCP
+      port: 4000
+      targetPort: 4000
+  type: LoadBalancer
+  loadBalancerIP: 10.0.0.23
