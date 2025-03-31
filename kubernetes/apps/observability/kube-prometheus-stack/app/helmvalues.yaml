@@ -14,7 +14,7 @@ data:
     #       - alertmanager-discord-webhook
       enabled: true
       receivers:
-        #- name: "null"
+        - name: "null"
         - name: "discord"
           discord_configs:
             - webhook_url: ${DISCORD_WEBHOOK_URL}
@@ -55,9 +55,9 @@ data:
               matchers:
                 - alertname =~ "InfoInhibitor|Watchdog|RebootScheduled"
             - receiver: "discord"
-                      matchers:
-                        - severity = "critical"
-                      continue: true
+              matchers:
+                - severity = "critical"
+              continue: true
         templates:
         - '/etc/alertmanager/config/*.tmpl'
     kube-state-metrics:
