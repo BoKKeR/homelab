@@ -17,7 +17,8 @@ kind: Service
 metadata:
   name: alexa-sync-shopping-list-metallb
   namespace: home-automation
-
+  annotations:
+    metallb.universe.tf/allow-shared-ip: "key-to-share-10.0.0.23"
 spec:
   selector:
     app: alexa-sync-shopping-list
@@ -26,4 +27,4 @@ spec:
       port: 4000
       targetPort: 4000
   type: LoadBalancer
-  loadBalancerIP: 10.0.0.24
+  loadBalancerIP: 10.0.0.23
