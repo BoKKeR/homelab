@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: alexa-sync-shopping-list
+  namespace: home-automation
+spec:
+  selector:
+    app: alexa-sync-shopping-list
+  ports:
+    - protocol: TCP
+      port: 4000
+      targetPort: 4000
+  type: ClusterIP

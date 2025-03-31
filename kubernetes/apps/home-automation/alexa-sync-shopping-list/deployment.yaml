@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: alexa-sync-shopping-list
+  namespace: home-automation
+spec:
+  selector:
+    matchLabels:
+      app: alexa-sync-shopping-list
+  template:
+    metadata:
+      labels:
+        app: alexa-sync-shopping-list
+    spec:
+      containers:
+      - name: alexa-sync-shopping-list
+        image: madmachinations/ha-alexa-shopping-list-sync
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 4000
