@@ -27,4 +27,4 @@ spec:
       port: 4000
       targetPort: 4000
   type: LoadBalancer
-  loadBalancerIP: 10.0.0.23
+  loadBalancerIP: 10.0.0.24
