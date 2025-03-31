@@ -18,8 +18,8 @@ metadata:
   name: alexa-sync-shopping-list-metallb
   namespace: home-automation
   annotations:
-    metallb.universe.tf/allow-shared-ip: 10.0.0.23
-    metallb.universe.tf/loadBalancerIPs: my-group
+    metallb.universe.tf/allow-shared-ip: my-group
+    metallb.universe.tf/loadBalancerIPs: 10.0.0.23
 spec:
   externalTrafficPolicy: Cluster
   selector:
