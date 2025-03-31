@@ -5,6 +5,7 @@ metadata:
   namespace: home-automation
 
 spec:
+  externalTrafficPolicy: Cluster
   selector:
     app.kubernetes.io/instance: mariadb-galera
     app.kubernetes.io/name: mariadb-galera

@@ -6,6 +6,7 @@ metadata:
   annotations:
     metallb.universe.tf/allow-shared-ip: "10.0.0.23"
 spec:
+  externalTrafficPolicy: Cluster
   selector:
     app.kubernetes.io/instance: mariadb
     app.kubernetes.io/name: mariadb
