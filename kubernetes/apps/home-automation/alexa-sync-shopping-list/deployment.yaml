@@ -15,10 +15,6 @@ spec:
       containers:
       - name: alexa-sync-shopping-list
         image: madmachinations/ha-alexa-shopping-list-sync
-        resources:
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
         ports:
         - containerPort: 4000
         volumeMounts:
