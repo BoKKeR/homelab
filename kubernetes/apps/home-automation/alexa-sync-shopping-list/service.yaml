@@ -19,6 +19,7 @@ metadata:
   namespace: home-automation
   annotations:
     metallb.universe.tf/allow-shared-ip: "10.0.0.23"
+    metallb.universe.tf/loadBalancerIPs: "10.0.0.23"
 spec:
   externalTrafficPolicy: Cluster
   selector:
@@ -28,4 +29,4 @@ spec:
       port: 4000
       targetPort: 4000
   type: LoadBalancer
-  loadBalancerIP: 10.0.0.24
+  loadBalancerIP: 10.0.0.23
