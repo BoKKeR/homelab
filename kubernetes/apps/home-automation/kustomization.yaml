@@ -39,7 +39,7 @@ resources:
   # - ./mariadb-galera/ks.yaml
   - ./mongodb/ks.yaml
   - friday-blog
-  - metallb
+  # - metallb
   - harbor/ks.yaml
   - matomo/ks.yaml
   - birthday
