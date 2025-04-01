@@ -54,6 +54,11 @@ spec:
                 secretKeyRef:
                   name: smtp-internal-tnorbert
                   key: smtp-password
+            - name: NEXT_PUBLIC_MATOMO_URL
+              valueFrom:
+                secretKeyRef:
+                  name: payload-secret
+                  key: NEXT_PUBLIC_MATOMO_URL
           envFrom:
             - configMapRef:
                 name: tnorbert-blog-configmap

@@ -9,4 +9,4 @@ data:
   VERCEL_PROJECT_PRODUCTION_URL: deploy-on-friday.com
   NEXT_PUBLIC_IS_LIVE: "true"
   PORT: "3000"
-
+  NEXT_PUBLIC_MATOMO_SITE_ID: "1"
