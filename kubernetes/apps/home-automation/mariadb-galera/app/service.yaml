@@ -3,7 +3,9 @@ kind: Service
 metadata:
   name: mariadb-galera-metallb
   namespace: home-automation
-
+  annotations:
+    io.cilium/lb-ipam-ips: "10.0.0.23"
+    io.cilium/lb-ipam-sharing-key: "home-automation-shared"
 spec:
   externalTrafficPolicy: Cluster
   selector:
@@ -14,4 +16,3 @@ spec:
       port: 3306
       targetPort: 3306
   type: LoadBalancer
-  loadBalancerIP: 10.0.0.24
