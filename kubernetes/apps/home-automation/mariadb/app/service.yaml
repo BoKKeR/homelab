@@ -4,7 +4,7 @@ metadata:
   name: mariadb-metallb
   namespace: home-automation
   annotations:
-    metallb.universe.tf/allow-shared-ip: my-group
+    # metallb.universe.tf/allow-shared-ip: my-group
     metallb.universe.tf/loadBalancerIPs: 10.0.0.23
 spec:
   externalTrafficPolicy: Cluster
