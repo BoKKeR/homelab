@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: mariadb-galera-metallb
+  name: mariadb-galera-shared-ip
   namespace: home-automation
   annotations:
-    io.cilium/lb-ipam-ips: "10.0.0.20"
+    io.cilium/lb-ipam-ips: "10.0.0.23"
     io.cilium/lb-ipam-sharing-key: "home-automation-shared"
 spec:
   externalTrafficPolicy: Cluster

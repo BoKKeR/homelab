@@ -15,7 +15,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: alexa-sync-shopping-list-metallb
+  name: alexa-sync-shopping-list-shared-ip
   namespace: home-automation
   annotations:
     io.cilium/lb-ipam-ips: "10.0.0.20"
