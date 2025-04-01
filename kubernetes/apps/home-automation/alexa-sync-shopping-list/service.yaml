@@ -20,7 +20,6 @@ metadata:
   annotations:
     io.cilium/lb-ipam-ips: "10.0.0.23"
 spec:
-  externalTrafficPolicy: Local
   selector:
     app: alexa-sync-shopping-list
   ports:
