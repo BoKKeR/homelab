@@ -47,6 +47,11 @@ spec:
       enabled: true
       service:
         type: LoadBalancer
-        loadBalancerIPs:
-          - '10.0.0.28'
-          - '10.0.0.29'
+        # loadBalancerIPs:
+        #   - '10.0.0.28'
+        #   - '10.0.0.29'
+        annotationsList:
+          - io.cilium/lb-ipam-ips: "10.0.0.23"
+          - io.cilium/lb-ipam-ips: "10.0.0.23"
+          - io.cilium/lb-ipam-sharing-key: "home-automation-shared"
+          - io.cilium/lb-ipam-sharing-key: "home-automation-shared"
