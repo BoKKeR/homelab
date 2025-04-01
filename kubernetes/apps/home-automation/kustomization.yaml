@@ -50,3 +50,4 @@ resources:
   - bukowskis
   - redlib/ks.yaml
   - alexa-sync-shopping-list
+  - tailscale-ips.yaml
