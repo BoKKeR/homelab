@@ -18,10 +18,9 @@ metadata:
   name: alexa-sync-shopping-list-metallb
   namespace: home-automation
   annotations:
-    metallb.universe.tf/allow-shared-ip: my-group
-    # metallb.universe.tf/loadBalancerIPs: 10.0.0.23
+    io.cilium/lb-ipam-ips: "10.0.0.23"
 spec:
-  externalTrafficPolicy: Cluster
+  externalTrafficPolicy: Local
   selector:
     app: alexa-sync-shopping-list
   ports:
