@@ -64,10 +64,10 @@ spec:
                 name: deploy-on-friday-blog-configmap
           volumeMounts:
             - mountPath: /home/node/app/public/media
-              subPath: deploy-on-friday-blog
+              subPath: tnorbert-blog
               name: unraid-storage
             - mountPath: /home/node/app/.next
-              subPath: deploy-on-friday-blog-build
+              subPath: tnorbert-blog-build
               name: unraid-storage
       imagePullSecrets:
         - name: regcred
