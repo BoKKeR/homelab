@@ -77,4 +77,15 @@ spec:
     - targets:
         - '10.0.0.168:9100'
   metricsPath: /metrics
+---
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: ScrapeConfig
+metadata:
+  name: ostenddy
+  namespace: observability
+spec:
+  staticConfigs:
+    - targets:
+        - 'ts-ostenddy-5ptcx.network.svc.cluster.local:9100'
+  metricsPath: /metrics
 
