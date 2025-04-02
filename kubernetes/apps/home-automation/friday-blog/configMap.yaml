@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: tnorbert-blog-configmap
+  name: deploy-on-friday-blog-configmap
   namespace: home-automation
 data:
   NEXT_PUBLIC_SERVER_URL: https://deploy-on-friday.com

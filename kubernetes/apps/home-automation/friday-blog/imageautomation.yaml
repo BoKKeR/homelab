@@ -1,7 +1,7 @@
 apiVersion: image.toolkit.fluxcd.io/v1beta2
 kind: ImageRepository
 metadata:
-  name: tnorbert-blog
+  name: deploy-on-friday-blog
   namespace: home-automation
 spec:
   secretRef:
@@ -12,11 +12,11 @@ spec:
 apiVersion: image.toolkit.fluxcd.io/v1beta2
 kind: ImagePolicy
 metadata:
-  name: tnorbert-blog
+  name: deploy-on-friday-blog
   namespace: home-automation
 spec:
   imageRepositoryRef:
-    name: tnorbert-blog
+    name: deploy-on-friday-blog
   policy:
     semver:
       range: 1.x.x
@@ -24,7 +24,7 @@ spec:
 apiVersion: image.toolkit.fluxcd.io/v1beta2
 kind: ImageUpdateAutomation
 metadata:
-  name: tnorbert-blog
+  name: deploy-on-friday-blog
   namespace: home-automation
 spec:
   interval: 1m

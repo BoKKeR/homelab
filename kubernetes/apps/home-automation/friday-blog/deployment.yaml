@@ -1,23 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: tnorbert-blog
+  name: deploy-on-friday-blog
   namespace: home-automation
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: tnorbert-blog
+      app: deploy-on-friday-blog
   template:
     metadata:
       labels:
-        app: tnorbert-blog
+        app: deploy-on-friday-blog
         nfsMount: "true"
     spec:
       containers:
-        - name: tnorbert-blog
+        - name: deploy-on-friday-blog
           # command: [ "tail", "-f", "/dev/null" ]
-          image: ghcr.io/bokker/tnorbert-blog:1.0.164 # {"$imagepolicy": "home-automation:tnorbert-blog"}
+          image: ghcr.io/bokker/tnnorbert-blog:1.0.164 # {"$imagepolicy": "home-automation:deploy-on-friday-blog"}
           ports:
             - containerPort: 3000
           readinessProbe:
@@ -61,13 +61,13 @@ spec:
                   key: NEXT_PUBLIC_MATOMO_URL
           envFrom:
             - configMapRef:
-                name: tnorbert-blog-configmap
+                name: deploy-on-friday-blog-configmap
           volumeMounts:
             - mountPath: /home/node/app/public/media
-              subPath: tnorbert-blog
+              subPath: deploy-on-friday-blog
               name: unraid-storage
             - mountPath: /home/node/app/.next
-              subPath: tnorbert-blog-build
+              subPath: deploy-on-friday-blog-build
               name: unraid-storage
       imagePullSecrets:
         - name: regcred

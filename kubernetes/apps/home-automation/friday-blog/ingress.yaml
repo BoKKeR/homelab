@@ -2,7 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   namespace: home-automation
-  name: tnorbert-blog-external
+  name: deploy-on-friday-blog-external
   annotations:
     external-dns.alpha.kubernetes.io/target: "external.deploy-on-friday.com"
 spec:
@@ -15,7 +15,7 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: tnorbert-blog
+            name: deploy-on-friday-blog
             port:
               number: 3000
 ---
@@ -23,7 +23,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   namespace: home-automation
-  name: tnorbert-blog-internal
+  name: deploy-on-friday-blog-internal
 spec:
   ingressClassName: internal
   rules:
@@ -34,7 +34,7 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: tnorbert-blog
+            name: deploy-on-friday-blog
             port:
               number: 3000
 
@@ -43,7 +43,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   namespace: home-automation
-  name: tnorbert-blog-external-second
+  name: deploy-on-friday-blog-external-second
   annotations:
     external-dns.alpha.kubernetes.io/target: "external.tnorbert.com"
 spec:
@@ -56,6 +56,6 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: tnorbert-blog
+            name: deploy-on-friday-blog
             port:
               number: 3000

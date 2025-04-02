@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: tnorbert-blog
+  name: deploy-on-friday-blog
   namespace: home-automation
 spec:
   type: ClusterIP
@@ -12,4 +12,4 @@ spec:
       name: web-ui
       targetPort: 3000
   selector:
-    app: tnorbert-blog
+    app: deploy-on-friday-blog
