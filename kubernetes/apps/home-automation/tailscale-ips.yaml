@@ -9,3 +9,14 @@ spec:
   externalName: placeholder
   type: ExternalName
 ---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: home-automation
+  annotations:
+    tailscale.com/tailnet-ip: 100.121.197.99
+  name: ostenddy
+spec:
+  externalName: placeholder
+  type: ExternalName
+---
