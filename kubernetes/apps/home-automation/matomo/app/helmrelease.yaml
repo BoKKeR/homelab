@@ -9,7 +9,7 @@ spec:
   chart:
     spec:
       chart: matomo
-      version: v9.2.6
+      version: 9.2.6
       sourceRef:
         kind: HelmRepository
         name: bitnami
