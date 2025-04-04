@@ -47,7 +47,7 @@ spec:
         enabled: true
         urlPrefix: /
         ssl: false
-        prometheusEndpoint: http://thanos-query-frontend.monitoring.svc.cluster.local:10902
+        #prometheusEndpoint: http://thanos-query-frontend.monitoring.svc.cluster.local:10902
       mgr:
         modules:
           - name: pg_autoscaler
@@ -161,7 +161,7 @@ spec:
             csi.storage.k8s.io/node-stage-secret-namespace: rook-ceph
             csi.storage.k8s.io/fstype: ext4
     cephBlockPoolsVolumeSnapshotClass:
-      enabled: true # TODO: enable
+      enabled: true
       name: csi-ceph-blockpool
       isDefault: false
       deletionPolicy: Delete
