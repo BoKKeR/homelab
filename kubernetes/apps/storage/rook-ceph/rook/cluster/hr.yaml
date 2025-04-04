@@ -141,6 +141,7 @@ spec:
           failureDomain: host
           replicated:
             size: 3
+          deviceClass: ssd
         storageClass:
           enabled: true
           name: ceph-block
@@ -193,12 +194,12 @@ spec:
             bucket:
               interval: 60s
         storageClass:
-          enabled: false
-          # name: ceph-bucket
-          # reclaimPolicy: Delete
-          # volumeBindingMode: Immediate
-          # parameters:
-          #   region: us-east-1
+          enabled: true
+          name: ceph-bucket
+          reclaimPolicy: Delete
+          volumeBindingMode: Immediate
+          parameters:
+            region: us-east-1
         ingress:
           enabled: true
           ingressClassName: internal
