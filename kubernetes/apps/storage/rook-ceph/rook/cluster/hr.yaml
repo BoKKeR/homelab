@@ -62,7 +62,7 @@ spec:
           encryption:
             enabled: true
       storage:
-        useAllNodes: true
+        useAllNodes: false
         useAllDevices: false
         config:
           osdsPerDevice: "1"
