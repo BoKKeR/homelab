@@ -35,6 +35,8 @@ spec:
       enableLiveness: true
     crds:
       enabled: true
+    monitoring:
+      enabled: true
     pspEnable: false
     resources:
       requests:
