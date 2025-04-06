@@ -35,7 +35,7 @@ spec:
       cephVersion:
         image: quay.io/ceph/ceph:v19.2.1
       external:
-        enable: true
+        enable: false
       crashCollector:
         disable: true
       healthCheck:
