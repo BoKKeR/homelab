@@ -17,7 +17,7 @@ spec:
     spec:
       initContainers:
         - name: init-mysql
-          image: mysql:8
+          image: mysql:9
           command:
             - "sh"
             - "-c"
