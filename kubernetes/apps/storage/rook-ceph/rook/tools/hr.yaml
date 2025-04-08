@@ -44,17 +44,17 @@ spec:
               repository: rook/ceph
               tag: v1.16.6@sha256:475f519baefe27f77309f58b5f5d80699716427f2b3d67ea878a02a5f7162320
             command: ["/usr/local/bin/toolbox.sh"]
-            # env:
-            #   ROOK_CEPH_USERNAME:
-            #     valueFrom:
-            #       secretKeyRef:
-            #         name: rook-ceph-mon
-            #         key: ceph-username
-            #   ROOK_CEPH_SECRET:
-            #     valueFrom:
-            #       secretKeyRef:
-            #         name: rook-ceph-mon
-            #         key: ceph-secret
+            env:
+              ROOK_CEPH_USERNAME:
+                valueFrom:
+                  secretKeyRef:
+                    name: rook-ceph-mon
+                    key: ceph-username
+              ROOK_CEPH_SECRET:
+                valueFrom:
+                  secretKeyRef:
+                    name: rook-ceph-mon
+                    key: ceph-secret
             securityContext:
               privileged: true
     service:
@@ -72,13 +72,13 @@ spec:
         hostPath: /lib/modules
         globalMounts:
           - path: /lib/modules
-      # mon-endpoint-volume:
-      #   type: configMap
-      #   name: rook-ceph-mon-endpoints
-      #   globalMounts:
-      #     - path: /etc/rook/mon-endpoints
-      #       subPath: data
-      #       readOnly: true
+      mon-endpoint-volume:
+        type: configMap
+        name: rook-ceph-mon-endpoints
+        globalMounts:
+          - path: /etc/rook/mon-endpoints
+            subPath: data
+            readOnly: true
       sysbus:
         type: hostPath
         hostPath: /sys/bus
