@@ -14,9 +14,9 @@
   "rebaseWhen": "conflicted",
   "schedule": ["every weekend"],
   "ignorePaths": [
-    "**/*.sops.*", 
-    "kubernetes/apps/network/external-dns/app/helmrelease.yaml", 
-    "kubernetes/apps/home-automation/hoarder/app/helmrelease.yaml", 
+    "**/*.sops.*",
+    "kubernetes/apps/network/external-dns/app/helmrelease.yaml",
+    "kubernetes/apps/home-automation/hoarder/app/helmrelease.yaml",
     "kubernetes/bootstrap/talos/talconfig.yaml"
   ],
   "flux": {
