@@ -26,7 +26,7 @@ spec:
       hostNetwork: false
       containers:
       - name: home-assistant
-        image: homeassistant/home-assistant:2025.4.1
+        image: homeassistant/home-assistant:2025.4.2
         envFrom:
         - configMapRef:
             name: home-assistant
