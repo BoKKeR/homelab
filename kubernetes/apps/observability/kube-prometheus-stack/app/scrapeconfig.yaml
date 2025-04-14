@@ -86,6 +86,6 @@ metadata:
 spec:
   staticConfigs:
     - targets:
-        - 'ts-ostenddy-j5p5z.network.svc.cluster.local:9100'
+        - 'ts-ostenddy-j6b8t.network.svc.cluster.local:9100'
   metricsPath: /metrics
 
