@@ -10,4 +10,3 @@ resources:
   - ./k8s-gateway/ks.yaml
   - ./e1000e-fix
   - ./tailscale/operator
-  - ./tailscale-devices.yaml
