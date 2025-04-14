@@ -64,7 +64,7 @@ metadata:
 spec:
   staticConfigs:
     - targets:
-        - 'ts-uc2-q7lc7.network.svc.cluster.local:9100'
+        - 'ts-uc2-lfsjh.network.svc.cluster.local:9100'
   metricsPath: /metrics
 ---
 apiVersion: monitoring.coreos.com/v1alpha1
@@ -86,6 +86,6 @@ metadata:
 spec:
   staticConfigs:
     - targets:
-        - 'ts-ostenddy-5ptcx.network.svc.cluster.local:9100'
+        - 'ts-ostenddy-xq8xt.network.svc.cluster.local:9100'
   metricsPath: /metrics
 
