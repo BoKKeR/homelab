@@ -13,10 +13,8 @@ apiVersion: v1
 kind: Service
 metadata:
   namespace: home-automation
-  annotations:
-    tailscale.com/tailnet-ip: 100.121.197.99
   name: ostenddy
 spec:
-  externalName: placeholder
+  externalName: ostenddy.taila17955.ts.net
   type: ExternalName
 ---
