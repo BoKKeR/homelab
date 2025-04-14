@@ -9,12 +9,12 @@ spec:
   externalName: placeholder
   type: ExternalName
 ---
-# apiVersion: v1
-# kind: Service
-# metadata:
-#   namespace: home-automation
-#   name: ostenddy
-# spec:
-#   externalName: ostenddy.taila17955.ts.net
-#   type: ExternalName
-# ---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: home-automation
+  name: ostenddy
+spec:
+  externalName: ostenddy.taila17955.ts.net
+  type: ExternalName
+---
