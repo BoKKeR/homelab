@@ -12,9 +12,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
+  annotations:
+    tailscale.com/tailnet-fqdn: ostenddy.taila17955.ts.net
   namespace: home-automation
   name: ostenddy
 spec:
-  externalName: ostenddy.taila17955.ts.net
+  externalName: placeholder
   type: ExternalName
 ---
