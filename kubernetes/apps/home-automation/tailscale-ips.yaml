@@ -15,7 +15,7 @@ metadata:
   namespace: home-automation
   annotations:
     tailscale.com/tailnet-ip: 100.121.197.99
-  name: ostenddy
+  name: OstendDY
 spec:
   externalName: placeholder
   type: ExternalName
