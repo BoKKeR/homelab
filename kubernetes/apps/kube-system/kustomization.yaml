@@ -10,3 +10,4 @@ resources:
   - ./kubelet-csr-approver/ks.yaml
   - ./spegel/ks.yaml
   - ./unraid-un-nvme-pvc.yaml
+  - ./snapshot-controller.yaml
