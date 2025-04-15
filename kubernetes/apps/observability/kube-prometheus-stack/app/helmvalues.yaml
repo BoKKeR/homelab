@@ -8,10 +8,10 @@ data:
     crds:
       enabled: true
     cleanPrometheusOperatorObjectNames: true
-    alertmanager:
     #   alertmanagerSpec:
     #     secrets:
     #       - alertmanager-discord-webhook
+    alertmanager:
       enabled: true
       receivers:
         - name: "null"
@@ -19,6 +19,11 @@ data:
           discord_configs:
             - webhook_url: ${DISCORD_WEBHOOK_URL}
               send_resolved: true
+      ingress:
+        enabled: true
+        ingressClassName: internal
+        hosts:
+          - alertmanager.${SECRET_DOMAIN}
       config:
         global:
           resolve_timeout: 5m
