@@ -266,7 +266,7 @@ spec:
                 key: refresh
         imagePullPolicy: Always
         volumeMounts:
-          - mountPath: "/app/server/src/db"
+          - mountPath: "/data"
             subPath: blocket-philip
             name: unraid-storage
       volumes:
