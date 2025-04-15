@@ -259,7 +259,7 @@ spec:
               secretKeyRef:
                 name: blocket-bot
                 key: jwt
-          - name: JWT_SECRET
+          - name: REFRESH_TOKEN_SECRET
             valueFrom:
               secretKeyRef:
                 name: blocket-bot
