@@ -7,3 +7,4 @@ resources:
   - deployment.yaml
   - chat-secret.sops.yaml
   - secret.sops.yaml
+  - blocket-bot.secret.sops.yaml
