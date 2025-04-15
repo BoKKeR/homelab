@@ -8,15 +8,15 @@ metadata:
 spec:
   externalName: placeholder
   type: ExternalName
-# ---
-# apiVersion: v1
-# kind: Service
-# metadata:
-#   annotations:
-#     tailscale.com/tailnet-fqdn: 100.121.197.99
-#   namespace: home-automation
-#   name: ostenddy
-# spec:
-#   externalName: placeholder
-#   type: ExternalName
-# ---
+---
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    tailscale.com/tailnet-fqdn: 100.121.197.99
+  namespace: home-automation
+  name: ostenddy
+spec:
+  externalName: placeholder
+  type: ExternalName
+---
