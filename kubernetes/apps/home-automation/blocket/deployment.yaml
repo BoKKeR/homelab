@@ -224,52 +224,52 @@ spec:
         imagePullPolicy: Always
       imagePullSecrets:
         - name: regcred
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  namespace: home-automation
-  name: blocket-philip
-  labels:
-    app: blocket-philip
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: blocket-philip
-  template:
-    metadata:
-      labels:
-        app: blocket-philip
-    spec:
-      containers:
-      - name: blocket-philip
-        readinessProbe:
-          httpGet:
-            path: /healthz
-            port: 3000
-        livenessProbe:
-          httpGet:
-            path: /healthz
-            port: 3000
-        image: rutbergphilip/blocket-bot:v2.0.1
-        env:
-          - name: JWT_SECRET
-            valueFrom:
-              secretKeyRef:
-                name: blocket-bot
-                key: jwt
-          - name: REFRESH_TOKEN_SECRET
-            valueFrom:
-              secretKeyRef:
-                name: blocket-bot
-                key: refresh
-        imagePullPolicy: Always
-        volumeMounts:
-          - mountPath: "/data"
-            subPath: blocket-philip
-            name: unraid-storage
-      volumes:
-        - name: unraid-storage
-          persistentVolumeClaim:
-            claimName: unraid-un-nvme-pvc
+# ---
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   namespace: home-automation
+#   name: blocket-philip
+#   labels:
+#     app: blocket-philip
+# spec:
+#   replicas: 1
+#   selector:
+#     matchLabels:
+#       app: blocket-philip
+#   template:
+#     metadata:
+#       labels:
+#         app: blocket-philip
+#     spec:
+#       containers:
+#       - name: blocket-philip
+#         readinessProbe:
+#           httpGet:
+#             path: /healthz
+#             port: 3000
+#         livenessProbe:
+#           httpGet:
+#             path: /healthz
+#             port: 3000
+#         image: rutbergphilip/blocket-bot:v2.0.1
+#         env:
+#           - name: JWT_SECRET
+#             valueFrom:
+#               secretKeyRef:
+#                 name: blocket-bot
+#                 key: jwt
+#           - name: REFRESH_TOKEN_SECRET
+#             valueFrom:
+#               secretKeyRef:
+#                 name: blocket-bot
+#                 key: refresh
+#         imagePullPolicy: Always
+#         volumeMounts:
+#           - mountPath: "/data"
+#             subPath: blocket-philip
+#             name: unraid-storage
+#       volumes:
+#         - name: unraid-storage
+#           persistentVolumeClaim:
+#             claimName: unraid-un-nvme-pvc
