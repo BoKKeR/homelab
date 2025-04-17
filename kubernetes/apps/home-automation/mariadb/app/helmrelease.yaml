@@ -31,7 +31,7 @@ spec:
         runAsUser: 99
         runAsGroup: 100
         readOnlyRootFilesystem: false
-      resourcesPreset: micro
+      resourcesPreset: none
       podLabels:
         nfsMount: "true"
       persistence:

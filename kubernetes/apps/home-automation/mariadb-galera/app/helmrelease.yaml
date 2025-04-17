@@ -25,7 +25,7 @@ spec:
     podLabels:
       nfsMount: "true"
     existingSecret: mariadb-galera
-    resourcesPreset: micro
+    resourcesPreset: none
     persistence:
       enabled: true
       existingClaim: unraid-un-nvme-pvc

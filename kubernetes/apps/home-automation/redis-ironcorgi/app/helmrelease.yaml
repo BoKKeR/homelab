@@ -27,7 +27,7 @@ spec:
     auth:
       enabled: false
     master:
-      resourcesPreset: micro
+      resourcesPreset: none
       podLabels:
         nfsMount: "true"
       persistence:
@@ -40,7 +40,7 @@ spec:
     replica:
       podLabels:
         nfsMount: "true"
-      resourcesPreset: micro
+      resourcesPreset: none
       persistence:
         enabled: false
       containerSecurityContext:
