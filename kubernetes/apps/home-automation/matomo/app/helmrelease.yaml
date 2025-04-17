@@ -46,6 +46,10 @@ spec:
     cronjobs:
       archive:
         enabled: false
+      taskScheduler:
+        containerSecurityContext:
+          readOnlyRootFilesystem: true
+
     resourcesPreset: micro
     global:
       defaultStorageClass: "local-path-provisioner"
@@ -55,7 +59,3 @@ spec:
       hostname: "matomo.${SECRET_DOMAIN}"
       annotations:
         external-dns.alpha.kubernetes.io/target: external.${SECRET_DOMAIN}
-    taskScheduler:
-      enabled: false
-      containerSecurityContext:
-        readOnlyRootFilesystem: true
