@@ -46,7 +46,7 @@ spec:
     cronjobs:
       archive:
         enabled: false
-    resourcesPreset: small
+    resourcesPreset: micro
     global:
       defaultStorageClass: "local-path-provisioner"
     ingress:
