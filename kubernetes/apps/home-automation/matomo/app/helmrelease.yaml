@@ -47,9 +47,7 @@ spec:
       archive:
         enabled: false
       taskScheduler:
-        containerSecurityContext:
-          readOnlyRootFilesystem: true
-
+        enabled: false
     resourcesPreset: micro
     global:
       defaultStorageClass: "local-path-provisioner"
