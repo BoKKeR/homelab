@@ -48,7 +48,7 @@ spec:
         enabled: false
       taskScheduler:
         enabled: false
-    resourcesPreset: small
+    resourcesPreset: none
     global:
       defaultStorageClass: "local-path-provisioner"
     ingress:
