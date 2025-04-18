@@ -34,7 +34,7 @@ spec:
       enabled: true
     cleanPrometheusOperatorObjectNames: true
     alertmanager:
-      enabled: true
+      enabled: false
       receivers:
         - name: "null"
         - name: "discord"
