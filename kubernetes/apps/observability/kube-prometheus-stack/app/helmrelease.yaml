@@ -38,12 +38,12 @@ spec:
     #       - alertmanager-discord-webhook
     alertmanager:
       enabled: true
-      # receivers:
-      #   - name: "null"
-      #   - name: "discord"
-      #     discord_configs:
-      #       - webhook_url: ${DISCORD_WEBHOOK_URL}
-      #         send_resolved: true
+      receivers:
+        - name: "null"
+        - name: "discord"
+          discord_configs:
+            - webhook_url: ${DISCORD_WEBHOOK_URL}
+              send_resolved: true
       ingress:
         enabled: true
         ingressClassName: internal
