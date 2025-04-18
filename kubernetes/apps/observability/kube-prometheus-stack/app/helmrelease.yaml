@@ -35,12 +35,30 @@ spec:
     cleanPrometheusOperatorObjectNames: true
     alertmanager:
       enabled: true
-      # receivers:
-      #   - name: "null"
-      #   - name: "discord"
-      #     discord_configs:
-      #       - webhook_url: "test"
-      #         send_resolved: true
+      receivers:
+        - name: "Default"
+        - name: "Watchdog"
+        - name: "Critical"
+        - name: "null"
+        - name: "discord"
+          discord_configs:
+            - webhook_url: "${DISCORD_WEBHOOK_URL}"
+              title: |-
+                [{{ .Status | toUpper }}{{ if eq .Status "firing" }}:{{ .Alerts.Firing | len }}{{ end }}] {{ if ne .CommonAnnotations.summary ""}}{{ .CommonAnnotations.summary }}{{ else }}{{ .CommonLabels.alertname }}{{ end }}
+              message: >-
+                {{ range .Alerts -}}
+
+
+                  **Alert:** {{ .Annotations.title }}{{ if .Labels.severity }} - `{{ .Labels.severity }}`{{ end }}
+
+                **Description:** {{ if ne .Annotations.description ""}}{{ .Annotations.description }}{{else}}N/A{{ end }}
+
+                **Details:**
+
+
+                  {{ range .Labels.SortedPairs }} • *{{ .Name }}:* `{{ .Value }}`
+                  {{ end }}
+                {{ end }}
       ingress:
         enabled: true
         ingressClassName: internal
@@ -73,18 +91,28 @@ spec:
           - target_matchers:
               - 'alertname = InfoInhibitor'
         route:
-          group_by: ['namespace']
-          group_wait: 30s
+          group_by:
+            - "namespace"
+            - "alertname"
+            - "job"
           group_interval: 5m
-          repeat_interval: 12h
-          # routes:
-          #   - receiver: "null"
-          #     matchers:
-          #       - alertname =~ "InfoInhibitor|Watchdog|RebootScheduled"
-          #   - receiver: "discord"
-          #     matchers:
-          #       - severity = "critical"
-          #     continue: true
+          group_wait: 30s
+          repeat_interval: 6h
+          receiver: "discord"
+          routes:
+            - receiver: "discord"
+              match_re:
+                severity: critical
+              continue: true
+            - matchers:
+                - "alertname = Watchdog"
+              "receiver": "Watchdog"
+            - matchers:
+                - "alertname = InfoInhibitor"
+              receiver: "null"
+            - matchers:
+                - "severity = critical"
+              receiver: "Critical"
         templates:
         - '/etc/alertmanager/config/*.tmpl'
     kube-state-metrics:
