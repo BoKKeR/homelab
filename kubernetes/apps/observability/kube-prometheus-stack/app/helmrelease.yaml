@@ -35,36 +35,36 @@ spec:
     cleanPrometheusOperatorObjectNames: true
     alertmanager:
       enabled: true
-      receivers:
-        - name: "Default"
-        - name: "Watchdog"
-        - name: "Critical"
-        - name: "null"
-        - name: "discord"
-          discord_configs:
-            - webhook_url: "${DISCORD_WEBHOOK_URL}"
-              title: |-
-                [{{ .Status | toUpper }}{{ if eq .Status "firing" }}:{{ .Alerts.Firing | len }}{{ end }}] {{ if ne .CommonAnnotations.summary ""}}{{ .CommonAnnotations.summary }}{{ else }}{{ .CommonLabels.alertname }}{{ end }}
-              message: >-
-                {{ range .Alerts -}}
-
-
-                  **Alert:** {{ .Annotations.title }}{{ if .Labels.severity }} - `{{ .Labels.severity }}`{{ end }}
-
-                **Description:** {{ if ne .Annotations.description ""}}{{ .Annotations.description }}{{else}}N/A{{ end }}
-
-                **Details:**
-
-
-                  {{ range .Labels.SortedPairs }} • *{{ .Name }}:* `{{ .Value }}`
-                  {{ end }}
-                {{ end }}
       ingress:
         enabled: true
         ingressClassName: internal
         hosts:
           - alertmanager.${SECRET_DOMAIN}
       config:
+        receivers:
+          - name: "Default"
+          - name: "Watchdog"
+          - name: "Critical"
+          - name: "null"
+          - name: "discord"
+            discord_configs:
+              - webhook_url: "${DISCORD_WEBHOOK_URL}"
+                title: |-
+                  [{{ .Status | toUpper }}{{ if eq .Status "firing" }}:{{ .Alerts.Firing | len }}{{ end }}] {{ if ne .CommonAnnotations.summary ""}}{{ .CommonAnnotations.summary }}{{ else }}{{ .CommonLabels.alertname }}{{ end }}
+                message: >-
+                  {{ range .Alerts -}}
+
+
+                    **Alert:** {{ .Annotations.title }}{{ if .Labels.severity }} - `{{ .Labels.severity }}`{{ end }}
+
+                  **Description:** {{ if ne .Annotations.description ""}}{{ .Annotations.description }}{{else}}N/A{{ end }}
+
+                  **Details:**
+
+
+                    {{ range .Labels.SortedPairs }} • *{{ .Name }}:* `{{ .Value }}`
+                    {{ end }}
+                  {{ end }}
         global:
           resolve_timeout: 5m
         inhibit_rules:
