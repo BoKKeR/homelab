@@ -44,6 +44,8 @@ spec:
               value: "100"
             - name: DB_CONNECTION
               value: pgsql
+            - name: SPEEDTEST_SCHEDULE
+              value: "23 */1 * * *"
             - name: DB_HOST
               valueFrom:
                 secretKeyRef:
