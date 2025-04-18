@@ -40,6 +40,8 @@ spec:
               value: "true"
             - name: PUID
               value: "99"
+            - name: PUBLIC_DASHBOARD
+              value: "true"
             - name: PGID
               value: "100"
             - name: DB_CONNECTION
