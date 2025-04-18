@@ -18,3 +18,24 @@ spec:
             name: influxdb
             port:
               number: 8086
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: influxdb
+  namespace: home-automation
+  labels:
+    name: influxdb
+spec:
+  ingressClassName: internal
+  rules:
+  - host: influxdb.tnorbert.com
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: influxdb
+            port:
+              number: 8086
