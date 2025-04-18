@@ -106,7 +106,7 @@ spec:
             continue: true
           - matchers:
               - "alertname = Watchdog"
-            "receiver": "Watchdog"
+            receiver: "Watchdog"
           - matchers:
               - "alertname = InfoInhibitor"
             receiver: "null"
