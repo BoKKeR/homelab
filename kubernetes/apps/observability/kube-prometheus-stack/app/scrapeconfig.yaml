@@ -20,6 +20,8 @@ metadata:
 spec:
   staticConfigs:
     - targets:
+        - 'bullmq-exporter-ironcorgi.home-automation.svc.cluster.local:9538'
+    - targets:
         - 'bullmq-exporter.home-automation.svc.cluster.local:9538'
   metricsPath: /metrics
 ---
