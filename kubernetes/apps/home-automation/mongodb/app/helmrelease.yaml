@@ -43,18 +43,21 @@ spec:
         storage:
           subPath: mongodb-backup
           existingClaim: unraid-un-nvme-pvc
-
-    service:
-      annotations:
-        - io.cilium/lb-ipam-ips: "10.0.0.20"
-        - io.cilium/lb-ipam-sharing-key: "home-automation-shared"
-      externalTrafficPolicy: Cluster
-      clusterIP: "10.0.0.20"
-      type: LoadBalancer
+    # service:
+    #   annotations:
+    #     - io.cilium/lb-ipam-ips: "10.0.0.20"
+    #     - io.cilium/lb-ipam-sharing-key: "home-automation-shared"
+    #   externalTrafficPolicy: Cluster
+    #   clusterIP: "10.0.0.20"
+    #   type: LoadBalancer
     externalAccess:
       enabled: true
       service:
         type: LoadBalancer
+        port: 27017
+        loadBalancerIPs:
+          - 10.0.0.21
+          - 10.0.0.22
     # externalAccess:
     #   enabled: true
     #   service:
