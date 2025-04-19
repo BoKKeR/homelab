@@ -55,8 +55,8 @@ spec:
       service:
         type: LoadBalancer
         port: 27017
-        # loadBalancerIPs:
-        #   - 10.0.0.20
+        loadBalancerIPs:
+          - 10.0.0.20
         annotationsList:
           - io.cilium/lb-ipam-ips: "10.0.0.20"
           - io.cilium/lb-ipam-sharing-key: "home-automation-shared"
