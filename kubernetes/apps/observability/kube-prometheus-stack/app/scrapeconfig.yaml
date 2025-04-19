@@ -20,20 +20,9 @@ metadata:
 spec:
   staticConfigs:
     - targets:
-        - 'bullmq-exporter-ironcorgi.home-automation.svc.cluster.local:9538'
+        - 'bullmq-ironcorgi-exporter.home-automation.svc.cluster.local:9538'
     - targets:
         - 'bullmq-exporter.home-automation.svc.cluster.local:9538'
-  metricsPath: /metrics
----
-apiVersion: monitoring.coreos.com/v1alpha1
-kind: ScrapeConfig
-metadata:
-  name: bullmq-ironcorgi-exporter
-  namespace: observability
-spec:
-  staticConfigs:
-    - targets:
-        - 'bullmq-ironcorgi-exporter.home-automation.svc.cluster.local:9538'
   metricsPath: /metrics
 ---
 apiVersion: monitoring.coreos.com/v1alpha1
