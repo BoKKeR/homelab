@@ -124,7 +124,7 @@ spec:
         type: LoadBalancer
         loadBalancerIPs:
           - '10.0.0.27'
-          - '10.0.0.29'
+          - '10.0.0.28'
         # annotationsList:
         #   - io.cilium/lb-ipam-ips: "10.0.0.20"
         #   - io.cilium/lb-ipam-ips: "10.0.0.20"
