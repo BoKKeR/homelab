@@ -37,7 +37,7 @@ resources:
   - ./redis/ks.yaml
   - ./redis-ironcorgi/ks.yaml
   # - ./mariadb-galera/ks.yaml
-  - ./mongodb/ks.yaml
+  #- ./mongodb/ks.yaml
   - friday-blog
   - harbor/ks.yaml
   - matomo/ks.yaml
