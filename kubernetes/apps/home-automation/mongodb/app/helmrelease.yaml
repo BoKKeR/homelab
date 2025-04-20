@@ -57,9 +57,9 @@ spec:
         loadBalancerIPs:
           - '10.0.0.20'
           - '10.0.0.29'
-        # annotationsList:
-        #   - io.cilium/lb-ipam-ips: "10.0.0.20"
-        #   - io.cilium/lb-ipam-sharing-key: "home-automation-shared"
+        annotationsList:
+          - io.cilium/lb-ipam-ips: "10.0.0.20"
+          - io.cilium/lb-ipam-sharing-key: "home-automation-shared"
     # externalAccess:
     #   enabled: true
     #   service:
