@@ -120,7 +120,7 @@ spec:
           existingClaim: unraid-un-nvme-pvc
     externalAccess:
       enabled: true
-      service:
+      # service:
         # type: LoadBalancer
         # loadBalancerIPs:
         #   - '10.0.0.27'
