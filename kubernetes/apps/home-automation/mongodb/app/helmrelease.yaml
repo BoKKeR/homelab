@@ -1,3 +1,78 @@
+# ---
+# apiVersion: helm.toolkit.fluxcd.io/v2
+# kind: HelmRelease
+# metadata:
+#   name: mongodb
+#   namespace: home-automation
+# spec:
+#   interval: 30m
+#   chart:
+#     spec:
+#       chart: mongodb
+#       sourceRef:
+#         kind: HelmRepository
+#         name: bitnami
+#         namespace: flux-system
+#   install:
+#     remediation:
+#       retries: 5
+#   upgrade:
+#     cleanupOnFail: true
+#     remediation:
+#       retries: 5
+#   uninstall:
+#     keepHistory: false
+#   values:
+#     global:
+#       defaultStorageClass: "local-path-provisioner"
+#     auth:
+#       enabled: true
+#       existingSecretPasswordKey: mongodb
+#     metrics:
+#       enabled: true
+#       serviceMonitor:
+#         enabled: true
+#     persistence:
+#       enabled: true
+#       storageClass: local-path-provisioner
+#     architecture: replicaset
+#     backup:
+#       enabled: true
+#       cronjob:
+#         schedule: "@daily"
+#         storage:
+#           subPath: mongodb-backup
+#           existingClaim: unraid-un-nvme-pvc
+#     service:
+#       type: ClusterIP
+#     #   annotations:
+#     #     - io.cilium/lb-ipam-ips: "10.0.0.20"
+#     #     - io.cilium/lb-ipam-sharing-key: "home-automation-shared"
+#     #   externalTrafficPolicy: Cluster
+#     #clusterIP: "10.0.0.20"
+#     #   type: LoadBalancer
+#     externalAccess:
+#       enabled: true
+#       service:
+#         type: LoadBalancer
+#         loadBalancerIPs:
+#           - '10.0.0.28'
+#           - '10.0.0.29'
+#         # annotationsList:
+#         #   - io.cilium/lb-ipam-ips: "10.0.0.20"
+#         #   - io.cilium/lb-ipam-sharing-key: "home-automation-shared"
+#     # externalAccess:
+#     #   enabled: true
+#     #   service:
+#     #     type: LoadBalancer
+#     #     loadBalancerIPs:
+#     #       - '10.0.0.20'
+#     #       - '10.0.0.29'
+#     #     annotationsList:
+#     #       - io.cilium/lb-ipam-ips: "10.0.0.20"
+#     #       - io.cilium/lb-ipam-sharing-key: "home-automation-shared"
+
+
 ---
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
@@ -43,14 +118,6 @@ spec:
         storage:
           subPath: mongodb-backup
           existingClaim: unraid-un-nvme-pvc
-    service:
-      type: ClusterIP
-    #   annotations:
-    #     - io.cilium/lb-ipam-ips: "10.0.0.20"
-    #     - io.cilium/lb-ipam-sharing-key: "home-automation-shared"
-    #   externalTrafficPolicy: Cluster
-    #clusterIP: "10.0.0.20"
-    #   type: LoadBalancer
     externalAccess:
       enabled: true
       service:
@@ -58,16 +125,8 @@ spec:
         loadBalancerIPs:
           - '10.0.0.28'
           - '10.0.0.29'
-        # annotationsList:
-        #   - io.cilium/lb-ipam-ips: "10.0.0.20"
-        #   - io.cilium/lb-ipam-sharing-key: "home-automation-shared"
-    # externalAccess:
-    #   enabled: true
-    #   service:
-    #     type: LoadBalancer
-    #     loadBalancerIPs:
-    #       - '10.0.0.20'
-    #       - '10.0.0.29'
-    #     annotationsList:
-    #       - io.cilium/lb-ipam-ips: "10.0.0.20"
-    #       - io.cilium/lb-ipam-sharing-key: "home-automation-shared"
+        annotationsList:
+          - io.cilium/lb-ipam-ips: "10.0.0.20"
+          - io.cilium/lb-ipam-ips: "10.0.0.20"
+          - io.cilium/lb-ipam-sharing-key: "home-automation-shared"
+          - io.cilium/lb-ipam-sharing-key: "home-automation-shared"
