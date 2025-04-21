@@ -122,6 +122,13 @@ spec:
           - /bin/sh
           - -c
           - |
+            echo "Env vars:"
+            echo "USER: $MONGODB_ROOT_USER"
+            echo "PASS FILE: $MONGODB_ROOT_PASSWORD_FILE"
+            echo "HOST: $MONGODB_SERVICE_NAME"
+            echo "PORT: $MONGODB_PORT_NUMBER"
+            echo "DUMP DIR: $MONGODUMP_DIR"
+            echo "EXTRA FLAGS: $MONGODB_CLIENT_EXTRA_FLAGS"
             export MONGODB_ROOT_PASSWORD="$(< $MONGODB_ROOT_PASSWORD_FILE)"
             mongodump --username=${MONGODB_ROOT_USER} --password=${MONGODB_ROOT_PASSWORD} --authenticationDatabase=admin --host=${MONGODB_SERVICE_NAME} --port=${MONGODB_PORT_NUMBER} ${MONGODB_CLIENT_EXTRA_FLAGS} --oplog --gzip --archive=${MONGODUMP_DIR}/mongodump-$(date '+%Y-%m-%d-%H-%M')
         schedule: "@daily"
