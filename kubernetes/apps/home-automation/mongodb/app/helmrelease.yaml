@@ -133,7 +133,7 @@ spec:
             export MONGODB_ROOT_PASSWORD="$(cat "$MONGODB_ROOT_PASSWORD_FILE")"
             echo $MONGODB_ROOT_PASSWORD
 
-            mongodump --username=${MONGODB_ROOT_USER} --password=${MONGODB_ROOT_PASSWORD} --authenticationDatabase=admin --host=${MONGODB_SERVICE_NAME} --port=${MONGODB_PORT_NUMBER} ${MONGODB_CLIENT_EXTRA_FLAGS} --oplog --gzip --archive=${MONGODUMP_DIR}/mongodump-$(date '+%Y-%m-%d-%H-%M')
+            mongodump --username='${MONGODB_ROOT_USER}' --password=${MONGODB_ROOT_PASSWORD} --authenticationDatabase=admin --host=${MONGODB_SERVICE_NAME} --port=${MONGODB_PORT_NUMBER} ${MONGODB_CLIENT_EXTRA_FLAGS} --oplog --gzip --archive=${MONGODUMP_DIR}/mongodump-$(date '+%Y-%m-%d-%H-%M')
         schedule: "@daily"
         storage:
           subPath: mongodb-backup
