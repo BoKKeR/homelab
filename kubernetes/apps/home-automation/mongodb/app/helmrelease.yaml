@@ -114,6 +114,9 @@ spec:
       enabled: true
       cronjob:
         command:
+          - tail
+          - -f
+          - /dev/null
           - /bin/sh
           - -c
           - export MONGODB_ROOT_PASSWORD="$(< $MONGODB_ROOT_PASSWORD_FILE)"
