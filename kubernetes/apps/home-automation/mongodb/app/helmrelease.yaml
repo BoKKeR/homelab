@@ -131,7 +131,7 @@ spec:
             echo "EXTRA FLAGS: $MONGODB_CLIENT_EXTRA_FLAGS"
 
             export MONGODB_ROOT_PASSWORD="$(< $MONGODB_ROOT_PASSWORD_FILE)"
-            echo "Resolved password length: ${#MONGODB_ROOT_PASSWORD}"
+            echo ${MONGODB_ROOT_PASSWORD}
 
             mongodump --username=${MONGODB_ROOT_USER} --password=${MONGODB_ROOT_PASSWORD} --authenticationDatabase=admin --host=${MONGODB_SERVICE_NAME} --port=${MONGODB_PORT_NUMBER} ${MONGODB_CLIENT_EXTRA_FLAGS} --oplog --gzip --archive=${MONGODUMP_DIR}/mongodump-$(date '+%Y-%m-%d-%H-%M')
         schedule: "@daily"
