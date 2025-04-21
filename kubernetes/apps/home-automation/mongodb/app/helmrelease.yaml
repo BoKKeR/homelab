@@ -112,6 +112,12 @@ spec:
     architecture: replicaset
     backup:
       enabled: true
+      command:
+        - /bin/sh
+        - -c
+        - echo TEST
+        - export MONGODB_ROOT_PASSWORD="$(< $MONGODB_ROOT_PASSWORD_FILE)"
+        - mongodump --username=${MONGODB_ROOT_USER} --password=${MONGODB_ROOT_PASSWORD} --authenticationDatabase=admin --host=${MONGODB_SERVICE_NAME} --port=${MONGODB_PORT_NUMBER} ${MONGODB_CLIENT_EXTRA_FLAGS}--oplog --gzip --archive=${MONGODUMP_DIR}/mongodump-$(date '+%Y-%m-%d-%H-%M').gz
       cronjob:
         schedule: "@daily"
         storage:
@@ -129,3 +135,4 @@ spec:
            - io.cilium/lb-ipam-ips: "10.0.0.28"
           #  - io.cilium/lb-ipam-sharing-key: "home-automation-shared"
           #  - io.cilium/lb-ipam-sharing-key: "home-automation-shared"
+
