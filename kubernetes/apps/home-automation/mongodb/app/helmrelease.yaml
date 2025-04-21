@@ -118,7 +118,7 @@ spec:
           subPath: mongodb-backup
           existingClaim: unraid-un-nvme-pvc
     externalAccess:
-      enabled: true
+      enabled: false
       service:
         type: LoadBalancer
         loadBalancerIPs:
