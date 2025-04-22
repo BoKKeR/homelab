@@ -121,7 +121,7 @@ spec:
           # - -c
           - /bin/sh
           - -c
-          - |
+          - >
             # echo "Env vars:"
             # echo "USER: $MONGODB_ROOT_USER"
             # echo "PASS FILE: $MONGODB_ROOT_PASSWORD_FILE"
