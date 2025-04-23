@@ -17,7 +17,7 @@ spec:
       containers:
         - name: deploy-on-friday-blog
           # command: [ "tail", "-f", "/dev/null" ]
-          image: ghcr.io/bokker/tnorbert-blog:1.0.169 # {"$imagepolicy": "home-automation:deploy-on-friday-blog"}
+          image: ghcr.io/bokker/tnorbert-blog:1.0.170 # {"$imagepolicy": "home-automation:deploy-on-friday-blog"}
           ports:
             - containerPort: 3000
           readinessProbe:
