@@ -23,6 +23,8 @@ spec:
                 secretKeyRef:
                   name: node-red-flow-secret
                   key: node-red-flow-secret
+            - name: TZ
+              value: Europe/Stockholm
           ports:
             - containerPort: 1880
           volumeMounts:
