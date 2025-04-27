@@ -58,8 +58,8 @@ spec:
       annotations:
         external-dns.alpha.kubernetes.io/target: external.${SECRET_DOMAIN}
     extraEnvVars:
-      - name: MATOMO_GENERAL_CLIENT_HEADERS
+      - name: MATOMO_GENERAL_PROXY_CLIENT_HEADERS
         value: HTTP_CF_CONNECTING_IP
-      - name: MATOMO_GENERAL_CLIENT_HEADER
+      - name: MATOMO_GENERAL_PROXY_CLIENT_HEADER
         value: HTTP_CF_CONNECTING_IP
 
