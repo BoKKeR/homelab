@@ -58,6 +58,6 @@ spec:
       annotations:
         external-dns.alpha.kubernetes.io/target: external.${SECRET_DOMAIN}
     extraEnvVars:
-      - name: MATOMO_GENERAL_TRUSTED_HOSTS[]
+      - name: MATOMO_GENERAL_TRUSTED_HOSTS
         value: HTTP_CF_CONNECTING_IP
 
