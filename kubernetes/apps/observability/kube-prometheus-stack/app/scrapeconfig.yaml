@@ -67,6 +67,8 @@ spec:
   staticConfigs:
     - targets:
         - '10.0.0.168:9100'
+        - '10.0.0.168:9996'
+        - '10.0.0.168:9216'
   metricsPath: /metrics
 ---
 apiVersion: monitoring.coreos.com/v1alpha1
