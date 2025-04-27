@@ -60,4 +60,6 @@ spec:
     extraEnvVars:
       - name: MATOMO_GENERAL_PROXY_CLIENT_HEADERS
         value: HTTP_CF_CONNECTING_IP
+      - name: MATOMO_GENERAL_PROXY_CLIENT_HEADER
+        value: HTTP_CF_CONNECTING_IP
 
