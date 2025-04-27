@@ -72,7 +72,15 @@ spec:
         limits:
           memory: 2Gi
     gateway:
-      replicas: 0
+      replicas: 1
+      ingress:
+        enabled: true
+        ingressClassName: internal
+        hosts:
+          - host: "loki.${SECRET_DOMAIN}.com"
+            paths:
+              - path: /
+                pathType: Prefix
     backend:
       replicas: 0
     read:
