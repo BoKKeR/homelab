@@ -67,7 +67,6 @@ spec:
   staticConfigs:
     - targets:
         - '10.0.0.168:9100'
-        - '10.0.0.168:9996'
         - '10.0.0.168:9216'
   metricsPath: /metrics
 ---
@@ -77,11 +76,21 @@ metadata:
   name: ostenddy
   namespace: observability
 spec:
-  scrapeInterval: 600s
-  scrapeTimeout: 600s
   staticConfigs:
     - targets:
         - '10.0.0.168:9101'
   metricsPath: /metrics
-
-
+---
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: ScrapeConfig
+metadata:
+  name: uc1-backup
+  namespace: observability
+spec:
+  scrapeInterval: 600s
+  scrapeTimeout: 600s
+  staticConfigs:
+    - targets:
+        - '10.0.0.168:9996'
+  metricsPath: /metrics
+---
