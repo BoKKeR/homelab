@@ -77,8 +77,11 @@ metadata:
   name: ostenddy
   namespace: observability
 spec:
+  scrapeInterval: 600s
+  scrapeTimeout: 600s
   staticConfigs:
     - targets:
         - '10.0.0.168:9101'
   metricsPath: /metrics
+
 
