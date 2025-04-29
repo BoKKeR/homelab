@@ -310,7 +310,7 @@ spec:
                 name: chat-id
                 key: chat-id
           - name: BLOCKET_URL
-            value: "https://www.blocket.se/annonser/hela_sverige?q=Dometic"
+            value: "https://www.blocket.se/annonser/hela_sverige?q=dometic+t%C3%A4lt"
         imagePullPolicy: Always
       imagePullSecrets:
         - name: regcred
