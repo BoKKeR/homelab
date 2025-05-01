@@ -93,4 +93,9 @@ spec:
     - targets:
         - '10.0.0.168:9996'
   metricsPath: /metrics
+  relabelConfigs:
+    - sourceLabels: [__address__]
+      regex: (.*)
+      targetLabel: job
+      replacement: borgmatic
 ---
