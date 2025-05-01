@@ -87,7 +87,7 @@ metadata:
   name: uc1-backup
   namespace: observability
 spec:
-  scrapeInterval: 20m
+  scrapeInterval: 5m
   scrapeTimeout: 3m
   jobName: borgmatic
   staticConfigs:
