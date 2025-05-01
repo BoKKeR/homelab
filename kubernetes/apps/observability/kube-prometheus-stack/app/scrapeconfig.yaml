@@ -89,6 +89,7 @@ metadata:
 spec:
   scrapeInterval: 20m
   scrapeTimeout: 3m
+  jobName: borgmatic
   staticConfigs:
     - targets:
         - '10.0.0.168:9996'
