@@ -87,8 +87,8 @@ metadata:
   name: uc1-backup
   namespace: observability
 spec:
-  scrapeInterval: 600s
-  scrapeTimeout: 300s
+  scrapeInterval: 4m
+  scrapeTimeout: 3m
   staticConfigs:
     - targets:
         - '10.0.0.168:9996'
