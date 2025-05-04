@@ -2,11 +2,13 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   namespace: home-automation
-  name: dumbterm-internal
+  name: dumbterm-external
+  annotations:
+      external-dns.alpha.kubernetes.io/target: "external.deploy-on-friday.com"
 spec:
-  ingressClassName: internal
+  ingressClassName: external
   rules:
-  - host: dumbterm.tnorbert.com
+  - host: k9s.deploy-on-friday.com
     http:
       paths:
       - path: /
