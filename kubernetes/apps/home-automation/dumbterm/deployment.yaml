@@ -1,0 +1,64 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dumbterm
+  namespace: home-automation
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dumbterm
+  template:
+    metadata:
+      labels:
+        app: dumbterm
+    spec:
+      containers:
+        - name: dumbterm
+          image: dumbwareio/dumbterm:latest
+          ports:
+            - containerPort: 3000
+          env:
+            - name: DUMBTERM_PIN
+              valueFrom:
+                secretKeyRef:
+                  name: dumbterm
+                  key: pin
+            - name: SITE_TITLE
+              value: "DumbTerm"
+            - name: BASE_URL
+              value: "https://dumbterm.tnorbert.com"
+            - name: ALLOWED_ORIGINS
+              value: "https://dumbterm.tnorbert.com"
+            - name: ENABLE_STARSHIP
+              value: "true"
+            - name: TZ
+              value: "Europe/Stockholm"
+            - name: LOCKOUT_TIME
+              value: "15"
+            - name: MAX_SESSION_AGE
+              value: "24"
+          volumeMounts:
+            - name: unraid-storage
+              mountPath: /root/.config
+              subPath: dumbterm/config
+            - name: unraid-storage
+              mountPath: /root/data
+              subPath: dumbterm/data
+      volumes:
+      - name: unraid-storage
+        persistentVolumeClaim:
+          claimName: unraid-un-nvme-pvc
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dumbterm
+spec:
+  type: NodePort
+  selector:
+    app: dumbterm
+  ports:
+    - port: 3000
+      targetPort: 3000
+      nodePort: 30000

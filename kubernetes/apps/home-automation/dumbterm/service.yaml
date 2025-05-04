@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: dumbterm
+  namespace: home-automation
+spec:
+  selector:
+    app: dumbterm
+  type: ClusterIP
+  ports:
+  - name: webui
+    protocol: TCP
+    port: 3000
+    targetPort: 3000

@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  namespace: home-automation
+  name: dumbterm-internal
+spec:
+  ingressClassName: internal
+  rules:
+  - host: dumbterm.tnorbert.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: dumbterm
+            port:
+              number: 3000
+
