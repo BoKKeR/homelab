@@ -42,6 +42,9 @@ spec:
             - name: unraid-storage
               mountPath: /root/.config
               subPath: kube-webterm/config
+            - name: unraid-storage
+              mountPath: /root/.kube
+              subPath: kube-webterm/kube
       volumes:
       - name: unraid-storage
         persistentVolumeClaim:
