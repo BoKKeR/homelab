@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: dumbterm
-          image: bokker/kube-webterm:master
+          image: ghcr.io/bokker/kube-webterm:master
           ports:
             - containerPort: 3000
           env:
