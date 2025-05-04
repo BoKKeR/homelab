@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: dumbterm
-          image: ghcr.io/bokker/kube-webterm:master # {"$imagepolicy": "home-automation:kube-webterm"}
+          image: ghcr.io/bokker/kube-webterm:0.0.5 # {"$imagepolicy": "home-automation:kube-webterm"}
           ports:
             - containerPort: 3000
           env:
@@ -34,10 +34,10 @@ spec:
             #   value: "true"
             - name: TZ
               value: "Europe/Stockholm"
-            # - name: LOCKOUT_TIME
-            #   value: "15"
-            # - name: MAX_SESSION_AGE
-            #   value: "24"
+              # - name: LOCKOUT_TIME
+              #   value: "15"
+              # - name: MAX_SESSION_AGE
+              #   value: "24"
           volumeMounts:
             - name: unraid-storage
               mountPath: /root/.config
@@ -46,6 +46,6 @@ spec:
               mountPath: /root/.kube
               subPath: kube-webterm/kube
       volumes:
-      - name: unraid-storage
-        persistentVolumeClaim:
-          claimName: unraid-un-nvme-pvc
+        - name: unraid-storage
+          persistentVolumeClaim:
+            claimName: unraid-un-nvme-pvc
