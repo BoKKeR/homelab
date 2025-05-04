@@ -15,36 +15,33 @@ spec:
     spec:
       containers:
         - name: dumbterm
-          image: dumbwareio/dumbterm:latest
+          image: bokker/kube-webterm:latest
           ports:
             - containerPort: 3000
           env:
-            - name: DUMBTERM_PIN
-              valueFrom:
-                secretKeyRef:
-                  name: dumbterm
-                  key: pin
-            - name: SITE_TITLE
-              value: "DumbTerm"
-            - name: BASE_URL
-              value: "https://dumbterm.tnorbert.com"
-            - name: ALLOWED_ORIGINS
-              value: "https://dumbterm.tnorbert.com"
-            - name: ENABLE_STARSHIP
-              value: "true"
+            # - name: DUMBTERM_PIN
+            #   valueFrom:
+            #     secretKeyRef:
+            #       name: dumbterm
+            #       key: pin
+            # - name: SITE_TITLE
+            #   value: "DumbTerm"
+            # - name: BASE_URL
+            #   value: "https://dumbterm.tnorbert.com"
+            # - name: ALLOWED_ORIGINS
+            #   value: "https://dumbterm.tnorbert.com"
+            # - name: ENABLE_STARSHIP
+            #   value: "true"
             - name: TZ
               value: "Europe/Stockholm"
-            - name: LOCKOUT_TIME
-              value: "15"
-            - name: MAX_SESSION_AGE
-              value: "24"
+            # - name: LOCKOUT_TIME
+            #   value: "15"
+            # - name: MAX_SESSION_AGE
+            #   value: "24"
           volumeMounts:
             - name: unraid-storage
               mountPath: /root/.config
-              subPath: dumbterm/config
-            - name: unraid-storage
-              mountPath: /root/data
-              subPath: dumbterm/data
+              subPath: kube-webterm/config
       volumes:
       - name: unraid-storage
         persistentVolumeClaim:
