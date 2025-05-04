@@ -51,3 +51,4 @@ resources:
   - alexa-sync-shopping-list
   - tailscale-ips.yaml
   - read-only-user
+  - dumbterm
