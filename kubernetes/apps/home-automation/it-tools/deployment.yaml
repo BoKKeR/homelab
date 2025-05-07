@@ -19,10 +19,10 @@ spec:
         app: it-tools
     spec:
       containers:
-      - image: corentinth/it-tools:latest
+      - image: sharevb/it-tools:latest
         imagePullPolicy: Always
         name: it-tools
         ports:
-          - containerPort: 80
+          - containerPort: 8080
       restartPolicy: Always
 
