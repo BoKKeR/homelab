@@ -15,9 +15,9 @@ spec:
         path: "/"
         backend:
           service:
-            name: tools
+            name: it-tools
             port:
-              number: 8080
+              number: 80
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
@@ -38,6 +38,6 @@ spec:
         path: "/"
         backend:
           service:
-            name: tools
+            name: it-tools
             port:
-              number: 8080
+              number: 80
