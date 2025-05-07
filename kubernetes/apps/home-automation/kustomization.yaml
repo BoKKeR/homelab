@@ -52,3 +52,4 @@ resources:
   - tailscale-ips.yaml
   - read-only-user
   - dumbterm
+  - it-tools
