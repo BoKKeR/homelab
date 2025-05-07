@@ -13,5 +13,5 @@ spec:
   ports:
     - protocol: TCP
       name: "webui"
-      port: 8080
+      port: 80
       targetPort: 8080
