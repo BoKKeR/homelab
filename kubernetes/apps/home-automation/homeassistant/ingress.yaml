@@ -46,6 +46,7 @@ metadata:
   annotations:
     io.cilium/lb-ipam-ips: "10.0.0.20"
     io.cilium/lb-ipam-sharing-key: "home-automation-shared"
+    lbipam.cilium.io/sharing-cross-namespace: "*"
 spec:
   selector:
     app: home-assistant
