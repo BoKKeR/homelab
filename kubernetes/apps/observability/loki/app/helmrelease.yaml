@@ -82,10 +82,11 @@ spec:
               - path: /
                 pathType: Prefix
       service:
-        loadBalancerIP: "10.0.0.21"
+        loadBalancerIP: "10.0.0.20"
         type: LoadBalancer
         annotations:
-          io.cilium/lb-ipam-ips: "10.0.0.21"
+          io.cilium/lb-ipam-ips: "10.0.0.20"
+          lbipam.cilium.io/sharing-cross-namespace: "true"
     backend:
       replicas: 0
     read:
