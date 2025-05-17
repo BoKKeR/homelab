@@ -82,6 +82,7 @@ spec:
               - path: /
                 pathType: Prefix
       service:
+        loadBalancerIP: "10.0.0.20"
         annotations:
             io.cilium/lb-ipam-ips: "10.0.0.20"
             io.cilium/lb-ipam-sharing-key: "home-automation-shared"
