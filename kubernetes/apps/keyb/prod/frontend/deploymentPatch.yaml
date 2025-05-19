@@ -14,8 +14,8 @@ spec:
         ports:
         - name: http
           containerPort: 4020
-          envFrom:
-            - configMapRef:
-                name: keyb-frontend-config-prod
-            - secretRef:
-                name: keyb-frontend-secret-prod
+        envFrom:
+          - configMapRef:
+              name: keyb-frontend-config-prod
+          - secretRef:
+              name: keyb-frontend-secret-prod
