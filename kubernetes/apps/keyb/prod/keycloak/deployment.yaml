@@ -27,9 +27,9 @@ spec:
             - containerPort: 8080
           envFrom:
             - secretRef:
-                - name: keycloak-secret
+                name: keycloak-secret
             - configMapRef:
-                - name: keycloak-configmap
+                name: keycloak-configmap
       imagePullSecrets:
         - name: regcred
 
