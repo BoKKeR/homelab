@@ -6,7 +6,7 @@ data:
   KEYCLOAK_REALM: prod
   KEYCLOAK_URL: https://auth.keyb.io
   PORT: "4001"
-  ENV: production
+
   SEARCH_PORT: "1491"
   SEARCH_HOST: keyb-sonic-service-prod
   BACKEND_URL: http://keyb-backend-prod
