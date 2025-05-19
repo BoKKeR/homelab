@@ -20,8 +20,6 @@ spec:
         envFrom:
           - configMapRef:
               name: keyb-sonic-config-dev
-          - secretRef:
-              name: keyb-sonic-secret-dev
         volumeMounts:
         - mountPath: "/etc"
           subPath: keyb/sonic-dev
