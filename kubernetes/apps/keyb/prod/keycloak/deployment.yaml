@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: keycloak
+  namespace: keyb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: keycloak
+  template:
+    metadata:
+      labels:
+        app: keycloak
+        nfsMount: "true"
+    spec:
+      initContainers:
+          - name: init-db
+            image: ghcr.io/onedr0p/postgres-init:17.4
+            envFrom:
+              - secretRef:
+                  name: keycloak-secret
+      containers:
+        - name: keycloak
+          image: ghcr.io/keybio/keycloak/app:latest
+          ports:
+            - containerPort: 8080
+          envFrom:
+            - secretRef:
+                - name: keycloak-secret
+            - configMapRef:
+                - name: keycloak-configmap
+          imagePullSecrets:
+            - name: regcred
+
