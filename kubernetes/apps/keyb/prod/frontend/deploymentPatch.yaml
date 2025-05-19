@@ -3,10 +3,10 @@ kind: Deployment
 metadata:
   name: keyb-frontend
 spec:
+  selector:
+    matchLabels:
+      app: keyb-frontend-prod
   template:
-    selector:
-      matchLabels:
-        app: keyb-frontend-prod
     spec:
       containers:
       - name: keyb-frontend
