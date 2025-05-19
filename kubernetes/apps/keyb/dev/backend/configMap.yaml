@@ -9,4 +9,4 @@ data:
   KEYCLOAK_REALM: test
   KEYCLOAK_URL: https://auth.keyb.io
   BACKEND_URL: http://keyb-backend-dev
-  FRONTEND_URL: https://keyb-frontend-dev
+  FRONTEND_URL: http://keyb-frontend-dev
