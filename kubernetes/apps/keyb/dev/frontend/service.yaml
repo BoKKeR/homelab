@@ -1,10 +1,10 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: keyb-service
+  name: keyb-frontend-service
 spec:
   selector:
-    app: keyb-frontend
+    app: keyb-frontend-dev
   type: ClusterIP
   ports:
     - name: http
