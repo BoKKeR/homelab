@@ -4,8 +4,9 @@ metadata:
   name: keyb-frontend
 spec:
   template:
-    matchLabels:
-      app: keyb-frontend-prod
+    selector:
+      matchLabels:
+        app: keyb-frontend-prod
     spec:
       containers:
       - name: keyb-frontend
