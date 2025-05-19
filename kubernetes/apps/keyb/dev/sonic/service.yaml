@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: keyb-sonic-service
+spec:
+  selector:
+    app: keyb-sonic-prod
+  type: ClusterIP
+  ports:
+    - name: http
+      port: 1490
+      targetPort: 1490

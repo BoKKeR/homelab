@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: keyb-sonic
+spec:
+  selector:
+    matchLabels:
+      app: keyb-sonic-prod
+  template:
+    metadata:
+      labels:
+        app: keyb-sonic-prod
+    spec:
+      containers:
+      - name: keyb-sonic
+        image: valeriansaliou/sonic:v1.3.0
+        ports:
+        - name: http
+          containerPort: 1490
+        envFrom:
+          - configMapRef:
+              name: keyb-sonic-config-prod
+          - secretRef:
+              name: keyb-sonic-secret-prod
