@@ -8,4 +8,7 @@ data:
   PORT: "4001"
   ENV: production
   SEARCH_PORT: "1491"
-  SEARCH_HOST: sonicprod
+  SEARCH_HOST: keyb-sonic-service-prod
+  BACKEND_URL: http://keyb-backend-prod
+  FRONTEND_URL: http://keyb-frontend-prod
+  KEYCLOAK_USER: admin
