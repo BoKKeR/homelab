@@ -6,7 +6,7 @@ namespace: keyb
 resources:
   - namespace.yaml
   - regcred.sops.yaml
-  # - prod
+  - prod
   - dev
 
 
