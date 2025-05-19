@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: keyb-service
+spec:
+  selector:
+    app: keyb-frontend
+  type: ClusterIP
+  ports:
+    - name: http
+      port: 4010
+      targetPort: 4010

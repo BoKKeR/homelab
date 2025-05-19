@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: keyb-frontend-config
+data:
+  NEXT_PUBLIC_KEYCLOAK_CLIENT_ID: general
+  NEXT_PUBLIC_KEYCLOAK_URL: https://auth.keyb.io/auth
+  NEXT_PUBLIC_KEYCLOAK_REALM: test
+  NEXT_PUBLIC_IMAGE_HOST_URL: https://ik.imagekit.io/keybio/
+  NEXT_PUBLIC_KB_BACKEND_URL: https://devapi.keyb.io
+  NEXTAUTH_URL: https://dev.keyb.io
+  NEXT_PUBLIC_PORT: "4010"
+  NEXT_PUBLIC_MATOMO_URL: https://matomo.keyb.io
+  NEXT_PUBLIC_MATOMO_SITE_ID: "1"
+  NEXT_PUBLIC_QMKCONFIG_URL: https://devqmk.keyb.io
