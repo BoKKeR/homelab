@@ -3,10 +3,10 @@ kind: ConfigMap
 metadata:
   name: keyb-backend-config
 data:
-  SEARCH_HOST: sonicdev
+  SEARCH_HOST: keyb-sonic-dev
   SEARCH_PORT: "1490"
   KEYCLOAK_USER: admin
   KEYCLOAK_REALM: test
   KEYCLOAK_URL: https://auth.keyb.io
-  BACKEND_URL: https://devapi.keyb.io
-  FRONTEND_URL: https://dev.keyb.io
+  BACKEND_URL: http://keyb-backend-dev
+  FRONTEND_URL: https://keyb-frontend-dev
