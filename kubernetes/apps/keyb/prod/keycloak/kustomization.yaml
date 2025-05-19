@@ -3,5 +3,6 @@ kind: Kustomization
 resources:
   - service.yaml
   - ingress.yaml
+  - deployment.yaml
   - keycloak.secret.sops.yaml
   - configMap.yaml
