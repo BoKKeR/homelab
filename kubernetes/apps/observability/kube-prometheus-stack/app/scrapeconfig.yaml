@@ -79,7 +79,6 @@ spec:
   staticConfigs:
     - targets:
         - '10.0.0.168:9101'
-        - '10.0.0.168:9096'
   metricsPath: /metrics
 ---
 apiVersion: monitoring.coreos.com/v1alpha1
@@ -94,5 +93,20 @@ spec:
   staticConfigs:
     - targets:
         - '10.0.0.168:9996'
+  metricsPath: /metrics
+---
+---
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: ScrapeConfig
+metadata:
+  name: ostenddy-backup
+  namespace: observability
+spec:
+  scrapeInterval: 5m
+  scrapeTimeout: 3m
+  jobName: borgmatic
+  staticConfigs:
+    - targets:
+        - '10.0.0.168:9096'
   metricsPath: /metrics
 ---
