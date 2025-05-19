@@ -16,7 +16,7 @@ spec:
         image: valeriansaliou/sonic:v1.3.0
         ports:
         - name: http
-          containerPort: 1490
+          containerPort: 1491
         envFrom:
           - configMapRef:
               name: keyb-sonic-config-dev

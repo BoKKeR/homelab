@@ -8,5 +8,5 @@ spec:
   type: ClusterIP
   ports:
     - name: http
-      port: 4020
-      targetPort: 4020
+      port: 4010
+      targetPort: 4010

@@ -16,7 +16,7 @@ spec:
         image: ghcr.io/keybio/frontend/frontend:master
         ports:
         - name: http
-          containerPort: 4020
+          containerPort: 4010
         envFrom:
           - configMapRef:
               name: keyb-frontend-config-prod

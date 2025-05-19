@@ -6,7 +6,7 @@ data:
   KEYCLOAK_REALM: test
   KEYCLOAK_URL: https://auth.keyb.io
   PORT: "4000"
-  SEARCH_PORT: "1490"
+  SEARCH_PORT: "1491"
   SEARCH_HOST: keyb-sonic-service-dev
   BACKEND_URL: http://keyb-backend-service-dev
   FRONTEND_URL: http://keyb-frontend-service-dev

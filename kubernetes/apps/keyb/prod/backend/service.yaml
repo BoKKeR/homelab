@@ -8,5 +8,5 @@ spec:
   type: ClusterIP
   ports:
     - name: http
-      port: 4001
-      targetPort: 4001
+      port: 4000
+      targetPort: 4000

@@ -16,7 +16,7 @@ spec:
         image: ghcr.io/keybio/backend/backend:master
         ports:
         - name: http
-          containerPort: 4001
+          containerPort: 4000
         envFrom:
           - configMapRef:
               name: keyb-backend-config-prod

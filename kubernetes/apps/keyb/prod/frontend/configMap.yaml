@@ -9,7 +9,7 @@ data:
   NEXT_PUBLIC_IMAGE_HOST_URL: https://ik.imagekit.io/keybio/
   NEXT_PUBLIC_KB_BACKEND_URL: https://api.keyb.io
   NEXTAUTH_URL: https://keyb.io
-  NEXT_PUBLIC_PORT: "4020"
+  NEXT_PUBLIC_PORT: "4010"
   NEXT_PUBLIC_MATOMO_URL: https://matomo.keyb.io
   NEXT_PUBLIC_MATOMO_SITE_ID: "2"
   NEXT_PUBLIC_QMKCONFIG_URL: https://qmk.keyb.io
