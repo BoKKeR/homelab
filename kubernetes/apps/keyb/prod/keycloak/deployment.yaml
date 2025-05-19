@@ -30,6 +30,6 @@ spec:
                 - name: keycloak-secret
             - configMapRef:
                 - name: keycloak-configmap
-          imagePullSecrets:
-            - name: regcred
+      imagePullSecrets:
+        - name: regcred
 
