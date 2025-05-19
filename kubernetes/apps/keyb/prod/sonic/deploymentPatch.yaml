@@ -20,5 +20,11 @@ spec:
         envFrom:
           - configMapRef:
               name: keyb-sonic-config-prod
-          - secretRef:
-              name: keyb-sonic-secret-prod
+        volumeMounts:
+        - mountPath: "/etc"
+          subPath: keyb/sonic-prod
+          name: unraid-storage
+      volumes:
+      - name: unraid-storage
+        persistentVolumeClaim:
+          claimName: unraid-un-nvme-pvc
