@@ -8,7 +8,7 @@ metadata:
 spec:
   ingressClassName: internal
   rules:
-  - host: keyb-sonic-api.tnorbert.com
+  - host: keyb-prod-sonic-api.tnorbert.com
     http:
       paths:
       - path: /
