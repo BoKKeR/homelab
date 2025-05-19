@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: keyb-steam-provider-service
+spec:
+  selector:
+    app: keyb-steam-provider
+  type: ClusterIP
+  ports:
+    - name: http
+      port: 80
+      targetPort: 80

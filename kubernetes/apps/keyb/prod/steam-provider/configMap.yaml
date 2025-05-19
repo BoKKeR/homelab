@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: keycloak-steam-provider-configmap
+data:
+  Hosting__Path: /
+  Hosting__PublicOrigin: https://steam.tnorbert.io

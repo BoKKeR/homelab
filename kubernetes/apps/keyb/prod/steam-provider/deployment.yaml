@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: keycloak-steam-provider
+  namespace: keyb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: keycloak-steam-provider
+  template:
+    metadata:
+      labels:
+        app: keycloak-steam-provider
+        nfsMount: "true"
+    spec:
+      containers:
+        - name: keycloak-steam-provider
+          image: bokker/steam-openid-connect-provider:latest
+          ports:
+            - containerPort: 80
+          envFrom:
+            - secretRef:
+                name: keycloak-steam-provider-secret
+            - configMapRef:
+                name: keycloak-steam-provider-configmap
+      imagePullSecrets:
+        - name: regcred
+
