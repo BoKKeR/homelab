@@ -7,4 +7,3 @@ resources:
   - deployment.yaml
   - configMap.yaml
   - secret.sops.yaml
-

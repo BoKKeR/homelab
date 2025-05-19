@@ -18,3 +18,25 @@ spec:
             name: keycloak-service
             port:
               name: http
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  namespace: keyb
+  name: keycloak-external
+  annotations:
+      external-dns.alpha.kubernetes.io/target: "external.tnorbert.com"
+spec:
+  ingressClassName: external
+  rules:
+  - host: auth-test.keyb.io
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: keycloak
+            port:
+              name: http
+
