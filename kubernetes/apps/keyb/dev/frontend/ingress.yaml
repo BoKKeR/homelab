@@ -4,7 +4,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   namespace: keyb
-  name: keyb-frontend
+  name: keyb-frontend-ingress
 spec:
   ingressClassName: internal
   rules:
