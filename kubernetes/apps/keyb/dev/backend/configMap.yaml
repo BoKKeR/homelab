@@ -8,6 +8,6 @@ data:
   PORT: "4000"
   SEARCH_PORT: "1490"
   SEARCH_HOST: keyb-sonic-service-dev
-  BACKEND_URL: http://keyb-backend-dev
-  FRONTEND_URL: http://keyb-frontend-dev
+  BACKEND_URL: http://keyb-backend-service-dev
+  FRONTEND_URL: http://keyb-frontend-service-dev
   KEYCLOAK_USER: admin
