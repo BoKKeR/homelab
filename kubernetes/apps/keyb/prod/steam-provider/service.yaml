@@ -1,10 +1,10 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: keyb-steam-provider-service
+  name: keycloak-steam-provider-service
 spec:
   selector:
-    app: keyb-steam-provider
+    app: keycloak-steam-provider
   type: ClusterIP
   ports:
     - name: http
