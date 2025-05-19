@@ -7,6 +7,9 @@ spec:
     matchLabels:
       app: keyb-frontend-prod
   template:
+    metadata:
+      labels:
+        app: keyb-frontend-prod
     spec:
       containers:
       - name: keyb-frontend
