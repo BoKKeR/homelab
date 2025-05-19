@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   name: keyb-backend-config
 data:
-  SEARCH_HOST: keyb-sonic-dev
+  SEARCH_HOST: keyb-sonic-dev-service
   SEARCH_PORT: "1490"
   KEYCLOAK_USER: admin
   KEYCLOAK_REALM: test

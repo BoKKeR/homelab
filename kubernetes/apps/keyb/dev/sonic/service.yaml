@@ -4,7 +4,7 @@ metadata:
   name: keyb-sonic-service
 spec:
   selector:
-    app: keyb-sonic-prod
+    app: keyb-sonic-dev
   type: ClusterIP
   ports:
     - name: http
