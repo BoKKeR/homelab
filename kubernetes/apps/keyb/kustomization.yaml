@@ -5,6 +5,7 @@ namespace: keyb
 
 resources:
   - namespace.yaml
+  - unraid-un-nvme-pvc.yaml
   - regcred.sops.yaml
   - prod
   - dev
