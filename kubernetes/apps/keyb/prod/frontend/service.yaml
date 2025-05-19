@@ -4,7 +4,7 @@ metadata:
   name: keyb-frontend-service
 spec:
   selector:
-    app: keyb-frontend-dev
+    app: keyb-frontend-prod
   type: ClusterIP
   ports:
     - name: http
