@@ -1,0 +1,20 @@
+# https://kubernetes.io/docs/concepts/services-networking/ingress/#the-ingress-resource
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  namespace: keyb
+  name: keyb-backend-ingress
+spec:
+  ingressClassName: internal
+  rules:
+  - host: keyb-dev-api.tnorbert.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: keyb-backend-service-dev
+            port:
+              name: http

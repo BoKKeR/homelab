@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: keyb-backend
+spec:
+  selector:
+    matchLabels:
+      app: keyb-backend-dev
+  template:
+    metadata:
+      labels:
+        app: keyb-backend-dev
+    spec:
+      containers:
+      - name: keyb-backend
+        image: ghcr.io/keybio/backend/backend:develop
+        ports:
+        - name: http
+          containerPort: 4000
+        envFrom:
+          - configMapRef:
+              name: keyb-backend-config-dev
+          - secretRef:
+              name: keyb-backend-secret-dev

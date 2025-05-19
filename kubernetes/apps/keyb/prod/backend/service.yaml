@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: keyb-backend-service
+spec:
+  selector:
+    app: keyb-backend-prod
+  type: ClusterIP
+  ports:
+    - name: http
+      port: 4001
+      targetPort: 4001
