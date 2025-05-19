@@ -36,7 +36,7 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: keycloak
+            name: keycloak-service
             port:
               name: http
 
