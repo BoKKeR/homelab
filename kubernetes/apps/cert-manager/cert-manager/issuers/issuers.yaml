@@ -18,7 +18,7 @@ spec:
           dnsZones:
             - "${SECRET_DOMAIN}"
             - "${FRIDAY_DOMAIN}"
-      - dns02:
+      - dns01:
           route53:
             accessKeyIDSecretRef:
               name: external-dns-aws-secret
