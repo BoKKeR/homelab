@@ -40,4 +40,4 @@ spec:
       annotations:
         external-dns.alpha.kubernetes.io/target: external.${SECRET_DOMAIN}
     global:
-      defaultStorageClass: rook-ceph-block
+      defaultStorageClass: ceph-block
