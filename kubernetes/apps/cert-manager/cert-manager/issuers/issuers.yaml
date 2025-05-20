@@ -18,7 +18,18 @@ spec:
           dnsZones:
             - "${SECRET_DOMAIN}"
             - "${FRIDAY_DOMAIN}"
+      - dns02:
+          route53:
+            accessKeyIDSecretRef:
+              name: external-dns-aws-secret
+              key: access-key
+            secretAccessKeySecretRef:
+              name: external-dns-aws-secret
+              key: secret-key
+        selector:
+          dnsZones:
             - "${KEYB_DOMAIN}"
+
 ---
 apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
@@ -39,14 +50,3 @@ spec:
         selector:
           dnsZones:
             - "${SECRET_DOMAIN}"
-      - dns02:
-          route53:
-            accessKeyIDSecretRef:
-              name: external-dns-aws-secret
-              key: access-key
-            secretAccessKeySecretRef:
-              name: external-dns-aws-secret
-              key: secret-key
-        selector:
-          dnsZones:
-            - "${KEYB_DOMAIN}"
