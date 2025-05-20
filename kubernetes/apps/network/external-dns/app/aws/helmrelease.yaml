@@ -1,0 +1,54 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: &app external-dns-aws
+spec:
+  interval: 30m
+  chart:
+    spec:
+      chart: external-dns
+      version: 1.15.0
+      sourceRef:
+        kind: HelmRepository
+        name: external-dns
+        namespace: flux-system
+  install:
+    crds: CreateReplace
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    crds: CreateReplace
+    remediation:
+      strategy: rollback
+      retries: 3
+  values:
+    fullnameOverride: *app
+    provider: aws
+    env:
+      - name: AWS_ACCESS_KEY_ID
+        valueFrom:
+          secretKeyRef:
+            name: external-dns-aws-secret
+            key: access-key
+      - name: AWS_SECRET_ACCESS_KEY
+        valueFrom:
+          secretKeyRef:
+            name: external-dns-aws-secret
+            key: secret-key
+    extraArgs:
+      - --ingress-class=external-aws
+      - --crd-source-apiversion=externaldns.k8s.io/v1alpha1
+      - --crd-source-kind=DNSEndpoint
+      - --aws-zone-type=public
+      - --aws-prefer-cname
+    policy: sync
+    sources: ["crd", "ingress"]
+    txtPrefix: k8s.
+    txtOwnerId: default
+    domainFilters: ["${SECRET_DOMAIN}", "${FRIDAY_DOMAIN}", "${KEYB_DOMAIN}"]
+    serviceMonitor:
+      enabled: true
+    podAnnotations:
+      secret.reloader.stakater.com/reload: external-dns-secret
