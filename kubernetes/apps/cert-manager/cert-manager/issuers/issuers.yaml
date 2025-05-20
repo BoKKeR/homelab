@@ -20,6 +20,7 @@ spec:
             - "${FRIDAY_DOMAIN}"
       - dns01:
           route53:
+            region: us-east-1
             accessKeyIDSecretRef:
               name: external-dns-aws-secret
               key: access-key
