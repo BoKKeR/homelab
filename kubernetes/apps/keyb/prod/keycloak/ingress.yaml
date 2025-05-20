@@ -36,7 +36,7 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: keyb-backend-dev-service
+            name: keyb-backend-service-dev
             port:
               name: http
 
