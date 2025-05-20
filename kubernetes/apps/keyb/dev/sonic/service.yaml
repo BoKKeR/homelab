@@ -2,6 +2,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: keyb-sonic-service
+  namespace: keyb
 spec:
   selector:
     app: keyb-sonic-dev

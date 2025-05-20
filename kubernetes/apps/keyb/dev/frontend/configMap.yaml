@@ -2,6 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: keyb-frontend-config
+  namespace: keyb
 data:
   NEXT_PUBLIC_KEYCLOAK_CLIENT_ID: general
   NEXT_PUBLIC_KEYCLOAK_URL: https://auth.keyb.io/auth

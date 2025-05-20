@@ -2,6 +2,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: keyb-backend-service
+  namespace: keyb
 spec:
   selector:
     app: keyb-backend-dev
