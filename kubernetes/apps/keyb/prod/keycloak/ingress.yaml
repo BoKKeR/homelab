@@ -29,7 +29,7 @@ metadata:
 spec:
   ingressClassName: external-aws
   rules:
-  - host: auth-test.keyb.io
+  - host: auth-test-test.keyb.io
     http:
       paths:
       - path: /
