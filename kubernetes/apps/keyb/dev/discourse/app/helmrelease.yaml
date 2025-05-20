@@ -32,8 +32,13 @@ spec:
       enabled: false
     externalDatabase:
       existingSecret: discourse-secrets
-      existingSecretPostgresPasswordKey: discourse-secrets
-      existingSecretPasswordKey: discourse-secrets
+      existingSecretPostgresPasswordKey: postgresPassword
+      existingSecretPasswordKey: password
+      host: 10.0.0.168
+      user: bokker
+      postgresUser: discourse-dev
+      database: discourse-dev
+      port: "6432"
     ingress:
       enabled: true
       ingressClassName: external
