@@ -27,7 +27,7 @@ metadata:
   annotations:
       external-dns.alpha.kubernetes.io/target: "external.keyb.io"
 spec:
-  ingressClassName: external
+  ingressClassName: external-aws
   rules:
   - host: auth-test.keyb.io
     http:
