@@ -25,7 +25,7 @@ metadata:
   namespace: keyb
   name: keycloak-external
   annotations:
-      external-dns.alpha.kubernetes.io/target: "external.keyb.io"
+      external-dns.alpha.kubernetes.io/target: "external.tnorbert.io"
 spec:
   ingressClassName: external-aws
   rules:
