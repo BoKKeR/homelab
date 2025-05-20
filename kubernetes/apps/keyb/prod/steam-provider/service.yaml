@@ -2,6 +2,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: keycloak-steam-provider-service
+  namespace: keyb
 spec:
   selector:
     app: keycloak-steam-provider
