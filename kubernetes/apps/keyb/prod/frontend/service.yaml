@@ -1,6 +1,7 @@
 kind: Service
 apiVersion: v1
 metadata:
+  namespace: keyb
   name: keyb-frontend-service
 spec:
   selector:
