@@ -26,6 +26,7 @@ metadata:
   name: keycloak-external
   annotations:
       external-dns.alpha.kubernetes.io/target: "external.keyb.io"
+      external-dns-aws.alpha.kubernetes.io/target: "external.keyb.io"
 spec:
   ingressClassName: external-aws
   rules:
