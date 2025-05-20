@@ -39,5 +39,5 @@ spec:
       hostname: "discourse.${SECRET_DOMAIN}"
       annotations:
         external-dns.alpha.kubernetes.io/target: external.${SECRET_DOMAIN}
-
-    defaultStorageClass: rook-ceph-block
+    global:
+      defaultStorageClass: rook-ceph-block
