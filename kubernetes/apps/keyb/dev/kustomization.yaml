@@ -5,3 +5,4 @@ resources:
   - frontend
   - backend
   - sonic
+  - discourse/ks.yaml
