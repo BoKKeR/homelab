@@ -2,6 +2,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: keycloak-service
+  namespace: keyb
 spec:
   selector:
     app: keycloak
