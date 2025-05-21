@@ -53,3 +53,4 @@ resources:
   - read-only-user
   - dumbterm
   - it-tools
+  - goldilocks/ks.yaml

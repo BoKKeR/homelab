@@ -24,3 +24,4 @@ resources:
   - ./rook-ceph.yaml
   - ./tailscale.yaml
   - ./piraeus.yaml
+  - ./fairwinds.yaml
