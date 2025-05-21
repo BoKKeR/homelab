@@ -37,7 +37,7 @@ spec:
       host: 10.0.0.168
       user: bokker
       postgresUser: discourse-dev
-      database: discourse-dev
+      database: discoursedev
       port: "6432"
     ingress:
       enabled: true
