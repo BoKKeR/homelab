@@ -6,7 +6,7 @@ metadata:
 spec:
   secretRef:
     name: regcred
-  image: ghcr.io/keyb/backend:develop
+  image: ghcr.io/keyb/backend
   interval: 1m
 ---
 apiVersion: image.toolkit.fluxcd.io/v1beta2
