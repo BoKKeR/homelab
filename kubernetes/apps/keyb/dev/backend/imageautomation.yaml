@@ -1,0 +1,48 @@
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImageRepository
+metadata:
+  name: keyb-backend-dev
+  namespace: keyb
+spec:
+  secretRef:
+    name: regcred
+  image: ghcr.io/keyb/backend:develop
+  interval: 1m
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImagePolicy
+metadata:
+  name: keyb-backend-dev
+  namespace: keyb
+spec:
+  imageRepositoryRef:
+    name: keyb-backend-dev
+  policy:
+    semver:
+      range: x.x.x
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImageUpdateAutomation
+metadata:
+  name: keyb-backend-dev
+  namespace: keyb
+spec:
+  interval: 1m
+  sourceRef:
+    kind: GitRepository
+    name: home-kubernetes
+    namespace: flux-system
+  git:
+    checkout:
+      ref:
+        branch: master
+    commit:
+      author:
+        email: fluxcdbot@users.noreply.github.com
+        name: fluxcdbot
+      messageTemplate: 'Automated image update by Flux'
+    push:
+      branch: master
+  update:
+    path: ./kubernetes/apps
+    strategy: Setters

@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: keyb-backend-dev
+  namespace: keyb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: keyb-backend-dev
+  template:
+    metadata:
+      labels:
+        app: keyb-backend-dev
+    spec:
+      containers:
+      - envFrom:
+        - configMapRef:
+            name: keyb-backend-config-dev
+        - secretRef:
+            name: keyb-backend-secret-dev
+        image: ghcr.io/keybio/backend/backend:v0.0.0 # {"$imagepolicy": "keyb:keyb-backend-dev"}
+        imagePullPolicy: IfNotPresent
+        name: keyb-backend
+        ports:
+        - containerPort: 4000
+          name: http
+      imagePullSecrets:
+      - name: regcred
+      restartPolicy: Always

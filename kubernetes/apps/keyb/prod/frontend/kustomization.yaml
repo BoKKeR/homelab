@@ -7,6 +7,4 @@ resources:
   - ingress.yaml
   - secret.sops.yaml
   - configMap.yaml
-
-patches:
-  - path: deploymentPatch.yaml
+  - deployment.yaml
