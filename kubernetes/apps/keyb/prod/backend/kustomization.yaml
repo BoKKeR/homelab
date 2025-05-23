@@ -2,7 +2,6 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 nameSuffix: -prod
 resources:
-  - ../../base/backend
   - service.yaml
   - ingress.yaml
   - secret.sops.yaml
