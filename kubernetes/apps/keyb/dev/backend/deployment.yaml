@@ -19,7 +19,7 @@ spec:
             name: keyb-backend-config-dev
         - secretRef:
             name: keyb-backend-secret-dev
-        image: ghcr.io/keybio/backend/backend:0.0.0 # {"$imagepolicy": "keyb:keyb-backend-dev"}
+        image: ghcr.io/keybio/backend/backend:0.0.45 # {"$imagepolicy": "keyb:keyb-backend-dev"}
         imagePullPolicy: IfNotPresent
         name: keyb-backend
         ports:
