@@ -37,7 +37,7 @@ spec:
       existingSecretPasswordKey: password
       host: 10.0.0.168
       user: discoursedev
-      postgresUser: discoursedev
+      postgresUser: postgres
       database: discourse-dev
       port: "6432"
     ingress:
