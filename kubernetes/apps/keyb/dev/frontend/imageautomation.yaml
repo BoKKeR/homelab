@@ -1,7 +1,7 @@
 apiVersion: image.toolkit.fluxcd.io/v1beta2
 kind: ImageRepository
 metadata:
-  name: keyb-frontend-dev
+  name: keyb-frontend
   namespace: keyb
 spec:
   secretRef:
@@ -12,7 +12,7 @@ spec:
 apiVersion: image.toolkit.fluxcd.io/v1beta2
 kind: ImagePolicy
 metadata:
-  name: keyb-frontend-dev
+  name: keyb-frontend
   namespace: keyb
 spec:
   imageRepositoryRef:
@@ -24,7 +24,7 @@ spec:
 apiVersion: image.toolkit.fluxcd.io/v1beta2
 kind: ImageUpdateAutomation
 metadata:
-  name: keyb-frontend-dev
+  name: keyb-frontend
   namespace: keyb
 spec:
   interval: 1m
