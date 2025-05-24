@@ -19,7 +19,7 @@ spec:
             name: keyb-frontend-config-dev
         - secretRef:
             name: keyb-frontend-secret-dev
-        image: ghcr.io/keybio/frontend/frontend:0.0.48 # {"$imagepolicy": "keyb:keyb-frontend-dev"}
+        image: ghcr.io/keybio/frontend/frontend:0.0.49 # {"$imagepolicy": "keyb:keyb-frontend-dev"}
         imagePullPolicy: IfNotPresent
         name: keyb-frontend
         ports:
