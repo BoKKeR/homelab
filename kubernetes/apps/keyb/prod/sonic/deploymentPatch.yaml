@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: keyb-sonic
-        image: valeriansaliou/sonic:v1.3.0
+        image: valeriansaliou/sonic:v1.4.9
         ports:
         - name: http
           containerPort: 1491
